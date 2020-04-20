@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.WebApi.BaseProgram">
+            <summary>
+            Classe base para inicialização simplificada do WebAPI.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.BaseProgram.Initialize``1(System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.BaseProgram.Initialize``1(System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.BaseProgram.Initialize``1(System.String,System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web.</param>
+            <param name="description">Descrição serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.BaseProgram.Initialize``1(Cardinal.AspNetCore.ICardinalVersion,System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web. veja <see cref="T:Cardinal.AspNetCore.ICardinalVersion"/>.</param>
+            <param name="description">Descrição serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.WebApi.DTOs.BaseDTO">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.WebApi.DTOs.BaseDTO.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions.Map``2(AutoMapper.IMapper,``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+            <param name="mapper"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions.Map``2(AutoMapper.IMapper,``1)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+            <param name="mapper"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.WebApi.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.INITIALIZATION_COMPLETE">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.LISTENING_URL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL]..
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.WebApi.WebHostWrapper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.Start``1(System.String[],System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TStartup"></typeparam>
+            <param name="args"></param>
+            <param name="configureServices"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.Start``1(System.String[],System.String,System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+            <summary>
+            Use this if you start identitybase from custom project 
+            </summary>
+            <typeparam name="TStartup"></typeparam>
+            <param name="args"></param>
+            <param name="basePath"></param>
+            <param name="configureServices"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.Restart">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.Shutdown(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="exitCode"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.LoadConfig``1(System.String[],System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TStartup"></typeparam>
+            <param name="args"></param>
+            <param name="basePath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.GetEnvironment">
+            <summary>
+            Método que recupera o ambiente atual.
+            </summary>
+            <returns>Ambiente atual da aplicação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.IsDevelopment">
+            <summary>
+            Método que diz se o ambiente atual é o de desenvolvimento.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de desenvolvimento e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.WebHostWrapper.IsProduction">
+            <summary>
+            Método que diz se o ambiente atual é o de produção.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de produção e falso caso contrário.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`1">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`1.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`1.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`1.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`2">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
+            <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`2.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.AllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.FindAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PostAsync(`1)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PutAsync(`1)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.DeleteAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TService"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`3.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,AutoMapper.IMapper,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="mapper"></param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.#ctor(Microsoft.Extensions.Logging.ILogger,AutoMapper.IMapper,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="mapper"></param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.AllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.FindAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.PostAsync(`2)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.PutAsync(`2)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.DeleteAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
