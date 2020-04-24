@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.Repositories
 {
+    /// <summary>
+    /// Interface padrão para contextos.
+    /// </summary>
     public interface IContext
     {
         /// <summary>
@@ -15,7 +18,7 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Salva todos os dados alterados no contexto na base de dados.
         /// </summary>
-        /// <param name="acceptAllChangesOnSuccess">Indicates whether <see cref="ChangeTracker.AcceptAllChanges"/>
+        /// <param name="acceptAllChangesOnSuccess">Indicates whether >
         /// is called after the changes have been sent successfully to the database.</param>
         /// <returns>Número de entradas escritas na base de dados.</returns>
         int SaveChanges(bool acceptAllChangesOnSuccess);
@@ -31,7 +34,7 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Salva todos os dados alterados no contexto na base de dados de forma assíncrona.
         /// </summary>
-        /// <param name="acceptAllChangesOnSuccess">Indicates whether <see cref="ChangeTracker.AcceptAllChanges"/>
+        /// <param name="acceptAllChangesOnSuccess">Indicates whether />
         /// is called after the changes have been sent successfully to the database.</param>
         /// <param name="cancellationToken">A <see cref="CancellationToken"/> to observe while waiting for the task to
         /// complete.</param>

@@ -2,8 +2,15 @@
 
 namespace Cardinal.AspNetCore.Repositories
 {
-    public abstract class Repository<TEntity, TContext> where TEntity : Entity where TContext : IContext
+    /// <summary>
+    /// Classe base para repositórios.
+    /// </summary>
+    /// <typeparam name="TContext">Contexto utilizado no repositório.</typeparam>
+    public abstract class Repository<TContext> where TContext : IContext
     {
+        /// <summary>
+        /// Contexto do repositório.
+        /// </summary>
         protected TContext Context { get; }
 
         /// <summary>
@@ -51,14 +58,6 @@ namespace Cardinal.AspNetCore.Repositories
         public async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess)
         {
             return await this.Context.SaveChangesAsync(acceptAllChangesOnSuccess);
-        }
-
-        /// <summary>
-        /// Método para liberação de recursos usados pelo contexto.
-        /// </summary>
-        public virtual void Dispose()
-        {
-            
         }
     }
 }

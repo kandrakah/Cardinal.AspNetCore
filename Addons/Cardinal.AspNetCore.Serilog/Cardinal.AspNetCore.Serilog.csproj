@@ -11,10 +11,27 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Marcelo O. Mendes</Authors>
-    <Product>Cardinal Framework</Product>
+    <Product>Cardinal .NET Core API</Product>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
     <LangVersion>latest</LangVersion>
+    <Version>0.6.0-alpha</Version>
+    <Description>Biblioteca auxiliar Cardinal .NET Core API para Serilog.</Description>
+    <Copyright>Marcelo O. Mendes</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/kandrakah/Cardinal.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>.net core, api, C#, serilog</PackageTags>
+    <PackageReleaseNotes>INITIAL ALPHA</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Cardinal.AspNetCore.Serilog.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Cardinal.AspNetCore.Serilog.xml</DocumentationFile>
   </PropertyGroup>
   
   <ItemGroup>
@@ -34,6 +51,13 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.logging.abstractions\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

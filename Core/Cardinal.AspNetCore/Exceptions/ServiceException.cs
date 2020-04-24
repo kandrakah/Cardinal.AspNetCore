@@ -71,5 +71,14 @@ namespace Cardinal.AspNetCore.Exceptions
             this.StatusCode = statusCode;
             this.StatusMessage = description;
         }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return $"[CODE:{(int)this.StatusCode}][MESSAGE:{this.StatusMessage}]";
+        }
     }
 }

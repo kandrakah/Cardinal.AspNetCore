@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para Type.
+    /// </summary>
     public static class TypeExtensions
     {
         /// <summary>
@@ -76,8 +79,7 @@ namespace Cardinal.AspNetCore.Extensions
         /// <returns>True if the type is an enumeration; false otherwise.</returns>
         public static bool IsCollection(this Type clrType)
         {
-            Type elementType;
-            return clrType.IsCollection(out elementType);
+            return clrType.IsCollection(out Type elementType);
         }
 
         /// <summary>
@@ -106,6 +108,11 @@ namespace Cardinal.AspNetCore.Extensions
             return false;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static Type GetUnderlyingTypeOrSelf(this Type type)
         {
             return Nullable.GetUnderlyingType(type) ?? type;

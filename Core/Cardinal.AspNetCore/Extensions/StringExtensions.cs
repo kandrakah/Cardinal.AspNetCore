@@ -5,16 +5,19 @@ using System.Text.RegularExpressions;
 
 namespace Cardinal.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para Stream.
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        /// 
+        /// Extensão para verificação de igualdade entre strings.
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="comparedValue"></param>
-        /// <param name="ignoreIfNull"></param>
-        /// <param name="ignoreCase"></param>
-        /// <returns></returns>
+        /// <param name="value">Esta string.</param>
+        /// <param name="comparedValue">Valor String à ser comparado.</param>
+        /// <param name="ignoreIfNull">Indica se deve ignorar casos nulos.</param>
+        /// <param name="ignoreCase">Indica se deve ignorar case.</param>
+        /// <returns>Verdadeiro caso as strings sejam iguais e falso caso contrário.</returns>
         public static bool IsEquals(this string value, string comparedValue, bool ignoreIfNull = true, bool ignoreCase = true)
         {
             if (ignoreIfNull && (value == null || comparedValue == null))
@@ -36,7 +39,7 @@ namespace Cardinal.AspNetCore.Extensions
         /// </summary>
         /// <param name="value">Valor string à ser validado.</param>
         /// <param name="lenght">Tamanho exato do número de casas núméricas.</param>
-        /// <returns></returns>
+        /// <returns>Verdadeiro caso a string seja numérica e falso caso contrário.</returns>
         public static bool IsNumeric(this string value, int lenght = -1)
         {
             if (string.IsNullOrEmpty(value))
@@ -87,21 +90,21 @@ namespace Cardinal.AspNetCore.Extensions
         }
 
         /// <summary>
-        /// 
+        /// Extensão para converter uma string em um vetor de bytes.
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">Esta string.</param>
+        /// <returns>Vetor de bytes gerado a partir da string.</returns>
         public static byte[] ToByteArray(this string value)
         {
             return Encoding.Default.GetBytes(value);
         }
 
         /// <summary>
-        /// 
+        /// Extensão para converter uma string em um vetor de bytes. 
         /// </summary>
-        /// <param name="value"></param>
-        /// <param name="encoding"></param>
-        /// <returns></returns>
+        /// <param name="value">Esta string.</param>
+        /// <param name="encoding">Encoder à ser utilizado na conversão.</param>
+        /// <returns>Vetor de bytes gerado a partir da string.</returns>
         public static byte[] ToByteArray(this string value, Encoding encoding)
         {
             return encoding.GetBytes(value);

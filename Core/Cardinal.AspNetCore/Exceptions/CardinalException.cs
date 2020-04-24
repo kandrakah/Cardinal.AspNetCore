@@ -32,5 +32,14 @@ namespace Cardinal.AspNetCore.Exceptions
         /// <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
         /// <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
         public CardinalException(SerializationInfo info, StreamingContext context) : base(info, context) { }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return this.Message;
+        }
     }
 }

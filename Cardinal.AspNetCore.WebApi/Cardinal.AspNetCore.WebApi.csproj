@@ -11,6 +11,17 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
+    <Version>0.6.0-alpha</Version>
+    <Authors>Marcelo O. Mendes</Authors>
+    <Copyright>Marcelo O. Mendes</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/kandrakah/Cardinal.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>.net core, api, C#, webapi</PackageTags>
+    <PackageReleaseNotes>INITIAL ALPHA</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -62,6 +73,13 @@
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Repositories\Cardinal.AspNetCore.Repositories.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Services\Cardinal.AspNetCore.Services.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore\Cardinal.AspNetCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

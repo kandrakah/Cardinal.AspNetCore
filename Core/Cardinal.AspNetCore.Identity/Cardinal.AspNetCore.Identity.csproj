@@ -11,6 +11,28 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>0.6.0-alpha</Version>
+    <Authors>Marcelo O. Mendes</Authors>
+    <Company>Marcelo O. Mendes</Company>
+    <Product>Cardinal .NET Core API</Product>
+    <Description>Biblioteca de autenticação e autorização Cardinal .NET Core API.</Description>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/kandrakah/Cardinal.AspNetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>.net core, api, C#, identity</PackageTags>
+    <PackageReleaseNotes>INITIAL ALPHA</PackageReleaseNotes>
+    <Copyright>Marcelo O. Mendes</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Cardinal.AspNetCore.Identity.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Cardinal.AspNetCore.Identity.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -41,6 +63,13 @@
   <ItemGroup>
     <Folder Include="Entities\" />
     <Folder Include="Security\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

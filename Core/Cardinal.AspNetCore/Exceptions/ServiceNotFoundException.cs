@@ -6,7 +6,7 @@ using System.Net;
 namespace Cardinal.AspNetCore.Exceptions
 {
     /// <summary>
-    /// Classe de excessão causada por serviço não encontrado.
+    /// Classe de exceção causada por serviço não encontrado.
     /// </summary>
     public class ServiceNotFoundException : ServiceException
     {
@@ -27,6 +27,15 @@ namespace Cardinal.AspNetCore.Exceptions
         public ServiceNotFoundException(Type type) : this(ResourceUtils.Translate(Resource.ERROR_SERVICE_NOT_FOUND, ResourceUtils.Set("SERVICE_NAME", type.Name)))
         {
 
+        }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return this.Message;
         }
     }
 }

@@ -3,6 +3,9 @@ using System.Net;
 
 namespace Cardinal.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para HttpStatusCode.
+    /// </summary>
     public static class HttpStatusCodeExtensions
     {
         /// <summary>

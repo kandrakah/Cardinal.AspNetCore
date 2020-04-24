@@ -6,6 +6,9 @@ using System.Text;
 
 namespace Cardinal.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para ServiceCollection.
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
         

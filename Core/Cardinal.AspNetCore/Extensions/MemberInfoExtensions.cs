@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace Cardinal.AspNetCore.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para MemberInfo.
+    /// </summary>
     public static class MemberInfoExtensions
     {
         /// <summary>

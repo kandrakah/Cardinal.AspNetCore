@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.Services.Service">
+            <summary>
+            Classe base para todos os serviços da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Services.Service.ServiceProvider">
+            <summary>
+            Instância do provedor de serviços da aplicação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.Service.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="provider">Instância do provedor de serviços da aplicação.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.Service.Dispose">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.Service.Dispose(System.Boolean)">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+            <param name="disposing">Define se propriedades filhas também devem ser liberadas.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Services.IService">
+            <summary>
+            Interface base para todos os serviços da aplicação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService.Dispose">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Services.IService`1">
+            <summary>
+            Interface base para todos os serviços da aplicação.
+            </summary>
+            <typeparam name="TEntity">Entidade gerenciada pelo serviço.</typeparam>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Add(`0)">
+            <summary>
+            Método que faz a adição de uma nova entidade à base de dados.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.AddAsync(`0)">
+            <summary>
+            Método que faz a adição assíncrona de uma nova entidade à base de dados.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Find(System.Object[])">
+            <summary>
+            Método que faz a localização de uma entidade na base de dados.
+            </summary>
+            <param name="keyValues">Valores usados na busca pela entidade.</param>
+            <returns>Entidade associada aos valores informados ou null caso nenhuma entidade tenha sido localizada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.FindAsync(System.Object[])">
+            <summary>
+            Método que faz a localização assíncrona de uma entidade na base de dados.
+            </summary>
+            <param name="keyValues">Valores usados na busca pela entidade.</param>
+            <returns>Entidade associada aos valores informados ou null caso nenhuma entidade tenha sido localizada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.All">
+            <summary>
+            Método que traz todas as entidades atualmente registradas na base de dados.
+            </summary>
+            <returns>Coleção contendo todas.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.AllAsync">
+            <summary>
+            Método que traz de forma assíncrona todas as entidades atualmente registradas na base de dados.
+            </summary>
+            <returns>Coleção contendo todas.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Attach(`0)">
+            <summary>
+            Método que atualiza apenas propriedades alteradas de uma entidade na base de dados.
+            </summary>
+            <param name="entity">Entidade à ser atualizada.</param>
+            <returns>Informações de rastreamento da entidade à ser adicionada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.AttachRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método que atualiza apenas propriedades alteradas das entidades na base de dados.
+            </summary>
+            <param name="entities">Entidades à serem atualizadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Update(`0)">
+            <summary>
+            Método que faz a atualização de uma entidade na base de dados.
+            </summary>
+            <param name="entity">Entidade à ser atualizada.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.UpdateRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método que faz a atualização de várias entidades na base de dados.
+            </summary>
+            <param name="entities">Entidades à serem atualizadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Remove(System.Guid)">
+            <summary>
+            Método que faz a remoção de uma entidade da base de dados.
+            </summary>
+            <param name="id">Id da entidade à ser removida.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.RemoveRange(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Método que faz a remoção de várias entidades da base de dados.
+            </summary>
+            <param name="ids">Ids das entidades à serem removidas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Remove(`0)">
+            <summary>
+            Método que faz a remoção de uma entidade da base de dados.
+            </summary>
+            <param name="entity">Entidade à ser removida.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método que faz a remoção de várias entidades da base de dados.
+            </summary>
+            <param name="entities">Entidades à serem removidas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Search(System.String[])">
+            <summary>
+            Método que faz a busca de entidades com base nos termos informados.
+            </summary>
+            <param name="terms">Termos de busca.</param>
+            <returns>Coleção de entidades encontradas na busca.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Where(System.Func{`0,System.Int32,System.Boolean})">
+            <summary>
+            Método que faz o filtro das entidades com base nos parâmetros informados.
+            </summary>
+            <param name="predicate"></param>
+            <returns>Coleção de entidades encontradas na busca.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.Where(System.Func{`0,System.Boolean})">
+            <summary>
+            Método que faz o filtro das entidades com base nos parâmetros informados.
+            </summary>
+            <param name="predicate"></param>
+            <returns>Coleção de entidades encontradas na busca.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.BeginTransaction">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+            <param name="solationLevel">Nível de isolamento da transação.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.BeginTransactionAsync">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+            <param name="cancelationtoken">Token de cancelamento.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.CommitTransaction">
+            <summary>
+            Método para efetivar a transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.RollbackTransaction">
+            <summary>
+            Método para reverter uma transação mal sucedida.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.SaveChanges">
+            <summary>
+            Método que efetua o salvamento das alterações feitas na base de dados.
+            </summary>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.SaveChangesAsync">
+            <summary>
+            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+            </summary>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua o salvamento das alterações feitas na base de dados.
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.IService`1.SaveChangesAsync(System.Boolean)">
+            <summary>
+            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+    </members>
+</doc>

@@ -34,6 +34,12 @@
             Versão do registro da linha.
             </summary>
         </member>
+        <member name="M:Cardinal.AspNetCore.Entity.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.CardinalConstants">
             <summary>
             Classe estática com constantes de sistema.
@@ -163,6 +169,12 @@
             <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
             <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
         </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.CardinalException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.Exceptions.InvalidVersionException">
             <summary>
             Classe de exceção ligada à validação de versões.
@@ -180,6 +192,12 @@
             </summary>
             <param name="message">Mensagem de exceção.</param>
             <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.InvalidVersionException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
         <member name="T:Cardinal.AspNetCore.Exceptions.ServiceException">
             <summary>
@@ -229,9 +247,15 @@
             <param name="statusCode">Código de status da exceção.</param>
             <param name="description">Indica se deve ser adicionado o código de erro à descrição.</param>
         </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.ServiceException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.Exceptions.ServiceNotFoundException">
             <summary>
-            Classe de excessão causada por serviço não encontrado.
+            Classe de exceção causada por serviço não encontrado.
             </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.Exceptions.ServiceNotFoundException.#ctor(System.String)">
@@ -245,6 +269,66 @@
             Método construtor.
             </summary>
             <param name="type">Tipo de classe responsável pela exceção.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.ServiceNotFoundException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Exceptions.Validation">
+            <summary>
+            Objeto que representa uma mensagem de validação da exceção <see cref="T:Cardinal.AspNetCore.Exceptions.ValidationException"/>.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Exceptions.Validation.Field">
+            <summary>
+            Propriedade associada à falha.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Exceptions.Validation.Message">
+            <summary>
+            Mensagem de exceção da falha.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.Validation.#ctor(System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="field">Propriedade associada à falha.</param>
+            <param name="message">Mensagem de exceção da falha.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.Validation.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Exceptions.ValidationResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Exceptions.ValidationResponse.Message">
+            <summary>
+            Mensagem geral da exceção.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Exceptions.ValidationResponse.Validations">
+            <summary>
+            Lista de mensagens de validação da exceção. Veja <see cref="T:Cardinal.AspNetCore.Exceptions.Validation"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.ValidationResponse.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Exceptions.ValidationException">
+            <summary>
+            Classe de exceção de validação.
+            </summary>
         </member>
         <member name="P:Cardinal.AspNetCore.Exceptions.ValidationException.Validations">
             <summary>
@@ -295,6 +379,51 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Cardinal.AspNetCore.Exceptions.ValidationException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.ConfigurationSectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.ConfigurationSectionExtensions.GetSettings``1(Microsoft.Extensions.Configuration.IConfigurationSection)">
+            <summary>
+            Extensão que traz as configurações tipadas da sessão.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão.</typeparam>
+            <param name="section">Este Objeto.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DataRowExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.DataRow"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DataRowExtensions.GetItem``1(System.Data.DataRow)">
+            <summary>
+            Extensão para converter o um DataRow em um objeto.
+            </summary>
+            <typeparam name="T">Objeto o qual o DataRow será convertido.</typeparam>
+            <param name="dataRow">Este objeto.</param>
+            <returns>Objeto proveniente do DataRow.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DataTableExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.DataTable"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DataTableExtensions.ToList``1(System.Data.DataTable)">
+            <summary>
+            Extensão para converter o Datatable para lista.
+            </summary>
+            <typeparam name="T">Objeto da lista.</typeparam>
+            <param name="table">Este objeto.</param>
+            <returns>Lista proveniente do DataTable atual.</returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.Extensions.DateTimeExtensions">
             <summary>
             Classe de extensões para DateTime.
@@ -304,6 +433,14 @@
             <summary>
             Data Inicial de um DateTime.
             </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DateTimeExtensions.Elapsed(System.DateTime,Cardinal.AspNetCore.DateField)">
+            <summary>
+            Extensão que traz a diferença da data atual à data inicial válida.
+            </summary>
+            <param name="source">Esta data.</param>
+            <param name="field">Tipo de campo à ser retornado.</param>
+            <returns>Diferença entre as datas baseando-se no tipo de campo solicitado.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.DateTimeExtensions.IsBetween(System.DateTime,System.DateTime,System.DateTime,System.Boolean)">
             <summary>
@@ -332,12 +469,144 @@
             <param name="field"></param>
             <returns></returns>
         </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DbCommandExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.Common.DbCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DbCommandExtensions.AddParameter``1(System.Data.Common.DbCommand,System.String,``0)">
+            <summary>
+            Extensão que adiciona um novo parâmetro ao DbCommand.
+            </summary>
+            <typeparam name="T">Tipo de valor do parâmetro.</typeparam>
+            <param name="cmd">Este Objeto.</param>
+            <param name="key">Chave do parâmetro</param>
+            <param name="value">Valor do parâmetro</param>        
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DbDataReaderExtensions">
+            <summary>
+            Classe de extensões para DbDataReader.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DbDataReaderExtensions.ToDataTable(System.Data.Common.DbDataReader)">
+            <summary>
+            Extensão que transforma o DataReader em um DataTable.
+            </summary>
+            <param name="reader">Este objeto.</param>
+            <returns>DataTable proveniente do DataReader.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DecimalExtensions">
+            <summary>
+            Classe de extensões para decimal.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsCurrency(System.Decimal)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor.</param>
+            <returns>Representação monetária do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsCurrency(System.Nullable{System.Decimal})">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor.</param>
+            <returns>Representação monetária do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsCurrency(System.Decimal,System.Globalization.CultureInfo)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="culture">Informações de idioma à serem usados na conversão.</param>
+            <returns>Representação monetária do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsCurrency(System.Nullable{System.Decimal},System.Globalization.CultureInfo)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="culture">Informações de idioma à serem usados na conversão.</param>
+            <returns>Representação monetária do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsPercentage(System.Decimal,System.Boolean)">
+            <summary>
+            Extensão para transformar o valor decimal em porcentagem.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="transform">Indica se o valor deve ser normalizado.</param>
+            <returns>Representação em porcentagem do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DecimalExtensions.AsPercentage(System.Nullable{System.Decimal},System.Boolean)">
+            <summary>
+            Extensão para transformar o valor decimal em porcentagem.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="transform">Indica se o valor deve ser normalizado.</param>
+            <returns>Representação em porcentagem do valor decimal.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.DynamicExtensions">
+            <summary>
+            Classe de extensões para dynamic.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.DynamicExtensions.Cast``1(System.Dynamic.ExpandoObject)">
+            <summary>
+            Extensão que faz a conversão de um dinâmico em um objeto.
+            </summary>
+            <typeparam name="T">Tipo de objeto à ser convertido.</typeparam>
+            <param name="dynamicObject">Este objeto.</param>
+            <returns>Objeto convertido.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.EnumerableExtensions">
+            <summary>
+            Classe de extensões para IEnumerable.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Extensão que faz a distinção de de objetos de um enumerador com base em parâmetros fornecidos.
+            </summary>
+            <typeparam name="TSource">Tipo de objeto contido no enumerador.</typeparam>
+            <typeparam name="TKey">Chave do enumerador.</typeparam>
+            <param name="source">Este objeto.</param>
+            <param name="keySelector">Parâmetros à serem usados na distinção.</param>
+            <returns>Enumerador contendo objetos distinguidos com base nos parâmetros informados.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.GuidExtensions">
+            <summary>
+            Classe de extensões para Guid.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.GuidExtensions.IsEquals(System.Guid,System.Guid)">
+            <summary>
+            Extensão que faz a comparação entre dois Guids para verificar sua igualdade.
+            </summary>
+            <param name="value">Este Guid.</param>
+            <param name="comparedValue">Guid à ser comparado.</param>
+            <returns>Resultado da comparação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.GuidExtensions.IsEquals(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Boolean)">
+            <summary>
+            Extensão que faz a comparação entre dois Guids para verificar sua igualdade.
+            </summary>
+            <param name="value">Este Guid.</param>
+            <param name="comparedValue">Guid à ser comparado.</param>
+            <param name="ignoreIfNull">Ignorar verificação se o valor Guid atual for nulo.</param>
+            <returns>Resultado da comparação.</returns>
+        </member>
         <member name="M:Cardinal.AspNetCore.Extensions.GuidExtensions.ToUpper(System.Guid)">
             <summary>
-            Método de extensão que transforma este Guid em uma representação string em caixa alta.
+            Extensão que transforma este Guid em uma representação string em caixa alta.
             </summary>
             <param name="guid">Este Objeto.</param>
             <returns>Representação String em caixa alta.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.HttpStatusCodeExtensions">
+            <summary>
+            Classe de extensões para HttpStatusCode.
+            </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.HttpStatusCodeExtensions.GetDescription(System.Net.HttpStatusCode)">
             <summary>
@@ -353,6 +622,26 @@
             <param name="statusCode">Código de status o qual se dejesa a descrição.</param>
             <param name="includeStatusCode">Indica se deve ser adicionado o código de erro à descrição.</param>
             <returns>Descrição do código de status.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.IntegerExtensions">
+            <summary>
+            Classe de extensões para Integer.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.IntegerExtensions.IsBetween(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Extensão que verifica se o valor está entre dois valores informados.
+            </summary>
+            <param name="value">Exte valor.</param>
+            <param name="minValue">Valor mínimo.</param>
+            <param name="MaxValue">Valor máximo.</param>
+            <param name="includeLimits">Indica se os valores das extremidades devem ser incluidos na verificação.</param>
+            <returns>Resultado da verificação.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.MemberInfoExtensions">
+            <summary>
+            Classe de extensões para MemberInfo.
+            </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.MemberInfoExtensions.AsType(System.Reflection.MemberInfo)">
             <summary>
@@ -375,15 +664,95 @@
             <param name="memberInfo">The member info to convert.</param>
             <returns>The reflected type from a member info.</returns>
         </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.MemoryStreamExtensions">
+            <summary>
+            Classe de extensões para MemoryStream.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.MemoryStreamExtensions.WriteToFile(System.IO.MemoryStream,System.String)">
+            <summary>
+            Extensão para salvar um MemoryStream em arquivo.
+            </summary>
+            <param name="stream">Este Stream.</param>
+            <param name="filePath">Diretório onde o stream será salvo junto com o nome do arquivo.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Classe de extensões para ServiceCollection.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.ServiceProviderExtensions">
+            <summary>
+            Classe de extensões para ServiceProvider.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.ServiceProviderExtensions.ServiceExists(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.ServiceProviderExtensions.ServiceExists``1(System.IServiceProvider)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.ServiceProviderExtensions.GetCardinalService(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.ServiceProviderExtensions.GetCardinalService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.StreamExtensions">
+            <summary>
+            Classe de extensões para Stream.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.StreamExtensions.ToByteArray(System.IO.Stream)">
+            <summary>
+            Extensão para converter o Stream em um vetor de bytes.
+            </summary>
+            <param name="stream">Este stream</param>
+            <returns>Vetor de bytes referente ao stream.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.StreamExtensions.FromByteArray(System.IO.Stream,System.Byte[],System.Boolean)">
+            <summary>
+            Extensão para converter um vetor de bytes em um stream.
+            </summary>
+            <param name="stream">Este stream.</param>
+            <param name="array">Vetor de bytes.</param>
+            <param name="sameInstance"></param>
+            <returns>Stream carregado com o vetor de bytes informado.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.StringExtensions">
+            <summary>
+            Classe de extensões para Stream.
+            </summary>
+        </member>
         <member name="M:Cardinal.AspNetCore.Extensions.StringExtensions.IsEquals(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
-            
+            Extensão para verificação de igualdade entre strings.
             </summary>
-            <param name="value"></param>
-            <param name="comparedValue"></param>
-            <param name="ignoreIfNull"></param>
-            <param name="ignoreCase"></param>
-            <returns></returns>
+            <param name="value">Esta string.</param>
+            <param name="comparedValue">Valor String à ser comparado.</param>
+            <param name="ignoreIfNull">Indica se deve ignorar casos nulos.</param>
+            <param name="ignoreCase">Indica se deve ignorar case.</param>
+            <returns>Verdadeiro caso as strings sejam iguais e falso caso contrário.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.StringExtensions.IsNumeric(System.String,System.Int32)">
             <summary>
@@ -391,7 +760,7 @@
             </summary>
             <param name="value">Valor string à ser validado.</param>
             <param name="lenght">Tamanho exato do número de casas núméricas.</param>
-            <returns></returns>
+            <returns>Verdadeiro caso a string seja numérica e falso caso contrário.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.StringExtensions.Capitalize(System.String,System.String[])">
             <summary>
@@ -403,18 +772,23 @@
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.StringExtensions.ToByteArray(System.String)">
             <summary>
-            
+            Extensão para converter uma string em um vetor de bytes.
             </summary>
-            <param name="value"></param>
-            <returns></returns>
+            <param name="value">Esta string.</param>
+            <returns>Vetor de bytes gerado a partir da string.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.StringExtensions.ToByteArray(System.String,System.Text.Encoding)">
             <summary>
-            
+            Extensão para converter uma string em um vetor de bytes. 
             </summary>
-            <param name="value"></param>
-            <param name="encoding"></param>
-            <returns></returns>
+            <param name="value">Esta string.</param>
+            <param name="encoding">Encoder à ser utilizado na conversão.</param>
+            <returns>Vetor de bytes gerado a partir da string.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Extensions.TypeExtensions">
+            <summary>
+            Classe de extensões para Type.
+            </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.TypeExtensions.AsMemberInfo(System.Type)">
             <summary>
@@ -458,6 +832,13 @@
             <param name="clrType">The type to test.</param>
             <param name="elementType">out: the element type of the collection.</param>
             <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.TypeExtensions.GetUnderlyingTypeOrSelf(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Extensions.TypeExtensions.IsEnum(System.Type)">
             <summary>
@@ -815,6 +1196,47 @@
               Consulta uma cadeia de caracteres localizada semelhante a Unknow response $[VALUE]!.
             </summary>
         </member>
+        <member name="T:Cardinal.AspNetCore.Models.TranslationSet">
+            <summary>
+            Classe de definição de valor de tradução.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Models.TranslationSet.Key">
+            <summary>
+            Chave da tradução.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Models.TranslationSet.Value">
+            <summary>
+            Valor da tradução.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Models.TranslationSet.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Models.TranslationSet.#ctor(System.String,System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="key">Chave da tradução.</param>
+            <param name="value">Valor da tradução.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Models.TranslationSet.Set(System.String,System.Object)">
+            <summary>
+            Método estático para definição de valor de tradução.
+            </summary>
+            <param name="key">Chave da tradução.</param>
+            <param name="value">Valor da tradução.</param>
+            <returns>Instância de <see cref="T:Cardinal.AspNetCore.Models.TranslationSet"/>.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Models.TranslationSet.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.Utils.ResourceUtils">
             <summary>
             Classe estática de utilidades para recursos.
@@ -825,7 +1247,7 @@
             Método para a tradução de um texto para o idioma atual.
             </summary>
             <param name="text">Texto à ser traduzido.</param>
-            <param name="values">Vetor de valores à serem substituídos durante a tradução.</param>
+            <param name="sets">Vetor de valores à serem substituídos durante a tradução.</param>
             <returns>Texto traduzido.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Utils.ResourceUtils.Set(System.String,System.Object)">
@@ -835,6 +1257,11 @@
             <param name="key">Chave to elemento.</param>
             <param name="value">Valor do elemento.</param>
             <returns>Parâmetro de tradução do texto.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.SecurityUtils">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Cardinal.AspNetCore.Utils.StatusCodeUtils">
             <summary>

@@ -35,5 +35,14 @@ namespace Cardinal.AspNetCore
         /// Versão do registro da linha.
         /// </summary>
         public byte[] Version { get; set; }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return $"[Id:{this.Id}][CREATED:{this.Created}][VERSION:{Version}]";
+        }
     }
 }

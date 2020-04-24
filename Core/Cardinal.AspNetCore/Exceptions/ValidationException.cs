@@ -6,31 +6,70 @@ using System.Text.Json;
 
 namespace Cardinal.AspNetCore.Exceptions
 {
+    /// <summary>
+    /// Objeto que representa uma mensagem de validação da exceção <see cref="ValidationException"/>.
+    /// </summary>
     public class Validation
     {
+        /// <summary>
+        /// Propriedade associada à falha.
+        /// </summary>
         public string Field { get; }
 
+        /// <summary>
+        /// Mensagem de exceção da falha.
+        /// </summary>
         public string Message { get; }
 
+        /// <summary>
+        /// Método construtor.
+        /// </summary>
+        /// <param name="field">Propriedade associada à falha.</param>
+        /// <param name="message">Mensagem de exceção da falha.</param>
         public Validation(string field, string message)
         {
             this.Field = field;
             this.Message = message;
         }
 
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         public override string ToString()
         {
             return $"[FIELD:{this.Field}][MESSAGE:{this.Message}]";
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class ValidationResponse
     {
+        /// <summary>
+        /// Mensagem geral da exceção.
+        /// </summary>
         public string Message { get; set; }
 
+        /// <summary>
+        /// Lista de mensagens de validação da exceção. Veja <see cref="Validation"/>
+        /// </summary>
         public IEnumerable<Validation> Validations { get; set; }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return $"[MESSAGE:{this.Message}][VALIDATIONS:{string.Join(string.Empty, this.Validations)}]";
+        }
     }
 
+    /// <summary>
+    /// Classe de exceção de validação.
+    /// </summary>
     public class ValidationException : CardinalException
     {
         /// <summary>
@@ -93,15 +132,24 @@ namespace Cardinal.AspNetCore.Exceptions
         {
             return this.Validations.Any();
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         public ValidationResponse GetValidationResponse()
         {
-            var response = new ValidationResponse (){ Message = this.Message, Validations = this.Validations };
+            var response = new ValidationResponse() { Message = this.Message, Validations = this.Validations };
             return response;
+        }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            return string.Join(string.Empty, this.Validations);
         }
     }
 }

@@ -13,6 +13,17 @@ namespace Cardinal.AspNetCore.Extensions
         private static DateTime InitialDate = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         /// <summary>
+        /// Extensão que traz a diferença da data atual à data inicial válida.
+        /// </summary>
+        /// <param name="source">Esta data.</param>
+        /// <param name="field">Tipo de campo à ser retornado.</param>
+        /// <returns>Diferença entre as datas baseando-se no tipo de campo solicitado.</returns>
+        public static long Elapsed(this DateTime source, DateField field)
+        {
+            return source.Diference(InitialDate, field);
+        }
+
+        /// <summary>
         /// Extensão que verifica se uma data está entre duas datas específicas.
         /// </summary>
         /// <param name="source">Esta data.</param>

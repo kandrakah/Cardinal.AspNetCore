@@ -1,5 +1,4 @@
 ﻿using Cardinal.AspNetCore.Models;
-using System.Collections.Generic;
 
 namespace Cardinal.AspNetCore.Utils
 {
@@ -7,12 +6,12 @@ namespace Cardinal.AspNetCore.Utils
     /// Classe estática de utilidades para recursos.
     /// </summary>
     public static class ResourceUtils
-    {        
+    {
         /// <summary>
         /// Método para a tradução de um texto para o idioma atual.
         /// </summary>
         /// <param name="text">Texto à ser traduzido.</param>
-        /// <param name="values">Vetor de valores à serem substituídos durante a tradução.</param>
+        /// <param name="sets">Vetor de valores à serem substituídos durante a tradução.</param>
         /// <returns>Texto traduzido.</returns>
         public static string Translate(string text, params TranslationSet[] sets)
         {

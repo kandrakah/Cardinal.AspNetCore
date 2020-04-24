@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.Repositories
 {
+    /// <summary>
+    /// Interface padrão para repositórios.
+    /// </summary>
     public interface IRepository
     {
         /// <summary>
@@ -64,25 +67,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// </summary>
         /// <param name="acceptAllChangesOnSuccess"></param>
         /// <returns>Número de alterações na base de dados.</returns>
-        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess);
-
-        /// <summary>
-        /// Método que executa um comando de consulta SQL diretamente na base de dados.
-        /// </summary>
-        /// <param name="sql">Comando de consulta SQL.</param>
-        /// <returns>Resultado da consulta à base de dados. Veja <see cref="DbDataReader"/>.</returns>
-        DbDataReader Execute(string sql);
-
-        /// <summary>
-        /// Método que executa um comando SQL de alteração diretamente na base de dados.
-        /// </summary>
-        /// <param name="sql">Comando SQL de alteração.</param>
-        /// <returns>Quantidade de registros alterados.</returns>
-        int ExecuteUpdate(string sql);
-
-        /// <summary>
-        /// Método para liberação de recursos usados pelo repositório.
-        /// </summary>
-        void Dispose();
+        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess);               
     }
 }
