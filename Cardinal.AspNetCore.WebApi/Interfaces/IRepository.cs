@@ -1,98 +1,88 @@
-﻿using Cardinal.AspNetCore.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cardinal.AspNetCore.EntityFramework.Repositories
+namespace Cardinal.AspNetCore.WebApi.Repositories
 {
     /// <summary>
-    /// Interface base para repositórios.
+    /// 
     /// </summary>
-    /// <typeparam name="TContext">Contexto utilizado no repositório.</typeparam>
-    public interface IRepository<TContext> : IRepository where TContext : DbContext
+    /// <typeparam name="TEntity"></typeparam>
+    public interface IRepository<TEntity> where TEntity : Entity
     {
         /// <summary>
         /// Método para adicionar uma entidade ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
-        void Add<T>([NotNull] T entity) where T : Entity;
+        /// <returns></returns>
+        EntityEntry<TEntity> Add([NotNull] TEntity entity);
 
         /// <summary>
         /// Método para adicionar uma entidade ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
         /// <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
         /// Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry para a entidade.
         /// A entrada fornece acesso para alterar informações e operações de rastreamento para a entidade.</returns>
-        ValueTask<EntityEntry<T>> AddAsync<T>([NotNull] T entity, CancellationToken cancellationToken = default) where T : Entity;
+        ValueTask<EntityEntry<TEntity>> AddAsync([NotNull] TEntity entity, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Método para adicionar várias entidades ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        void AddRange<T>([NotNull] params T[] entities) where T : Entity;
+        void AddRange([NotNull] params TEntity[] entities);
 
         /// <summary>
         /// Método para adicionar várias entidades ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        void AddRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
+        void AddRange([NotNull] IEnumerable<TEntity> entities);
 
         /// <summary>
         /// Método para adicionar várias entidades ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        Task AddRangeAsync<T>([NotNull] params T[] entities) where T : Entity;
+        Task AddRangeAsync([NotNull] params TEntity[] entities);
 
         /// <summary>
         /// Método para adicionar várias entidades ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-        Task AddRangeAsync<T>([NotNull] IEnumerable<T> entities, CancellationToken cancellationToken = default) where T : Entity;
+        Task AddRangeAsync([NotNull] IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 
-        /// <summary>
-        /// Começa a rastrear a entidade especificada e as entradas acessíveis a partir da entidade especificada
-        /// usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão.
-        /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
-        /// <param name="entity">Entidade à ser rastreada.</param>
-        /// <returns><see cref="EntityEntry"/>para a entidade.
-        /// A entrada fornece acesso para alterar informações e operações de rastreamento para a
-        /// entidade.</returns>
-        EntityEntry<T> Attach<T>([NotNull] T entity) where T : Entity;
+        EntityEntry<TEntity> Attach(TEntity entity);
 
-        void AttachRange<T>([NotNull] params T[] entities) where T : Entity;
+        void AttachRange([NotNull] params TEntity[] entities);
 
-        void AttachRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
+        void AttachRange([NotNull] IEnumerable<TEntity> entities);
 
-        EntityEntry<T> Entry<T>([NotNull] T entity) where T : Entity;
+        TEntity Find(params object[] keyValues);
 
-        T Find<T>(params object[] keyValues) where T : Entity;
+        ValueTask<TEntity> FindAsync(params object[] keyValues);
 
-        ValueTask<T> FindAsync<T>(params object[] keyValues) where T : Entity;
+        EntityEntry<TEntity> Remove([NotNull] TEntity entity);
 
-        EntityEntry<T> Remove<T>([NotNull] T entity) where T : Entity;
+        void RemoveRange([NotNull] params TEntity[] entities);
 
-        void RemoveRange<T>([NotNull] params T[] entities) where T : Entity;
+        void RemoveRange([NotNull] IEnumerable<TEntity> entities);
 
-        void RemoveRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
+        EntityEntry<TEntity> Update([NotNull] TEntity entity);
 
-        EntityEntry<T> Update<T>([NotNull] T entity) where T : Entity;
+        void UpdateRange([NotNull] params TEntity[] entities);
 
-        void UpdateRange<T>([NotNull] params T[] entities) where T : Entity;
+        void UpdateRange([NotNull] IEnumerable<TEntity> entities);
 
-        void UpdateRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+
+        IQueryable<TEntity> Where(Expression<Func<TEntity, int, bool>> predicate);
 
         void BeginTransaction();
 

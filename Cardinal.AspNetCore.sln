@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Serilog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Identity", "Core\Cardinal.AspNetCore.Identity\Cardinal.AspNetCore.Identity.csproj", "{9878F6CA-6567-4650-8355-5B699937D6DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.EntityFramework", "Addons\Cardinal.AspNetCore.EntityFramework\Cardinal.AspNetCore.EntityFramework.csproj", "{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.EntityFramework", "Addons\Cardinal.AspNetCore.EntityFramework\Cardinal.AspNetCore.EntityFramework.csproj", "{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

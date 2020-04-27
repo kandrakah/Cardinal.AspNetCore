@@ -1,4 +1,5 @@
 ﻿using Cardinal.AspNetCore.EntityFramework.Localization;
+using Cardinal.AspNetCore.Abstracts.Repositories;
 using Cardinal.AspNetCore.Utils;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -9,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Cardinal.AspNetCore.Repositories
+namespace Cardinal.AspNetCore.EntityFramework.Repositories
 {
     /// <summary>
     /// Classe base para repositórios.

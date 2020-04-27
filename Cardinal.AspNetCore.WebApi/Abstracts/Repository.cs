@@ -1,4 +1,5 @@
-﻿using Cardinal.AspNetCore.Utils;
+﻿using Cardinal.AspNetCore.Abstracts.Repositories;
+using Cardinal.AspNetCore.Utils;
 using Cardinal.AspNetCore.WebApi.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -6,20 +7,34 @@ using Microsoft.EntityFrameworkCore.Storage;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Cardinal.AspNetCore.Repositories
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public class Repository<TEntity> : Repository<TEntity, DbContext> where TEntity : Entity
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public Repository(DbContext context) : base(context)
         {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TContext"></typeparam>
     public class Repository<TEntity, TContext> : Repository where TEntity : Entity where TContext : DbContext
     {
         /// <summary>
@@ -28,23 +43,32 @@ namespace Cardinal.AspNetCore.Repositories
         protected TContext Context { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        protected DbSet<TEntity> Entity { get; set; }
+
+        /// <summary>
         /// Instância da transação.
         /// </summary>
         protected IDbContextTransaction Transaction { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
         public Repository(TContext context)
         {
             this.Context = context;
+            this.Entity = this.Context.Set<TEntity>();
         }
 
         /// <summary>
         /// Método para adicionar uma entidade ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
-        public virtual void Add<T>([NotNull] T entity) where T : TEntity
+        public virtual EntityEntry<TEntity> Add([NotNull] TEntity entity)
         {
-            this.Context.Add(entity);
+            return this.Entity.Add(entity);
         }
 
         /// <summary>
@@ -56,9 +80,9 @@ namespace Cardinal.AspNetCore.Repositories
         /// <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
         /// Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry para a entidade.
         /// A entrada fornece acesso para alterar informações e operações de rastreamento para a entidade.</returns>
-        public virtual ValueTask<EntityEntry<T>> AddAsync<T>([NotNull] T entity, CancellationToken cancellationToken = default) where T : TEntity
+        public virtual ValueTask<EntityEntry<TEntity>> AddAsync([NotNull] TEntity entity, CancellationToken cancellationToken = default)
         {
-            return this.Context.AddAsync(entity, cancellationToken);
+            return this.Entity.AddAsync(entity, cancellationToken);
         }
 
         /// <summary>
@@ -66,9 +90,9 @@ namespace Cardinal.AspNetCore.Repositories
         /// </summary>
         /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        public virtual void AddRange<T>([NotNull] params T[] entities) where T : TEntity
+        public virtual void AddRange([NotNull] params TEntity[] entities)
         {
-            this.Context.AddRange(entities);
+            this.Entity.AddRange(entities);
         }
 
         /// <summary>
@@ -76,9 +100,9 @@ namespace Cardinal.AspNetCore.Repositories
         /// </summary>
         /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        public virtual void AddRange<T>([NotNull] IEnumerable<T> entities) where T : TEntity
+        public virtual void AddRange([NotNull] IEnumerable<TEntity> entities)
         {
-            this.Context.AddRange(entities);
+            this.Entity.AddRange(entities);
         }
 
         /// <summary>
@@ -86,89 +110,92 @@ namespace Cardinal.AspNetCore.Repositories
         /// </summary>
         /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
-        public virtual async Task AddRangeAsync<T>([NotNull] params T[] entities) where T : TEntity
+        public virtual async Task AddRangeAsync([NotNull] params TEntity[] entities)
         {
-            await this.Context.AddRangeAsync(entities);
+            await this.Entity.AddRangeAsync(entities);
         }
 
         /// <summary>
         /// Método para adicionar várias entidades ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-        public virtual async Task AddRangeAsync<T>([NotNull] IEnumerable<T> entities, CancellationToken cancellationToken = default) where T : TEntity
+        public virtual async Task AddRangeAsync([NotNull] IEnumerable<TEntity> entities, CancellationToken cancellationToken = default)
         {
-            await this.Context.AddRangeAsync(entities, cancellationToken);
+            await this.Entity.AddRangeAsync(entities, cancellationToken);
         }
 
         /// <summary>
         /// Começa a rastrear a entidade especificada e as entradas acessíveis a partir da entidade especificada
         /// usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser rastreada.</param>
         /// <returns><see cref="EntityEntry"/>para a entidade.
         /// A entrada fornece acesso para alterar informações e operações de rastreamento para a
         /// entidade.</returns>
-        public EntityEntry<T> Attach<T>([NotNull] T entity) where T : TEntity
+        public EntityEntry<TEntity> Attach([NotNull] TEntity entity)
         {
-            return this.Context.Attach(entity);
+            return this.Entity.Attach(entity);
         }
 
-        public virtual void AttachRange<T>([NotNull] params T[] entities) where T : TEntity
+        public virtual void AttachRange([NotNull] params TEntity[] entities)
         {
-            this.Context.AttachRange(entities);
+            this.Entity.AttachRange(entities);
         }
 
-        public virtual void AttachRange<T>([NotNull] IEnumerable<T> entities) where T : TEntity
+        public virtual void AttachRange([NotNull] IEnumerable<TEntity> entities)
         {
-            this.Context.AttachRange(entities);
+            this.Entity.AttachRange(entities);
         }
 
-        public virtual EntityEntry<T> Entry<T>([NotNull] T entity) where T : TEntity
+        public virtual TEntity Find(params object[] keyValues)
         {
-            return this.Context.Entry(entity);
+            return this.Entity.Find(keyValues);
         }
 
-        public virtual T Find<T>(params object[] keyValues) where T : TEntity
+        public virtual ValueTask<TEntity> FindAsync(params object[] keyValues)
         {
-            return this.Context.Find<T>(keyValues);
+            return this.Entity.FindAsync(keyValues);
         }
 
-        public virtual ValueTask<T> FindAsync<T>(params object[] keyValues) where T : TEntity
+        public virtual EntityEntry<TEntity> Remove([NotNull] TEntity entity)
         {
-            return this.Context.FindAsync<T>(keyValues);
+            return this.Entity.Remove(entity);
         }
 
-        public virtual EntityEntry<T> Remove<T>([NotNull] T entity) where T : TEntity
+        public virtual void RemoveRange([NotNull] params TEntity[] entities)
         {
-            return this.Context.Remove(entity);
+            this.Entity.RemoveRange(entities);
         }
 
-        public virtual void RemoveRange<T>([NotNull] params T[] entities) where T : TEntity
+        public virtual void RemoveRange([NotNull] IEnumerable<TEntity> entities)
         {
-            this.Context.RemoveRange(entities);
+            this.Entity.RemoveRange(entities);
         }
 
-        public virtual void RemoveRange<T>([NotNull] IEnumerable<T> entities) where T : TEntity
+        public virtual EntityEntry<TEntity> Update([NotNull] TEntity entity)
         {
-            this.Context.RemoveRange(entities);
+            return this.Entity.Update(entity);
         }
 
-        public virtual EntityEntry<T> Update<T>([NotNull] T entity) where T : TEntity
+        public virtual void UpdateRange([NotNull] params TEntity[] entities)
         {
-            return this.Context.Update(entity);
+            this.Entity.UpdateRange(entities);
         }
 
-        public virtual void UpdateRange<T>([NotNull] params T[] entities) where T : TEntity
+        public virtual void UpdateRange([NotNull] IEnumerable<TEntity> entities)
         {
-            this.Context.UpdateRange(entities);
+            this.Entity.UpdateRange(entities);
         }
 
-        public virtual void UpdateRange<T>([NotNull] IEnumerable<T> entities) where T : Entity
+        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
         {
-            this.Context.UpdateRange(entities);
+            return this.Entity.Where(predicate);
+        }
+
+        public IQueryable<TEntity> Where(Expression<Func<TEntity, int, bool>> predicate)
+        {
+            return this.Entity.Where(predicate);
         }
 
         public override void BeginTransaction()

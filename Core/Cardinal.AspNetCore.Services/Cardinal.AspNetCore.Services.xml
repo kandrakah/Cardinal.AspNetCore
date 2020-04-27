@@ -20,6 +20,20 @@
             </summary>
             <param name="provider">Instância do provedor de serviços da aplicação.</param>
         </member>
+        <member name="M:Cardinal.AspNetCore.Services.Service.GetService``1">
+            <summary>
+            Método que obtém a instância de um serviço.
+            </summary>
+            <typeparam name="T">Interface do serviço solicitada.</typeparam>
+            <returns>Instância do serviço solicitado.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Services.Service.GetService(System.Type)">
+            <summary>
+            Método que obtém a instância de um serviço.
+            </summary>
+            <param name="service">Tipo do serviço solicitado.</param>
+            <returns>Instância do serviço solicitado.</returns>
+        </member>
         <member name="M:Cardinal.AspNetCore.Services.Service.Dispose">
             <summary>
             Método para liberação de recursos usados pelo serviço.

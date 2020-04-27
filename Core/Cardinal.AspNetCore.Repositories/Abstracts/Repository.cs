@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cardinal.AspNetCore.Repositories
+namespace Cardinal.AspNetCore.Abstracts.Repositories
 {
     /// <summary>
     /// Classe base para repositórios.

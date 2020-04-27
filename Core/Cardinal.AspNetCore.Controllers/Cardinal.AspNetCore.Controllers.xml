@@ -14,7 +14,7 @@
             Instância do serviço de logs.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController.ServicesProvider">
+        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController.ServiceProvider">
             <summary>
             Instância do provedor de serviços. Veja <see cref="T:System.IServiceProvider"/> para mais detalhes.
             </summary>
