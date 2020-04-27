@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.Repositories.Repository`1">
+            <summary>
+            Classe base para repositórios.
+            </summary>
+            <typeparam name="TContext">Contexto utilizado no repositório.</typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Repositories.Repository`1.Context">
+            <summary>
+            Contexto do repositório.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.#ctor(`0)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto conectado à base de dados.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.Add``1(``0)">
+            <summary>
+            Método para adicionar uma entidade ao contexto.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.AddAsync``1(``0,System.Threading.CancellationToken)">
+            <summary>
+            Método para adicionar uma entidade ao contexto de forma assíncrona.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entity">Entidade à ser adicionada.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+            <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
+            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry para a entidade.
+            A entrada fornece acesso para alterar informações e operações de rastreamento para a entidade.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.AddRange``1(``0[])">
+            <summary>
+            Método para adicionar várias entidades ao contexto.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.AddRange``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Método para adicionar várias entidades ao contexto.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.AddRangeAsync``1(``0[])">
+            <summary>
+            Método para adicionar várias entidades ao contexto de forma assíncrona.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.AddRangeAsync``1(System.Collections.Generic.IEnumerable{``0},System.Threading.CancellationToken)">
+            <summary>
+            Método para adicionar várias entidades ao contexto de forma assíncrona.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entities">Entidades à serem adicionadas.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.Attach``1(``0)">
+            <summary>
+            Começa a rastrear a entidade especificada e as entradas acessíveis a partir da entidade especificada
+            usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão.
+            </summary>
+            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
+            <param name="entity">Entidade à ser rastreada.</param>
+            <returns><see cref="T:Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry"/>para a entidade.
+            A entrada fornece acesso para alterar informações e operações de rastreamento para a
+            entidade.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChanges">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.        
+            </summary>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">Foi encontrado um erro ao salvar no banco de dados.</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Uma violação de simultaneidade é encontrada ao salvar no banco de dados. Uma violação
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.
+            Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
+            carregado na memória.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChanges(System.Boolean)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.        
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
+            será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">Foi encontrado um erro ao salvar no banco de dados.</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Uma violação de simultaneidade é encontrada ao salvar no banco de dados. Uma violação
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.
+            Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
+            carregado na memória.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.
+            Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+            'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+            outro método nesse contexto.
+            </summary>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateException">Foi encontrado um erro ao salvar no banco de dados.</exception>
+            <exception cref="T:Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException">Uma violação de simultaneidade é encontrada ao salvar no banco de dados. Uma violação
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.
+            Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
+            carregado na memória.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.
+            Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+            'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+            outro método nesse contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
+            será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.BeginTransaction">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.BeginTransaction(System.Data.IsolationLevel)">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+            <param name="solationLevel">Nível de isolamento da transação.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.BeginTransactionAsync">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+            <param name="cancelationtoken">Token de cancelamento.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.CommitTransaction">
+            <summary>
+            Método para efetivar a transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.RollbackTransaction">
+            <summary>
+            Método para reverter uma transação mal sucedida.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.SaveChanges">
+            <summary>
+            Método que efetua o salvamento das alterações feitas na base de dados.
+            </summary>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.SaveChangesAsync">
+            <summary>
+            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+            </summary>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua o salvamento das alterações feitas na base de dados.
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.IRepository`1.SaveChangesAsync(System.Boolean)">
+            <summary>
+            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <returns>Número de alterações na base de dados.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.EntityFramework.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.EntityFramework.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.EntityFramework.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.EntityFramework.Localization.Resource.ERROR_NO_RUNNING_TRANSACTION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a There are no transactions running in this repository!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.EntityFramework.Localization.Resource.ERROR_RUNNING_TRANSACTION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress on this repository!.
+            </summary>
+        </member>
+    </members>
+</doc>

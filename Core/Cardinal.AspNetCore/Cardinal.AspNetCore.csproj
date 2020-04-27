@@ -19,7 +19,7 @@
     <Authors>Marcelo O. Mendes</Authors>
     <Company>Marcelo O. Mendes</Company>
     <Description>Biblioteca de núcleo Cardinal .NET Core API.</Description>
-    <Version>0.6.0-alpha</Version>
+    <Version>0.6.1-alpha</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <Product>Cardinal .NET Core API</Product>

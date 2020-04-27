@@ -4,99 +4,86 @@
         <name>Cardinal.AspNetCore.Repositories</name>
     </assembly>
     <members>
-        <member name="T:Cardinal.AspNetCore.Repositories.Repository`1">
+        <member name="T:Cardinal.AspNetCore.Repositories.Repository">
             <summary>
             Classe base para repositórios.
             </summary>
-            <typeparam name="TContext">Contexto utilizado no repositório.</typeparam>
         </member>
-        <member name="P:Cardinal.AspNetCore.Repositories.Repository`1.Context">
-            <summary>
-            Contexto do repositório.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.#ctor(`0)">
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.#ctor">
             <summary>
             Método construtor.
             </summary>
-            <param name="context">Instância do contexto conectado à base de dados.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChanges">
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.BeginTransaction">
             <summary>
-            Método que efetua o salvamento das alterações feitas na base de dados.
+            Método que inicia uma nova transação.
             </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma nova transação.
+            </summary>
+            <param name="cancelationtoken">Token de cancelamento.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.CommitTransaction">
+            <summary>
+            Método para efetivar a transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.CommitTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para efetivar a transação de forma assíncrona.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.RollbackTransaction">
+            <summary>
+            Método para reverter uma transação mal sucedida.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.RollbackTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para reverter uma transação mal sucedida de forma assíncrona.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.SaveChanges">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.        
+            </summary>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>        
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.        
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.SaveChanges(System.Boolean)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.        
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
+            será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>        
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.     
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.
+            Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+            'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+            outro método nesse contexto.
+            </summary>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+            <returns>O número de entradas de estado gravadas no banco de dados.</returns>        
+            simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.        
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Salva todas as alterações feitas nesse repositório no banco de dados.
+            Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+            'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+            outro método nesse contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
+            será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
             <returns>Número de alterações na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChangesAsync">
-            <summary>
-            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
-            </summary>
-            <returns>Número de alterações na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChanges(System.Boolean)">
-            <summary>
-            Método que efetua o salvamento das alterações feitas na base de dados.
-            </summary>
-            <param name="acceptAllChangesOnSuccess"></param>
-            <returns>Número de alterações na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.Repository`1.SaveChangesAsync(System.Boolean)">
-            <summary>
-            Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
-            </summary>
-            <param name="acceptAllChangesOnSuccess"></param>
-            <returns>Número de alterações na base de dados.</returns>
-        </member>
-        <member name="T:Cardinal.AspNetCore.Repositories.IContext">
-            <summary>
-            Interface padrão para contextos.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.SaveChanges">
-            <summary>
-            Salva todos os dados alterados no contexto na base de dados.
-            </summary>
-            <returns>Número de entradas escritas na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.SaveChanges(System.Boolean)">
-            <summary>
-            Salva todos os dados alterados no contexto na base de dados.
-            </summary>
-            <param name="acceptAllChangesOnSuccess">Indicates whether >
-            is called after the changes have been sent successfully to the database.</param>
-            <returns>Número de entradas escritas na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.SaveChangesAsync(System.Threading.CancellationToken)">
-            <summary>
-            Salva todos os dados alterados no contexto na base de dados de forma assíncrona.
-            </summary>
-            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to
-            complete.</param>
-            <returns>Número de entradas escritas na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            Salva todos os dados alterados no contexto na base de dados de forma assíncrona.
-            </summary>
-            <param name="acceptAllChangesOnSuccess">Indicates whether />
-            is called after the changes have been sent successfully to the database.</param>
-            <param name="cancellationToken">A <see cref="T:System.Threading.CancellationToken"/> to observe while waiting for the task to
-            complete.</param>
-            <returns>Número de entradas escritas na base de dados.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.Execute(System.String)">
-            <summary>
-            Método que executa um comando de consulta SQL diretamente na base de dados.
-            </summary>
-            <param name="sql">Comando de consulta SQL.</param>
-            <returns>Resultado da consulta à base de dados. Veja <see cref="T:System.Data.Common.DbDataReader"/>.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Repositories.IContext.ExecuteUpdate(System.String)">
-            <summary>
-            Método que executa um comando SQL de alteração diretamente na base de dados.
-            </summary>
-            <param name="sql">Comando SQL de alteração.</param>
-            <returns>Quantidade de registros alterados.</returns>
         </member>
         <member name="T:Cardinal.AspNetCore.Repositories.IRepository">
             <summary>

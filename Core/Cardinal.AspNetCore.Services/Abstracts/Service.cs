@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cardinal.AspNetCore.Extensions;
+using System;
 
 namespace Cardinal.AspNetCore.Services
 {
@@ -20,7 +21,30 @@ namespace Cardinal.AspNetCore.Services
         {
             this.ServiceProvider = provider;
         }
-        
+
+
+        /// <summary>
+        /// Método que obtém a instância de um serviço.
+        /// </summary>
+        /// <typeparam name="T">Interface do serviço solicitada.</typeparam>
+        /// <returns>Instância do serviço solicitado.</returns>
+        protected T GetService<T>()
+        {
+            var result = this.ServiceProvider.GetCardinalService<T>();
+            return result;
+        }
+
+        /// <summary>
+        /// Método que obtém a instância de um serviço.
+        /// </summary>
+        /// <param name="service">Tipo do serviço solicitado.</param>
+        /// <returns>Instância do serviço solicitado.</returns>
+        protected object GetService(Type service)
+        {
+            var result = this.ServiceProvider.GetCardinalService(service);
+            return result;
+        }
+
         /// <summary>
         /// Método para liberação de recursos usados pelo serviço.
         /// </summary>

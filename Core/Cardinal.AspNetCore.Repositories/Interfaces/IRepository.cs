@@ -1,5 +1,4 @@
 ﻿using System.Data;
-using System.Data.Common;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -67,6 +66,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// </summary>
         /// <param name="acceptAllChangesOnSuccess"></param>
         /// <returns>Número de alterações na base de dados.</returns>
-        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess);               
+        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess);
     }
 }

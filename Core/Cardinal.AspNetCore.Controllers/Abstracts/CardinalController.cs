@@ -25,7 +25,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Instância do provedor de serviços. Veja <see cref="IServiceProvider"/> para mais detalhes.
         /// </summary>
-        protected IServiceProvider ServicesProvider { get; }
+        protected IServiceProvider ServiceProvider { get; }
 
         /// <summary>
         /// Método construtor.
@@ -35,7 +35,7 @@ namespace Cardinal.AspNetCore.Controllers
         public CardinalController(ILoggerFactory loggerFactory, IServiceProvider provider)
         {
             this.Logger = loggerFactory.CreateLogger(this.GetType().Name);
-            this.ServicesProvider = provider;
+            this.ServiceProvider = provider;
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Cardinal.AspNetCore.Controllers
         public CardinalController(ILogger logger, IServiceProvider provider)
         {
             this.Logger = logger;
-            this.ServicesProvider = provider;
+            this.ServiceProvider = provider;
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns>Instância do serviço solicitado.</returns>
         protected T GetService<T>()
         {
-            var result = this.ServicesProvider.GetCardinalService<T>();
+            var result = this.ServiceProvider.GetCardinalService<T>();
             return result;
         }
 
@@ -67,7 +67,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns>Instância do serviço solicitado.</returns>
         protected object GetService(Type service)
         {
-            var result = this.ServicesProvider.GetCardinalService(service);
+            var result = this.ServiceProvider.GetCardinalService(service);
             return result;
         }
 

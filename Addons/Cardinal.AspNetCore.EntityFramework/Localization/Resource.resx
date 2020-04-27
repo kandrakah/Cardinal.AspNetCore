@@ -123,10 +123,4 @@
   <data name="ERROR_RUNNING_TRANSACTION" xml:space="preserve">
     <value>There is already a transaction in progress on this repository!</value>
   </data>
-  <data name="INITIALIZATION_COMPLETE" xml:space="preserve">
-    <value>Initialization Complete!</value>
-  </data>
-  <data name="LISTENING_URL" xml:space="preserve">
-    <value>Listening to requests in $[LISTENING_URL].</value>
-  </data>
 </root>

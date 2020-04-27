@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Serilog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Identity", "Core\Cardinal.AspNetCore.Identity\Cardinal.AspNetCore.Identity.csproj", "{9878F6CA-6567-4650-8355-5B699937D6DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.EntityFramework", "Addons\Cardinal.AspNetCore.EntityFramework\Cardinal.AspNetCore.EntityFramework.csproj", "{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{9878F6CA-6567-4650-8355-5B699937D6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9878F6CA-6567-4650-8355-5B699937D6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9878F6CA-6567-4650-8355-5B699937D6DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6041D2B0-1238-47C4-B25E-FACC58ED7AE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 		{336EB846-6E49-4E54-93E5-1F9D924EA054} = {4E697E0C-7B4D-4C78-863A-567186DF7CF4}
 		{B6B05FBF-BD74-4482-A7B1-A867DE4169DC} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 		{9878F6CA-6567-4650-8355-5B699937D6DE} = {4E697E0C-7B4D-4C78-863A-567186DF7CF4}
+		{6041D2B0-1238-47C4-B25E-FACC58ED7AE3} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66289424-587D-47FF-B04F-1F18A2EE0288}

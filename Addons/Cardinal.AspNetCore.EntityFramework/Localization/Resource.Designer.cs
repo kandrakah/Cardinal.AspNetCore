@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cardinal.AspNetCore.WebApi.Localization {
+namespace Cardinal.AspNetCore.EntityFramework.Localization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Cardinal.AspNetCore.WebApi.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cardinal.AspNetCore.WebApi.Localization.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cardinal.AspNetCore.EntityFramework.Localization.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -75,24 +75,6 @@ namespace Cardinal.AspNetCore.WebApi.Localization {
         internal static string ERROR_RUNNING_TRANSACTION {
             get {
                 return ResourceManager.GetString("ERROR_RUNNING_TRANSACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete!.
-        /// </summary>
-        internal static string INITIALIZATION_COMPLETE {
-            get {
-                return ResourceManager.GetString("INITIALIZATION_COMPLETE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL]..
-        /// </summary>
-        internal static string LISTENING_URL {
-            get {
-                return ResourceManager.GetString("LISTENING_URL", resourceCulture);
             }
         }
     }

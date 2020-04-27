@@ -11,7 +11,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
-    <Version>0.6.0-alpha</Version>
+    <Version>0.6.1-alpha</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Copyright>Marcelo O. Mendes</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -67,6 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Addons\Cardinal.AspNetCore.EntityFramework\Cardinal.AspNetCore.EntityFramework.csproj" />
     <ProjectReference Include="..\Addons\Cardinal.AspNetCore.Serilog\Cardinal.AspNetCore.Serilog.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Controllers\Cardinal.AspNetCore.Controllers.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Identity\Cardinal.AspNetCore.Identity.csproj" />

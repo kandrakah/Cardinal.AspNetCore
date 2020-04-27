@@ -15,7 +15,7 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
     <LangVersion>latest</LangVersion>
-    <Version>0.6.0-alpha</Version>
+    <Version>0.6.1-alpha</Version>
     <Description>Biblioteca auxiliar Cardinal .NET Core API para Serilog.</Description>
     <Copyright>Marcelo O. Mendes</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
