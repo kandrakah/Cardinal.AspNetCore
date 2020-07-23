@@ -9,9 +9,9 @@ namespace Cardinal.AspNetCore.Identity
     public class AuthoritySettings
     {
         /// <summary>
-        /// Configuração que desativa o serviço de permissões padrão.
+        /// Configuração que ativa o serviço de permissões padrão.
         /// </summary>
-        public bool DeactivePermissionService { get; set; } = false;
+        public bool UsePermissionsService { get; set; } = false;
 
         /// <summary>
         /// 

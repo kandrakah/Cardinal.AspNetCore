@@ -1,0 +1,570 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.Utils.BaseProgram">
+            <summary>
+            Classe base para inicialização simplificada do WebAPI.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.BaseProgram.Logger">
+            <summary>
+            Instância do logger da aplicação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(System.String,System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web.</param>
+            <param name="description">Descrição serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(Cardinal.Utils.CardinalVersion,System.String,System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web. veja <see cref="T:Cardinal.Utils.CardinalVersion"/>.</param>
+            <param name="description">Descrição serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.String,System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="basePath">Diretório base da aplicação.</param>
+            <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Shutdown(System.Int32)">
+            <summary>
+            Método para o encerramento do serviço.
+            </summary>
+            <param name="exitCode">Código de saída da aplicação.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.LoadConfiguration(System.String[],System.String)">
+            <summary>
+            Método que efetua a leitura das configurações do serviço.
+            </summary>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="basePath">Diretório base da aplicação.</param>
+            <returns>Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> contendo as configurações do serviço.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.Constants">
+            <summary>
+            Classe estática com constantes de sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.BaseName">
+            <summary>
+            Nome base do serviço da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.BaseVersion">
+            <summary>
+            Versão base do serviço da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.Initialized">
+            <summary>
+            Identificação se as constantes do serviço foram inicializadas.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.Environment">
+            <summary>
+            Atributo que determina o ambient atual.
+            </summary>
+            <returns>Ambiente atual da aplicação.</returns>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.IsDevelopment">
+            <summary>
+            atributo que indica se o ambiente atual é o de desenvolvimento.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de desenvolvimento e falso caso contrário.</returns>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Constants.IsProduction">
+            <summary>
+            Método que diz se o ambiente atual é o de produção.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de produção e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.Constants.Initialize(System.String,System.String)">
+            <summary>
+            Método de inicialização do serviço da aplicação.
+            </summary>
+            <param name="version">Versão base do serviço da aplicação.</param>
+            <param name="baseName">Nome da aplicação.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.Constants.Initialize(Cardinal.Utils.CardinalVersion,System.String)">
+            <summary>
+            Método de inicialização do serviço da aplicação.
+            </summary>
+            <param name="version">Versão base do serviço da aplicação.</param>
+            <param name="baseName">Nome da aplicação.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.Extensions.ApplicationBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.Extensions.ApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extens serilog logs with additional information like remote IP
+            address
+            </summary>
+            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.Services.IServerInfoService">
+            <summary>
+            Interface do serviço de informação do servidor.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.IServerInfoService.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.IServerInfoService.ApplicationVersion">
+            <summary>
+            Versão da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.IServerInfoService.Environment">
+            <summary>
+            Ambiente de execução da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.IServerInfoService.IsProduction">
+            <summary>
+            Indica se a aplicação está em modo de produção.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.IServerInfoService.IsDevelopment">
+            <summary>
+            Indica se a aplicação está em modo de desenvolvimento.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.Services.ServerInfoService">
+            <summary>
+            Serviço de informação do servidor.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.ServerInfoService.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.ServerInfoService.ApplicationVersion">
+            <summary>
+            Versão da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.ServerInfoService.Environment">
+            <summary>
+            Ambiente de execução da aplicação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.ServerInfoService.IsProduction">
+            <summary>
+            Indica se a aplicação está em modo de produção.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Services.ServerInfoService.IsDevelopment">
+            <summary>
+            Indica se a aplicação está em modo de desenvolvimento.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.ERROR_CONTENT_ROOT_INVALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Given content root [$[CONTENT_ROOT]] is not a valid directory!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.ERROR_SERVICE_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.INITIALIZATION_COMPLETE">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.INITIALIZE_BASEPATH">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Using base directory &apos;$[PATH]&apos;.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.INITIALIZE_IIS_INTEGRATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Using IIS Integration.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.LISTENING_URL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL].
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.LogSerializer">
+            <summary>
+            Helper to JSON serialize object data for logging.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.LogSerializer.#cctor">
+            <summary>
+            Construtor estático.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.LogSerializer.Serialize``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.LogSerializer.Desserialize(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.LogSerializer.Desserialize``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.NullLogger`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TCategoryName"></typeparam>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.NullLogger`1.Create">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Utils.NullLogger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.NullLogger.BeginScope``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TState"></typeparam>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.NullLogger.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.NullLogger.IsEnabled(Microsoft.Extensions.Logging.LogLevel)">
+            <summary>
+            
+            </summary>
+            <param name="logLevel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Utils.NullLogger.Log``1(Microsoft.Extensions.Logging.LogLevel,Microsoft.Extensions.Logging.EventId,``0,System.Exception,System.Func{``0,System.Exception,System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="TState"></typeparam>
+            <param name="logLevel"></param>
+            <param name="eventId"></param>
+            <param name="state"></param>
+            <param name="exception"></param>
+            <param name="formatter"></param>
+        </member>
+        <member name="T:Cardinal.Exceptions.ServiceException">
+            <summary>
+            Classe de exceção de serviços de Api.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Exceptions.ServiceException.StatusCode">
+            <summary>
+            Código de status da exceção.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Exceptions.ServiceException.StatusMessage">
+            <summary>
+            Mensagem de status da exceção.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="description">Indica se deve ser adicionado o código de erro à descrição.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Exceptions.ServiceNotFoundException">
+            <summary>
+            Classe de exceção causada por serviço não encontrado.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceNotFoundException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceNotFoundException.#ctor(System.Type)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="type">Tipo de classe responsável pela exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.ServiceNotFoundException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ConfigurationExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ConfigurationExtensions.GetSettings``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão que traz as configurações tipadas da configuração.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão</typeparam>
+            <param name="configuration">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="sectionName">Nome da sessão de configurações</param>
+            <returns>Objeto contendo as configurações.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ConfigurationSectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ConfigurationSectionExtensions.GetSettings``1(Microsoft.Extensions.Configuration.IConfigurationSection)">
+            <summary>
+            Extensão que traz as configurações tipadas da sessão.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão.</typeparam>
+            <param name="section">Este Objeto.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.Extensions.LoggerExtensions">
+            <summary>
+            <see cref="T:Microsoft.Extensions.Logging.ILogger"/> extension methods.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogCritical(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogDebug(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogError(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogInformation(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogTrace(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggerExtensions.LogWarning(Microsoft.Extensions.Logging.ILogger,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+            <param name="obj"></param>
+        </member>
+        <member name="T:Cardinal.Extensions.LoggingBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.LoggingBuilderExtensions.AddSerilog(Microsoft.Extensions.Logging.ILoggingBuilder,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do Serilog ao serviço.
+            </summary>
+            <param name="loggingBuilder">Instância de <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/></param>
+            <param name="config">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="sectionName">Nome da sessão de configurações</param>
+            <returns>Instância de <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/> informado via parâmetro <paramref name="loggingBuilder"/></returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ServiceProviderExtensions">
+            <summary>
+            Classe de extensões para ServiceProvider.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.Exists(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.Exists``1(System.IServiceProvider)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetCardinalService(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetCardinalService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetServerInfoService(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de informações do servidor.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço <see cref="T:Cardinal.AspNetCore.Utils.Services.IServerInfoService"/></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetLoggerService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de log.
+            </summary>
+            <typeparam name="T">Tipo da classe invocadora do logger.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço <see cref="T:Microsoft.Extensions.Logging.ILogger"/> referente à classe solicitante.</returns>
+        </member>
+        <member name="T:Cardinal.Settings.HostSettings">
+            <summary>
+            Classe de configurações de Host.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Settings.HostSettings.UseIISIntegration">
+            <summary>
+            Indica se deve ser usada a integração com o Internet Information Service.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Settings.HostSettings.Hosts">
+            <summary>
+            Lista de hosts ao qual o serviço deve responder.
+            </summary>
+        </member>
+    </members>
+</doc>

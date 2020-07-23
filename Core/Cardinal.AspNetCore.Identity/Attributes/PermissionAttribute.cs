@@ -1,6 +1,6 @@
-﻿using Cardinal.AspNetCore.Exceptions;
-using Cardinal.AspNetCore.Extensions;
-using Cardinal.AspNetCore.Identity.Localization;
+﻿using Cardinal.AspNetCore.Identity.Localization;
+using Cardinal.Exceptions;
+using Cardinal.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
@@ -56,8 +56,8 @@ namespace Cardinal.AspNetCore.Identity
             /// <param name="context"></param>
             public void OnAuthorization(AuthorizationFilterContext context)
             {
-                var settings = this.Configuration.GetSection("Authority").GetSettings<AuthoritySettings>();
-                if (!settings.DeactivePermissionService)
+                var settings = this.Configuration.GetSettings<AuthoritySettings>("Authority");
+                if (settings.UsePermissionsService)
                 {
                     try
                     {

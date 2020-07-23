@@ -1,6 +1,5 @@
-﻿using Cardinal.AspNetCore.Exceptions;
+﻿using Cardinal.Exceptions;
 using Cardinal.AspNetCore.Identity.Localization;
-using Cardinal.AspNetCore.Utils;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IO;
@@ -17,8 +16,8 @@ namespace Cardinal.AspNetCore.Identity.Utils
         /// <summary>
         /// Método interno que retorna os parâmetros de validação de token OAuth.
         /// </summary>
-        /// <param name="settings">Configurações de autoridade usadas nos parâmetros. Veja <see cref="AuthoritySettings"/>.</param>
-        /// <returns>Parâmetros de validação do Token. Veja <see cref="TokenValidationParameters"/>.</returns>
+        /// <param name="settings">Configurações de autoridade usadas nos parâmetros. Veja <see cref="AuthoritySettings"/></param>
+        /// <returns>Parâmetros de validação do Token. Veja <see cref="TokenValidationParameters"/></returns>
         internal static TokenValidationParameters GetTokenParametes(AuthoritySettings settings)
         {
             try
@@ -43,8 +42,8 @@ namespace Cardinal.AspNetCore.Identity.Utils
         /// <summary>
         /// Classe interna para a obtenção do certificado de validação de Token OAuth.
         /// </summary>
-        /// <param name="settings">Configurações de autoridade contendo os dados de acesso ao certificado.</param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/>.</returns>
+        /// <param name="settings">Configurações de autoridade contendo os dados de acesso ao certificado</param>
+        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
         internal static X509Certificate2 GetCertificate(AuthoritySettings settings)
         {
             switch (settings.CertificateStorage)
@@ -61,9 +60,9 @@ namespace Cardinal.AspNetCore.Identity.Utils
         /// <summary>
         /// Método que obtém o certificado provido de um arquivo.
         /// </summary>
-        /// <param name="path">Localização do certificado no sistema de arquivos.</param>
-        /// <param name="password">Senha de acesso ao certificado.</param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/>.</returns>
+        /// <param name="path">Localização do certificado no sistema de arquivos</param>
+        /// <param name="password">Senha de acesso ao certificado</param>
+        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
         private static X509Certificate2 GetFromFile(string path, string password)
         {
             try
@@ -74,23 +73,23 @@ namespace Cardinal.AspNetCore.Identity.Utils
                 }
                 else
                 {
-                    throw new FileNotFoundException(ResourceUtils.Translate(Resource.ERROR_CERTIFICATE_NOT_FOUND));
+                    throw new FileNotFoundException(Resource.ERROR_CERTIFICATE_NOT_FOUND);
                 }
             }
             catch (CryptographicException ex)
             {
-                throw new CardinalException(ResourceUtils.Translate(Resource.ERROR_CERTIFICATE_FAIL), ex);
+                throw new CardinalException(Resource.ERROR_CERTIFICATE_FAIL, ex);
             }
         }
 
         /// <summary>
-        /// 
+        /// Método que obtém o certificado provido do repositório.
         /// </summary>
-        /// <param name="thumbprint"></param>
-        /// <param name="validOnly"></param>
-        /// <param name="storeName"></param>
-        /// <param name="storeLocation"></param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/>.</returns>
+        /// <param name="thumbprint">Impressão digital do certificado</param>
+        /// <param name="validOnly">Indica que somente certificados válidos</param>
+        /// <param name="storeName">Nome do repositório. Veja <see cref="StoreName"/></param>
+        /// <param name="storeLocation">Localização do repositório. Veja <see cref="StoreLocation"/></param>
+        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
         private static X509Certificate2 GetFromStorage(string thumbprint, bool validOnly, StoreName storeName = StoreName.My, StoreLocation storeLocation = StoreLocation.CurrentUser)
         {
             var certificate = default(X509Certificate2);

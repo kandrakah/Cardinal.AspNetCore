@@ -202,7 +202,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction != null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_RUNNING_TRANSACTION);
             }
 
             this.Transaction = this.Context.Database.BeginTransaction();
@@ -212,7 +212,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction != null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_RUNNING_TRANSACTION);
             }
 
             this.Transaction = await this.Context.Database.BeginTransactionAsync(cancellationToken);
@@ -222,7 +222,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction == null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_NO_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_NO_RUNNING_TRANSACTION);
             }
 
             this.Transaction?.Commit();
@@ -233,7 +233,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction == null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_NO_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_NO_RUNNING_TRANSACTION);
             }
 
             await this.Transaction?.CommitAsync(cancellationToken);
@@ -244,7 +244,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction == null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_NO_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_NO_RUNNING_TRANSACTION);
             }
 
             this.Transaction?.Rollback();
@@ -255,7 +255,7 @@ namespace Cardinal.AspNetCore.Repositories
         {
             if (this.Transaction == null)
             {
-                throw new TransactionException(ResourceUtils.Translate(Resource.ERROR_NO_RUNNING_TRANSACTION));
+                throw new TransactionException(Resource.ERROR_NO_RUNNING_TRANSACTION);
             }
 
             await this.Transaction?.RollbackAsync(cancellationToken);

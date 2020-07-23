@@ -11,7 +11,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
-    <Version>0.6.1-alpha</Version>
+    <Version>1.0.0.0</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Copyright>Marcelo O. Mendes</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
@@ -19,7 +19,7 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net core, api, C#, webapi</PackageTags>
-    <PackageReleaseNotes>INITIAL ALPHA</PackageReleaseNotes>
+    <PackageReleaseNotes>Versão inicial</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -33,12 +33,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <Compile Remove="Enumerators\**" />
+    <Compile Remove="Utils\**" />
+    <EmbeddedResource Remove="Enumerators\**" />
+    <EmbeddedResource Remove="Utils\**" />
+    <None Remove="Enumerators\**" />
+    <None Remove="Utils\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
     <PackageReference Include="Serilog" Version="2.9.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
@@ -62,13 +71,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Enumerators\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Addons\Cardinal.AspNetCore.EntityFramework\Cardinal.AspNetCore.EntityFramework.csproj" />
-    <ProjectReference Include="..\Addons\Cardinal.AspNetCore.Serilog\Cardinal.AspNetCore.Serilog.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Controllers\Cardinal.AspNetCore.Controllers.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Identity\Cardinal.AspNetCore.Identity.csproj" />
     <ProjectReference Include="..\Core\Cardinal.AspNetCore.Repositories\Cardinal.AspNetCore.Repositories.csproj" />

@@ -269,9 +269,9 @@
             Classe de configurações Identity
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.DeactivePermissionService">
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.UsePermissionsService">
             <summary>
-            Configuração que desativa o serviço de permissões padrão.
+            Configuração que ativa o serviço de permissões padrão.
             </summary>
         </member>
         <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Type">
@@ -388,33 +388,33 @@
             <summary>
             Método interno que retorna os parâmetros de validação de token OAuth.
             </summary>
-            <param name="settings">Configurações de autoridade usadas nos parâmetros. Veja <see cref="T:Cardinal.AspNetCore.Identity.AuthoritySettings"/>.</param>
-            <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/>.</returns>
+            <param name="settings">Configurações de autoridade usadas nos parâmetros. Veja <see cref="T:Cardinal.AspNetCore.Identity.AuthoritySettings"/></param>
+            <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.Utils.SecurityUtils.GetCertificate(Cardinal.AspNetCore.Identity.AuthoritySettings)">
             <summary>
             Classe interna para a obtenção do certificado de validação de Token OAuth.
             </summary>
-            <param name="settings">Configurações de autoridade contendo os dados de acesso ao certificado.</param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/>.</returns>
+            <param name="settings">Configurações de autoridade contendo os dados de acesso ao certificado</param>
+            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.Utils.SecurityUtils.GetFromFile(System.String,System.String)">
             <summary>
             Método que obtém o certificado provido de um arquivo.
             </summary>
-            <param name="path">Localização do certificado no sistema de arquivos.</param>
-            <param name="password">Senha de acesso ao certificado.</param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/>.</returns>
+            <param name="path">Localização do certificado no sistema de arquivos</param>
+            <param name="password">Senha de acesso ao certificado</param>
+            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.Utils.SecurityUtils.GetFromStorage(System.String,System.Boolean,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation)">
             <summary>
-            
+            Método que obtém o certificado provido do repositório.
             </summary>
-            <param name="thumbprint"></param>
-            <param name="validOnly"></param>
-            <param name="storeName"></param>
-            <param name="storeLocation"></param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/>.</returns>
+            <param name="thumbprint">Impressão digital do certificado</param>
+            <param name="validOnly">Indica que somente certificados válidos</param>
+            <param name="storeName">Nome do repositório. Veja <see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/></param>
+            <param name="storeLocation">Localização do repositório. Veja <see cref="T:System.Security.Cryptography.X509Certificates.StoreLocation"/></param>
+            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
         </member>
     </members>
 </doc>

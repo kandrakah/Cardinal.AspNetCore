@@ -1,4 +1,4 @@
-﻿using Cardinal.AspNetCore.Extensions;
+﻿using Cardinal.Extensions;
 using System;
 
 namespace Cardinal.AspNetCore.Services

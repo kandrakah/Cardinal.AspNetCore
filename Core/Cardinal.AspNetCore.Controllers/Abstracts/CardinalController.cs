@@ -1,14 +1,13 @@
-﻿using Cardinal.AspNetCore.Exceptions;
-using Cardinal.AspNetCore.Extensions;
-using Cardinal.AspNetCore.Interfaces;
-using Cardinal.AspNetCore.Utils;
+﻿using Cardinal.AspNetCore.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Net;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Cardinal.Extensions;
+using Cardinal.Exceptions;
+using Cardinal.Utils.Exceptions;
+using Cardinal.Utils;
 
 namespace Cardinal.AspNetCore.Controllers
 {
@@ -135,9 +134,9 @@ namespace Cardinal.AspNetCore.Controllers
         /// </summary>
         /// <param name="statusCode">Código de erro da excessão.</param>
         /// <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="ActionResult"/></returns>
-        protected ActionResult Error(int statusCode)
+        protected ActionResult Error(HttpStatusCode statusCode)
         {
-            return this.Error(statusCode, StatusCodeUtils.GetDescription(statusCode));
+            return this.Error((int)statusCode, statusCode.GetDescription());
         }
 
         /// <summary>

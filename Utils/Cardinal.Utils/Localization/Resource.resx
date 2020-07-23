@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ERROR_PATTERN_MATH_EXCEPTION" xml:space="preserve">
+    <value>A failure occurred while validating the value based on the reported pattern: $[ERROR]</value>
+  </data>
+  <data name="ERROR_PATTERN_NULL_EMPTY" xml:space="preserve">
+    <value>The regular expression is null, or invalid.</value>
+  </data>
+  <data name="ERROR_TRANSLATION_KEY_NULL_EMPTY" xml:space="preserve">
+    <value>The translation key is null or invalid.</value>
+  </data>
+  <data name="ERROR_WRONG_VERSION_FORMAT" xml:space="preserve">
+    <value>Incorrect version format $[VERSION]!</value>
+  </data>
+  <data name="STATUS_CODE_100" xml:space="preserve">
+    <value>The request can be continued.</value>
+  </data>
+  <data name="STATUS_CODE_101" xml:space="preserve">
+    <value>Switching protocol.</value>
+  </data>
+  <data name="STATUS_CODE_200" xml:space="preserve">
+    <value>The request has succeeded.</value>
+  </data>
+  <data name="STATUS_CODE_201" xml:space="preserve">
+    <value>The request has been fulfilled and resulted in a new resource being created.</value>
+  </data>
+  <data name="STATUS_CODE_202" xml:space="preserve">
+    <value>The request has been accepted for processing, but the processing has not been completed.</value>
+  </data>
+  <data name="STATUS_CODE_203" xml:space="preserve">
+    <value>The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy.</value>
+  </data>
+  <data name="STATUS_CODE_204" xml:space="preserve">
+    <value>The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation.</value>
+  </data>
+  <data name="STATUS_CODE_205" xml:space="preserve">
+    <value>The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent.</value>
+  </data>
+  <data name="STATUS_CODE_206" xml:space="preserve">
+    <value>The server has fulfilled the partial GET request for the resource.</value>
+  </data>
+  <data name="STATUS_CODE_300" xml:space="preserve">
+    <value>Multiple responses available.</value>
+  </data>
+  <data name="STATUS_CODE_301" xml:space="preserve">
+    <value>The requested resource has been moved to a new address.</value>
+  </data>
+  <data name="STATUS_CODE_302" xml:space="preserve">
+    <value>The requested resource has been temporarily moved to another address.</value>
+  </data>
+  <data name="STATUS_CODE_400" xml:space="preserve">
+    <value>The request was not accepted due to missing or not validated data. Check the content of the request.</value>
+  </data>
+  <data name="STATUS_CODE_401" xml:space="preserve">
+    <value>The request was not authorized. Check if the session is active, the access token has been informed or if the active user has authorization to access this service.</value>
+  </data>
+  <data name="STATUS_CODE_403" xml:space="preserve">
+    <value>Access to the requested service is not allowed.</value>
+  </data>
+  <data name="STATUS_CODE_404" xml:space="preserve">
+    <value>The requested service or resource was not found.</value>
+  </data>
+  <data name="STATUS_CODE_405" xml:space="preserve">
+    <value>The method specified in the request is not allowed for the requested resource.</value>
+  </data>
+  <data name="STATUS_CODE_406" xml:space="preserve">
+    <value>The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.</value>
+  </data>
+  <data name="STATUS_CODE_407" xml:space="preserve">
+    <value>Proxy authentication is required before completing the request.</value>
+  </data>
+  <data name="STATUS_CODE_408" xml:space="preserve">
+    <value>The client did not produce a request within the time that the server was prepared to wait.</value>
+  </data>
+  <data name="STATUS_CODE_409" xml:space="preserve">
+    <value>The request could not be completed due to a conflict with the current state of the resource.</value>
+  </data>
+  <data name="STATUS_CODE_410" xml:space="preserve">
+    <value>The requested resource is no longer available at the server and no forwarding address is known.</value>
+  </data>
+  <data name="STATUS_CODE_411" xml:space="preserve">
+    <value>The server refuses to accept the requests without a defined Content- Length.</value>
+  </data>
+  <data name="STATUS_CODE_413" xml:space="preserve">
+    <value>The server is refusing to process a request because the request entity is larger than the server is willing or able to process</value>
+  </data>
+  <data name="STATUS_CODE_414" xml:space="preserve">
+    <value>The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret.</value>
+  </data>
+  <data name="STATUS_CODE_415" xml:space="preserve">
+    <value>The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.</value>
+  </data>
+  <data name="STATUS_CODE_418" xml:space="preserve">
+    <value>I'm a teapot.</value>
+  </data>
+  <data name="STATUS_CODE_500" xml:space="preserve">
+    <value>The server encountered an unexpected condition which prevented it from fulfilling the request.</value>
+  </data>
+  <data name="STATUS_CODE_501" xml:space="preserve">
+    <value>The server does not support the functionality required to fulfill the request.</value>
+  </data>
+  <data name="STATUS_CODE_502" xml:space="preserve">
+    <value>The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request.</value>
+  </data>
+  <data name="STATUS_CODE_503" xml:space="preserve">
+    <value>The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</value>
+  </data>
+  <data name="STATUS_CODE_504" xml:space="preserve">
+    <value>The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server.</value>
+  </data>
+  <data name="STATUS_CODE_505" xml:space="preserve">
+    <value>The server does not support, or refuses to support, the HTTP protocol version that was used in the request message.</value>
+  </data>
+  <data name="STATUS_CODE_510" xml:space="preserve">
+    <value>The policy for accessing the resource has not been met in the request.</value>
+  </data>
+  <data name="STATUS_CODE_511" xml:space="preserve">
+    <value>Network authentication is required before proceeding.</value>
+  </data>
+  <data name="STATUS_CODE_UNKNOW" xml:space="preserve">
+    <value>Unknow response $[VALUE].</value>
+  </data>
+</root>

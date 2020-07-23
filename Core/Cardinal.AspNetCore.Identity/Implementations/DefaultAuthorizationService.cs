@@ -1,4 +1,4 @@
-﻿using Cardinal.AspNetCore.Extensions;
+﻿using Cardinal.Extensions;
 using Cardinal.AspNetCore.Identity.Extensions;
 using Cardinal.AspNetCore.Identity.Utils;
 using Cardinal.AspNetCore.Services;

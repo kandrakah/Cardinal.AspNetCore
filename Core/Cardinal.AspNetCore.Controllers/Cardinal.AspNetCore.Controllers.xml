@@ -76,7 +76,7 @@
             <param name="exception">Excessão à ser respondida à requisição.</param>
             <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController.Error(System.Int32)">
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController.Error(System.Net.HttpStatusCode)">
             <summary>
             Método que responte à requisição com um erro.
             </summary>

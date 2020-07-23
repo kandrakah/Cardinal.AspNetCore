@@ -1,0 +1,1277 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.Utils</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.Utils.DateField">
+            <summary>
+            Enumerador de campos de datas.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Days">
+            <summary>
+            Dias
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Hours">
+            <summary>
+            Horas
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Minutes">
+            <summary>
+            Minutos
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Seconds">
+            <summary>
+            Segundos.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Milissecounds">
+            <summary>
+            Milissegundos.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.DateField.Ticks">
+            <summary>
+            Instantes
+            </summary>
+        </member>
+        <member name="T:Cardinal.Utils.Enumerators.VersionState">
+            <summary>
+            Enumerador que classifica a comparação entre versões.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.Enumerators.VersionState.Unknow">
+            <summary>
+            Comparação desconhecida.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.Enumerators.VersionState.Newer">
+            <summary>
+            Indica que a versão comparada é mais nova.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.Enumerators.VersionState.Older">
+            <summary>
+            Indica que a versão comparada é mais antiga.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Utils.Enumerators.VersionState.Current">
+            <summary>
+            Indica que a versão comparada é equivalente.
+            </summary>
+        </member>
+        <member name="T:Cardinal.Utils.Exceptions.Validation">
+            <summary>
+            Objeto que representa uma mensagem de validação da exceção <see cref="T:Cardinal.Utils.Exceptions.ValidationException"/>.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Exceptions.Validation.Field">
+            <summary>
+            Propriedade associada à falha.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Exceptions.Validation.Message">
+            <summary>
+            Mensagem de exceção da falha.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.Validation.#ctor(System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="field">Propriedade associada à falha.</param>
+            <param name="message">Mensagem de exceção da falha.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.Validation.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Utils.Exceptions.ValidationResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Exceptions.ValidationResponse.Message">
+            <summary>
+            Mensagem geral da exceção.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Exceptions.ValidationResponse.Validations">
+            <summary>
+            Lista de mensagens de validação da exceção. Veja <see cref="T:Cardinal.Utils.Exceptions.Validation"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationResponse.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Utils.Exceptions.ValidationException">
+            <summary>
+            Classe de exceção de validação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Exceptions.ValidationException.Validations">
+            <summary>
+            Coleção de validações contidas na exceção.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.Add(System.String,System.String)">
+            <summary>
+            Método que adiciona uma mensagem de validação à lista.
+            </summary>
+            <param name="field">Campo relacionado à validação.</param>
+            <param name="message">Mensagem de validação.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.Any">
+            <summary>
+            Método que indica se há mensagens de validação na exceção.
+            </summary>
+            <returns>Verdadeiro caso exista alguma mensagem de validação ou falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.GetValidationResponse">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Utils.Extensions.DbCommandExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.Common.DbCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.DbCommandExtensions.AddParameter``1(System.Data.Common.DbCommand,System.String,``0)">
+            <summary>
+            Extensão que adiciona um novo parâmetro ao DbCommand.
+            </summary>
+            <typeparam name="T">Tipo de valor do parâmetro.</typeparam>
+            <param name="cmd">Este Objeto.</param>
+            <param name="key">Chave do parâmetro</param>
+            <param name="value">Valor do parâmetro</param>        
+        </member>
+        <member name="T:Cardinal.Utils.Extensions.DbDataReaderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.Common.DbDataReader"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.DbDataReaderExtensions.ToDataTable(System.Data.Common.DbDataReader)">
+            <summary>
+            Extensão que transforma um <see cref="T:System.Data.Common.DbDataReader"/> em um <see cref="T:System.Data.DataTable"/>.
+            </summary>
+            <param name="reader">Objeto referenciado</param>
+            <returns>DataTable proveniente do DataReader</returns>
+        </member>
+        <member name="T:Cardinal.Utils.Extensions.MemoryStreamExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IO.MemoryStream"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.MemoryStreamExtensions.WriteToFile(System.IO.MemoryStream,System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Extensão para salvar um MemoryStream em arquivo.
+            </summary>
+            <param name="stream">Este Stream</param>
+            <param name="filePath">Diretório onde o stream será salvo junto com o nome do arquivo</param>
+            <param name="fileMode">Modo de abertura do arquivo. Veja <see cref="T:System.IO.FileMode"/></param>
+            <param name="fileAccess">Modo de acesso ao arquivo. Veja <see cref="T:System.IO.FileAccess"/></param>
+        </member>
+        <member name="T:Cardinal.Utils.Extensions.TypeExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.AsMemberInfo(System.Type)">
+            <summary>
+            Return the memberInfo from a type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The memberInfo from a type.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsNullable(System.Type)">
+            <summary>
+            Determine if a type is null-able.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is null-able; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.ToNullable(System.Type)">
+            <summary>
+            Return the type from a nullable type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The type from a nullable type.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetInnerElementType(System.Type)">
+            <summary>
+            Return the collection element type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The collection element type from a type.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsCollection(System.Type)">
+            <summary>
+            Determine if a type is a collection.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsCollection(System.Type,System.Type@)">
+            <summary>
+            Determine if a type is a collection.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <param name="elementType">out: the element type of the collection.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetUnderlyingTypeOrSelf(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsEnum(System.Type)">
+            <summary>
+            Determine if a type is an enumeration.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsDateTime(System.Type)">
+            <summary>
+            Determine if a type is a DateTime.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is a DateTime; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsTimeSpan(System.Type)">
+            <summary>
+            Determine if a type is a TimeSpan.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is a TimeSpan; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsVersion(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="clrType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsIQueryable(System.Type)">
+            <summary>
+            Determines whether the given type is IQueryable.
+            </summary>
+            <param name="type">The type</param>
+            <returns><c>true</c> if the type is IQueryable.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetInnerMostElementType(System.Type)">
+            <summary>
+            Returns the innermost element type for a given type, dealing with
+            nullables, arrays, etc.
+            </summary>
+            <param name="type">The type from which to get the innermost type.</param>
+            <returns>The innermost element type</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetImplementedIEnumerableType(System.Type)">
+            <summary>
+            Returns type of T if the type implements IEnumerable of T, otherwise, return null.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.Utils.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_PATTERN_MATH_EXCEPTION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a A failure occurred while validating the value based on the reported pattern: $[ERROR].
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_PATTERN_NULL_EMPTY">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null, or invalid..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_TRANSLATION_KEY_NULL_EMPTY">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_WRONG_VERSION_FORMAT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Incorrect version format $[VERSION]!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_100">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request can be continued..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_101">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Switching protocol..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_200">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has succeeded..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_201">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has been fulfilled and resulted in a new resource being created..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_202">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has been accepted for processing, but the processing has not been completed..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_203">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_204">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_205">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_206">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the partial GET request for the resource..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_300">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Multiple responses available..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_301">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been moved to a new address..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_302">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been temporarily moved to another address..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_400">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request was not accepted due to missing or not validated data. Check the content of the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_401">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request was not authorized. Check if the session is active, the access token has been informed or if the active user has authorization to access this service..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_403">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Access to the requested service is not allowed..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_404">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested service or resource was not found..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_405">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The method specified in the request is not allowed for the requested resource..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_406">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_407">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Proxy authentication is required before completing the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_408">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The client did not produce a request within the time that the server was prepared to wait..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_409">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request could not be completed due to a conflict with the current state of the resource..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_410">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource is no longer available at the server and no forwarding address is known..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_411">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server refuses to accept the requests without a defined Content- Length..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_413">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to process a request because the request entity is larger than the server is willing or able to process.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_414">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_415">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_418">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a I&apos;m a teapot..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_500">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server encountered an unexpected condition which prevented it from fulfilling the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_501">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server does not support the functionality required to fulfill the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_502">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_503">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is currently unable to handle the request due to a temporary overloading or maintenance of the server..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_504">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_505">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server does not support, or refuses to support, the HTTP protocol version that was used in the request message..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_510">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The policy for accessing the resource has not been met in the request..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_511">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Network authentication is required before proceeding..
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.STATUS_CODE_UNKNOW">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unknow response $[VALUE]..
+            </summary>
+        </member>
+        <member name="T:Cardinal.Utils.TranslationSet">
+            <summary>
+            Classe de definição de valor de tradução.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.TranslationSet.Key">
+            <summary>
+            Chave da tradução.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.TranslationSet.Value">
+            <summary>
+            Valor da tradução.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.TranslationSet.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.TranslationSet.#ctor(System.String,System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="key">Chave da tradução.</param>
+            <param name="value">Valor da tradução.</param>
+        </member>
+        <member name="M:Cardinal.Utils.TranslationSet.Set(System.String,System.Object)">
+            <summary>
+            Método estático para definição de valor de tradução.
+            </summary>
+            <param name="key">Chave da tradução.</param>
+            <param name="value">Valor da tradução.</param>
+            <returns>Instância de <see cref="T:Cardinal.Utils.TranslationSet"/>.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.TranslationSet.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Utils.CardinalVersion">
+            <summary>
+            Representa uma versão de arquivo.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.CardinalVersion.Major">
+            <summary>
+            Versão principal.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.CardinalVersion.Minor">
+            <summary>
+            Versão secundária.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.CardinalVersion.Update">
+            <summary>
+            Versão de atualização.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.CardinalVersion.Revision">
+            <summary>
+            Versão de revisão.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="major">Versão principal</param>
+            <param name="minor">Versão secundária</param>
+            <param name="update">Versão de atualização</param>
+            <param name="revision">Versão de revisão</param>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_Equality(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_Inequality(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_GreaterThan(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_LessThan(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_GreaterThanOrEqual(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_LessThanOrEqual(Cardinal.Utils.CardinalVersion,Cardinal.Utils.CardinalVersion)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_GreaterThan(Cardinal.Utils.CardinalVersion,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_LessThan(Cardinal.Utils.CardinalVersion,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_GreaterThanOrEqual(Cardinal.Utils.CardinalVersion,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.op_LessThanOrEqual(Cardinal.Utils.CardinalVersion,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Set(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Método estático para definir uma versão.
+            </summary>
+            <param name="major">Versão principal</param>
+            <param name="minor">Versão secundária</param>
+            <param name="update">Versão de atualização</param>
+            <param name="revision">Versão de revisão</param>
+            <returns>Instância de <see cref="T:Cardinal.Utils.CardinalVersion"/></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Parse(System.String)">
+            <summary>
+            Método para transformar uma string válida em <see cref="T:Cardinal.Utils.CardinalVersion"/>.
+            </summary>
+            <param name="version">Valor string da versão</param>
+            <returns>Instância de <see cref="T:Cardinal.Utils.CardinalVersion"/></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Parse(System.Version)">
+            <summary>
+            Método para transformar um <see cref="T:System.Version"/> válida em <see cref="T:Cardinal.Utils.CardinalVersion"/>.
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.CompareTo(System.Object)">
+            <summary>
+            Método para comparar um objeto à esta versão.
+            </summary>
+            <param name="obj">Objeto à ser comparado</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.CompareTo(Cardinal.Utils.CardinalVersion)">
+            <summary>
+            Método para comparar uma versão à esta.
+            </summary>
+            <param name="other">Objeto à ser comparado</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.CompareTo(System.String)">
+            <summary>
+            Método para comparar uma string à esta versão.
+            </summary>
+            <param name="version">Valor string da versão</param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Equals(Cardinal.Utils.CardinalVersion)">
+            <summary>
+            Método para verfificar se a versão informada é igual à esta.
+            </summary>
+            <param name="other">Versão à ser comparada</param>
+            <returns>Verdadeiro caso as versões sejam iguais ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Equals(System.String)">
+            <summary>
+            Método para verfificar se a versão informada é igual à esta.
+            </summary>
+            <param name="version">Versão à ser comparada</param>
+            <returns>Verdadeiro caso as versões sejam iguais ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Newer(Cardinal.Utils.CardinalVersion)">
+            <summary>
+            Método para verfificar se a versão informada é mais recente à esta.
+            </summary>
+            <param name="other">Versão à ser comparada</param>
+            <returns>Verdadeiro caso a versão informada seja mais recente ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Newer(System.String)">
+            <summary>
+            Método para verfificar se a versão informada é mais recente à esta.
+            </summary>
+            <param name="version">Versão à ser comparada</param>
+            <returns>Verdadeiro caso a versão informada seja mais recente ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Older(Cardinal.Utils.CardinalVersion)">
+            <summary>
+            Método para verfificar se a versão informada é anterior à esta.
+            </summary>
+            <param name="other">Versão à ser comparada</param>
+            <returns>Verdadeiro caso a versão informada seja mais antiga ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Older(System.String)">
+            <summary>
+            Método para verfificar se a versão informada é anterior à esta.
+            </summary>
+            <param name="version">Versão à ser comparada</param>
+            <returns>Verdadeiro caso a versão informada seja mais antiga ou falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Compare(Cardinal.Utils.CardinalVersion)">
+            <summary>
+            Método que faz a comparação entre versõoes.
+            </summary>
+            <param name="other">Versão à ser comparada com esta.</param>
+            <returns>Enumerador representando o resultado da comparação entre as versões.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.GetHashCode">
+            <summary>
+            Método que calcula o hashCode desta instância.
+            </summary>
+            <returns>HashCode da instância dessa classe.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalVersion.ToString(System.Boolean)">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <param name="showComplete">Indica se deve ser exibida a versão no formato completo.</param>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Cardinal.Utils.StatusCodeUtils">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.StatusCodeUtils.GetDescription(System.Int32,System.Globalization.CultureInfo)">
+            <summary>
+            Método que traz a descrição de um código de status.
+            </summary>
+            <param name="statusCode">Código de status</param>
+            <param name="culture">Dados do idioma desejado</param>
+            <returns>Descrição do código de status</returns>
+        </member>
+        <member name="T:Cardinal.Exceptions.CardinalException">
+            <summary>
+            Classe de exceção de serviços de Api.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.CardinalException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.CardinalException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.CardinalException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.CardinalException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.CardinalException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Exceptions.InvalidVersionException">
+            <summary>
+            Classe de exceção ligada à validação de versões.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Exceptions.InvalidVersionException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.InvalidVersionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Cardinal.Exceptions.InvalidVersionException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.AssemblyExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Reflection.Assembly"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.AssemblyExtensions.GetVersion(System.Reflection.Assembly)">
+            <summary>
+            Extensão que traz a versão do assembly.
+            </summary>
+            <param name="assembly">Objeto referenciado</param>
+            <returns>Instância de <see cref="T:Cardinal.Utils.CardinalVersion"/> contendo a versão do assembly</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ByteExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Byte"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ByteExtensions.ComputeHash(System.Byte[],System.Security.Cryptography.HashAlgorithmName)">
+            <summary>
+            Extensão que computa um hash de um vetor de bytes.
+            </summary>
+            <param name="bytes">Objeto referenciado</param>
+            <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
+            <returns>Hash gerado para o byte array informado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ByteExtensions.ToBase64(System.Byte[])">
+            <summary>
+            Extensão para conversão de um vetor de bytes em Base64;
+            </summary>
+            <param name="bytes">Objeto referenciado.</param>
+            <returns>Valor em Base64 do vetor de bytes informado.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.DataRowExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.DataRow"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DataRowExtensions.GetItem``1(System.Data.DataRow)">
+            <summary>
+            Extensão para converter o um DataRow em um objeto.
+            </summary>
+            <typeparam name="T">Tipo de objeto à ser parseado</typeparam>
+            <param name="dataRow">Objeto referenciado</param>
+            <returns>Objeto proveniente do DataRow</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.DataTableExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.DataTable"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DataTableExtensions.Enumerate``1(System.Data.DataTable)">
+            <summary>
+            Extensão para converter o Datatable para lista.
+            </summary>
+            <typeparam name="T">Tipo de objeto à ser parseado</typeparam>
+            <param name="table">Objeto referenciado</param>
+            <returns>Lista proveniente do DataTable atual</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.DateTimeExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.DateTime"/>.
+            </summary>
+        </member>
+        <member name="F:Cardinal.Extensions.DateTimeExtensions.InitialDate">
+            <summary>
+            Data Inicial de um DateTime.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DateTimeExtensions.Elapsed(System.DateTime,Cardinal.Utils.DateField)">
+            <summary>
+            Extensão que traz a diferença da data atual à data inicial válida.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="field">Tipo de campo à ser retornado</param>
+            <returns>Diferença entre as datas baseando-se no tipo de campo solicitado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DateTimeExtensions.IsBetween(System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            Extensão que verifica se uma data está entre duas datas específicas.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="initialDate">Data inicial do período</param>
+            <param name="finalDate">Data final do período</param>
+            <returns>Verdadeiro caso a data esteja dentro do período e falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DateTimeExtensions.Diference(System.DateTime,System.DateTime,Cardinal.Utils.DateField)">
+            <summary>
+            Extensão que traz a diferença da data atual à uma data informada.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="date">Data à ser comparada</param>
+            <param name="field">Tipo de campo à ser retornado</param>
+            <returns>Diferença entre as datas baseando-se no tipo de campo solicitado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DateTimeExtensions.GetResult(System.TimeSpan,Cardinal.Utils.DateField)">
+            <summary>
+            Método que retorna o resultado da diferença entre as datas.
+            </summary>
+            <param name="timeSpan">TimeSpan de diferenciação entre datas</param>
+            <param name="field">Tipo de campo desejado</param>
+            <returns>Contagem de diferença entre as datas com base no tipo de campo informado</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.DecimalExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Decimal"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsCurrency(System.Decimal)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <returns>Representação monetária do valor decimal</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsCurrency(System.Nullable{System.Decimal})">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor</param>
+            <returns>Representação monetária do valor decimal</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsCurrency(System.Decimal,System.Globalization.CultureInfo)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor</param>
+            <param name="culture">Informações de idioma à serem usados na conversão</param>
+            <returns>Representação monetária do valor decimal</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsCurrency(System.Nullable{System.Decimal},System.Globalization.CultureInfo)">
+            <summary>
+            Extensão para transformar o valor decimal em sua representação monetária.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="culture">Informações de idioma à serem usados na conversão.</param>
+            <returns>Representação monetária do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsPercentage(System.Decimal,System.Boolean)">
+            <summary>
+            Extensão para transformar o valor decimal em porcentagem.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="transform">Indica se o valor deve ser normalizado.</param>
+            <returns>Representação em porcentagem do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsPercentage(System.Nullable{System.Decimal},System.Boolean)">
+            <summary>
+            Extensão para transformar o valor decimal em porcentagem.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="transform">Indica se o valor deve ser normalizado.</param>
+            <returns>Representação em porcentagem do valor decimal.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.EnumerableExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Extensão que faz a distinção de elementos de um enumerador baseando-se em uma condição estabelecida.
+            </summary>        
+            <typeparam name="TSource">Tipo do elemento enumerado</typeparam>
+            <typeparam name="TKey">tipo do elemento projetado</typeparam>
+            <param name="source">Objeto referenciado</param>
+            <param name="keySelector">Condicionamento de distinção à ser utilizado</param>
+            <returns>O enumerador de elementos distintos.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IEqualityComparer{``1})">
+            <summary>
+            Extensão que faz a distinção de elementos de um enumerador baseando-se em uma condição estabelecida.
+            </summary>        
+            <typeparam name="TSource">Tipo do elemento enumerado</typeparam>
+            <typeparam name="TKey">tipo do elemento projetado</typeparam>
+            <param name="source">Objeto referenciado</param>
+            <param name="keySelector">Condicionamento de distinção à ser utilizado</param>
+            <param name="comparer">Operação de comparação à ser aplicada</param>
+            <returns>O enumerador de elementos distintos.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.EnumeratorExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Enum"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.EnumeratorExtensions.ToDictionary(System.Enum)">
+            <summary>
+            Extensão para converter um enumerador em um dicionário.
+            </summary>
+            <param name="enumerator">Objeto referenciado</param>
+            <returns>Dicionário resultante do enumerador</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.GuidExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Guid"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.GuidExtensions.Equals(System.Nullable{System.Guid},System.Nullable{System.Guid},System.Boolean)">
+            <summary>
+            Extensão que faz a comparação entre dois Guids para verificar sua igualdade.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="comparedValue">Guid à ser comparado</param>
+            <param name="ignoreIfNull">Ignorar verificação se o valor Guid atual for nulo</param>
+            <returns>Resultado da comparação</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.GuidExtensions.ToUpper(System.Guid)">
+            <summary>
+            Extensão que transforma este Guid em uma representação string em caixa alta.
+            </summary>
+            <param name="guid">Este Objeto</param>
+            <returns>Representação String em caixa alta.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.HttpStatusCodeExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Net.HttpStatusCode"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.HttpStatusCodeExtensions.GetDescription(System.Net.HttpStatusCode,System.Globalization.CultureInfo)">
+            <summary>
+            Método que obtém a descrição de um código de status.
+            </summary>
+            <param name="statusCode">Objeto referenciado</param>
+            <param name="culture">Dados do idioma desejado</param>
+            <returns>Descrição do código de status</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.HttpStatusCodeExtensions.GetDescription(System.Int32,System.Globalization.CultureInfo)">
+            <summary>
+            Método que obtém a descrição de um código de status.
+            </summary>
+            <param name="statusCode">Código de status o qual se deseja a descrição</param>
+            <param name="culture">Dados do idioma desejado</param>
+            <returns>Descrição do código de status</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.IntegerExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.IntegerExtensions.IsBetween(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Extensão que verifica se o valor está entre dois valores informados.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="minValue">Valor mínimo</param>
+            <param name="MaxValue">Valor máximo</param>
+            <param name="includeLimits">Indica se os valores das extremidades devem ser incluidos na verificação</param>
+            <returns>Resultado da verificação</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.MemberInfoExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Reflection.MemberInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.MemberInfoExtensions.AsType(System.Reflection.MemberInfo)">
+            <summary>
+            Extensão que traz o tipo do <see cref="T:System.Reflection.MemberInfo"/> informado.
+            </summary>
+            <param name="memberInfo">Objeto referenciado</param>
+            <returns>Tipo equivalente ao MemberInfo informado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.MemberInfoExtensions.GetQualifiedName(System.Reflection.MemberInfo)">
+            <summary>
+            Extensão que traz o nome qualificado do <see cref="T:System.Reflection.MemberInfo"/> informado.
+            </summary>
+            <param name="memberInfo">Objeto referenciado</param>
+            <returns>Nome qualificado do MemberInfo</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.MemberInfoExtensions.GetReflectedType(System.Reflection.MemberInfo)">
+            <summary>
+            Extensão que traz o tipo herdado do <see cref="T:System.Reflection.MemberInfo"/> informado.
+            </summary>
+            <param name="memberInfo">Objeto referenciado</param>
+            <returns>Tipo herdado pelo MemberInfo informado</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.StreamExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IO.Stream"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.StreamExtensions.ToByteArray(System.IO.Stream)">
+            <summary>
+            Extensão para converter o Stream em um vetor de bytes.
+            </summary>
+            <param name="stream">Objeto referenciado.</param>
+            <returns>Vetor de bytes referente ao stream.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StreamExtensions.FromByteArray(System.IO.Stream,System.Byte[],System.Boolean)">
+            <summary>
+            Extensão para converter um vetor de bytes em um stream.
+            </summary>
+            <param name="stream">Este stream.</param>
+            <param name="array">Vetor de bytes.</param>
+            <param name="sameInstance"></param>
+            <returns>Stream carregado com o vetor de bytes informado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StreamExtensions.ComputeHash(System.IO.Stream,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>
+            Extensão que computa um hash de um stream de dados.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
+            <returns>Hash gerado para o stream de dados informado</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.StringExtensions">
+            <summary>
+            Extensões para <see cref="T:System.String"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.SetParameters(System.String,System.String,System.Object)">
+            <summary>
+            Método para a tradução de um texto para o idioma atual.
+            </summary>
+            <param name="text">Objeto referenciado</param>
+            <param name="key">Chave de referência da tradução</param>
+            <param name="value">Valor da tradução</param>
+            <returns>Texto traduzido</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.SetParameters(System.String,Cardinal.Utils.TranslationSet[])">
+            <summary>
+            Método para a tradução de um texto para o idioma atual.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="sets">Vetor de valores à serem substituídos durante a tradução</param>
+            <returns>Texto traduzido</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.Equals(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Extensão para verificação de igualdade entre strings.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="comparedValue">Valor String à ser comparado</param>
+            <param name="ignoreIfNull">Indica se deve ignorar casos nulos</param>
+            <param name="ignoreCase">Indica se deve ignorar case</param>
+            <returns>Verdadeiro caso as strings sejam iguais e falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsMatch(System.String,System.String)">
+            <summary>
+            Extensão para verificar se uma string atende à expressão regular informada.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="pattern">Expressão regular para validação do valor string</param>
+            <returns>Verdadeiro caso a string atenda à expressão regular e Falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsNumeric(System.String,System.Int32)">
+            <summary>
+            Método que verifica se uma string é numérica.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="lenght">Tamanho exato do número de casas núméricas</param>
+            <returns>Verdadeiro caso a string seja numérica e falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.Capitalize(System.String,System.String[])">
+            <summary>
+            Método que capitaliza uma string.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <param name="exclusions">Exclusões de capitalização</param>
+            <returns>String capitalizada</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.ToByteArray(System.String)">
+            <summary>
+            Extensão para converter uma string em um vetor de bytes.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <returns>Vetor de bytes gerado a partir da string</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.ToByteArray(System.String,System.Text.Encoding)">
+            <summary>
+            Extensão para converter uma string em um vetor de bytes. 
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <param name="encoding">Encoder à ser utilizado na conversão.</param>
+            <returns>Vetor de bytes gerado a partir da string.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.ComputeHash(System.String,System.Security.Cryptography.HashAlgorithmName)">
+            <summary>
+            Extensão que computa um hash de um string.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
+            <returns>Hash gerado para o string informado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.ComputeHash(System.String,System.Security.Cryptography.HashAlgorithmName,System.Text.Encoding)">
+            <summary>
+            Extensão que computa um hash de um string.
+            </summary>
+            <param name="source">Objeto referenciado</param>
+            <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
+            <param name="encoding">Codificação da string</param>
+            <returns>Hash gerado para o string informado</returns>
+        </member>
+    </members>
+</doc>
