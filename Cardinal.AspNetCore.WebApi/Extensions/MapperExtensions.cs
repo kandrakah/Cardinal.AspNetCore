@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
+using Cardinal.AspNetCore;
 using Cardinal.AspNetCore.WebApi.DTOs;
 
-namespace Cardinal.AspNetCore.WebApi.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
-    /// 
+    /// Classe de extensões para <see cref="IMapper"/>.
     /// </summary>
-    public static class IMapperExtensions
+    public static class MapperExtensions
     {
         /// <summary>
         /// 

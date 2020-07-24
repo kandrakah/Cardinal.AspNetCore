@@ -1,14 +1,11 @@
-﻿using Cardinal.Extensions;
-using Cardinal.AspNetCore.Identity.Extensions;
-using Cardinal.AspNetCore.Identity.Utils;
-using Cardinal.AspNetCore.Services;
+﻿using Cardinal.AspNetCore.Services;
+using Cardinal.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Net;
@@ -22,11 +19,6 @@ namespace Cardinal.AspNetCore.Identity
     internal class DefaultAuthorizationService : IAuthorizationService, IService
     {
         /// <summary>
-        /// Instância do provedor de serviços.
-        /// </summary>
-        private IServiceProvider Provider { get; }
-
-        /// <summary>
         /// Instância do provedor de configurações.
         /// </summary>
         private IConfiguration Configuration { get; }
@@ -34,20 +26,19 @@ namespace Cardinal.AspNetCore.Identity
         /// <summary>
         /// Instância do serviço de log.
         /// </summary>
-        private readonly ILogger Logger;
+        private readonly ILogger _logger;
 
-        public DefaultAuthorizationService(ILogger<DefaultAuthorizationService> logger, IServiceProvider provider, IConfiguration configuration)
+        public DefaultAuthorizationService(ILogger<DefaultAuthorizationService> logger, IConfiguration configuration)
         {
-            this.Provider = provider;
             this.Configuration = configuration;
-            this.Logger = logger;
+            this._logger = logger;
         }
 
         /// <summary>
-        /// 
+        /// Método que efetua a validação da autorização de acesso.
         /// </summary>
-        /// <param name="context"></param>
-        /// <param name="requiredPermission"></param>
+        /// <param name="context">Contexto de autorização</param>
+        /// <param name="requiredPermission">Requerimento de permissão</param>
         public void Authorize(AuthorizationFilterContext context, PermissionsAuthorizationRequirement requiredPermission)
         {
             // Se permite anônimo, não é necessário validar nada.
@@ -69,7 +60,7 @@ namespace Cardinal.AspNetCore.Identity
 
             if (requiredPermission.Contains(IdentityConstants.PERMISSION_DEFAULT_TAG))
             {
-                var actionDescriptor = (ControllerActionDescriptor)context.ActionDescriptor;
+                var actionDescriptor = context.ActionDescriptor as ControllerActionDescriptor;
                 var controllerType = actionDescriptor.ControllerTypeInfo.AsType();
                 requiredPermission.ReplaceDefault(controllerType.GetControllerDefaultPermission());
             }
@@ -81,11 +72,22 @@ namespace Cardinal.AspNetCore.Identity
             }
         }
 
+        /// <summary>
+        /// Método que efetua a verificação de permissão de uma identidade considerando o requerimento de permissão informado.
+        /// </summary>
+        /// <param name="identity">Identidade do usuário</param>
+        /// <param name="requiredPermission">Requerimento de permissão</param>
+        /// <returns>Verdadeiro caso o usuário atenda aos critérios requisitados e falso caso contrário</returns>
         public virtual bool HavePermission(ClaimsIdentity identity, PermissionsAuthorizationRequirement requiredPermission)
         {
             return IsRoot(identity);
         }
 
+        /// <summary>
+        /// Método que verifica se o usuário possui permissão máxima.
+        /// </summary>
+        /// <param name="identity">Identidade do usuário</param>
+        /// <returns>Verdadeiro caso o usuário possua a permissão máxima e falso caso contrário</returns>
         public virtual bool IsRoot(ClaimsIdentity identity)
         {
             return true;
@@ -98,7 +100,7 @@ namespace Cardinal.AspNetCore.Identity
         /// <returns></returns>
         public IActionResult Result(HttpStatusCode statusCode)
         {
-            Logger.LogWarning($"{(int)statusCode}: {statusCode.GetDescription()}");
+            _logger.LogWarning($"{(int)statusCode}: {statusCode.GetDescription()}");
             return new StatusCodeResult((int)statusCode);
         }
 
@@ -109,7 +111,7 @@ namespace Cardinal.AspNetCore.Identity
         /// <returns></returns>
         public IActionResult Unauthorized(string message = "")
         {
-            Logger.LogWarning($"401: {message}");
+            _logger.LogWarning($"401: {message}");
             return new UnauthorizedResult();
         }
 
@@ -120,7 +122,7 @@ namespace Cardinal.AspNetCore.Identity
         /// <returns></returns>
         public IActionResult Forbid(string message = "")
         {
-            Logger.LogWarning($"403: {message}");
+            _logger.LogWarning($"403: {message}");
             return new ForbidResult();
         }
 
@@ -137,8 +139,8 @@ namespace Cardinal.AspNetCore.Identity
             if (tokenDecoder.CanReadToken(token))
             {
                 var jwtSecurityToken = (JwtSecurityToken)tokenDecoder.ReadToken(token);
-                var settings = this.Configuration.GetSection("Authority").GetSettings<AuthoritySettings>();
-                var parameters = SecurityUtils.GetTokenParametes(settings);
+                var settings = this.Configuration.GetSettings<AuthoritySettings>("Authority");
+                var parameters = settings.GetTokenParametes();
                 var principal = tokenDecoder.ValidateToken(jwtSecurityToken.RawData, parameters, out validatedToken);
 
                 return principal;

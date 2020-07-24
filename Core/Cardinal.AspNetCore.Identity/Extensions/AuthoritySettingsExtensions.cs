@@ -1,24 +1,25 @@
-﻿using Cardinal.Exceptions;
+﻿using Cardinal.AspNetCore.Identity;
 using Cardinal.AspNetCore.Identity.Localization;
+using Cardinal.Exceptions;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 
-namespace Cardinal.AspNetCore.Identity.Utils
+namespace Cardinal.Extensions
 {
     /// <summary>
-    /// Classe interna de utilidades de segurança.
+    /// Classe de extensões para <see cref="AuthoritySettings"/>.
     /// </summary>
-    internal static class SecurityUtils
+    public static class AuthoritySettingsExtensions
     {
         /// <summary>
-        /// Método interno que retorna os parâmetros de validação de token OAuth.
+        /// Extensão que retorna os parâmetros de validação de token OAuth.
         /// </summary>
-        /// <param name="settings">Configurações de autoridade usadas nos parâmetros. Veja <see cref="AuthoritySettings"/></param>
+        /// <param name="settings">Objeto referenciado</param>
         /// <returns>Parâmetros de validação do Token. Veja <see cref="TokenValidationParameters"/></returns>
-        internal static TokenValidationParameters GetTokenParametes(AuthoritySettings settings)
+        internal static TokenValidationParameters GetTokenParametes(this AuthoritySettings settings)
         {
             try
             {
@@ -42,19 +43,16 @@ namespace Cardinal.AspNetCore.Identity.Utils
         /// <summary>
         /// Classe interna para a obtenção do certificado de validação de Token OAuth.
         /// </summary>
-        /// <param name="settings">Configurações de autoridade contendo os dados de acesso ao certificado</param>
+        /// <param name="settings">Objeto referenciado</param>
         /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
-        internal static X509Certificate2 GetCertificate(AuthoritySettings settings)
+        internal static X509Certificate2 GetCertificate(this AuthoritySettings settings)
         {
-            switch (settings.CertificateStorage)
+            return settings.CertificateStorage switch
             {
-                case CertificateStorage.File:
-                    return GetFromFile(settings.CertificatePath, settings.CertificatePass);
-                case CertificateStorage.Storage:
-                    return GetFromStorage(settings.Thumbprint, settings.ValidOnly, settings.StoreName, settings.StoreLocation);
-                default:
-                    return null;
-            }
+                CertificateStorage.File => GetFromFile(settings.CertificatePath, settings.CertificatePass),
+                CertificateStorage.Storage => GetFromStorage(settings.Thumbprint, settings.ValidOnly, settings.StoreName, settings.StoreLocation),
+                _ => null,
+            };
         }
 
         /// <summary>

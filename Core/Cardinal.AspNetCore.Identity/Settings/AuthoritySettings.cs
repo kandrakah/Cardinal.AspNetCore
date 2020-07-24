@@ -38,6 +38,9 @@ namespace Cardinal.AspNetCore.Identity
         /// </summary>
         public string Secret { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool ValidateIssuerSigningKey { get; set; } = false;
 
         /// <summary>

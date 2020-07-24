@@ -22,7 +22,7 @@ namespace Cardinal.AspNetCore.Utils
     /// </summary>
     public abstract class BaseProgram
     {
-        private static CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
+        private readonly static CancellationTokenSource CancellationTokenSource = new CancellationTokenSource();
 
         /// <summary>
         /// Instância do logger da aplicação.
@@ -125,7 +125,7 @@ namespace Cardinal.AspNetCore.Utils
             try
             {
                 Console.Title = $"{Constants.ApplicationName} - {Constants.Environment}";
-                
+
                 var config = LoadConfiguration(args, basePath);
                 var configHost = config.GetSettings<HostSettings>("Host");
                 var urls = configHost.Hosts.Any() ? configHost.Hosts.ToArray() : new string[] { "http://localhost:5000", "https://localhost:5001" };
@@ -140,14 +140,14 @@ namespace Cardinal.AspNetCore.Utils
                         logging.AddSerilog(config);
                     })
                     .UseStartup<TStartup>();
-
+                   
                 if (configureServices != null)
                 {
                     hostBuilder = hostBuilder.ConfigureServices(configureServices);
                 }
 
                 if (configHost.UseIISIntegration)
-                {                    
+                {
                     hostBuilder = hostBuilder.UseIISIntegration();
                 }
 

@@ -24,12 +24,14 @@ namespace Cardinal.Utils.Extensions
                 var columnName = row["ColumnName"].ToString();
                 if (!result.Columns.Contains(columnName))
                 {
-                    var column = new DataColumn();
-                    column.ColumnName = columnName;
-                    column.DataType = row["DataType"] as Type;
-                    column.Unique = Convert.ToBoolean(row["IsUnique"]);
-                    column.AllowDBNull = Convert.ToBoolean(row["AllowDBNull"]);
-                    column.ReadOnly = Convert.ToBoolean(row["IsReadOnly"]);
+                    var column = new DataColumn
+                    {
+                        ColumnName = columnName,
+                        DataType = row["DataType"] as Type,
+                        Unique = Convert.ToBoolean(row["IsUnique"]),
+                        AllowDBNull = Convert.ToBoolean(row["AllowDBNull"]),
+                        ReadOnly = Convert.ToBoolean(row["IsReadOnly"])
+                    };
                     result.Columns.Add(column);
                 }
             }

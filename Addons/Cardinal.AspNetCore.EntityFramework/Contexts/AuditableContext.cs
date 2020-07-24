@@ -48,8 +48,10 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
                     continue;
                 }
 
-                var auditEntry = new AuditEntry(entry);
-                auditEntry.TableName = entry.Metadata.DisplayName();
+                var auditEntry = new AuditEntry(entry)
+                {
+                    TableName = entry.Metadata.DisplayName()
+                };
                 auditEntries.Add(auditEntry);
 
                 foreach (var property in entry.Properties)

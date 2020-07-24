@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Addons\Cardinal.AspNetCore.Swagger\Cardinal.AspNetCore.Swagger.csproj" />
+    <ProjectReference Include="..\..\Cardinal.AspNetCore.WebApi\Cardinal.AspNetCore.WebApi.csproj" />
+    <ProjectReference Include="..\..\Utils\Cardinal.AspNetCore.Utils\Cardinal.AspNetCore.Utils.csproj" />
+  </ItemGroup>
+
+
+</Project>

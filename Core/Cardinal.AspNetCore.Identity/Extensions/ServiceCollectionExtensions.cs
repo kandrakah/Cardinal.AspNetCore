@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
+﻿using Cardinal.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cardinal.AspNetCore.Identity.Extensions
+namespace Cardinal.Extensions
 {
+    /// <summary>
+    /// Classe de extensões para <see cref="IServiceCollection"/>.
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
         /// <summary>
@@ -24,19 +26,6 @@ namespace Cardinal.AspNetCore.Identity.Extensions
         public static IServiceCollection AddAuthorizationService<TAuthorizationService>(this IServiceCollection services) where TAuthorizationService : class, IAuthorizationService
         {
             services.AddScoped<IAuthorizationService, TAuthorizationService>();
-            return services;
-        }
-
-        /// <summary>
-        /// Método que registra os serviços no container de serviços da aplicação.
-        /// </summary>
-        /// <param name="services">Instância do container de serviços.</param>
-        /// <param name="configuration">Instância do container de serviços.</param>
-        public static IServiceCollection RegisterCoreServices(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddSingleton(configuration);
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             return services;
         }
     }

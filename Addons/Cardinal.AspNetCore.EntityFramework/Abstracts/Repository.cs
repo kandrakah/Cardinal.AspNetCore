@@ -1,5 +1,5 @@
-﻿using Cardinal.AspNetCore.EntityFramework.Localization;
-using Cardinal.AspNetCore.Abstracts.Repositories;
+﻿using Cardinal.AspNetCore.Abstracts.Repositories;
+using Cardinal.AspNetCore.EntityFramework.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;

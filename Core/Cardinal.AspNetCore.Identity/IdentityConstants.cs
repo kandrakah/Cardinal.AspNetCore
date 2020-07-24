@@ -1,5 +1,8 @@
-﻿namespace Cardinal.AspNetCore.Identity.Utils
+﻿namespace Cardinal.AspNetCore.Identity
 {
+    /// <summary>
+    /// Constantes da biblioteca de identidade.
+    /// </summary>
     public static class IdentityConstants
     {
         /// <summary>

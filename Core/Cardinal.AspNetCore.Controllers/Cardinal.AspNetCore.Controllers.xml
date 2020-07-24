@@ -51,8 +51,8 @@
             <summary>
             Método que obtém um item do header da requisição.
             </summary>
-            <param name="key"></param>
-            <returns></returns>
+            <param name="key">Identificador do header requerido</param>
+            <returns>Valor do header requerido</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Controllers.CardinalController.StatusCode(System.Net.HttpStatusCode)">
             <summary>

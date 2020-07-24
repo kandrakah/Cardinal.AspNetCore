@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>0.6.1-alpha</Version>
+    <Version>1.0.0.0</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Product>Cardinal .NET Core API</Product>
     <Description>Biblioteca de EntityFramework para Cardinal .NET Core API.</Description>
@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net core, api, C#, EntityFramework, EFCore</PackageTags>
-    <PackageReleaseNotes>INITIAL ALPHA</PackageReleaseNotes>
+    <PackageReleaseNotes>Versão inicial</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>

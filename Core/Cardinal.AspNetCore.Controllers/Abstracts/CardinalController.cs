@@ -1,13 +1,13 @@
 ﻿using Cardinal.AspNetCore.Interfaces;
+using Cardinal.Exceptions;
+using Cardinal.Extensions;
+using Cardinal.Utils;
+using Cardinal.Utils.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Net;
-using Cardinal.Extensions;
-using Cardinal.Exceptions;
-using Cardinal.Utils.Exceptions;
-using Cardinal.Utils;
 
 namespace Cardinal.AspNetCore.Controllers
 {
@@ -73,8 +73,8 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Método que obtém um item do header da requisição.
         /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
+        /// <param name="key">Identificador do header requerido</param>
+        /// <returns>Valor do header requerido</returns>
         protected string GetRequestHeader(string key)
         {
             var result = this.Request.Headers.Where(x => x.Key == key).Select(x => x.Value).FirstOrDefault();
@@ -117,7 +117,7 @@ namespace Cardinal.AspNetCore.Controllers
             }
             else if (exception is ValidationException)
             {
-                var ex = (ValidationException)exception;
+                var ex = exception as ValidationException;
                 this.Logger.LogError(ex, ex.Message);
                 return this.Error((int)HttpStatusCode.BadRequest, ex, ex.GetValidationResponse());
 

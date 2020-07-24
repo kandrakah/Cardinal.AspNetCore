@@ -61,7 +61,7 @@ namespace Cardinal.AspNetCore.WebApi.Localization {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a There are no transactions running in this repository!.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There is no transaction in progress!.
         /// </summary>
         internal static string ERROR_NO_RUNNING_TRANSACTION {
             get {
@@ -70,29 +70,11 @@ namespace Cardinal.AspNetCore.WebApi.Localization {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress on this repository!.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress in this instance!.
         /// </summary>
         internal static string ERROR_RUNNING_TRANSACTION {
             get {
                 return ResourceManager.GetString("ERROR_RUNNING_TRANSACTION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete!.
-        /// </summary>
-        internal static string INITIALIZATION_COMPLETE {
-            get {
-                return ResourceManager.GetString("INITIALIZATION_COMPLETE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL]..
-        /// </summary>
-        internal static string LISTENING_URL {
-            get {
-                return ResourceManager.GetString("LISTENING_URL", resourceCulture);
             }
         }
     }

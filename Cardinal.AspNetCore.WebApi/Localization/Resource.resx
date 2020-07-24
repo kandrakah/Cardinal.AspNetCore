@@ -118,15 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ERROR_NO_RUNNING_TRANSACTION" xml:space="preserve">
-    <value>There are no transactions running in this repository!</value>
+    <value>There is no transaction in progress!</value>
   </data>
   <data name="ERROR_RUNNING_TRANSACTION" xml:space="preserve">
-    <value>There is already a transaction in progress on this repository!</value>
-  </data>
-  <data name="INITIALIZATION_COMPLETE" xml:space="preserve">
-    <value>Initialization Complete!</value>
-  </data>
-  <data name="LISTENING_URL" xml:space="preserve">
-    <value>Listening to requests in $[LISTENING_URL].</value>
+    <value>There is already a transaction in progress in this instance!</value>
   </data>
 </root>

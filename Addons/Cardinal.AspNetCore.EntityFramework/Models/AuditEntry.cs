@@ -25,12 +25,14 @@ namespace Cardinal.AspNetCore.EntityFramework.Models
 
         public AuditEntity ToAudit()
         {
-            var audit = new AuditEntity();
-            audit.TableName = TableName;
-            audit.Date = DateTime.UtcNow;
-            audit.KeyValues = JsonConvert.SerializeObject(KeyValues);
-            audit.OldValues = OldValues.Count == 0 ? null : JsonConvert.SerializeObject(OldValues);
-            audit.NewValues = NewValues.Count == 0 ? null : JsonConvert.SerializeObject(NewValues);
+            var audit = new AuditEntity
+            {
+                TableName = TableName,
+                Date = DateTime.UtcNow,
+                KeyValues = JsonConvert.SerializeObject(KeyValues),
+                OldValues = OldValues.Count == 0 ? null : JsonConvert.SerializeObject(OldValues),
+                NewValues = NewValues.Count == 0 ? null : JsonConvert.SerializeObject(NewValues)
+            };
             return audit;
         }
     }

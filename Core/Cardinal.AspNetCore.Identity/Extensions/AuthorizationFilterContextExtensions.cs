@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
+using System.Text.RegularExpressions;
 
-namespace Cardinal.AspNetCore.Identity.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
     /// Classe de extensões para <see cref="AuthorizationFilterContext"/>.
@@ -19,7 +20,7 @@ namespace Cardinal.AspNetCore.Identity.Extensions
             try
             {
                 var authorization = context.HttpContext.Request.Headers["Authorization"].FirstOrDefault();
-                var token = authorization.Replace(type, string.Empty).Trim();
+                var token = Regex.Replace(authorization, type, string.Empty, RegexOptions.IgnoreCase).Trim();
                 return token;
             }
             catch

@@ -6,22 +6,22 @@ namespace Cardinal.AspNetCore.Utils
     /// <summary>
     /// Classe estática com constantes de sistema.
     /// </summary>
-    internal static class Constants
+    public static class Constants
     {
         /// <summary>
         /// Nome base do serviço da aplicação.
         /// </summary>
-        internal static string BaseName { get; private set; }
+        public static string BaseName { get; private set; }
 
         /// <summary>
         /// Versão base do serviço da aplicação.
         /// </summary>
-        internal static CardinalVersion BaseVersion { get; private set; }
+        public static CardinalVersion BaseVersion { get; private set; }
 
         /// <summary>
         /// Nome da aplicação.
         /// </summary>
-        internal static string ApplicationName { get; private set; }
+        public static string ApplicationName { get; private set; }
 
         /// <summary>
         /// Identificação se as constantes do serviço foram inicializadas.

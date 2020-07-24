@@ -376,31 +376,6 @@
             
             </summary>
         </member>
-        <member name="T:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions.Map``2(AutoMapper.IMapper,``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="TEntity"></typeparam>
-            <typeparam name="TDTO"></typeparam>
-            <param name="mapper"></param>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.WebApi.Extensions.IMapperExtensions.Map``2(AutoMapper.IMapper,``1)">
-            <summary>
-            
-            </summary>
-            <typeparam name="TEntity"></typeparam>
-            <typeparam name="TDTO"></typeparam>
-            <param name="mapper"></param>
-            <param name="source"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1">
             <summary>
             
@@ -518,22 +493,42 @@
         </member>
         <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.ERROR_NO_RUNNING_TRANSACTION">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a There are no transactions running in this repository!.
+              Consulta uma cadeia de caracteres localizada semelhante a There is no transaction in progress!.
             </summary>
         </member>
         <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.ERROR_RUNNING_TRANSACTION">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress on this repository!.
+              Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress in this instance!.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.INITIALIZATION_COMPLETE">
+        <member name="T:Cardinal.Extensions.MapperExtensions">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete!.
+            Classe de extensões para <see cref="T:AutoMapper.IMapper"/>.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.WebApi.Localization.Resource.LISTENING_URL">
+        <member name="M:Cardinal.Extensions.MapperExtensions.Map``2(AutoMapper.IMapper,``0)">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL]..
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+            <param name="mapper"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.MapperExtensions.Map``2(AutoMapper.IMapper,``1)">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+            <param name="mapper"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
     </members>
