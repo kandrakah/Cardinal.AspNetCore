@@ -21,8 +21,8 @@ namespace Cardinal.Extensions
 
                 if (settings.UseSecurity)
                 {
-                    setup.AddSecurityDefinition(settings.Security.Definitions.Scheme, settings.Security.Definitions.ToOpenApi());
-                    setup.AddSecurityRequirement(settings.Security.Requeriment.ToOpenApi());
+                    setup.AddSecurityDefinition(settings.SecurityDefinitions.Scheme, settings.SecurityDefinitions.ToOpenApi());
+                    setup.AddSecurityRequirement(settings.SecurityRequeriment.ToOpenApi());
                 }
             });
             return services;

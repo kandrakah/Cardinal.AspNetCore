@@ -18,8 +18,19 @@ namespace Cardinal.Settings
         public string EndpointUri { get; set; }
 
         public bool UseSecurity { get; set; } = false;
-        public SwaggerSecuritySettings Security { get; set; } = new SwaggerSecuritySettings();
-        
+
+        public string AuthAppName { get; set; } = "Swagger";
+
+        public string ClientId { get; set; } = "swagger";
+
+        public string Secret { get; set; } = "swagger";
+
+        public bool UsePkce { get; set; } = false;
+
+        public SwaggerSecurityDefinitionSettings SecurityDefinitions { get; set; } = new SwaggerSecurityDefinitionSettings();
+
+        public SwaggerSecurityRequerimentSettings SecurityRequeriment { get; set; } = new SwaggerSecurityRequerimentSettings();        
+
         internal OpenApiInfo ToOpenApi()
         {
             var item = new OpenApiInfo()

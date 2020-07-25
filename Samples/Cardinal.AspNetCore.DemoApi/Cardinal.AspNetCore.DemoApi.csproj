@@ -10,5 +10,7 @@
     <ProjectReference Include="..\..\Utils\Cardinal.AspNetCore.Utils\Cardinal.AspNetCore.Utils.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 
 </Project>

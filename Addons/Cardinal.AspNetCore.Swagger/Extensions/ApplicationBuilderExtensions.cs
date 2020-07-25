@@ -17,8 +17,17 @@ namespace Cardinal.Extensions
         public static IApplicationBuilder UseSwagger(this IApplicationBuilder builder, SwaggerSettings settings)
         {
             builder.UseSwagger();
-            builder.UseSwaggerUI(c => {
-                c.SwaggerEndpoint(settings.GetEndpointUri(), settings.Title);
+            builder.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint(settings.GetEndpointUri(), settings.Title);
+                options.OAuthAppName(settings.AuthAppName);
+                options.OAuthClientId(settings.ClientId);
+                options.OAuthClientSecret(settings.Secret);
+
+                if (settings.UsePkce)
+                {
+                    options.OAuthUsePkce();
+                }
             });
 
             return builder;
