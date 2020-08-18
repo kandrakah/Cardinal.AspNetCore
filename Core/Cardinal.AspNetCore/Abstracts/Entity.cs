@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
 
 namespace Cardinal.AspNetCore
 {
@@ -17,23 +18,9 @@ namespace Cardinal.AspNetCore
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Data de criação da entidade.
-        /// </summary>
-        public DateTime Created { get; set; }
-
-        /// <summary>
-        /// Data de modificação da entidade.
-        /// </summary>
-        public DateTime Modified { get; set; }
-
-        /// <summary>
-        /// Data de exclusão da entidade.
-        /// </summary>
-        public DateTime? Deleted { get; set; }
-
-        /// <summary>
         /// Versão do registro da linha.
         /// </summary>
+        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public byte[] Version { get; set; }
 
         /// <summary>
@@ -42,7 +29,15 @@ namespace Cardinal.AspNetCore
         /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         public override string ToString()
         {
-            return $"[Id:{this.Id}][CREATED:{this.Created}][VERSION:{Version}]";
+            var properties = this.GetType().GetProperty("Name").GetCustomAttributes(true).ToDictionary(a => a.GetType().Name, a => a);
+            var result = $"[Id:{this.Id}]";
+
+            foreach(var property in properties)
+            {
+                result += $"[{property.Key}:{property.Value}]";
+            }
+
+            return result;
         }
     }
 }

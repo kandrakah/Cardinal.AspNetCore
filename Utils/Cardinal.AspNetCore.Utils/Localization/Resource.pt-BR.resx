@@ -118,21 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ERROR_CONTENT_ROOT_INVALID" xml:space="preserve">
-    <value>Given content root [$[CONTENT_ROOT]] is not a valid directory!</value>
+    <value>O diretório raíz {CONTENT_ROOT} é inválido!</value>
   </data>
   <data name="ERROR_SERVICE_NOT_FOUND" xml:space="preserve">
-    <value>The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!</value>
+    <value>O serviço $[SERVICE_NAME] não foi encontrado! Verifique se o serviço foi implementado e registrado corretamente!</value>
   </data>
   <data name="INITIALIZATION_COMPLETE" xml:space="preserve">
-    <value>Initialization Complete</value>
+    <value>Inicialização concluída!</value>
   </data>
   <data name="INITIALIZE_BASEPATH" xml:space="preserve">
-    <value>Using base directory {BASEPATH}</value>
+    <value>Usando diretório de base {PATH}</value>
   </data>
   <data name="INITIALIZE_IIS_INTEGRATION" xml:space="preserve">
-    <value>Using IIS Integration</value>
+    <value>Usando integração como o IIS</value>
   </data>
   <data name="LISTENING_URL" xml:space="preserve">
-    <value>Listening to requests in {LISTENING_URL}</value>
+    <value>Ouvindo requisições em {LISTENING_URL}</value>
   </data>
 </root>

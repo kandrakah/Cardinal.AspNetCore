@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Addons\Cardinal.AspNetCore.Swagger\Cardinal.AspNetCore.Swagger.csproj" />
     <ProjectReference Include="..\..\Cardinal.AspNetCore.WebApi\Cardinal.AspNetCore.WebApi.csproj" />
     <ProjectReference Include="..\..\Utils\Cardinal.AspNetCore.Utils\Cardinal.AspNetCore.Utils.csproj" />

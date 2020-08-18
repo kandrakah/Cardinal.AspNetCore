@@ -29,9 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Utils",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{7AE1D134-3AEF-4BBF-9E1C-08EF8AF0E7C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.DemoApi", "Samples\Cardinal.AspNetCore.DemoApi\Cardinal.AspNetCore.DemoApi.csproj", "{C4EB8C4A-C689-404F-BC79-EECF51DA3185}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.DemoApi", "Samples\Cardinal.AspNetCore.DemoApi\Cardinal.AspNetCore.DemoApi.csproj", "{C4EB8C4A-C689-404F-BC79-EECF51DA3185}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Swagger", "Addons\Cardinal.AspNetCore.Swagger\Cardinal.AspNetCore.Swagger.csproj", "{2BEFE8D3-6A64-47BA-AD21-7F6B6649ECCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthChecks.Core", "Addons\HealthChecks\Cardinal.AspNetCore.HealthChecks.Core\Cardinal.AspNetCore.HealthChecks.Core.csproj", "{83609FD9-6FFE-44BF-A40C-600068CB225E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HealthChecks", "HealthChecks", "{FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.HealthChecks.SqlServer", "Addons\HealthChecks\Cardinal.AspNetCore.HealthChecks.SqlServer\Cardinal.AspNetCore.HealthChecks.SqlServer.csproj", "{991DC64E-68A8-442C-AD36-B813D833E5FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +89,14 @@ Global
 		{2BEFE8D3-6A64-47BA-AD21-7F6B6649ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2BEFE8D3-6A64-47BA-AD21-7F6B6649ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2BEFE8D3-6A64-47BA-AD21-7F6B6649ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83609FD9-6FFE-44BF-A40C-600068CB225E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83609FD9-6FFE-44BF-A40C-600068CB225E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83609FD9-6FFE-44BF-A40C-600068CB225E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83609FD9-6FFE-44BF-A40C-600068CB225E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +112,9 @@ Global
 		{0F0104C9-A557-4F8F-9531-5A2E45F4F706} = {3E82CDF6-F6C4-4736-84AC-364F6DDF5AEE}
 		{C4EB8C4A-C689-404F-BC79-EECF51DA3185} = {7AE1D134-3AEF-4BBF-9E1C-08EF8AF0E7C9}
 		{2BEFE8D3-6A64-47BA-AD21-7F6B6649ECCA} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
+		{83609FD9-6FFE-44BF-A40C-600068CB225E} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
+		{FC350F4D-4A41-43E1-AE7B-4ED07C0A3666} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
+		{991DC64E-68A8-442C-AD36-B813D833E5FF} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66289424-587D-47FF-B04F-1F18A2EE0288}

@@ -14,21 +14,6 @@
             Índice único da entidade.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Entity.Created">
-            <summary>
-            Data de criação da entidade.
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Entity.Modified">
-            <summary>
-            Data de modificação da entidade.
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Entity.Deleted">
-            <summary>
-            Data de exclusão da entidade.
-            </summary>
-        </member>
         <member name="P:Cardinal.AspNetCore.Entity.Version">
             <summary>
             Versão do registro da linha.
@@ -40,7 +25,7 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Cardinal.AspNetCore.Interfaces.ICardinalController">
+        <member name="T:Cardinal.AspNetCore.Interfaces.IController">
             <summary>
             Interface padrão de todas as classes de controle.
             </summary>

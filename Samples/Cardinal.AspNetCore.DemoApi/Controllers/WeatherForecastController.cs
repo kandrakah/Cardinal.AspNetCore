@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cardinal.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Cardinal.AspNetCore.DemoApi.Controllers
 {
@@ -24,6 +25,7 @@ namespace Cardinal.AspNetCore.DemoApi.Controllers
         }
 
         [HttpGet]
+        [Permission(Method.Get, PermissionValidationType.RequireAuthenticatedOnly)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

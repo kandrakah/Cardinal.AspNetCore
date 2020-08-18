@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.Interfaces
@@ -13,17 +12,6 @@ namespace Cardinal.AspNetCore.Interfaces
         /// Método que inicia uma nova transação.
         /// </summary>
         void BeginTransaction();
-
-        /// <summary>
-        /// Método que inicia uma nova transação.
-        /// </summary>
-        /// <param name="solationLevel">Nível de isolamento da transação.</param>
-        void BeginTransaction(IsolationLevel solationLevel);
-
-        /// <summary>
-        /// Método que inicia uma nova transação.
-        /// </summary>
-        Task BeginTransactionAsync();
 
         /// <summary>
         /// Método que inicia uma nova transação.
@@ -52,20 +40,14 @@ namespace Cardinal.AspNetCore.Interfaces
         /// Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
         /// </summary>
         /// <returns>Número de alterações na base de dados.</returns>
-        Task<int> SaveChangesAsync();
-
-        /// <summary>
-        /// Método que efetua o salvamento das alterações feitas na base de dados.
-        /// </summary>
-        /// <param name="acceptAllChangesOnSuccess"></param>
-        /// <returns>Número de alterações na base de dados.</returns>
-        int SaveChanges(bool acceptAllChangesOnSuccess);
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
         /// </summary>
         /// <param name="acceptAllChangesOnSuccess"></param>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
         /// <returns>Número de alterações na base de dados.</returns>
-        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess);
+        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default);
     }
 }

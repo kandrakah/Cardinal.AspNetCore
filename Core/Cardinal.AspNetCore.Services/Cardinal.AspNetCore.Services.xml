@@ -50,11 +50,6 @@
             Interface base para todos os serviços da aplicação.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Services.IService.Dispose">
-            <summary>
-            Método para liberação de recursos usados pelo serviço.
-            </summary>
-        </member>
         <member name="T:Cardinal.AspNetCore.Services.IService`1">
             <summary>
             Interface base para todos os serviços da aplicação.

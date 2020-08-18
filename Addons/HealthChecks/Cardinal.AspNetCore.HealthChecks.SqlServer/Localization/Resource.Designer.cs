@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Cardinal.AspNetCore.Utils.Localization {
+namespace Cardinal.AspNetCore.HealthChecks.SqlServer.Localization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Cardinal.AspNetCore.Utils.Localization {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cardinal.AspNetCore.Utils.Localization.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Cardinal.AspNetCore.HealthChecks.SqlServer.Localization.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,29 @@ namespace Cardinal.AspNetCore.Utils.Localization {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Given content root [$[CONTENT_ROOT]] is not a valid directory!.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The connection string factory can&apos;t be null!.
         /// </summary>
-        internal static string ERROR_CONTENT_ROOT_INVALID {
+        internal static string ERROR_CONNECTION_STRING_FACTORY_NULL {
             get {
-                return ResourceManager.GetString("ERROR_CONTENT_ROOT_INVALID", resourceCulture);
+                return ResourceManager.GetString("ERROR_CONNECTION_STRING_FACTORY_NULL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The connection string can&apos;t be null or empty!.
         /// </summary>
-        internal static string ERROR_SERVICE_NOT_FOUND {
+        internal static string ERROR_CONNECTION_STRING_NULL {
             get {
-                return ResourceManager.GetString("ERROR_SERVICE_NOT_FOUND", resourceCulture);
+                return ResourceManager.GetString("ERROR_CONNECTION_STRING_NULL", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The SQL query can&apos;t be null or empty!.
         /// </summary>
-        internal static string INITIALIZATION_COMPLETE {
+        internal static string ERROR_QUERY_NULL {
             get {
-                return ResourceManager.GetString("INITIALIZATION_COMPLETE", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Using base directory {BASEPATH}.
-        /// </summary>
-        internal static string INITIALIZE_BASEPATH {
-            get {
-                return ResourceManager.GetString("INITIALIZE_BASEPATH", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Using IIS Integration.
-        /// </summary>
-        internal static string INITIALIZE_IIS_INTEGRATION {
-            get {
-                return ResourceManager.GetString("INITIALIZE_IIS_INTEGRATION", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in {LISTENING_URL}.
-        /// </summary>
-        internal static string LISTENING_URL {
-            get {
-                return ResourceManager.GetString("LISTENING_URL", resourceCulture);
+                return ResourceManager.GetString("ERROR_QUERY_NULL", resourceCulture);
             }
         }
     }

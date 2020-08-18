@@ -37,7 +37,7 @@ namespace Cardinal.AspNetCore.Utils
         protected static void Initialize<TStartup>(string[] args) where TStartup : class
         {
             var ver = CardinalVersion.Set(1, 0);
-            Initialize<TStartup>(ver, "Cardinal API Service", args);
+            Initialize<TStartup>(ver, "API Service", args);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Cardinal.AspNetCore.Utils
         protected static void Initialize<TStartup>(string version, string[] args) where TStartup : class
         {
             var ver = CardinalVersion.Parse(version);
-            Initialize<TStartup>(ver, "Cardinal API Service", args);
+            Initialize<TStartup>(ver, "API Service", args);
         }
 
         /// <summary>
@@ -128,10 +128,10 @@ namespace Cardinal.AspNetCore.Utils
 
                 var config = LoadConfiguration(args, basePath);
                 var configHost = config.GetSettings<HostSettings>("Host");
-                var urls = configHost.Hosts.Any() ? configHost.Hosts.ToArray() : new string[] { "http://localhost:5000", "https://localhost:5001" };
+                var urls = configHost.Hosts != null && configHost.Hosts.Any() ? configHost.Hosts.ToArray() : new string[] { "http://localhost:5000", "https://localhost:5001" };
                 var hostBuilder = new WebHostBuilder()
-                    .UseKestrel()
                     .UseUrls(urls)
+                    .UseKestrel()                    
                     .SuppressStatusMessages(true)
                     .UseContentRoot(basePath)
                     .UseConfiguration(config)
@@ -140,7 +140,7 @@ namespace Cardinal.AspNetCore.Utils
                         logging.AddSerilog(config);
                     })
                     .UseStartup<TStartup>();
-                   
+
                 if (configureServices != null)
                 {
                     hostBuilder = hostBuilder.ConfigureServices(configureServices);
@@ -153,12 +153,12 @@ namespace Cardinal.AspNetCore.Utils
 
                 var host = hostBuilder.Build();
                 Logger = host.Services.GetCardinalService<ILogger<BaseProgram>>();
-                Logger.LogInformation(Resource.INITIALIZE_BASEPATH.SetParameters("PATH", basePath));
+                Logger.LogInformation(Resource.INITIALIZE_BASEPATH, basePath);
                 Logger.LogInformation(Resource.INITIALIZE_IIS_INTEGRATION);
                 Logger.LogInformation(Resource.INITIALIZATION_COMPLETE);
                 foreach (var url in urls)
                 {
-                    Logger.LogInformation(Resource.LISTENING_URL.SetParameters("LISTENING_URL", url));
+                    Logger.LogInformation(Resource.LISTENING_URL, url);
                 }
                 var task = host.RunAsync(CancellationTokenSource.Token);
                 task.Wait();

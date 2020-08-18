@@ -48,16 +48,38 @@ namespace Cardinal.Extensions
         {
             foreach (var set in sets)
             {
-                var key = $"$[{set.Key}]";
-                var index = value.IndexOf(key);
-                if (index > 0)
+                var index = value.IndexOfAny(out int length, $"$[{set.Key}]", $"{{{set.Key}}}");                
+                if (index >= 0)
                 {
-                    var r = value.Substring(index, key.Length);
+                    var r = value.Substring(index, length);
                     value = value.Replace(r, set.Value.ToString());
                 }
             }
 
             return value;
+        }
+
+        /// <summary>
+        /// Extensão que traz o índice de um parâmetro dentro de uma string. 
+        /// Vários parâmetros podem ser informados, entretanto, o primeiro encontrado será retornado.
+        /// </summary>
+        /// <param name="value">Objeto referênciado</param>
+        /// <param name="Length">Tamanho do valor localizado</param>
+        /// <param name="parameters">Variantes do parâmetro à ser buscado</param>
+        /// <returns>Índice do primeiro parâmetro à ser encontrado ou -1 caso nenhum tenha sido localizado</returns>
+        public static int IndexOfAny(this string value, out int Length, params string[] parameters)
+        {
+            foreach(var parameter in parameters)
+            {
+                var index = value.IndexOf(parameter);
+                if(index >= 0)
+                {
+                    Length = parameter.Length;
+                    return index;
+                }
+            }
+            Length = 0;
+            return -1;
         }
 
         /// <summary>

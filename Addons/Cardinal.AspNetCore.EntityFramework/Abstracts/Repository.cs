@@ -3,14 +3,53 @@ using Cardinal.AspNetCore.EntityFramework.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Cardinal.AspNetCore.EntityFramework.Repositories
 {
+    public abstract class Repository<TContext, TEntity> : Repository<TContext> where TContext : DbContext where TEntity : Entity
+    {
+        protected DbSet<TEntity> Entities { get; set; }
+
+
+        public Repository(TContext context) : base(context)
+        {
+            this.Entities = context.Set<TEntity>();
+        }
+
+        public IEnumerable<TEntity> All()
+        {
+            return this.Entities.ToList();
+        }
+
+        public async Task<IEnumerable<TEntity>> AllAsync()
+        {
+            return await this.Entities.ToListAsync();
+        }
+
+        public TEntity Get(Guid id)
+        {
+            return this.Entities.Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public IQueryable<TEntity> AsQueryable()
+        {
+            return this.Entities.AsQueryable<TEntity>();
+        }
+
+        public virtual IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        {
+            return this.Entities.Where(predicate);
+        }
+    }
+
     /// <summary>
     /// Classe base para repositórios.
     /// </summary>
@@ -41,9 +80,9 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
         /// </summary>
         /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
-        public virtual void Add<T>([NotNull] T entity) where T : Entity
+        public virtual EntityEntry<T> Add<T>([NotNull] T entity) where T : Entity
         {
-            this.Context.Add(entity);
+            return this.Context.Add(entity);
         }
 
         /// <summary>
@@ -170,9 +209,12 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             this.Context.UpdateRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void BeginTransaction()
         {
-            if(this.Transaction != null)
+            if (this.Transaction != null)
             {
                 throw new TransactionException(Resource.ERROR_RUNNING_TRANSACTION);
             }

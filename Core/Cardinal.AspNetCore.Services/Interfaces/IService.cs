@@ -11,10 +11,7 @@ namespace Cardinal.AspNetCore.Services
     /// </summary>
     public interface IService
     {
-        /// <summary>
-        /// Método para liberação de recursos usados pelo serviço.
-        /// </summary>
-        void Dispose();
+        
     }
 
     /// <summary>

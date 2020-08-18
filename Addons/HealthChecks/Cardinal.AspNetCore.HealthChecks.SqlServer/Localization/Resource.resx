@@ -117,22 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ERROR_CONTENT_ROOT_INVALID" xml:space="preserve">
-    <value>Given content root [$[CONTENT_ROOT]] is not a valid directory!</value>
+  <data name="ERROR_CONNECTION_STRING_FACTORY_NULL" xml:space="preserve">
+    <value>The connection string factory can't be null!</value>
   </data>
-  <data name="ERROR_SERVICE_NOT_FOUND" xml:space="preserve">
-    <value>The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!</value>
+  <data name="ERROR_CONNECTION_STRING_NULL" xml:space="preserve">
+    <value>The connection string can't be null or empty!</value>
   </data>
-  <data name="INITIALIZATION_COMPLETE" xml:space="preserve">
-    <value>Initialization Complete</value>
-  </data>
-  <data name="INITIALIZE_BASEPATH" xml:space="preserve">
-    <value>Using base directory {BASEPATH}</value>
-  </data>
-  <data name="INITIALIZE_IIS_INTEGRATION" xml:space="preserve">
-    <value>Using IIS Integration</value>
-  </data>
-  <data name="LISTENING_URL" xml:space="preserve">
-    <value>Listening to requests in {LISTENING_URL}</value>
+  <data name="ERROR_QUERY_NULL" xml:space="preserve">
+    <value>The SQL query can't be null or empty!</value>
   </data>
 </root>

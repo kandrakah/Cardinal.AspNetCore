@@ -15,7 +15,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// Classe base para todos os controllers do sistema.
     /// </summary>
     /// <typeparam name="TService">Serviço associado ao controlador.</typeparam>
-    public abstract class CardinalController<TService> : CardinalController where TService : IService
+    public abstract class ServiceController<TService> : DefaultController where TService : IService
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -27,7 +27,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// </summary>
         /// <param name="loggerFactory">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILoggerFactory loggerFactory, IServiceProvider provider) : base(loggerFactory, provider)
+        public ServiceController(ILoggerFactory loggerFactory, IServiceProvider provider) : base(loggerFactory, provider)
         {
             this.Service = this.GetService<TService>();
         }
@@ -37,7 +37,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// </summary>
         /// <param name="logger">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILogger logger, IServiceProvider provider) : base(logger, provider)
+        public ServiceController(ILogger logger, IServiceProvider provider) : base(logger, provider)
         {
             this.Service = this.GetService<TService>();
         }
@@ -48,7 +48,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// </summary>
     /// <typeparam name="TService">Serviço associado ao controlador.</typeparam>
     /// <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
-    public abstract class CardinalController<TService, TEntity> : CardinalController where TService : IService<TEntity> where TEntity : Entity
+    public abstract class CardinalController<TService, TEntity> : DefaultController where TService : IService<TEntity> where TEntity : Entity
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -194,7 +194,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// <typeparam name="TService"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TDTO"></typeparam>
-    public abstract class CardinalController<TService, TEntity, TDTO> : CardinalController where TService : IService<TEntity> where TEntity : Entity where TDTO : BaseDTO
+    public abstract class EntityController<TService, TEntity, TDTO> : DefaultController where TService : IService<TEntity> where TEntity : Entity where TDTO : BaseDTO
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -209,7 +209,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <param name="loggerFactory">Instância do serviço de logs.</param>
         /// <param name="mapper"></param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILoggerFactory loggerFactory, IMapper mapper, IServiceProvider provider) : base(loggerFactory, provider)
+        public EntityController(ILoggerFactory loggerFactory, IMapper mapper, IServiceProvider provider) : base(loggerFactory, provider)
         {
             this.Service = this.GetService<TService>();
             this.Mapper = mapper;
@@ -221,7 +221,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <param name="logger">Instância do serviço de logs.</param>
         /// <param name="mapper"></param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILogger logger, IMapper mapper, IServiceProvider provider) : base(logger, provider)
+        public EntityController(ILogger logger, IMapper mapper, IServiceProvider provider) : base(logger, provider)
         {
             this.Service = this.GetService<TService>();
             this.Mapper = mapper;

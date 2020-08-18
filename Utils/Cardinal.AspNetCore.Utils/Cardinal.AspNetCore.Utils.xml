@@ -241,7 +241,7 @@
         </member>
         <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.INITIALIZE_BASEPATH">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a Using base directory &apos;$[PATH]&apos;.
+              Consulta uma cadeia de caracteres localizada semelhante a Using base directory {BASEPATH}.
             </summary>
         </member>
         <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.INITIALIZE_IIS_INTEGRATION">
@@ -251,7 +251,7 @@
         </member>
         <member name="P:Cardinal.AspNetCore.Utils.Localization.Resource.LISTENING_URL">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in $[LISTENING_URL].
+              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in {LISTENING_URL}.
             </summary>
         </member>
         <member name="T:Cardinal.AspNetCore.Utils.LogSerializer">

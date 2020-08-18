@@ -1,13 +1,29 @@
 ﻿using Cardinal.AspNetCore.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.EntityFramework.Repositories
 {
+    public interface IRepository<TContext, TEntity> : IRepository<TContext> where TContext : DbContext where TEntity : Entity
+    {
+        IEnumerable<TEntity> All();
+
+        Task<IEnumerable<TEntity>> AllAsync();
+
+        TEntity Get(Guid id);
+
+        IQueryable<TEntity> AsQueryable();
+
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+    }
+
     /// <summary>
     /// Interface base para repositórios.
     /// </summary>
@@ -19,7 +35,7 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
         /// </summary>
         /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
-        void Add<T>([NotNull] T entity) where T : Entity;
+        EntityEntry<T> Add<T>([NotNull] T entity) where T : Entity;
 
         /// <summary>
         /// Método para adicionar uma entidade ao contexto de forma assíncrona.

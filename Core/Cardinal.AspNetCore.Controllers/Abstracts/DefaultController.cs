@@ -14,7 +14,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// <summary>
     /// Classe base para todos os controllers do sistema.
     /// </summary>
-    public abstract class CardinalController : ControllerBase, ICardinalController
+    public abstract class DefaultController : ControllerBase, IController
     {
         /// <summary>
         /// Instância do serviço de logs.
@@ -31,7 +31,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// </summary>
         /// <param name="loggerFactory">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILoggerFactory loggerFactory, IServiceProvider provider)
+        public DefaultController(ILoggerFactory loggerFactory, IServiceProvider provider)
         {
             this.Logger = loggerFactory.CreateLogger(this.GetType().Name);
             this.ServiceProvider = provider;
@@ -42,7 +42,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// </summary>
         /// <param name="logger">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILogger logger, IServiceProvider provider)
+        public DefaultController(ILogger logger, IServiceProvider provider)
         {
             this.Logger = logger;
             this.ServiceProvider = provider;

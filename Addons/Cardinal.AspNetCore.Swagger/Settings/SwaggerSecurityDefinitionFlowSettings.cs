@@ -1,6 +1,5 @@
 ﻿using Microsoft.OpenApi.Interfaces;
 using Microsoft.OpenApi.Models;
-using System;
 using System.Collections.Generic;
 
 namespace Cardinal.Settings

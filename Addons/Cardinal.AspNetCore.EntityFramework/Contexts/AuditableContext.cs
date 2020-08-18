@@ -1,6 +1,7 @@
 ﻿using Cardinal.AspNetCore.Entities;
 using Cardinal.AspNetCore.EntityFramework.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,7 +12,12 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
     public abstract class AuditableContext : DbContext
     {
         public DbSet<AuditEntity> Audits { get; set; }
-              
+
+        public AuditableContext(DbContextOptions options) : base(options)
+        {
+
+        }
+
         public override int SaveChanges()
         {
             var auditEntries = OnBeforeSaveChanges();
@@ -29,13 +35,13 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
             return result;
         }
 
-        public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
-        {
-            var auditEntries = OnBeforeSaveChanges();
-            var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-            await OnAfterSaveChangesAsync(auditEntries);
-            return result;
-        }
+        //public override async Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        //{
+        //    var auditEntries = OnBeforeSaveChanges();
+        //    var result = await base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        //    await OnAfterSaveChangesAsync(auditEntries);
+        //    return result;
+        //}
 
         private List<AuditEntry> OnBeforeSaveChanges()
         {
@@ -52,6 +58,7 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
                 {
                     TableName = entry.Metadata.DisplayName()
                 };
+
                 auditEntries.Add(auditEntry);
 
                 foreach (var property in entry.Properties)
@@ -69,6 +76,16 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
                         auditEntry.KeyValues[propertyName] = property.CurrentValue;
                         continue;
                     }
+
+                    //if (property.Metadata.Name == "Created" && entry.State == EntityState.Added)
+                    //{
+                    //    property.CurrentValue = DateTime.Now;
+                    //}
+
+                    //if (property.Metadata.Name == "Modified" && (entry.State == EntityState.Added || entry.State == EntityState.Modified))
+                    //{
+                    //    property.CurrentValue = DateTime.Now;
+                    //}
 
                     switch (entry.State)
                     {
@@ -158,6 +175,29 @@ namespace Cardinal.AspNetCore.EntityFramework.Contexts
             }
 
             await this.SaveChangesAsync();
+        }
+
+        private void UpdateEntityDates()
+        {
+            var addedEntities = ChangeTracker.Entries().Where(E => E.State == EntityState.Added).ToList();
+
+            addedEntities.ForEach(e =>
+            {
+                if (e.Entity is Entity)
+                {
+                    e.Property("Created").CurrentValue = DateTime.Now;
+                }
+            });
+
+            var modifiedEntities = ChangeTracker.Entries().Where(E => E.State == EntityState.Modified).ToList();
+
+            modifiedEntities.ForEach(e =>
+            {
+                if (e.Entity is Entity)
+                {
+                    e.Property("Modified").CurrentValue = DateTime.Now;
+                }
+            });
         }
     }
 }

@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Cardinal.AspNetCore.Entities
 {
     [Table("Audit")]
-    public class AuditEntity : Entity
+    public class AuditEntity
     {
+        public Guid Id { get; set; }
+
         public string TableName { get; set; }
 
         public DateTime Date { get; set; }

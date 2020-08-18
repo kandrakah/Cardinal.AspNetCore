@@ -1,4 +1,5 @@
-﻿using Cardinal.AspNetCore.Utils.Services;
+﻿using Cardinal.AspNetCore.Utils;
+using Cardinal.AspNetCore.Utils.Services;
 using Cardinal.Exceptions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -100,7 +101,14 @@ namespace Cardinal.Extensions
         /// <returns>Instância do serviço <see cref="ILogger"/> referente à classe solicitante.</returns>
         public static ILogger<T> GetLoggerService<T>(this IServiceProvider provider) where T : class
         {
-            return provider.GetCardinalService<ILogger<T>>();
+            if (provider.Exists<ILogger<T>>())
+            {
+                return provider.GetCardinalService<ILogger<T>>();
+            }
+            else
+            {
+                return new NullLogger<T>();
+            }
         }
     }
 }

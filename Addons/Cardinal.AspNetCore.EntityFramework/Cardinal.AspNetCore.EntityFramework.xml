@@ -84,6 +84,11 @@
             A entrada fornece acesso para alterar informações e operações de rastreamento para a
             entidade.</returns>
         </member>
+        <member name="M:Cardinal.AspNetCore.EntityFramework.Repositories.Repository`1.BeginTransaction">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Cardinal.AspNetCore.EntityFramework.Repositories.Repository`1.SaveChanges">
             <summary>
             Salva todas as alterações feitas nesse repositório no banco de dados.        

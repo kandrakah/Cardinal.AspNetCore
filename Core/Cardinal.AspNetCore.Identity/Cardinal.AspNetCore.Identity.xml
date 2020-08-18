@@ -500,10 +500,10 @@
         </member>
         <member name="T:Cardinal.Extensions.ICardinalControllerExtensions">
             <summary>
-            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Interfaces.ICardinalController"/>.
+            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Interfaces.IController"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.ICardinalControllerExtensions.GetDefaultPermission(Cardinal.AspNetCore.Interfaces.ICardinalController)">
+        <member name="M:Cardinal.Extensions.ICardinalControllerExtensions.GetDefaultPermission(Cardinal.AspNetCore.Interfaces.IController)">
             <summary>
             
             </summary>
@@ -528,7 +528,11 @@
             <typeparam name="TAuthorizationService"></typeparam>
             <param name="services">Instância do container de serviços.</param>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:Cardinal.Extensions.TypeExtensions" -->
+        <member name="T:Cardinal.Extensions.TypeExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Type"/>.
+            </summary>
+        </member>
         <member name="M:Cardinal.Extensions.TypeExtensions.GetControllerDefaultPermission(System.Type)">
             <summary>
             

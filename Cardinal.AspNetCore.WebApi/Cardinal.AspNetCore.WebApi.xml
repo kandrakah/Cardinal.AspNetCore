@@ -4,154 +4,6 @@
         <name>Cardinal.AspNetCore.WebApi</name>
     </assembly>
     <members>
-        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`1">
-            <summary>
-            Classe base para todos os controllers do sistema.
-            </summary>
-            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`1.Service">
-            <summary>
-            Serviço associado ao controlador.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`1.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`1.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`2">
-            <summary>
-            Classe base para todos os controllers do sistema.
-            </summary>
-            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
-            <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`2.Service">
-            <summary>
-            Serviço associado ao controlador.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.AllAsync">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.FindAsync(System.Guid)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PostAsync(`1)">
-            <summary>
-            
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PutAsync(`1)">
-            <summary>
-            
-            </summary>
-            <param name="entity"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.DeleteAsync(System.Guid)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`3">
-            <summary>
-            
-            </summary>
-            <typeparam name="TService"></typeparam>
-            <typeparam name="TEntity"></typeparam>
-            <typeparam name="TDTO"></typeparam>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`3.Service">
-            <summary>
-            Serviço associado ao controlador.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,AutoMapper.IMapper,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
-            <param name="mapper"></param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.#ctor(Microsoft.Extensions.Logging.ILogger,AutoMapper.IMapper,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="mapper"></param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.AllAsync">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.FindAsync(System.Guid)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.PostAsync(`2)">
-            <summary>
-            
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.PutAsync(`2)">
-            <summary>
-            
-            </summary>
-            <param name="dto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`3.DeleteAsync(System.Guid)">
-            <summary>
-            
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cardinal.AspNetCore.Repositories.Repository`1">
             <summary>
             
@@ -365,6 +217,154 @@
             <returns>entidade.
             A entrada fornece acesso para alterar informações e operações de rastreamento para a
             entidade.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.ServiceController`1">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.ServiceController`1.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.ServiceController`1.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.ServiceController`1.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`2">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+            <typeparam name="TService">Serviço associado ao controlador.</typeparam>
+            <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`2.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.AllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.FindAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PostAsync(`1)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PutAsync(`1)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.DeleteAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.EntityController`3">
+            <summary>
+            
+            </summary>
+            <typeparam name="TService"></typeparam>
+            <typeparam name="TEntity"></typeparam>
+            <typeparam name="TDTO"></typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.EntityController`3.Service">
+            <summary>
+            Serviço associado ao controlador.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,AutoMapper.IMapper,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="loggerFactory">Instância do serviço de logs.</param>
+            <param name="mapper"></param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.#ctor(Microsoft.Extensions.Logging.ILogger,AutoMapper.IMapper,System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="mapper"></param>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.AllAsync">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.FindAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.PostAsync(`2)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.PutAsync(`2)">
+            <summary>
+            
+            </summary>
+            <param name="dto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.DeleteAsync(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
         <member name="T:Cardinal.AspNetCore.WebApi.DTOs.BaseDTO">
             <summary>

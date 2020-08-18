@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace Cardinal.Extensions
 {
-    // <summary>
+    /// <summary>
     /// Classe de extensões para <see cref="Type"/>.
     /// </summary>
     public static class TypeExtensions

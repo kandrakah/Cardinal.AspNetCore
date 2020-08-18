@@ -3,7 +3,7 @@
     /// <summary>
     /// Interface padrão de todas as classes de controle.
     /// </summary>
-    public interface ICardinalController
+    public interface IController
     {
 
     }

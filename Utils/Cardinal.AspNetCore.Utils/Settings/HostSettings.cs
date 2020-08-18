@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Cardinal.Settings
 {
@@ -16,6 +15,6 @@ namespace Cardinal.Settings
         /// <summary>
         /// Lista de hosts ao qual o serviço deve responder.
         /// </summary>
-        public IEnumerable<string> Hosts { get; set; } = Enumerable.Empty<string>();
+        public IEnumerable<string> Hosts { get; set; }
     }
 }

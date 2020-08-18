@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Cardinal.AspNetCore.Utils;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System;
 using System.Collections.Generic;
 
 namespace Cardinal.Extensions
@@ -34,7 +36,7 @@ namespace Cardinal.Extensions
                 loggerConfig.ReadFrom.KeyValuePairs(settings);
             }
 
-            var logger = loggerConfig.CreateLogger();
+            var logger = loggerConfig.CreateLogger();                        
             return loggingBuilder.AddSerilog(logger, true);
         }
     }

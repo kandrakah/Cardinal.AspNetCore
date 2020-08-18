@@ -341,12 +341,12 @@
         </member>
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_PATTERN_NULL_EMPTY">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null, or invalid..
+              Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null or invalid!.
             </summary>
         </member>
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_TRANSLATION_KEY_NULL_EMPTY">
             <summary>
-              Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid..
+              Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid!.
             </summary>
         </member>
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_WRONG_VERSION_FORMAT">
@@ -1206,6 +1206,16 @@
             <param name="value">Objeto referenciado</param>
             <param name="sets">Vetor de valores à serem substituídos durante a tradução</param>
             <returns>Texto traduzido</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IndexOfAny(System.String,System.Int32@,System.String[])">
+            <summary>
+            Extensão que traz o índice de um parâmetro dentro de uma string. 
+            Vários parâmetros podem ser informados, entretanto, o primeiro encontrado será retornado.
+            </summary>
+            <param name="value">Objeto referênciado</param>
+            <param name="Length">Tamanho do valor localizado</param>
+            <param name="parameters">Variantes do parâmetro à ser buscado</param>
+            <returns>Índice do primeiro parâmetro à ser encontrado ou -1 caso nenhum tenha sido localizado</returns>
         </member>
         <member name="M:Cardinal.Extensions.StringExtensions.Equals(System.String,System.String,System.Boolean,System.Boolean)">
             <summary>

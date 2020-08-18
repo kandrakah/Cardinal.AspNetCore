@@ -70,7 +70,7 @@ namespace Cardinal.Utils.Localization {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null, or invalid..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null or invalid!.
         /// </summary>
         internal static string ERROR_PATTERN_NULL_EMPTY {
             get {
@@ -79,7 +79,7 @@ namespace Cardinal.Utils.Localization {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid!.
         /// </summary>
         internal static string ERROR_TRANSLATION_KEY_NULL_EMPTY {
             get {
