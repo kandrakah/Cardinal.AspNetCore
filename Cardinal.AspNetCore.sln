@@ -37,7 +37,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HealthChecks", "HealthChecks", "{FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.HealthChecks.SqlServer", "Addons\HealthChecks\Cardinal.AspNetCore.HealthChecks.SqlServer\Cardinal.AspNetCore.HealthChecks.SqlServer.csproj", "{991DC64E-68A8-442C-AD36-B813D833E5FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthChecks.SqlServer", "Addons\HealthChecks\Cardinal.AspNetCore.HealthChecks.SqlServer\Cardinal.AspNetCore.HealthChecks.SqlServer.csproj", "{991DC64E-68A8-442C-AD36-B813D833E5FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.IdentityServer", "Core\Cardinal.AspNetCore.IdentityServer\Cardinal.AspNetCore.IdentityServer.csproj", "{2345BAFA-A621-4B74-BCE4-68385BF83EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.EventStore", "Addons\Cardinal.AspNetCore.EventStore\Cardinal.AspNetCore.EventStore.csproj", "{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +101,14 @@ Global
 		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{991DC64E-68A8-442C-AD36-B813D833E5FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2345BAFA-A621-4B74-BCE4-68385BF83EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2345BAFA-A621-4B74-BCE4-68385BF83EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2345BAFA-A621-4B74-BCE4-68385BF83EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2345BAFA-A621-4B74-BCE4-68385BF83EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +127,8 @@ Global
 		{83609FD9-6FFE-44BF-A40C-600068CB225E} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
 		{FC350F4D-4A41-43E1-AE7B-4ED07C0A3666} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 		{991DC64E-68A8-442C-AD36-B813D833E5FF} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
+		{2345BAFA-A621-4B74-BCE4-68385BF83EEB} = {4E697E0C-7B4D-4C78-863A-567186DF7CF4}
+		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66289424-587D-47FF-B04F-1F18A2EE0288}

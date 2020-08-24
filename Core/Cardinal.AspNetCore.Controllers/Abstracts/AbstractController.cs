@@ -1,20 +1,22 @@
-﻿using Cardinal.AspNetCore.Interfaces;
+﻿using Cardinal.AspNetCore.Controllers.Localization;
 using Cardinal.Exceptions;
 using Cardinal.Extensions;
 using Cardinal.Utils;
 using Cardinal.Utils.Exceptions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 
-namespace Cardinal.AspNetCore.Controllers
+namespace Cardinal.AspNetCore
 {
     /// <summary>
     /// Classe base para todos os controllers do sistema.
     /// </summary>
-    public abstract class DefaultController : ControllerBase, IController
+    public abstract class AbstractController : ControllerBase, IController
     {
         /// <summary>
         /// Instância do serviço de logs.
@@ -24,28 +26,19 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Instância do provedor de serviços. Veja <see cref="IServiceProvider"/> para mais detalhes.
         /// </summary>
-        protected IServiceProvider ServiceProvider { get; }
+        protected IServiceProvider Provider { get; }
 
         /// <summary>
         /// Método construtor.
         /// </summary>
-        /// <param name="loggerFactory">Instância do serviço de logs.</param>
-        /// <param name="provider">Instância do provedor de serviços.</param>
-        public DefaultController(ILoggerFactory loggerFactory, IServiceProvider provider)
+        /// /// <param name="provider">Instância do provedor de serviços.</param>
+        public AbstractController(IServiceProvider provider)
         {
+            this.Provider = provider;            
+
+            var loggerFactory = this.Provider.GetCardinalService<ILoggerFactory>();
             this.Logger = loggerFactory.CreateLogger(this.GetType().Name);
-            this.ServiceProvider = provider;
-        }
 
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        /// <param name="logger">Instância do serviço de logs.</param>
-        /// <param name="provider">Instância do provedor de serviços.</param>
-        public DefaultController(ILogger logger, IServiceProvider provider)
-        {
-            this.Logger = logger;
-            this.ServiceProvider = provider;
         }
 
         /// <summary>
@@ -55,7 +48,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns>Instância do serviço solicitado.</returns>
         protected T GetService<T>()
         {
-            var result = this.ServiceProvider.GetCardinalService<T>();
+            var result = this.Provider.GetCardinalService<T>();
             return result;
         }
 
@@ -66,7 +59,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns>Instância do serviço solicitado.</returns>
         protected object GetService(Type service)
         {
-            var result = this.ServiceProvider.GetCardinalService(service);
+            var result = this.Provider.GetCardinalService(service);
             return result;
         }
 
@@ -125,7 +118,7 @@ namespace Cardinal.AspNetCore.Controllers
             else
             {
                 this.Logger.LogError(exception, exception.Message);
-                return this.Error((int)HttpStatusCode.InternalServerError, exception.GetBaseException().Message);
+                return this.Error((int)HttpStatusCode.InternalServerError, Resource.ERROR_CONTROLLER_GENERAL);
             }
         }
 

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Cardinal.AspNetCore.HealthChecks.SqlServer
 {
-    public class IdentityHealthCheckConfig : HealthCheckConfig
+    public class SqlServerHealthCheckConfig : HealthCheckConfig
     {
         public string ConnectionString { get; set; }
 

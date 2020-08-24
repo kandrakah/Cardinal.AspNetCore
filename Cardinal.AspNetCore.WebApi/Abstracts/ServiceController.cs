@@ -1,11 +1,10 @@
-﻿using Cardinal.AspNetCore.Identity;
-using Cardinal.AspNetCore.Services;
+﻿using AutoMapper;
+using Cardinal.AspNetCore.Identity;
+using Cardinal.AspNetCore.WebApi.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using Cardinal.AspNetCore.WebApi.DTOs;
-using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -15,7 +14,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// Classe base para todos os controllers do sistema.
     /// </summary>
     /// <typeparam name="TService">Serviço associado ao controlador.</typeparam>
-    public abstract class ServiceController<TService> : DefaultController where TService : IService
+    public abstract class ServiceController<TService> : AbstractController where TService : IService
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -25,19 +24,8 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Método construtor.
         /// </summary>
-        /// <param name="loggerFactory">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public ServiceController(ILoggerFactory loggerFactory, IServiceProvider provider) : base(loggerFactory, provider)
-        {
-            this.Service = this.GetService<TService>();
-        }
-
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        /// <param name="logger">Instância do serviço de logs.</param>
-        /// <param name="provider">Instância do provedor de serviços.</param>
-        public ServiceController(ILogger logger, IServiceProvider provider) : base(logger, provider)
+        public ServiceController(IServiceProvider provider) : base(provider)
         {
             this.Service = this.GetService<TService>();
         }
@@ -48,7 +36,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// </summary>
     /// <typeparam name="TService">Serviço associado ao controlador.</typeparam>
     /// <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
-    public abstract class CardinalController<TService, TEntity> : DefaultController where TService : IService<TEntity> where TEntity : Entity
+    public abstract class EntityController<TService, TEntity> : AbstractController where TService : IService<TEntity> where TEntity : Entity
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -58,19 +46,8 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Método construtor.
         /// </summary>
-        /// <param name="loggerFactory">Instância do serviço de logs.</param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILoggerFactory loggerFactory, IServiceProvider provider) : base(loggerFactory, provider)
-        {
-            this.Service = this.GetService<TService>();
-        }
-
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        /// <param name="logger">Instância do serviço de logs.</param>
-        /// <param name="provider">Instância do provedor de serviços.</param>
-        public CardinalController(ILogger logger, IServiceProvider provider) : base(logger, provider)
+        public EntityController(IServiceProvider provider) : base(provider)
         {
             this.Service = this.GetService<TService>();
         }
@@ -81,7 +58,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        [Permission(Method.Get, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Get, PermissionValidationType.RequireOneOf)]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TEntity>> AllAsync()
         {
@@ -104,7 +81,7 @@ namespace Cardinal.AspNetCore.Controllers
         [HttpGet]
         [Route("{id}")]
         [Authorize]
-        [Permission(Method.Get, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Get, PermissionValidationType.RequireOneOf)]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TEntity>> FindAsync(Guid id)
         {
@@ -126,7 +103,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize]
-        [Permission(Method.Post, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Post, PermissionValidationType.RequireOneOf)]
         [Consumes("application/json")]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TEntity>> PostAsync(TEntity entity)
@@ -149,7 +126,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpPut]
         [Authorize]
-        [Permission(Method.Put, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Put, PermissionValidationType.RequireOneOf)]
         [Consumes("application/json")]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TEntity>> PutAsync(TEntity entity)
@@ -173,7 +150,7 @@ namespace Cardinal.AspNetCore.Controllers
         [HttpDelete]
         [Route("{id}")]
         [Authorize]
-        [Permission(Method.Delete, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Delete, PermissionValidationType.RequireOneOf)]
         public virtual async Task<ActionResult> DeleteAsync(Guid id)
         {
             try
@@ -194,7 +171,7 @@ namespace Cardinal.AspNetCore.Controllers
     /// <typeparam name="TService"></typeparam>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TDTO"></typeparam>
-    public abstract class EntityController<TService, TEntity, TDTO> : DefaultController where TService : IService<TEntity> where TEntity : Entity where TDTO : BaseDTO
+    public abstract class EntityController<TService, TEntity, TDTO> : AbstractController where TService : IService<TEntity> where TEntity : Entity where TDTO : BaseDTO
     {
         /// <summary>
         /// Serviço associado ao controlador.
@@ -206,22 +183,9 @@ namespace Cardinal.AspNetCore.Controllers
         /// <summary>
         /// Método construtor.
         /// </summary>
-        /// <param name="loggerFactory">Instância do serviço de logs.</param>
-        /// <param name="mapper"></param>
         /// <param name="provider">Instância do provedor de serviços.</param>
-        public EntityController(ILoggerFactory loggerFactory, IMapper mapper, IServiceProvider provider) : base(loggerFactory, provider)
-        {
-            this.Service = this.GetService<TService>();
-            this.Mapper = mapper;
-        }
-
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        /// <param name="logger">Instância do serviço de logs.</param>
         /// <param name="mapper"></param>
-        /// <param name="provider">Instância do provedor de serviços.</param>
-        public EntityController(ILogger logger, IMapper mapper, IServiceProvider provider) : base(logger, provider)
+        public EntityController(IServiceProvider provider, IMapper mapper) : base( provider)
         {
             this.Service = this.GetService<TService>();
             this.Mapper = mapper;
@@ -233,7 +197,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpGet]
         [Authorize]
-        [Permission(Method.Get, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Get, PermissionValidationType.RequireOneOf)]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TDTO>> AllAsync()
         {
@@ -257,7 +221,7 @@ namespace Cardinal.AspNetCore.Controllers
         [HttpGet]
         [Route("{id}")]
         [Authorize]
-        [Permission(Method.Get, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Get, PermissionValidationType.RequireOneOf)]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TDTO>> FindAsync(Guid id)
         {
@@ -280,7 +244,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize]
-        [Permission(Method.Post, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Post, PermissionValidationType.RequireOneOf)]
         [Consumes("application/json")]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TDTO>> PostAsync(TDTO dto)
@@ -305,7 +269,7 @@ namespace Cardinal.AspNetCore.Controllers
         /// <returns></returns>
         [HttpPut]
         [Authorize]
-        [Permission(Method.Put, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Put, PermissionValidationType.RequireOneOf)]
         [Consumes("application/json")]
         [Produces("application/json")]
         public virtual async Task<ActionResult<TDTO>> PutAsync(TDTO dto)
@@ -331,7 +295,7 @@ namespace Cardinal.AspNetCore.Controllers
         [HttpDelete]
         [Route("{id}")]
         [Authorize]
-        [Permission(Method.Delete, PermissionValidationType.RequireOneOrMore)]
+        [Permission(Method.Delete, PermissionValidationType.RequireOneOf)]
         public virtual async Task<ActionResult<TEntity>> DeleteAsync(Guid id)
         {
             try

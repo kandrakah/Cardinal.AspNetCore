@@ -1,28 +1,36 @@
 ﻿using Cardinal.Extensions;
+using Microsoft.Extensions.Logging;
 using System;
 
-namespace Cardinal.AspNetCore.Services
+namespace Cardinal.AspNetCore
 {
     /// <summary>
     /// Classe base para todos os serviços da aplicação.
     /// </summary>
-    public abstract class Service : IDisposable
+    public abstract class AbstractService : IDisposable
     {
+        /// <summary>
+        /// Instância do serviço de logs.
+        /// </summary>
+        protected ILogger Logger { get; }
+
         /// <summary>
         /// Instância do provedor de serviços da aplicação.
         /// </summary>
-        protected IServiceProvider ServiceProvider { get; }
+        protected IServiceProvider Provider { get; }
 
         /// <summary>
         /// Método construtor.
         /// </summary>
         /// <param name="provider">Instância do provedor de serviços da aplicação.</param>
-        public Service(IServiceProvider provider)
+        public AbstractService(IServiceProvider provider)
         {
-            this.ServiceProvider = provider;
+            this.Provider = provider;
+
+            var loggerFactory = this.Provider.GetCardinalService<ILoggerFactory>();
+            this.Logger = loggerFactory.CreateLogger(this.GetType().Name);
         }
-
-
+                
         /// <summary>
         /// Método que obtém a instância de um serviço.
         /// </summary>
@@ -30,7 +38,7 @@ namespace Cardinal.AspNetCore.Services
         /// <returns>Instância do serviço solicitado.</returns>
         protected T GetService<T>()
         {
-            var result = this.ServiceProvider.GetCardinalService<T>();
+            var result = this.Provider.GetCardinalService<T>();
             return result;
         }
 
@@ -41,7 +49,7 @@ namespace Cardinal.AspNetCore.Services
         /// <returns>Instância do serviço solicitado.</returns>
         protected object GetService(Type service)
         {
-            var result = this.ServiceProvider.GetCardinalService(service);
+            var result = this.Provider.GetCardinalService(service);
             return result;
         }
 

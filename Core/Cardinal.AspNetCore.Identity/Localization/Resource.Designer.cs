@@ -61,6 +61,96 @@ namespace Cardinal.AspNetCore.Identity.Localization {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Updating user data with the authority.
+        /// </summary>
+        internal static string AUTHORIZATION_ADDING_USER_DETAILS {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_ADDING_USER_DETAILS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Request for access to the anonymous access endpoint {path} by Ip {ip}.
+        /// </summary>
+        internal static string AUTHORIZATION_ANNONYMOUS {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_ANNONYMOUS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: [{status}: {message}].
+        /// </summary>
+        internal static string AUTHORIZATION_ERROR_INVALID_TOKEN {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_ERROR_INVALID_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: Wrong format!.
+        /// </summary>
+        internal static string AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Failed to update system user: {msg}.
+        /// </summary>
+        internal static string AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Request for access to the protected access endpoint {path} received from {ip}.
+        /// </summary>
+        internal static string AUTHORIZATION_PROTECTED {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_PROTECTED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The user {usr} is authorized to access the {path} endpoint..
+        /// </summary>
+        internal static string AUTHORIZATION_USER_AUTHORIZED {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_USER_AUTHORIZED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The user has master access!.
+        /// </summary>
+        internal static string AUTHORIZATION_USER_ISROOT {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_USER_ISROOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Unauthorized user!.
+        /// </summary>
+        internal static string AUTHORIZATION_USER_UNHAUTHORIZED {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_USER_UNHAUTHORIZED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Validating access token.
+        /// </summary>
+        internal static string AUTHORIZATION_VALIDATIND_TOKEN {
+            get {
+                return ResourceManager.GetString("AUTHORIZATION_VALIDATIND_TOKEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Authorization service not found. This service is essential for the operation of the permission system. Register an authorization service using the &apos;AddAuthorizationService&apos; extension of &apos;IServicesCollection&apos; in the &apos;Startup&apos; class or disable the service by setting &apos;DeactivePermissionService&apos; to False in &apos;Authority&apos; in your settings file..
         /// </summary>
         internal static string ERROR_AUTHORIZATION_SERVICE_NOT_REGISTERED {
@@ -84,6 +174,42 @@ namespace Cardinal.AspNetCore.Identity.Localization {
         internal static string ERROR_CERTIFICATE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("ERROR_CERTIFICATE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The default permission must declare the execution method!.
+        /// </summary>
+        internal static string ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED {
+            get {
+                return ResourceManager.GetString("ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Permission denied!.
+        /// </summary>
+        internal static string ERROR_PERMISSION_MISSING {
+            get {
+                return ResourceManager.GetString("ERROR_PERMISSION_MISSING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have one of the required permissions for this service: {pems}.
+        /// </summary>
+        internal static string ERROR_PERMISSION_MISSING_MULTI_LOGGER {
+            get {
+                return ResourceManager.GetString("ERROR_PERMISSION_MISSING_MULTI_LOGGER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have any of the necessary permissions to access this service. At least one permission is required: {pem}.
+        /// </summary>
+        internal static string ERROR_PERMISSION_MISSING_SINGLE_LOGGER {
+            get {
+                return ResourceManager.GetString("ERROR_PERMISSION_MISSING_SINGLE_LOGGER", resourceCulture);
             }
         }
         
@@ -129,6 +255,15 @@ namespace Cardinal.AspNetCore.Identity.Localization {
         internal static string PERMISSION_ROOT_NAME {
             get {
                 return ResourceManager.GetString("PERMISSION_ROOT_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The token is valid!.
+        /// </summary>
+        internal static string TOKEN_VALIDATION_VALID {
+            get {
+                return ResourceManager.GetString("TOKEN_VALIDATION_VALID", resourceCulture);
             }
         }
     }

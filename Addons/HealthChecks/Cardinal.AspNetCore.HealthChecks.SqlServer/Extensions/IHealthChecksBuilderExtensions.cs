@@ -17,12 +17,12 @@ namespace Cardinal.AspNetCore.HealthChecks.SqlServer.Extensions
 
         public static IHealthChecksBuilder AddSqlServer(this IHealthChecksBuilder builder, IConfiguration configuration, string section = HealthCheckConstants.DEFAULT_CONFIG_SECTION)
         {
-            var config = configuration.GetSettings<IdentityHealthCheckConfig>(section);
+            var config = configuration.GetSettings<SqlServerHealthCheckConfig>(section);
             builder.AddSqlServer(config);
             return builder;
         }
 
-        public static IHealthChecksBuilder AddSqlServer(this IHealthChecksBuilder builder, IdentityHealthCheckConfig configuration)
+        public static IHealthChecksBuilder AddSqlServer(this IHealthChecksBuilder builder, SqlServerHealthCheckConfig configuration)
         {
             builder.AddSqlServer(_ => configuration.ConnectionString, configuration.Query, configuration.Name, configuration.FailureStatus, configuration.Tags, configuration.Timeout);
             return builder;

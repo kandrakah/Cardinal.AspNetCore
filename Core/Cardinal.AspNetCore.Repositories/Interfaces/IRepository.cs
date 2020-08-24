@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cardinal.AspNetCore.Interfaces
+namespace Cardinal.AspNetCore
 {
     /// <summary>
     /// Interface padrão para repositórios.
@@ -31,21 +31,29 @@ namespace Cardinal.AspNetCore.Interfaces
         void RollbackTransaction();
 
         /// <summary>
-        /// Método que efetua o salvamento das alterações feitas na base de dados.
+        /// Salva todas as alterações feitas nesse repositório no banco de dados.        
         /// </summary>
-        /// <returns>Número de alterações na base de dados.</returns>
+        /// <returns>O número de entradas de estado gravadas no banco de dados.</returns>
         int SaveChanges();
 
         /// <summary>
-        /// Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+        /// Salva todas as alterações feitas nesse repositório no banco de dados.
+        /// Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+        /// 'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+        /// outro método nesse contexto.
         /// </summary>
-        /// <returns>Número de alterações na base de dados.</returns>
+        /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+        /// <returns>O número de entradas de estado gravadas no banco de dados.</returns>
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Método que efetua de forma assíncrona o salvamento das alterações feitas na base de dados.
+        /// Salva todas as alterações feitas nesse repositório no banco de dados.
+        /// Várias operações ativas na mesma instância de contexto não são suportadas. Usar
+        /// 'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
+        /// outro método nesse contexto.
         /// </summary>
-        /// <param name="acceptAllChangesOnSuccess"></param>
+        /// <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
+        /// será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
         /// <returns>Número de alterações na base de dados.</returns>
         Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default);

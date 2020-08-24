@@ -1,6 +1,4 @@
-﻿using Cardinal.AspNetCore.Abstracts.Repositories;
-using Cardinal.AspNetCore.Utils;
-using Cardinal.AspNetCore.WebApi.Localization;
+﻿using Cardinal.AspNetCore.WebApi.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -74,7 +72,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Método para adicionar uma entidade ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entity">Entidade à ser adicionada.</param>
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
         /// <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
@@ -88,7 +85,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Método para adicionar várias entidades ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
         public virtual void AddRange([NotNull] params TEntity[] entities)
         {
@@ -98,7 +94,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Método para adicionar várias entidades ao contexto.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
         public virtual void AddRange([NotNull] IEnumerable<TEntity> entities)
         {
@@ -108,7 +103,6 @@ namespace Cardinal.AspNetCore.Repositories
         /// <summary>
         /// Método para adicionar várias entidades ao contexto de forma assíncrona.
         /// </summary>
-        /// <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
         /// <param name="entities">Entidades à serem adicionadas.</param>
         public virtual async Task AddRangeAsync([NotNull] params TEntity[] entities)
         {
@@ -138,66 +132,123 @@ namespace Cardinal.AspNetCore.Repositories
             return this.Entity.Attach(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         public virtual void AttachRange([NotNull] params TEntity[] entities)
         {
             this.Entity.AttachRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         public virtual void AttachRange([NotNull] IEnumerable<TEntity> entities)
         {
             this.Entity.AttachRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public virtual TEntity Find(params object[] keyValues)
         {
             return this.Entity.Find(keyValues);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public virtual ValueTask<TEntity> FindAsync(params object[] keyValues)
         {
             return this.Entity.FindAsync(keyValues);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual EntityEntry<TEntity> Remove([NotNull] TEntity entity)
         {
             return this.Entity.Remove(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         public virtual void RemoveRange([NotNull] params TEntity[] entities)
         {
             this.Entity.RemoveRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         public virtual void RemoveRange([NotNull] IEnumerable<TEntity> entities)
         {
             this.Entity.RemoveRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual EntityEntry<TEntity> Update([NotNull] TEntity entity)
         {
             return this.Entity.Update(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         public virtual void UpdateRange([NotNull] params TEntity[] entities)
         {
             this.Entity.UpdateRange(entities);
         }
+
+        /// <summary>
+        ///         /// </summary>
+        /// <param name="entities"></param>
 
         public virtual void UpdateRange([NotNull] IEnumerable<TEntity> entities)
         {
             this.Entity.UpdateRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
         {
             return this.Entity.Where(predicate);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public IQueryable<TEntity> Where(Expression<Func<TEntity, int, bool>> predicate)
         {
             return this.Entity.Where(predicate);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void BeginTransaction()
         {
             if (this.Transaction != null)
@@ -208,6 +259,11 @@ namespace Cardinal.AspNetCore.Repositories
             this.Transaction = this.Context.Database.BeginTransaction();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task BeginTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction != null)
@@ -218,6 +274,9 @@ namespace Cardinal.AspNetCore.Repositories
             this.Transaction = await this.Context.Database.BeginTransactionAsync(cancellationToken);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void CommitTransaction()
         {
             if (this.Transaction == null)
@@ -229,6 +288,11 @@ namespace Cardinal.AspNetCore.Repositories
             this.Transaction.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction == null)
@@ -240,6 +304,9 @@ namespace Cardinal.AspNetCore.Repositories
             await this.Transaction.DisposeAsync();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void RollbackTransaction()
         {
             if (this.Transaction == null)
@@ -251,6 +318,11 @@ namespace Cardinal.AspNetCore.Repositories
             this.Transaction.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction == null)

@@ -4,14 +4,13 @@ using System.Data;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Cardinal.AspNetCore.Services
+namespace Cardinal.AspNetCore
 {
     /// <summary>
     /// Interface base para todos os serviços da aplicação.
     /// </summary>
     public interface IService
     {
-        
     }
 
     /// <summary>

@@ -4,6 +4,204 @@
         <name>Cardinal.AspNetCore.WebApi</name>
     </assembly>
     <members>
+        <member name="T:Cardinal.AspNetCore.AbstractService`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="P:Cardinal.AspNetCore.AbstractService`1.Repository">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.#ctor(System.IServiceProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.Add(`0)">
+            <summary>
+            Método para adicionar uma entidade ao contexto.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Método para adicionar uma entidade ao contexto de forma assíncrona.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+            <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
+            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry para a entidade.
+            A entrada fornece acesso para alterar informações e operações de rastreamento para a entidade.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AddRange(`0[])">
+            <summary>
+            Método para adicionar várias entidades ao contexto.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método para adicionar várias entidades ao contexto.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AddRangeAsync(`0[])">
+            <summary>
+            Método para adicionar várias entidades ao contexto de forma assíncrona.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Método para adicionar várias entidades ao contexto de forma assíncrona.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.Attach(`0)">
+            <summary>
+            Começa a rastrear a entidade especificada e as entradas acessíveis a partir da entidade especificada
+            usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão.
+            </summary>
+            <param name="entity">Entidade à ser rastreada.</param>
+            <returns>entidade.
+            A entrada fornece acesso para alterar informações e operações de rastreamento para a
+            entidade.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AttachRange(`0[])">
+            <summary>
+            Começa a rastrear um grupo de entidades e as entradas acessíveis a partir das entidades informadas
+            usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão para cada entidade.
+            </summary>
+            <param name="entities">Uma ou mais entidades à serem rastreadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.AttachRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Começa a rastrear uma enumeração de entidades e as entradas acessíveis a partir das entidades informadas
+            usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão para cada entidade.
+            </summary>
+            <param name="entities">Enumeração de entidades à serem rastreadas.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.Find(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.FindAsync(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.Remove(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.RemoveRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.Update(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.UpdateRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.UpdateRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.BeginTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.CommitTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.CommitTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.RollbackTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.RollbackTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.SaveChanges">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.SaveChanges(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.AbstractService`1.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="acceptAllChangesOnSuccess"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:Cardinal.AspNetCore.Repositories.Repository`1">
             <summary>
             
@@ -54,7 +252,6 @@
             <summary>
             Método para adicionar uma entidade ao contexto de forma assíncrona.
             </summary>
-            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
             <param name="entity">Entidade à ser adicionada.</param>
             <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
             <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
@@ -65,21 +262,18 @@
             <summary>
             Método para adicionar várias entidades ao contexto.
             </summary>
-            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
             <param name="entities">Entidades à serem adicionadas.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.AddRange(System.Collections.Generic.IEnumerable{`0})">
             <summary>
             Método para adicionar várias entidades ao contexto.
             </summary>
-            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
             <param name="entities">Entidades à serem adicionadas.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.AddRangeAsync(`0[])">
             <summary>
             Método para adicionar várias entidades ao contexto de forma assíncrona.
             </summary>
-            <typeparam name="T">Tipo da entidade à ser adicionada.</typeparam>
             <param name="entities">Entidades à serem adicionadas.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
@@ -98,6 +292,119 @@
             <returns><see cref="T:Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry"/>para a entidade.
             A entrada fornece acesso para alterar informações e operações de rastreamento para a
             entidade.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.AttachRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.AttachRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.Find(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.FindAsync(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.Remove(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.RemoveRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.Update(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.UpdateRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.UpdateRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+                    /// </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Int32,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.BeginTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.CommitTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.CommitTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.RollbackTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.RollbackTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Repositories.Repository`2.SaveChanges">
             <summary>
@@ -150,74 +457,6 @@
             <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
             <returns>Número de alterações na base de dados.</returns>
         </member>
-        <member name="T:Cardinal.AspNetCore.Services.Service`1">
-            <summary>
-            
-            </summary>
-            <typeparam name="TEntity"></typeparam>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Services.Service`1.Repository">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.#ctor(System.IServiceProvider)">
-            <summary>
-            
-            </summary>
-            <param name="provider"></param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.Add(`0)">
-            <summary>
-            Método para adicionar uma entidade ao contexto.
-            </summary>
-            <param name="entity">Entidade à ser adicionada.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.AddAsync(`0,System.Threading.CancellationToken)">
-            <summary>
-            Método para adicionar uma entidade ao contexto de forma assíncrona.
-            </summary>
-            <param name="entity">Entidade à ser adicionada.</param>
-            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-            <returns>Uma tarefa que representa a operação de adição assíncrona. O resultado da tarefa contém
-            Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry para a entidade.
-            A entrada fornece acesso para alterar informações e operações de rastreamento para a entidade.</returns>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.AddRange(`0[])">
-            <summary>
-            Método para adicionar várias entidades ao contexto.
-            </summary>
-            <param name="entities">Entidades à serem adicionadas.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
-            <summary>
-            Método para adicionar várias entidades ao contexto.
-            </summary>
-            <param name="entities">Entidades à serem adicionadas.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.AddRangeAsync(`0[])">
-            <summary>
-            Método para adicionar várias entidades ao contexto de forma assíncrona.
-            </summary>
-            <param name="entities">Entidades à serem adicionadas.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
-            <summary>
-            Método para adicionar várias entidades ao contexto de forma assíncrona.
-            </summary>
-            <param name="entities">Entidades à serem adicionadas.</param>
-            <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Services.Service`1.Attach(`0)">
-            <summary>
-            Começa a rastrear a entidade especificada e as entradas acessíveis a partir da entidade especificada
-            usando o estado Microsoft.EntityFrameworkCore.EntityState.Unchanged por padrão.
-            </summary>
-            <param name="entity">Entidade à ser rastreada.</param>
-            <returns>entidade.
-            A entrada fornece acesso para alterar informações e operações de rastreamento para a
-            entidade.</returns>
-        </member>
         <member name="T:Cardinal.AspNetCore.Controllers.ServiceController`1">
             <summary>
             Classe base para todos os controllers do sistema.
@@ -229,74 +468,58 @@
             Serviço associado ao controlador.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.ServiceController`1.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+        <member name="M:Cardinal.AspNetCore.Controllers.ServiceController`1.#ctor(System.IServiceProvider)">
             <summary>
             Método construtor.
             </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
             <param name="provider">Instância do provedor de serviços.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.ServiceController`1.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="T:Cardinal.AspNetCore.Controllers.CardinalController`2">
+        <member name="T:Cardinal.AspNetCore.Controllers.EntityController`2">
             <summary>
             Classe base para todos os controllers do sistema.
             </summary>
             <typeparam name="TService">Serviço associado ao controlador.</typeparam>
             <typeparam name="TEntity">Entidade associada ao controlador.</typeparam>
         </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.CardinalController`2.Service">
+        <member name="P:Cardinal.AspNetCore.Controllers.EntityController`2.Service">
             <summary>
             Serviço associado ao controlador.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.#ctor(System.IServiceProvider)">
             <summary>
             Método construtor.
             </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
             <param name="provider">Instância do provedor de serviços.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.AllAsync">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.AllAsync">
             <summary>
             
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.FindAsync(System.Guid)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.FindAsync(System.Guid)">
             <summary>
             
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PostAsync(`1)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.PostAsync(`1)">
             <summary>
             
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.PutAsync(`1)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.PutAsync(`1)">
             <summary>
             
             </summary>
             <param name="entity"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.CardinalController`2.DeleteAsync(System.Guid)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`2.DeleteAsync(System.Guid)">
             <summary>
             
             </summary>
@@ -316,21 +539,12 @@
             Serviço associado ao controlador.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,AutoMapper.IMapper,System.IServiceProvider)">
+        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.#ctor(System.IServiceProvider,AutoMapper.IMapper)">
             <summary>
             Método construtor.
             </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
-            <param name="mapper"></param>
             <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.#ctor(Microsoft.Extensions.Logging.ILogger,AutoMapper.IMapper,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
             <param name="mapper"></param>
-            <param name="provider">Instância do provedor de serviços.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Controllers.EntityController`3.AllAsync">
             <summary>
@@ -423,6 +637,127 @@
             </summary>
             <param name="entities">Entidades à serem adicionadas.</param>
             <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Attach(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.AttachRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.AttachRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Find(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.FindAsync(System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="keyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Remove(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.RemoveRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Update(`0)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.UpdateRange(`0[])">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.UpdateRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Int32,System.Boolean}})">
+            <summary>
+            
+            </summary>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.BeginTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.CommitTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.CommitTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.RollbackTransaction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.RollbackTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="M:Cardinal.AspNetCore.WebApi.Repositories.IRepository`1.SaveChanges">
             <summary>

@@ -16,7 +16,7 @@
         /// <summary>
         /// Indica que o usuário ativo deve ter ao menos uma das permissões.
         /// </summary>
-        RequireOneOrMore,
+        RequireOneOf,
 
         /// <summary>
         /// Indica que o usuário ativo deve ter todas as permissões.

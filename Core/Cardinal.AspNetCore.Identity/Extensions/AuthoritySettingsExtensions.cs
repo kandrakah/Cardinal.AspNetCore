@@ -1,11 +1,12 @@
 ﻿using Cardinal.AspNetCore.Identity;
-using Cardinal.AspNetCore.Identity.Localization;
-using Cardinal.Exceptions;
+using IdentityModel.Client;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System;
-using System.IO;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Cardinal.Extensions
 {
@@ -18,20 +19,22 @@ namespace Cardinal.Extensions
         /// Extensão que retorna os parâmetros de validação de token OAuth.
         /// </summary>
         /// <param name="settings">Objeto referenciado</param>
+        /// <param name="token">Token de autenticação</param>
         /// <returns>Parâmetros de validação do Token. Veja <see cref="TokenValidationParameters"/></returns>
-        internal static TokenValidationParameters GetTokenParametes(this AuthoritySettings settings)
+        internal static async Task<TokenValidationParameters> GetTokenParametesAsync(this AuthoritySettings settings, JwtSecurityToken token)
         {
             try
             {
                 var tokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = settings.ValidateIssuerSigningKey,
-                    IssuerSigningKey = settings.ValidateIssuerSigningKey ? new X509SecurityKey(GetCertificate(settings)) : null,
+                    IssuerSigningKey = await settings.GetSigningKeyAsync(token),
                     ValidateIssuer = settings.ValidateIssuer,
                     ValidateAudience = settings.ValidateAudience,
                     ValidateLifetime = settings.ValidateLifetime,
                     ClockSkew = TimeSpan.Zero
                 };
+
                 return tokenValidationParameters;
             }
             catch
@@ -41,63 +44,31 @@ namespace Cardinal.Extensions
         }
 
         /// <summary>
-        /// Classe interna para a obtenção do certificado de validação de Token OAuth.
+        /// Método para obtenção da chave de assinatura do token provida pela autoridade de identificação.
         /// </summary>
         /// <param name="settings">Objeto referenciado</param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
-        internal static X509Certificate2 GetCertificate(this AuthoritySettings settings)
+        /// <param name="token">Token de autenticação</param>
+        /// <returns>Chave de segurança provida pela autoridade de identificação.</returns>
+        private static async Task<SecurityKey> GetSigningKeyAsync(this AuthoritySettings settings, JwtSecurityToken token)
         {
-            return settings.CertificateStorage switch
-            {
-                CertificateStorage.File => GetFromFile(settings.CertificatePath, settings.CertificatePass),
-                CertificateStorage.Storage => GetFromStorage(settings.Thumbprint, settings.ValidOnly, settings.StoreName, settings.StoreLocation),
-                _ => null,
-            };
-        }
-
-        /// <summary>
-        /// Método que obtém o certificado provido de um arquivo.
-        /// </summary>
-        /// <param name="path">Localização do certificado no sistema de arquivos</param>
-        /// <param name="password">Senha de acesso ao certificado</param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
-        private static X509Certificate2 GetFromFile(string path, string password)
-        {
+            var client = new HttpClient();
             try
             {
-                if (File.Exists(path))
-                {
-                    return new X509Certificate2(path, password);
-                }
-                else
-                {
-                    throw new FileNotFoundException(Resource.ERROR_CERTIFICATE_NOT_FOUND);
-                }
-            }
-            catch (CryptographicException ex)
-            {
-                throw new CardinalException(Resource.ERROR_CERTIFICATE_FAIL, ex);
-            }
-        }
+                var discovery = await client.GetDiscoveryDocumentAsync(settings.Authority);
+                var kid = token.Header.Kid;
 
-        /// <summary>
-        /// Método que obtém o certificado provido do repositório.
-        /// </summary>
-        /// <param name="thumbprint">Impressão digital do certificado</param>
-        /// <param name="validOnly">Indica que somente certificados válidos</param>
-        /// <param name="storeName">Nome do repositório. Veja <see cref="StoreName"/></param>
-        /// <param name="storeLocation">Localização do repositório. Veja <see cref="StoreLocation"/></param>
-        /// <returns>Certificado de validação. Veja <see cref="X509Certificate2"/></returns>
-        private static X509Certificate2 GetFromStorage(string thumbprint, bool validOnly, StoreName storeName = StoreName.My, StoreLocation storeLocation = StoreLocation.CurrentUser)
-        {
-            var certificate = default(X509Certificate2);
-            using (var store = new X509Store(storeName, storeLocation))
-            {
-                store.Open(OpenFlags.ReadOnly);
-                var items = store.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, validOnly);
-                certificate = items[0];
+                var key = discovery.KeySet.Keys.Where(x => x.Kid == kid).FirstOrDefault();
+
+                var json = JsonConvert.SerializeObject(key);
+
+                var result = JsonWebKey.Create(json);
+                //var keys = client.GetRequest(".well-known/openid-configuration/jwks").ExecuteAsync<IdentityKeySet>().Result;
+                return result;
             }
-            return certificate;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

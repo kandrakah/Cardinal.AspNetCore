@@ -1,4 +1,4 @@
-﻿using Cardinal.AspNetCore.Interfaces;
+﻿using Cardinal.AspNetCore;
 using System.Globalization;
 using System.Text.RegularExpressions;
 

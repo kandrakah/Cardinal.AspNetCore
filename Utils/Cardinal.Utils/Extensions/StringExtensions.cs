@@ -39,6 +39,26 @@ namespace Cardinal.Extensions
         }
 
         /// <summary>
+        /// Extensão que diz se a string é nula ou vazia.
+        /// </summary>
+        /// <param name="value">Objeto referenciado</param>
+        /// <returns>Verdadeiro caso a string seja nula ou vazia e falso caso contrário</returns>
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return string.IsNullOrEmpty(value);
+        }
+
+        /// <summary>
+        /// Extensão que diz se a string é nula ou um espaço em branco.
+        /// </summary>
+        /// <param name="value">Objeto referenciado</param>
+        /// <returns>Verdadeiro caso a string seja nula ou vazia e falso caso contrário</returns>
+        public static bool IsNullOrWhiteSpace(this string value)
+        {
+            return string.IsNullOrWhiteSpace(value);
+        }
+
+        /// <summary>
         /// Método para a tradução de um texto para o idioma atual.
         /// </summary>
         /// <param name="value">Objeto referenciado</param>
@@ -57,6 +77,44 @@ namespace Cardinal.Extensions
             }
 
             return value;
+        }
+
+        /// <summary>
+        /// Método para união entre duas listas de strings.
+        /// </summary>
+        /// <param name="items">Objeto referenciado</param>
+        /// <param name="content">Lista de strings à serem unidas</param>
+        public static void Merge(this List<string> items, IEnumerable<string> content)
+        {
+            foreach (var claim in content)
+            {
+                if (items.Contains(claim))
+                    continue;
+
+                items.Add(claim);
+            }
+        }
+
+        /// <summary>
+        /// Extensão que verifica se a string está presente.
+        /// Como 'presente' entende-se que a string é um valor não nulo, não vazio e com pelo menos um caractere, não sendo este um espaço vazio.
+        /// </summary>
+        /// <param name="value">Objeto referenciado</param>
+        /// <returns>Verdadeiro caso a string esteja presente ou falso caso contrário.</returns>
+        public static bool IsPresent(this string value)
+        {
+            return !string.IsNullOrWhiteSpace(value);
+        }
+
+        /// <summary>
+        /// Extensão que verifica se a string informada é um endereço de email.
+        /// </summary>
+        /// <param name="field">Objeto referenciado</param>
+        /// <returns>Verdadeiro caso a string informada represente um email e falso caso contrário.</returns>
+        public static bool IsEmail(this string field)
+        {
+            // Return true if strIn is in valid e-mail format.
+            return field.IsPresent() && Regex.IsMatch(field, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
 
         /// <summary>

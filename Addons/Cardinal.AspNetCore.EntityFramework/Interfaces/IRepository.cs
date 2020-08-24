@@ -1,5 +1,4 @@
-﻿using Cardinal.AspNetCore.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
@@ -11,16 +10,43 @@ using System.Threading.Tasks;
 
 namespace Cardinal.AspNetCore.EntityFramework.Repositories
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TContext"></typeparam>
+    /// <typeparam name="TEntity"></typeparam>
     public interface IRepository<TContext, TEntity> : IRepository<TContext> where TContext : DbContext where TEntity : Entity
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<TEntity> All();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Task<IEnumerable<TEntity>> AllAsync();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         TEntity Get(Guid id);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         IQueryable<TEntity> AsQueryable();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
     }
 
@@ -88,50 +114,101 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
         /// entidade.</returns>
         EntityEntry<T> Attach<T>([NotNull] T entity) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void AttachRange<T>([NotNull] params T[] entities) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void AttachRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<T> Entry<T>([NotNull] T entity) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         T Find<T>(params object[] keyValues) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         ValueTask<T> FindAsync<T>(params object[] keyValues) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<T> Remove<T>([NotNull] T entity) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void RemoveRange<T>([NotNull] params T[] entities) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void RemoveRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<T> Update<T>([NotNull] T entity) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void UpdateRange<T>([NotNull] params T[] entities) where T : Entity;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         void UpdateRange<T>([NotNull] IEnumerable<T> entities) where T : Entity;
 
-        void BeginTransaction();
-
-        Task BeginTransactionAsync(CancellationToken cancellationToken = default);
-
-        void CommitTransaction();
-
-        Task CommitTransactionAsync(CancellationToken cancellationToken = default);
-
-        void RollbackTransaction();
-
-        Task RollbackTransactionAsync(CancellationToken cancellationToken = default);
-
         /// <summary>
-        /// Salva todas as alterações feitas nesse repositório no banco de dados.        
+        /// 
         /// </summary>
-        /// <returns>O número de entradas de estado gravadas no banco de dados.</returns>
-        /// <exception cref="DbUpdateException">Foi encontrado um erro ao salvar no banco de dados.</exception>
-        /// <exception cref="DbUpdateConcurrencyException">Uma violação de simultaneidade é encontrada ao salvar no banco de dados. Uma violação
-        /// simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.
-        /// Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
-        /// carregado na memória.</exception>
-        int SaveChanges();
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task CommitTransactionAsync(CancellationToken cancellationToken = default);
+                
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        Task RollbackTransactionAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Salva todas as alterações feitas nesse repositório no banco de dados.        
@@ -145,32 +222,5 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
         /// Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
         /// carregado na memória.</exception>
         int SaveChanges(bool acceptAllChangesOnSuccess);
-
-        /// <summary>
-        /// Salva todas as alterações feitas nesse repositório no banco de dados.
-        /// Várias operações ativas na mesma instância de contexto não são suportadas. Usar
-        /// 'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
-        /// outro método nesse contexto.
-        /// </summary>
-        /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-        /// <returns>O número de entradas de estado gravadas no banco de dados.</returns>
-        /// <exception cref="DbUpdateException">Foi encontrado um erro ao salvar no banco de dados.</exception>
-        /// <exception cref="DbUpdateConcurrencyException">Uma violação de simultaneidade é encontrada ao salvar no banco de dados. Uma violação
-        /// simultaniedade ocorre quando um número inesperado de linhas é afetado durante o salvamento.
-        /// Isso geralmente ocorre porque os dados no banco de dados foram modificados desde que foram
-        /// carregado na memória.</exception>
-        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Salva todas as alterações feitas nesse repositório no banco de dados.
-        /// Várias operações ativas na mesma instância de contexto não são suportadas. Usar
-        /// 'await' para garantir que quaisquer operações assíncronas tenham sido concluídas antes de chamar
-        /// outro método nesse contexto.
-        /// </summary>
-        /// <param name="acceptAllChangesOnSuccess">Indica se Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges
-        /// será chamado depois que as alterações foram enviadas com sucesso para o banco de dados.</param>
-        /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
-        /// <returns>Número de alterações na base de dados.</returns>
-        Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default);
     }
 }

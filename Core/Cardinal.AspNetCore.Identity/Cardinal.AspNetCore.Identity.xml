@@ -9,11 +9,23 @@
             Classe de atributo que define a permissão necessária para acesso ao endpoint com ela decorado.
             </summary>
         </member>
+        <member name="M:Cardinal.AspNetCore.Identity.PermissionAttribute.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
         <member name="M:Cardinal.AspNetCore.Identity.PermissionAttribute.#ctor(Cardinal.AspNetCore.Identity.Method)">
             <summary>
-            Método construtor
+            Método construtor.
             </summary>
             <param name="method">Método de execução do endpoint. Veja <see cref="T:Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpMethod"/></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Identity.PermissionAttribute.#ctor(Cardinal.AspNetCore.Identity.PermissionValidationType,System.String[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="validationType">Tipo de validação de permissão. Veja <see cref="T:Cardinal.AspNetCore.Identity.PermissionValidationType"/></param>
+            <param name="permissions">Permissões requeridas para autorização</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.PermissionAttribute.#ctor(Cardinal.AspNetCore.Identity.Method,Cardinal.AspNetCore.Identity.PermissionValidationType,System.String[])">
             <summary>
@@ -118,7 +130,7 @@
             Indica que o usuário ativo precisa apenas estar autenticado.
             </summary>
         </member>
-        <member name="F:Cardinal.AspNetCore.Identity.PermissionValidationType.RequireOneOrMore">
+        <member name="F:Cardinal.AspNetCore.Identity.PermissionValidationType.RequireOneOf">
             <summary>
             Indica que o usuário ativo deve ter ao menos uma das permissões.
             </summary>
@@ -127,6 +139,19 @@
             <summary>
             Indica que o usuário ativo deve ter todas as permissões.
             </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Cardinal.AspNetCore.Identity.AuthoritySettings)">
+            <summary>
+            Extensão que faz a validação de um token.
+            </summary>
+            <param name="token">Objeto referenciado</param>
+            <param name="settings">Configurações de autoridade</param>
+            <returns>Resultado da validação do token</returns>
         </member>
         <member name="T:Cardinal.AspNetCore.Identity.IdentityConstants">
             <summary>
@@ -153,10 +178,24 @@
             Instância do provedor de configurações.
             </summary>
         </member>
-        <member name="F:Cardinal.AspNetCore.Identity.DefaultAuthorizationService._logger">
+        <member name="P:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Logger">
             <summary>
             Instância do serviço de log.
             </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Accessor">
+            <summary>
+            Acessor do contexto http.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.#ctor(Microsoft.Extensions.Logging.ILogger{Cardinal.AspNetCore.Identity.DefaultAuthorizationService},Microsoft.Extensions.Configuration.IConfiguration,Cardinal.AspNetCore.ISystemUser,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Método construtor
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="configuration">Instância do container de configurações.</param>
+            <param name="systemUser">Instância do usuário do sistema.</param>
+            <param name="accessor">Instância do accessor do contexto http.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Authorize(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement)">
             <summary>
@@ -165,19 +204,26 @@
             <param name="context">Contexto de autorização</param>
             <param name="requiredPermission">Requerimento de permissão</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.HavePermission(System.Security.Claims.ClaimsIdentity,Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.LogPermissionErrorMessage(Cardinal.AspNetCore.Identity.PermissionValidationType,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="validationType"></param>
+            <param name="missingPermissions"></param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.ValidatePermissionByClaims(Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement,System.Collections.Generic.List{System.String}@)">
             <summary>
             Método que efetua a verificação de permissão de uma identidade considerando o requerimento de permissão informado.
             </summary>
-            <param name="identity">Identidade do usuário</param>
             <param name="requiredPermission">Requerimento de permissão</param>
+            <param name="missingPermissions"></param>
             <returns>Verdadeiro caso o usuário atenda aos critérios requisitados e falso caso contrário</returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.IsRoot(System.Security.Claims.ClaimsIdentity)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.IsRoot(System.String)">
             <summary>
             Método que verifica se o usuário possui permissão máxima.
             </summary>
-            <param name="identity">Identidade do usuário</param>
+            <param name="token">Identidade do usuário</param>
             <returns>Verdadeiro caso o usuário possua a permissão máxima e falso caso contrário</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Result(System.Net.HttpStatusCode)">
@@ -187,27 +233,24 @@
             <param name="statusCode"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Unauthorized(System.String)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Unauthorized">
             <summary>
             
             </summary>
-            <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Forbid(System.String)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Forbid">
             <summary>
             
             </summary>
-            <param name="message"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.GetPrincipalFromToken(System.String,Microsoft.IdentityModel.Tokens.SecurityToken@)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.UpdateSystemUser(Cardinal.AspNetCore.Identity.AuthoritySettings,System.String)">
             <summary>
-            
+            Método que faz a atualização dos dados do usuário com informações da autoridade.
             </summary>
-            <param name="token"></param>
-            <param name="validatedToken"></param>
-            <returns></returns>
+            <param name="settings">Configurações da autoridade</param>
+            <param name="token">Token de acesso</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.Dispose">
             <summary>
@@ -226,19 +269,19 @@
             <param name="context">Contexto de autorização</param>
             <param name="requiredPermission">Requerimento de permissão</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.IAuthorizationService.HavePermission(System.Security.Claims.ClaimsIdentity,Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement)">
+        <member name="M:Cardinal.AspNetCore.Identity.IAuthorizationService.ValidatePermissionByClaims(Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement,System.Collections.Generic.List{System.String}@)">
             <summary>
             Método que efetua a verificação de permissão de uma identidade considerando o requerimento de permissão informado.
             </summary>
-            <param name="identity">Identidade do usuário</param>
             <param name="requiredPermission">Requerimento de permissão</param>
+            <param name="missingPermissions"></param>
             <returns>Verdadeiro caso o usuário atenda aos critérios requisitados e falso caso contrário</returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.IAuthorizationService.IsRoot(System.Security.Claims.ClaimsIdentity)">
+        <member name="M:Cardinal.AspNetCore.Identity.IAuthorizationService.IsRoot(System.String)">
             <summary>
             Método que verifica se o usuário possui permissão máxima.
             </summary>
-            <param name="identity">Identidade do usuário</param>
+            <param name="token">Token de autorização</param>
             <returns>Verdadeiro caso o usuário possua a permissão máxima e falso caso contrário</returns>
         </member>
         <member name="T:Cardinal.AspNetCore.Identity.Localization.Resource">
@@ -257,6 +300,56 @@
               pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
             </summary>
         </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_ADDING_USER_DETAILS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Updating user data with the authority.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_ANNONYMOUS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Request for access to the anonymous access endpoint {path} by Ip {ip}.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_ERROR_INVALID_TOKEN">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: [{status}: {message}].
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: Wrong format!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Failed to update system user: {msg}.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_PROTECTED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Request for access to the protected access endpoint {path} received from {ip}.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_USER_AUTHORIZED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} is authorized to access the {path} endpoint..
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_USER_ISROOT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user has master access!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_USER_UNHAUTHORIZED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unauthorized user!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.AUTHORIZATION_VALIDATIND_TOKEN">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Validating access token.
+            </summary>
+        </member>
         <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_AUTHORIZATION_SERVICE_NOT_REGISTERED">
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a Authorization service not found. This service is essential for the operation of the permission system. Register an authorization service using the &apos;AddAuthorizationService&apos; extension of &apos;IServicesCollection&apos; in the &apos;Startup&apos; class or disable the service by setting &apos;DeactivePermissionService&apos; to False in &apos;Authority&apos; in your settings file..
@@ -270,6 +363,26 @@
         <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_CERTIFICATE_NOT_FOUND">
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a The certificate has not found.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The default permission must declare the execution method!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_PERMISSION_MISSING">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Permission denied!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_PERMISSION_MISSING_MULTI_LOGGER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have one of the required permissions for this service: {pems}.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.ERROR_PERMISSION_MISSING_SINGLE_LOGGER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have any of the necessary permissions to access this service. At least one permission is required: {pem}.
             </summary>
         </member>
         <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.PERMISSION_DEFAULT_DESCRIPTION">
@@ -297,6 +410,11 @@
               Consulta uma cadeia de caracteres localizada semelhante a Administrator.
             </summary>
         </member>
+        <member name="P:Cardinal.AspNetCore.Identity.Localization.Resource.TOKEN_VALIDATION_VALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The token is valid!.
+            </summary>
+        </member>
         <member name="T:Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement">
             <summary>
             Implementação do requerimento de autorização.
@@ -307,7 +425,7 @@
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement.RequiredPermissions">
+        <member name="P:Cardinal.AspNetCore.Identity.PermissionsAuthorizationRequirement.Permissions">
             <summary>
             
             </summary>
@@ -348,17 +466,12 @@
             Configuração que ativa o serviço de permissões padrão.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Type">
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Authority">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Flow">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Url">
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Audience">
             <summary>
             
             </summary>
@@ -368,7 +481,27 @@
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Secret">
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ApiSecret">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.SaveToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.SupportedTokens">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.RoleClaimType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.NameClaimType">
             <summary>
             
             </summary>
@@ -398,92 +531,314 @@
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.SaveToken">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.CookieName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.CertificateStorage">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.CertificatePath">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.CertificatePass">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Thumbprint">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ValidOnly">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.StoreName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.StoreLocation">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Scopes">
             <summary>
             
             </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.PermissionsValidationType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Identity.Utils.AuthorityService.GetUserClaimsAsync(System.Threading.CancellationToken)">
+            <summary>
+            
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.CardinalJwtClaimTypes">
+            <summary>
+            Constantes para nomes de claims.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.CardinalJwtClaimTypes.Permission">
+            <summary>
+            Permissão
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.PermissionsValidationType">
+            <summary>
+            Enumerador que define a forma de obtenção das permissões do usuário.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.PermissionsValidationType.Claim">
+            <summary>
+            Por claims presentes na identidade.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.PermissionsValidationType.Authority">
+            <summary>
+            Por consulta direta à autoridade.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.TokenValidation">
+            <summary>
+            Enumerador do resultado da validação do token.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.Valid">
+            <summary>
+            Token válido
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.Expired">
+            <summary>
+            Token expirado
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.InvalidAudience">
+            <summary>
+            Audiência inválida
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.InvalidLifetime">
+            <summary>
+            Token vencido
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.InvalidSignature">
+            <summary>
+            Assinatura inválida
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.NoExpiration">
+            <summary>
+            Sem data de expiração.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.NotYetValid">
+            <summary>
+            Início de validade posterior a atual.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.ReplayAdd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.ReplayDetected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.TokenValidation.Error">
+            <summary>
+            Falha geral
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.IdentityUser">
+            <summary>
+            Classe que representa um usuário ativo no sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.Sub">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.Username">
+            <summary>
+            Atributo que representa o nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.DisplayName">
+            <summary>
+            Atributo que representa o nome apresentável do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.ClientId">
+            <summary>
+            Identificador único do cliente utilizado pelo usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.IsAuthenticated">
+            <summary>
+            Atributo que indica se o usuário está autenticado.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.LocalIpAddress">
+            <summary>
+            Atributo que representa o Ip local do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.RemoteIpAddress">
+            <summary>
+            Atributo que representa o Ip remoto do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.Permissions">
+            <summary>
+            Atributo com a lista de permissões do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.Provider">
+            <summary>
+            Provedor de serviços.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.IdentityUser.Principal">
+            <summary>
+            Identidade principal do usuário.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="provider">Instância do provedor de serviços</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetClaim(System.String)">
+            <summary>
+            Método que obtém uma claim do usuário de um tipo declarado. 
+            Caso hajam várias claims do mesmo tipo, a primeira será retornada.
+            </summary>
+            <param name="type">Tipo da claim desejada.</param>
+            <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetClaims(System.String)">
+            <summary>
+            Método que obtém uma enumeração de claims do usuário de um tipo declarado.
+            </summary>
+            <param name="type">tipo das claims desejadas</param>
+            <returns>Enumeração de claims do tipo solicitado.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetSub">
+            <summary>
+            Método que obtém o id único do usuário.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetUsername">
+            <summary>
+            Método que obtém o nome de usuário.
+            </summary>
+            <returns>Nome de usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetDisplayName">
+            <summary>
+            Método que obtém o nome apresentável do usuário.
+            </summary>
+            <returns>Nome apresentável do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetClientId">
+            <summary>
+            Método que obtém o Id único do cliente usado pelo usuário.
+            </summary>
+            <returns>Id único do cliente do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.Authenticated">
+            <summary>
+            Método que traz se o usuário está autenticado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetLocalIpAddress">
+            <summary>
+            Método que obtém o Ip local da conexão.
+            </summary>
+            <returns>Ip local da conexão.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetRemoteIpAddress">
+            <summary>
+            Método que obtém o Ip remoto da conexão.
+            </summary>
+            <returns>Ip remoto da conexão.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.GetPermissions">
+            <summary>
+            Método que obtém as permissões do usuário.
+            </summary>
+            <returns>Enumerador de permissões do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.HavePermission(System.String)">
+            <summary>
+            Método que verifica se o usuário tem determinada permissão.
+            </summary>
+            <param name="permission">Permissão requerida.</param>
+            <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.IsRoot">
+            <summary>
+            Método que verifica se o usuário possui a permissão mestre.
+            </summary>
+            <returns>Verdadeiro caso o usuário possua a permissão mestre e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IdentityUser.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.TokenValidationResult">
+            <summary>
+            Classe que representa o resultado de uma validação de token.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.TokenValidationResult.IsValid">
+            <summary>
+            Atributo que indica se o token é válido.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.TokenValidationResult.Status">
+            <summary>
+            Atributo que indica o status da validação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.TokenValidationResult.Message">
+            <summary>
+            Atributo que indica a mensagem de validação.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.TokenValidationResult.Principal">
+            <summary>
+            Atributo que contém os dados do usuário presentes no token.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.TokenValidationResult.SecurityToken">
+            <summary>
+            Atributo que contém os dados validados do token.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.TokenValidationResult.#ctor(Cardinal.AspNetCore.TokenValidation,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="status">Status da validação.</param>
+            <param name="message">Mensagem de validação.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.UserInfo">
+            <summary>
+            Classe que representa as informações de um usuário providas pela autoridade.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UserInfo.ToClaims">
+            <summary>
+            Método que converte este objeto em uma enumeração de claims. Veja <see cref="T:System.Security.Claims.Claim"/>
+            </summary>
+            <returns>Enumeração de claims do usuário.</returns>
         </member>
         <member name="T:Cardinal.Extensions.AuthoritySettingsExtensions">
             <summary>
             Classe de extensões para <see cref="T:Cardinal.AspNetCore.Identity.AuthoritySettings"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametes(Cardinal.AspNetCore.Identity.AuthoritySettings)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametesAsync(Cardinal.AspNetCore.Identity.AuthoritySettings,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
             Extensão que retorna os parâmetros de validação de token OAuth.
             </summary>
             <param name="settings">Objeto referenciado</param>
+            <param name="token">Token de autenticação</param>
             <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/></returns>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetCertificate(Cardinal.AspNetCore.Identity.AuthoritySettings)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetSigningKeyAsync(Cardinal.AspNetCore.Identity.AuthoritySettings,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
-            Classe interna para a obtenção do certificado de validação de Token OAuth.
+            Método para obtenção da chave de assinatura do token provida pela autoridade de identificação.
             </summary>
             <param name="settings">Objeto referenciado</param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
-        </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetFromFile(System.String,System.String)">
-            <summary>
-            Método que obtém o certificado provido de um arquivo.
-            </summary>
-            <param name="path">Localização do certificado no sistema de arquivos</param>
-            <param name="password">Senha de acesso ao certificado</param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
-        </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetFromStorage(System.String,System.Boolean,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation)">
-            <summary>
-            Método que obtém o certificado provido do repositório.
-            </summary>
-            <param name="thumbprint">Impressão digital do certificado</param>
-            <param name="validOnly">Indica que somente certificados válidos</param>
-            <param name="storeName">Nome do repositório. Veja <see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/></param>
-            <param name="storeLocation">Localização do repositório. Veja <see cref="T:System.Security.Cryptography.X509Certificates.StoreLocation"/></param>
-            <returns>Certificado de validação. Veja <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/></returns>
+            <param name="token">Token de autenticação</param>
+            <returns>Chave de segurança provida pela autoridade de identificação.</returns>
         </member>
         <member name="T:Cardinal.Extensions.AuthorizationFilterContextExtensions">
             <summary>
@@ -498,22 +853,73 @@
             <param name="type">Tipo de token esperado.</param>
             <returns>Token de autenticação ou null se o valor for vazio.</returns>
         </member>
-        <member name="T:Cardinal.Extensions.ICardinalControllerExtensions">
+        <member name="M:Cardinal.Extensions.AuthorizationFilterContextExtensions.GetCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.AuthoritySettings)">
             <summary>
-            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Interfaces.IController"/>.
+            
+            </summary>
+            <param name="context"></param>
+            <param name="settings"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Cardinal.Extensions.HttpClientExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Net.Http.HttpClient"/>
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.ICardinalControllerExtensions.GetDefaultPermission(Cardinal.AspNetCore.Interfaces.IController)">
+        <member name="M:Cardinal.Extensions.HttpClientExtensions.GetUserInfoAsync(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Extensão para busca dos dados do usuário junto à autoridade.
+            </summary>
+            <param name="client">Objeto referenciado</param>
+            <param name="authorityUri">Endereço da autoridade.</param>
+            <param name="token">Token de acesso do usuário.</param>
+            <returns>Dados do usuário</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ICardinalControllerExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Cardinal.AspNetCore.IController"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ICardinalControllerExtensions.GetDefaultPermission(Cardinal.AspNetCore.IController)">
             <summary>
             
             </summary>
             <param name="controller"></param>
             <returns></returns>
         </member>
+        <member name="T:Cardinal.Extensions.ConfigurationExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ConfigurationExtensions.GetAuthoritySettings(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão que traz as configurações tipadas da configuração.
+            </summary>
+            <param name="configuration">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="sectionName">Nome da sessão de configurações</param>
+            <returns>Objeto contendo as configurações.</returns>
+        </member>
         <member name="T:Cardinal.Extensions.ServiceCollectionExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddAuthorization(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
         </member>
         <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>

@@ -1,6 +1,4 @@
-﻿using Cardinal.AspNetCore.Identity.Localization;
-using Cardinal.Exceptions;
-using Cardinal.Extensions;
+﻿using Cardinal.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http;
@@ -16,10 +14,27 @@ namespace Cardinal.AspNetCore.Identity
     public class PermissionAttribute : TypeFilterAttribute
     {
         /// <summary>
-        /// Método construtor
+        /// Método construtor.
+        /// </summary>
+        public PermissionAttribute() : this(Method.None, PermissionValidationType.RequireAuthenticatedOnly)
+        {
+
+        }
+
+        /// <summary>
+        /// Método construtor.
         /// </summary>
         /// <param name="method">Método de execução do endpoint. Veja <see cref="HttpMethod"/></param>
         public PermissionAttribute(Method method) : this(method, PermissionValidationType.RequireAuthenticatedOnly)
+        {
+        }
+
+        /// <summary>
+        /// Método construtor.
+        /// </summary>
+        /// <param name="validationType">Tipo de validação de permissão. Veja <see cref="PermissionValidationType"/></param>
+        /// <param name="permissions">Permissões requeridas para autorização</param>
+        public PermissionAttribute(PermissionValidationType validationType, params string[] permissions) : this(Method.None, validationType, permissions)
         {
         }
 
@@ -72,12 +87,7 @@ namespace Cardinal.AspNetCore.Identity
                     try
                     {
                         var authorizationService = this._provider.GetCardinalService<IAuthorizationService>();
-                        authorizationService.Authorize(context, this._requiredPermission);
-                    }
-                    catch (ServiceNotFoundException)
-                    {
-                        _logger.LogError(Resource.ERROR_AUTHORIZATION_SERVICE_NOT_REGISTERED);
-                        context.Result = new StatusCodeResult(500);
+                        authorizationService.Authorize(context, this._requiredPermission).Wait();
                     }
                     catch (Exception ex)
                     {

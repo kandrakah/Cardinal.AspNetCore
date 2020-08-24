@@ -1199,6 +1199,20 @@
             <param name="value">Valor da tradução</param>
             <returns>Texto traduzido</returns>
         </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Extensão que diz se a string é nula ou vazia.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <returns>Verdadeiro caso a string seja nula ou vazia e falso caso contrário</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Extensão que diz se a string é nula ou um espaço em branco.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <returns>Verdadeiro caso a string seja nula ou vazia e falso caso contrário</returns>
+        </member>
         <member name="M:Cardinal.Extensions.StringExtensions.SetParameters(System.String,Cardinal.Utils.TranslationSet[])">
             <summary>
             Método para a tradução de um texto para o idioma atual.
@@ -1206,6 +1220,28 @@
             <param name="value">Objeto referenciado</param>
             <param name="sets">Vetor de valores à serem substituídos durante a tradução</param>
             <returns>Texto traduzido</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.Merge(System.Collections.Generic.List{System.String},System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Método para união entre duas listas de strings.
+            </summary>
+            <param name="items">Objeto referenciado</param>
+            <param name="content">Lista de strings à serem unidas</param>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsPresent(System.String)">
+            <summary>
+            Extensão que verifica se a string está presente.
+            Como 'presente' entende-se que a string é um valor não nulo, não vazio e com pelo menos um caractere, não sendo este um espaço vazio.
+            </summary>
+            <param name="value">Objeto referenciado</param>
+            <returns>Verdadeiro caso a string esteja presente ou falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.IsEmail(System.String)">
+            <summary>
+            Extensão que verifica se a string informada é um endereço de email.
+            </summary>
+            <param name="field">Objeto referenciado</param>
+            <returns>Verdadeiro caso a string informada represente um email e falso caso contrário.</returns>
         </member>
         <member name="M:Cardinal.Extensions.StringExtensions.IndexOfAny(System.String,System.Int32@,System.String[])">
             <summary>
@@ -1282,6 +1318,29 @@
             <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
             <param name="encoding">Codificação da string</param>
             <returns>Hash gerado para o string informado</returns>
+        </member>
+        <member name="T:System.Collections.PaginatedCollection`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:System.Collections.PaginatedCollection`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="collection"></param>
+            <param name="total"></param>
+        </member>
+        <member name="P:System.Collections.PaginatedCollection`1.Collection">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:System.Collections.PaginatedCollection`1.Total">
+            <summary>
+            
+            </summary>
         </member>
     </members>
 </doc>

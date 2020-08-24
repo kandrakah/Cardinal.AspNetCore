@@ -58,42 +58,125 @@ namespace Cardinal.AspNetCore.WebApi.Repositories
         /// <param name="cancellationToken"><see cref="CancellationToken"/> para observar enquanto aguarda a conclusão da tarefa.</param>
         Task AddRangeAsync([NotNull] IEnumerable<TEntity> entities, CancellationToken cancellationToken = default);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<TEntity> Attach(TEntity entity);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void AttachRange([NotNull] params TEntity[] entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void AttachRange([NotNull] IEnumerable<TEntity> entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         TEntity Find(params object[] keyValues);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         ValueTask<TEntity> FindAsync(params object[] keyValues);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<TEntity> Remove([NotNull] TEntity entity);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void RemoveRange([NotNull] params TEntity[] entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void RemoveRange([NotNull] IEnumerable<TEntity> entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         EntityEntry<TEntity> Update([NotNull] TEntity entity);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void UpdateRange([NotNull] params TEntity[] entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entities"></param>
         void UpdateRange([NotNull] IEnumerable<TEntity> entities);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         IQueryable<TEntity> Where(Expression<Func<TEntity, int, bool>> predicate);
 
+        /// <summary>
+        /// 
+        /// </summary>
         void BeginTransaction();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task BeginTransactionAsync(CancellationToken cancellationToken = default);
 
+        /// <summary>
+        /// 
+        /// </summary>
         void CommitTransaction();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task CommitTransactionAsync(CancellationToken cancellationToken = default);
 
+        /// <summary>
+        /// 
+        /// </summary>
         void RollbackTransaction();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task RollbackTransactionAsync(CancellationToken cancellationToken = default);
 
         /// <summary>

@@ -4,64 +4,56 @@
         <name>Cardinal.AspNetCore.Controllers</name>
     </assembly>
     <members>
-        <member name="T:Cardinal.AspNetCore.Controllers.DefaultController">
+        <member name="T:Cardinal.AspNetCore.AbstractController">
             <summary>
             Classe base para todos os controllers do sistema.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.DefaultController.Logger">
+        <member name="P:Cardinal.AspNetCore.AbstractController.Logger">
             <summary>
             Instância do serviço de logs.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Controllers.DefaultController.ServiceProvider">
+        <member name="P:Cardinal.AspNetCore.AbstractController.Provider">
             <summary>
             Instância do provedor de serviços. Veja <see cref="T:System.IServiceProvider"/> para mais detalhes.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.#ctor(Microsoft.Extensions.Logging.ILoggerFactory,System.IServiceProvider)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.#ctor(System.IServiceProvider)">
             <summary>
             Método construtor.
             </summary>
-            <param name="loggerFactory">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
+            /// <param name="provider">Instância do provedor de serviços.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.#ctor(Microsoft.Extensions.Logging.ILogger,System.IServiceProvider)">
-            <summary>
-            Método construtor.
-            </summary>
-            <param name="logger">Instância do serviço de logs.</param>
-            <param name="provider">Instância do provedor de serviços.</param>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.GetService``1">
+        <member name="M:Cardinal.AspNetCore.AbstractController.GetService``1">
             <summary>
             Método que obtém a instância de um serviço.
             </summary>
             <typeparam name="T">Interface do serviço solicitada.</typeparam>
             <returns>Instância do serviço solicitado.</returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.GetService(System.Type)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.GetService(System.Type)">
             <summary>
             Método que obtém a instância de um serviço.
             </summary>
             <param name="service">Tipo do serviço solicitado.</param>
             <returns>Instância do serviço solicitado.</returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.GetRequestHeader(System.String)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.GetRequestHeader(System.String)">
             <summary>
             Método que obtém um item do header da requisição.
             </summary>
             <param name="key">Identificador do header requerido</param>
             <returns>Valor do header requerido</returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.StatusCode(System.Net.HttpStatusCode)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.StatusCode(System.Net.HttpStatusCode)">
             <summary>
             
             </summary>
             <param name="statusCode"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.StatusCode(System.Net.HttpStatusCode,System.Object)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.StatusCode(System.Net.HttpStatusCode,System.Object)">
             <summary>
             
             </summary>
@@ -69,21 +61,21 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.Error(System.Exception)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.Error(System.Exception)">
             <summary>
             Método que responte à requisição com um erro.
             </summary>
             <param name="exception">Excessão à ser respondida à requisição.</param>
             <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.Error(System.Net.HttpStatusCode)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.Error(System.Net.HttpStatusCode)">
             <summary>
             Método que responte à requisição com um erro.
             </summary>
             <param name="statusCode">Código de erro da excessão.</param>
             <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.Error(System.Int32,System.String)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.Error(System.Int32,System.String)">
             <summary>
             Método que responte à requisição com um erro.
             </summary>
@@ -91,7 +83,7 @@
             <param name="message">Mensagem à ser apresentada na excessão.</param>
             <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Controllers.DefaultController.Error(System.Int32,System.Exception,System.Object)">
+        <member name="M:Cardinal.AspNetCore.AbstractController.Error(System.Int32,System.Exception,System.Object)">
             <summary>
             Método que responte à requisição com um erro.
             </summary>
@@ -99,6 +91,27 @@
             <param name="exception">Excessão à ser respondida à requisição.</param>
             <param name="obj">Objeto à ser apresentado na excessão.</param>
             <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Controllers.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Controllers.Localization.Resource.ERROR_CONTROLLER_GENERAL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a There was an internal failure to process the request. Try again in a few moments..
+            </summary>
         </member>
     </members>
 </doc>

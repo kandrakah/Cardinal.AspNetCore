@@ -25,10 +25,238 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Cardinal.AspNetCore.Interfaces.IController">
+        <member name="T:Cardinal.AspNetCore.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.IServiceCollectionExtensions.AddSystemUser(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição do usuário de sistema.
+            </summary>
+            <param name="services">Objeto referenciado</param>
+            <returns>Objeto referenciado</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.IController">
             <summary>
             Interface padrão de todas as classes de controle.
             </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.ISystemUser">
+            <summary>
+            Interface que representa um usuário do sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.Sub">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.Username">
+            <summary>
+            Atributo que representa o nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.DisplayName">
+            <summary>
+            Atributo que representa o nome apresentável do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.ClientId">
+            <summary>
+            Identificador único do cliente utilizado pelo usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.LocalIpAddress">
+            <summary>
+            Atributo que representa o Ip local do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.RemoteIpAddress">
+            <summary>
+            Atributo que representa o Ip remoto do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.IsAuthenticated">
+            <summary>
+            Atributo que indica se o usuário está autenticado.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.ISystemUser.Permissions">
+            <summary>
+            Atributo com a lista de permissões do usuário.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.GetClaim(System.String)">
+            <summary>
+            Método que obtém uma claim do usuário de um tipo declarado. 
+            Caso hajam várias claims do mesmo tipo, a primeira será retornada.
+            </summary>
+            <param name="type">Tipo da claim desejada.</param>
+            <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.GetClaims(System.String)">
+            <summary>
+            Método que obtém uma enumeração de claims do usuário de um tipo declarado.
+            </summary>
+            <param name="type">tipo das claims desejadas</param>
+            <returns>Enumeração de claims do tipo solicitado.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.HavePermission(System.String)">
+            <summary>
+            Método que verifica se o usuário tem determinada permissão.
+            </summary>
+            <param name="permission">Permissão requerida.</param>
+            <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.IsRoot">
+            <summary>
+            Método que verifica se o usuário possui a permissão mestre.
+            </summary>
+            <returns>Verdadeiro caso o usuário possua a permissão mestre e falso caso contrário.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.SystemUser">
+            <summary>
+            Classe que representa um usuário ativo no sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.Sub">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.Username">
+            <summary>
+            Atributo que representa o nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.DisplayName">
+            <summary>
+            Atributo que representa o nome apresentável do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.ClientId">
+            <summary>
+            Identificador único do cliente utilizado pelo usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.IsAuthenticated">
+            <summary>
+            Atributo que indica se o usuário está autenticado.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.LocalIpAddress">
+            <summary>
+            Atributo que representa o Ip local do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.RemoteIpAddress">
+            <summary>
+            Atributo que representa o Ip remoto do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.Permissions">
+            <summary>
+            Atributo com a lista de permissões do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.Accessor">
+            <summary>
+            Accessor
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUser.Principal">
+            <summary>
+            Identidade principal do usuário.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="accessor">Instância do acessor</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetClaim(System.String)">
+            <summary>
+            Método que obtém uma claim do usuário de um tipo declarado. 
+            Caso hajam várias claims do mesmo tipo, a primeira será retornada.
+            </summary>
+            <param name="type">Tipo da claim desejada.</param>
+            <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetClaims(System.String)">
+            <summary>
+            Método que obtém uma enumeração de claims do usuário de um tipo declarado.
+            </summary>
+            <param name="type">tipo das claims desejadas</param>
+            <returns>Enumeração de claims do tipo solicitado.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetSub">
+            <summary>
+            Método que obtém o id único do usuário.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetUsername">
+            <summary>
+            Método que obtém o nome de usuário.
+            </summary>
+            <returns>Nome de usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetDisplayName">
+            <summary>
+            Método que obtém o nome apresentável do usuário.
+            </summary>
+            <returns>Nome apresentável do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetClientId">
+            <summary>
+            Método que obtém o Id único do cliente usado pelo usuário.
+            </summary>
+            <returns>Id único do cliente do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.Authenticated">
+            <summary>
+            Método que traz se o usuário está autenticado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetLocalIpAddress">
+            <summary>
+            Método que obtém o Ip local da conexão.
+            </summary>
+            <returns>Ip local da conexão.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetRemoteIpAddress">
+            <summary>
+            Método que obtém o Ip remoto da conexão.
+            </summary>
+            <returns>Ip remoto da conexão.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.GetPermissions">
+            <summary>
+            Método que obtém as permissões do usuário.
+            </summary>
+            <returns>Enumerador de permissões do usuário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.HavePermission(System.String)">
+            <summary>
+            Método que verifica se o usuário tem determinada permissão.
+            </summary>
+            <param name="permission">Permissão requerida.</param>
+            <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.IsRoot">
+            <summary>
+            Método que verifica se o usuário possui a permissão mestre.
+            </summary>
+            <returns>Verdadeiro caso o usuário possua a permissão mestre e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
     </members>
 </doc>

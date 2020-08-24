@@ -1,6 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Cardinal.AspNetCore.Identity;
+using Cardinal.AspNetCore.Identity.Utils;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Cardinal.Extensions
 {
@@ -27,6 +33,20 @@ namespace Cardinal.Extensions
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        public static IEnumerable<Claim> GetCurrentUserClaims(this AuthorizationFilterContext context, AuthoritySettings settings)
+        {
+            var token = context.GetAuthorizationToken("Bearer");
+            var client = new AuthorityService(settings.Authority, token);
+            var claims = client.GetUserClaimsAsync().Result;
+            return claims;
         }
     }
 }

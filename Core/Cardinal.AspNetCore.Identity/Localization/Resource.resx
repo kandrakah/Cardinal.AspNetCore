@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AUTHORIZATION_ADDING_USER_DETAILS" xml:space="preserve">
+    <value>Updating user data with the authority</value>
+  </data>
+  <data name="AUTHORIZATION_ANNONYMOUS" xml:space="preserve">
+    <value>Request for access to the anonymous access endpoint {path} by Ip {ip}</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_INVALID_TOKEN" xml:space="preserve">
+    <value>Invalid access token: [{status}: {message}]</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT" xml:space="preserve">
+    <value>Invalid access token: Wrong format!</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER" xml:space="preserve">
+    <value>Failed to update system user: {msg}</value>
+  </data>
+  <data name="AUTHORIZATION_PROTECTED" xml:space="preserve">
+    <value>Request for access to the protected access endpoint {path} received from {ip}</value>
+  </data>
+  <data name="AUTHORIZATION_USER_AUTHORIZED" xml:space="preserve">
+    <value>The user {usr} is authorized to access the {path} endpoint.</value>
+  </data>
+  <data name="AUTHORIZATION_USER_ISROOT" xml:space="preserve">
+    <value>The user has master access!</value>
+  </data>
+  <data name="AUTHORIZATION_USER_UNHAUTHORIZED" xml:space="preserve">
+    <value>Unauthorized user!</value>
+  </data>
+  <data name="AUTHORIZATION_VALIDATIND_TOKEN" xml:space="preserve">
+    <value>Validating access token</value>
+  </data>
   <data name="ERROR_AUTHORIZATION_SERVICE_NOT_REGISTERED" xml:space="preserve">
     <value>Authorization service not found. This service is essential for the operation of the permission system. Register an authorization service using the 'AddAuthorizationService' extension of 'IServicesCollection' in the 'Startup' class or disable the service by setting 'DeactivePermissionService' to False in 'Authority' in your settings file.</value>
   </data>
@@ -125,6 +155,18 @@
   </data>
   <data name="ERROR_CERTIFICATE_NOT_FOUND" xml:space="preserve">
     <value>The certificate has not found</value>
+  </data>
+  <data name="ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED" xml:space="preserve">
+    <value>The default permission must declare the execution method!</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING" xml:space="preserve">
+    <value>Permission denied!</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_MULTI_LOGGER" xml:space="preserve">
+    <value>The user {usr} does not have one of the required permissions for this service: {pems}</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_SINGLE_LOGGER" xml:space="preserve">
+    <value>The user {usr} does not have any of the necessary permissions to access this service. At least one permission is required: {pem}</value>
   </data>
   <data name="PERMISSION_DEFAULT_DESCRIPTION" xml:space="preserve">
     <value>Service default controller permission.</value>
@@ -140,5 +182,8 @@
   </data>
   <data name="PERMISSION_ROOT_NAME" xml:space="preserve">
     <value>Administrator</value>
+  </data>
+  <data name="TOKEN_VALIDATION_VALID" xml:space="preserve">
+    <value>The token is valid!</value>
   </data>
 </root>

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using IdentityModel;
+using IdentityServer4.AccessTokenValidation;
+using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Cardinal.AspNetCore.Identity
@@ -16,17 +18,12 @@ namespace Cardinal.AspNetCore.Identity
         /// <summary>
         /// 
         /// </summary>
-        public string Type { get; set; }
+        public string Authority { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public string Flow { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Url { get; set; }
+        public string Audience { get; set; }
 
         /// <summary>
         /// 
@@ -36,7 +33,27 @@ namespace Cardinal.AspNetCore.Identity
         /// <summary>
         /// 
         /// </summary>
-        public string Secret { get; set; }
+        public string ApiSecret { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool SaveToken { get; set; } = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public SupportedTokens SupportedTokens { get; set; } = SupportedTokens.Both;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string RoleClaimType { get; set; } = JwtClaimTypes.Role;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string NameClaimType { get; set; } = JwtClaimTypes.Name;
 
         /// <summary>
         /// 
@@ -58,7 +75,6 @@ namespace Cardinal.AspNetCore.Identity
         /// </summary>
         public bool ValidateLifetime { get; set; } = true;
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -67,51 +83,11 @@ namespace Cardinal.AspNetCore.Identity
         /// <summary>
         /// 
         /// </summary>
-        public bool SaveToken { get; set; } = false;
+        public IDictionary<string, string> Scopes { get; set; } = new Dictionary<string, string>();
 
         /// <summary>
         /// 
         /// </summary>
-        public string CookieName { get; set; } = "cardinal.cookie";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public CertificateStorage CertificateStorage { get; set; } = CertificateStorage.File;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string CertificatePath { get; set; } = string.Empty;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string CertificatePass { get; set; } = "cardinal";
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Thumbprint { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool ValidOnly { get; set; } = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public StoreName StoreName { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public StoreLocation StoreLocation { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IDictionary<string, string> Scopes { get; set; }        
+        public PermissionsValidationType PermissionsValidationType { get; set; } = PermissionsValidationType.Claim;
     }
 }

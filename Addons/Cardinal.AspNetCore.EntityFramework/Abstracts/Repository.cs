@@ -1,5 +1,4 @@
-﻿using Cardinal.AspNetCore.Abstracts.Repositories;
-using Cardinal.AspNetCore.EntityFramework.Localization;
+﻿using Cardinal.AspNetCore.EntityFramework.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -14,36 +13,69 @@ using System.Transactions;
 
 namespace Cardinal.AspNetCore.EntityFramework.Repositories
 {
+    /// <summary>
+    /// Classe base para repositórios.
+    /// </summary>
+    /// <typeparam name="TContext">Contexto utilizado no repositório.</typeparam>
+    /// <typeparam name="TEntity">Entidade gerenciada pelo repositório.</typeparam>
     public abstract class Repository<TContext, TEntity> : Repository<TContext> where TContext : DbContext where TEntity : Entity
     {
+        /// <summary>
+        /// DbSet da entidade gerenciada.
+        /// </summary>
         protected DbSet<TEntity> Entities { get; set; }
 
-
+        /// <summary>
+        /// Método construtor.
+        /// </summary>
+        /// <param name="context">Contexto utilizado no repositório.</param>
         public Repository(TContext context) : base(context)
         {
             this.Entities = context.Set<TEntity>();
         }
 
+        /// <summary>
+        /// Método que tráz todos os registros da entidade.
+        /// </summary>
+        /// <returns>Enumeração de entidades.</returns>
         public IEnumerable<TEntity> All()
         {
             return this.Entities.ToList();
         }
 
+        /// <summary>
+        /// Método que traz todos os registros da entidade.
+        /// </summary>
+        /// <returns>Enumeração de entidades.</returns>
         public async Task<IEnumerable<TEntity>> AllAsync()
         {
             return await this.Entities.ToListAsync();
         }
 
+        /// <summary>
+        /// Método que traz uma entidade relativa ao Id informado.
+        /// </summary>
+        /// <param name="id">Id da entidade desejada.</param>
+        /// <returns>Entidade referente ao Id informado ou null caso nenhuma seja localizada.</returns>
         public TEntity Get(Guid id)
         {
             return this.Entities.Where(x => x.Id == id).FirstOrDefault();
         }
 
+        /// <summary>
+        /// Método que traz a lista buscável da entidade.
+        /// </summary>
+        /// <returns>Lista buscável da entidade.</returns>
         public IQueryable<TEntity> AsQueryable()
         {
-            return this.Entities.AsQueryable<TEntity>();
+            return this.Entities.AsQueryable();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
         public virtual IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
         {
             return this.Entities.Where(predicate);
@@ -154,56 +186,116 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             return this.Context.Attach(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void AttachRange<T>([NotNull] params T[] entities) where T : Entity
         {
             this.Context.AttachRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void AttachRange<T>([NotNull] IEnumerable<T> entities) where T : Entity
         {
             this.Context.AttachRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual EntityEntry<T> Entry<T>([NotNull] T entity) where T : Entity
         {
             return this.Context.Entry(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public virtual T Find<T>(params object[] keyValues) where T : Entity
         {
             return this.Context.Find<T>(keyValues);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="keyValues"></param>
+        /// <returns></returns>
         public virtual ValueTask<T> FindAsync<T>(params object[] keyValues) where T : Entity
         {
             return this.Context.FindAsync<T>(keyValues);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual EntityEntry<T> Remove<T>([NotNull] T entity) where T : Entity
         {
             return this.Context.Remove(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void RemoveRange<T>([NotNull] params T[] entities) where T : Entity
         {
             this.Context.RemoveRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void RemoveRange<T>([NotNull] IEnumerable<T> entities) where T : Entity
         {
             this.Context.RemoveRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entity"></param>
+        /// <returns></returns>
         public virtual EntityEntry<T> Update<T>([NotNull] T entity) where T : Entity
         {
             return this.Context.Update(entity);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void UpdateRange<T>([NotNull] params T[] entities) where T : Entity
         {
             this.Context.UpdateRange(entities);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entities"></param>
         public virtual void UpdateRange<T>([NotNull] IEnumerable<T> entities) where T : Entity
         {
             this.Context.UpdateRange(entities);
@@ -222,6 +314,11 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             this.Transaction = this.Context.Database.BeginTransaction();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task BeginTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction != null)
@@ -232,6 +329,9 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             this.Transaction = await this.Context.Database.BeginTransactionAsync(cancellationToken);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void CommitTransaction()
         {
             if (this.Transaction == null)
@@ -243,6 +343,11 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             this.Transaction.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task CommitTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction == null)
@@ -254,6 +359,9 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             await this.Transaction.DisposeAsync();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override void RollbackTransaction()
         {
             if (this.Transaction == null)
@@ -265,6 +373,11 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
             this.Transaction.Dispose();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public override async Task RollbackTransactionAsync(CancellationToken cancellationToken = default)
         {
             if (this.Transaction == null)
