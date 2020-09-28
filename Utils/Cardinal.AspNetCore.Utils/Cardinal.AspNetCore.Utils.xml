@@ -29,7 +29,7 @@
             <param name="version">Versão do serviço web.</param>
             <param name="args">Argumentos de inicialização.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(System.String,System.String,System.String[])">
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(System.String,System.String,System.String[],System.String[])">
             <summary>
             Método de inicialização do serviço web.
             </summary>
@@ -37,8 +37,9 @@
             <param name="version">Versão do serviço web.</param>
             <param name="description">Descrição serviço web.</param>
             <param name="args">Argumentos de inicialização.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(Cardinal.Utils.CardinalVersion,System.String,System.String[])">
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Initialize``1(Cardinal.Utils.CardinalVersion,System.String,System.String[],System.String[])">
             <summary>
             Método de inicialização do serviço web.
             </summary>
@@ -46,16 +47,18 @@
             <param name="version">Versão do serviço web. veja <see cref="T:Cardinal.Utils.CardinalVersion"/>.</param>
             <param name="description">Descrição serviço web.</param>
             <param name="args">Argumentos de inicialização.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.String[])">
             <summary>
             Método de inicialização do serviço web.
             </summary>
             <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
             <param name="args">Argumentos de inicialização.</param>
             <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.String,System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection})">
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Start``1(System.String[],System.String,System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.String[])">
             <summary>
             Método de inicialização do serviço web.
             </summary>
@@ -63,6 +66,7 @@
             <param name="args">Argumentos de inicialização.</param>
             <param name="basePath">Diretório base da aplicação.</param>
             <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
         </member>
         <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.Shutdown(System.Int32)">
             <summary>
@@ -70,12 +74,13 @@
             </summary>
             <param name="exitCode">Código de saída da aplicação.</param>
         </member>
-        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.LoadConfiguration(System.String[],System.String)">
+        <member name="M:Cardinal.AspNetCore.Utils.BaseProgram.LoadConfiguration(System.String[],System.String,System.String[])">
             <summary>
             Método que efetua a leitura das configurações do serviço.
             </summary>
             <param name="args">Argumentos de inicialização.</param>
             <param name="basePath">Diretório base da aplicação.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
             <returns>Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> contendo as configurações do serviço.</returns>
         </member>
         <member name="T:Cardinal.AspNetCore.Utils.Constants">
@@ -335,6 +340,26 @@
             <param name="exception"></param>
             <param name="formatter"></param>
         </member>
+        <member name="T:Cardinal.Settings.HostConfigurations">
+            <summary>
+            Classe de configurações de Host.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Settings.HostConfigurations.UseDefaults">
+            <summary>
+            Indica se deve ser utilizado o servidor Kestrel.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Settings.HostConfigurations.UseIISIntegration">
+            <summary>
+            Indica se deve ser usada a integração com o Internet Information Service.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Settings.HostConfigurations.Hosts">
+            <summary>
+            Lista de hosts ao qual o serviço deve responder.
+            </summary>
+        </member>
         <member name="T:Cardinal.Exceptions.ServiceException">
             <summary>
             Classe de exceção de serviços de Api.
@@ -411,12 +436,12 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Cardinal.Extensions.ConfigurationExtensions">
+        <member name="T:Cardinal.Extensions.IConfigurationExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.ConfigurationExtensions.GetSettings``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+        <member name="M:Cardinal.Extensions.IConfigurationExtensions.GetConfigurations``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Extensão que traz as configurações tipadas da configuração.
             </summary>
@@ -425,12 +450,12 @@
             <param name="sectionName">Nome da sessão de configurações</param>
             <returns>Objeto contendo as configurações.</returns>
         </member>
-        <member name="T:Cardinal.Extensions.ConfigurationSectionExtensions">
+        <member name="T:Cardinal.Extensions.IConfigurationSectionExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.ConfigurationSectionExtensions.GetSettings``1(Microsoft.Extensions.Configuration.IConfigurationSection)">
+        <member name="M:Cardinal.Extensions.IConfigurationSectionExtensions.GetConfigurations``1(Microsoft.Extensions.Configuration.IConfigurationSection)">
             <summary>
             Extensão que traz as configurações tipadas da sessão.
             </summary>
@@ -550,21 +575,6 @@
             <typeparam name="T">Tipo da classe invocadora do logger.</typeparam>
             <param name="provider">Este provedor de serviços.</param>
             <returns>Instância do serviço <see cref="T:Microsoft.Extensions.Logging.ILogger"/> referente à classe solicitante.</returns>
-        </member>
-        <member name="T:Cardinal.Settings.HostSettings">
-            <summary>
-            Classe de configurações de Host.
-            </summary>
-        </member>
-        <member name="P:Cardinal.Settings.HostSettings.UseIISIntegration">
-            <summary>
-            Indica se deve ser usada a integração com o Internet Information Service.
-            </summary>
-        </member>
-        <member name="P:Cardinal.Settings.HostSettings.Hosts">
-            <summary>
-            Lista de hosts ao qual o serviço deve responder.
-            </summary>
         </member>
     </members>
 </doc>

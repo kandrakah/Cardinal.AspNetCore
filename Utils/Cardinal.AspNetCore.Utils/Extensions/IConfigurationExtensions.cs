@@ -5,7 +5,7 @@ namespace Cardinal.Extensions
     /// <summary>
     /// Classe de extensões para <see cref="IConfiguration"/>.
     /// </summary>
-    public static class ConfigurationExtensions
+    public static class IConfigurationExtensions
     {
         /// <summary>
         /// Extensão que traz as configurações tipadas da configuração.
@@ -14,10 +14,10 @@ namespace Cardinal.Extensions
         /// <param name="configuration">Instância de <see cref="IConfiguration"/></param>
         /// <param name="sectionName">Nome da sessão de configurações</param>
         /// <returns>Objeto contendo as configurações.</returns>
-        public static T GetSettings<T>(this IConfiguration configuration, string sectionName) where T : class
+        public static T GetConfigurations<T>(this IConfiguration configuration, string sectionName) where T : class
         {
             var section = configuration.GetSection(sectionName);
-            var settings = section?.GetSettings<T>();
+            var settings = section?.GetConfigurations<T>();
             return settings;
         }
     }

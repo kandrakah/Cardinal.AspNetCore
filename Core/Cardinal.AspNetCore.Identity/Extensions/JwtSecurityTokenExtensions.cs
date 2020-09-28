@@ -17,7 +17,7 @@ namespace Cardinal.AspNetCore.Identity.Extensions
         /// <param name="token">Objeto referenciado</param>
         /// <param name="settings">Configurações de autoridade</param>
         /// <returns>Resultado da validação do token</returns>
-        public static async Task<TokenValidationResult> ValidateAsync(this JwtSecurityToken token, AuthoritySettings settings)
+        public static async Task<TokenValidationResult> ValidateAsync(this JwtSecurityToken token, AuthorityConfigurations settings)
         {
             TokenValidationResult result;
             try

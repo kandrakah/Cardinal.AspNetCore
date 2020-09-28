@@ -8,9 +8,7 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -18,7 +16,6 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Tiny.RestClient;
 
 namespace Cardinal.AspNetCore.Identity
 {
@@ -75,7 +72,7 @@ namespace Cardinal.AspNetCore.Identity
 
             this.Logger.LogInformation(Resource.AUTHORIZATION_PROTECTED, this.Accessor.HttpContext.Request.Path, this.SystemUser.RemoteIpAddress);
             // Obtendo configurações da autoridade.
-            var settings = this.Configuration.GetAuthoritySettings();
+            var settings = this.Configuration.GetAuthorityConfigurations();
             // Obtendo token de autorização.
             var token = context.GetAuthorizationToken();
 
@@ -247,7 +244,7 @@ namespace Cardinal.AspNetCore.Identity
         /// </summary>
         /// <param name="settings">Configurações da autoridade</param>
         /// <param name="token">Token de acesso</param>
-        private async Task UpdateSystemUser(AuthoritySettings settings, string token)
+        private async Task UpdateSystemUser(AuthorityConfigurations settings, string token)
         {
             try
             {

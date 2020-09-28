@@ -55,6 +55,91 @@
             </summary>
             <param name="context"></param>
         </member>
+        <member name="T:Cardinal.AspNetCore.Identity.AuthorityConfigurations">
+            <summary>
+            Classe de configurações Identity
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.UsePermissionsService">
+            <summary>
+            Configuração que ativa o serviço de permissões padrão.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Authority">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Audience">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ApiName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ApiSecret">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.SaveToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.SupportedTokens">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.RoleClaimType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.NameClaimType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateIssuerSigningKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateIssuer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateAudience">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateLifetime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.RequireHttpsMetadata">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Scopes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.PermissionsValidationType">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Cardinal.AspNetCore.Identity.Method">
             <summary>
             
@@ -145,7 +230,7 @@
             Extensões para <see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/>
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Cardinal.AspNetCore.Identity.AuthoritySettings)">
+        <member name="M:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Cardinal.AspNetCore.Identity.AuthorityConfigurations)">
             <summary>
             Extensão que faz a validação de um token.
             </summary>
@@ -245,7 +330,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.UpdateSystemUser(Cardinal.AspNetCore.Identity.AuthoritySettings,System.String)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.UpdateSystemUser(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.String)">
             <summary>
             Método que faz a atualização dos dados do usuário com informações da autoridade.
             </summary>
@@ -455,91 +540,6 @@
             Método que faz a substituição da permissão padrão pelo seu nome correto
             </summary>
             <param name="permission">Nome da permissão à ser adicionada</param>
-        </member>
-        <member name="T:Cardinal.AspNetCore.Identity.AuthoritySettings">
-            <summary>
-            Classe de configurações Identity
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.UsePermissionsService">
-            <summary>
-            Configuração que ativa o serviço de permissões padrão.
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Authority">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Audience">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ApiName">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ApiSecret">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.SaveToken">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.SupportedTokens">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.RoleClaimType">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.NameClaimType">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ValidateIssuerSigningKey">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ValidateIssuer">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ValidateAudience">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.ValidateLifetime">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.RequireHttpsMetadata">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.Scopes">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthoritySettings.PermissionsValidationType">
-            <summary>
-            
-            </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.Identity.Utils.AuthorityService.GetUserClaimsAsync(System.Threading.CancellationToken)">
             <summary>
@@ -821,10 +821,10 @@
         </member>
         <member name="T:Cardinal.Extensions.AuthoritySettingsExtensions">
             <summary>
-            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Identity.AuthoritySettings"/>.
+            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Identity.AuthorityConfigurations"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametesAsync(Cardinal.AspNetCore.Identity.AuthoritySettings,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametesAsync(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
             Extensão que retorna os parâmetros de validação de token OAuth.
             </summary>
@@ -832,7 +832,7 @@
             <param name="token">Token de autenticação</param>
             <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/></returns>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetSigningKeyAsync(Cardinal.AspNetCore.Identity.AuthoritySettings,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetSigningKeyAsync(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
             Método para obtenção da chave de assinatura do token provida pela autoridade de identificação.
             </summary>
@@ -853,7 +853,7 @@
             <param name="type">Tipo de token esperado.</param>
             <returns>Token de autenticação ou null se o valor for vazio.</returns>
         </member>
-        <member name="M:Cardinal.Extensions.AuthorizationFilterContextExtensions.GetCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.AuthoritySettings)">
+        <member name="M:Cardinal.Extensions.AuthorizationFilterContextExtensions.GetCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.AuthorityConfigurations)">
             <summary>
             
             </summary>
@@ -887,12 +887,12 @@
             <param name="controller"></param>
             <returns></returns>
         </member>
-        <member name="T:Cardinal.Extensions.ConfigurationExtensions">
+        <member name="T:Cardinal.Extensions.IConfigurationExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.ConfigurationExtensions.GetAuthoritySettings(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+        <member name="M:Cardinal.Extensions.IConfigurationExtensions.GetAuthorityConfigurations(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
             <summary>
             Extensão que traz as configurações tipadas da configuração.
             </summary>

@@ -25,23 +25,7 @@ namespace Cardinal.AspNetCore.DemoApi
         {
             services.AddControllers();
             services.AddSwagger(this.Configuration);
-            services.AddAuthentication("token")
-                .AddJwtBearer("token", options =>
-                {
-
-                    options.Authority = "https://localhost:5001";
-                    options.Audience = "jp_api";
-                    options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
-                    //options.ForwardDefaultSelector = Selector.ForwardReferenceToken("introspection");
-                })
-                .AddOAuth2Introspection("introspection", options =>
-                {
-                    options.Authority = "https://localhost:5001";
-                    options.ClientId = "jp_api";
-                    options.ClientSecret = "secret";
-                });
-            services.AddAuthorization();
-            services.AddAuthorizationService();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

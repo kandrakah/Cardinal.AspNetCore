@@ -316,7 +316,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.EntityFramework.Repositories.IRepository`2.AllAsync">
+        <member name="M:Cardinal.AspNetCore.EntityFramework.Repositories.IRepository`2.AllAsync(System.Threading.CancellationToken)">
             <summary>
             
             </summary>

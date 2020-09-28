@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Cardinal.Extensions
 {
     /// <summary>
-    /// Classe de extensões para <see cref="AuthoritySettings"/>.
+    /// Classe de extensões para <see cref="AuthorityConfigurations"/>.
     /// </summary>
     public static class AuthoritySettingsExtensions
     {
@@ -21,7 +21,7 @@ namespace Cardinal.Extensions
         /// <param name="settings">Objeto referenciado</param>
         /// <param name="token">Token de autenticação</param>
         /// <returns>Parâmetros de validação do Token. Veja <see cref="TokenValidationParameters"/></returns>
-        internal static async Task<TokenValidationParameters> GetTokenParametesAsync(this AuthoritySettings settings, JwtSecurityToken token)
+        internal static async Task<TokenValidationParameters> GetTokenParametesAsync(this AuthorityConfigurations settings, JwtSecurityToken token)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace Cardinal.Extensions
         /// <param name="settings">Objeto referenciado</param>
         /// <param name="token">Token de autenticação</param>
         /// <returns>Chave de segurança provida pela autoridade de identificação.</returns>
-        private static async Task<SecurityKey> GetSigningKeyAsync(this AuthoritySettings settings, JwtSecurityToken token)
+        private static async Task<SecurityKey> GetSigningKeyAsync(this AuthorityConfigurations settings, JwtSecurityToken token)
         {
             var client = new HttpClient();
             try

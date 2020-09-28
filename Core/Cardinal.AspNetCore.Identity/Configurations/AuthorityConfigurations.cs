@@ -1,14 +1,13 @@
 ﻿using IdentityModel;
 using IdentityServer4.AccessTokenValidation;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Cardinal.AspNetCore.Identity
 {
     /// <summary>
     /// Classe de configurações Identity
     /// </summary>
-    public class AuthoritySettings
+    public class AuthorityConfigurations
     {
         /// <summary>
         /// Configuração que ativa o serviço de permissões padrão.

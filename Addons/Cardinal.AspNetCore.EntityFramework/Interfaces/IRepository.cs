@@ -27,7 +27,7 @@ namespace Cardinal.AspNetCore.EntityFramework.Repositories
         /// 
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<TEntity>> AllAsync();
+        Task<IEnumerable<TEntity>> AllAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 

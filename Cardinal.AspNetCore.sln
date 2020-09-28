@@ -41,7 +41,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.IdentityServer", "Core\Cardinal.AspNetCore.IdentityServer\Cardinal.AspNetCore.IdentityServer.csproj", "{2345BAFA-A621-4B74-BCE4-68385BF83EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.EventStore", "Addons\Cardinal.AspNetCore.EventStore\Cardinal.AspNetCore.EventStore.csproj", "{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.EventStore", "Addons\Cardinal.AspNetCore.EventStore\Cardinal.AspNetCore.EventStore.csproj", "{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.BackgroundServices", "Addons\Cardinal.AspNetCore.BackgroundServices\Cardinal.AspNetCore.BackgroundServices.csproj", "{DA320A5C-6549-4F5B-9EFF-C648576D40C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthChecks.Identity", "Addons\HealthChecks\Cardinal.AspNetCore.HealthChecks.Identity\Cardinal.AspNetCore.HealthChecks.Identity.csproj", "{CC38F997-47C1-466E-9844-3F9076334A1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.Ocelot.Swagger", "Addons\Cardinal.AspNetCore.Ocelot.Swagger\Cardinal.AspNetCore.Ocelot.Swagger.csproj", "{E33A89CC-E43A-4863-B91C-1FC386E187BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +115,18 @@ Global
 		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA320A5C-6549-4F5B-9EFF-C648576D40C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA320A5C-6549-4F5B-9EFF-C648576D40C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA320A5C-6549-4F5B-9EFF-C648576D40C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA320A5C-6549-4F5B-9EFF-C648576D40C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC38F997-47C1-466E-9844-3F9076334A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC38F997-47C1-466E-9844-3F9076334A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC38F997-47C1-466E-9844-3F9076334A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC38F997-47C1-466E-9844-3F9076334A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E33A89CC-E43A-4863-B91C-1FC386E187BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E33A89CC-E43A-4863-B91C-1FC386E187BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E33A89CC-E43A-4863-B91C-1FC386E187BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E33A89CC-E43A-4863-B91C-1FC386E187BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +147,9 @@ Global
 		{991DC64E-68A8-442C-AD36-B813D833E5FF} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
 		{2345BAFA-A621-4B74-BCE4-68385BF83EEB} = {4E697E0C-7B4D-4C78-863A-567186DF7CF4}
 		{F6F126B4-4D00-4BC3-AE62-7B757ED7265F} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
+		{DA320A5C-6549-4F5B-9EFF-C648576D40C9} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
+		{CC38F997-47C1-466E-9844-3F9076334A1E} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
+		{E33A89CC-E43A-4863-B91C-1FC386E187BA} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66289424-587D-47FF-B04F-1F18A2EE0288}

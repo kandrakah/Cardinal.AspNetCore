@@ -9,7 +9,7 @@ namespace Cardinal.Extensions
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration, string section = SwaggerConstants.SWAGGER_SECTION)
         {
-            var settings = configuration.GetSettings<SwaggerSettings>(section);
+            var settings = configuration.GetConfigurations<SwaggerSettings>(section);
             return services.AddSwagger(settings);
         }
 

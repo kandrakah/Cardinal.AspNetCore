@@ -81,7 +81,7 @@ namespace Cardinal.AspNetCore.Identity
             /// <param name="context"></param>
             public void OnAuthorization(AuthorizationFilterContext context)
             {
-                var settings = this._configuration.GetSettings<AuthoritySettings>("Authority");
+                var settings = this._configuration.GetConfigurations<AuthorityConfigurations>("Authority");
                 if (settings.UsePermissionsService)
                 {
                     try

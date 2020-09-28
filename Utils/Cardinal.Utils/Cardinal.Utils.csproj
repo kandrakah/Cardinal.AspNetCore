@@ -16,7 +16,8 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net standard, api, C#, utils</PackageTags>
-    <PackageReleaseNotes>Versão inicial</PackageReleaseNotes>
+    <PackageReleaseNotes>Correções de bugs e otimização de código.</PackageReleaseNotes>
+    <Version>1.0.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

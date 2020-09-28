@@ -36,7 +36,8 @@ namespace Cardinal.Extensions
                 loggerConfig.ReadFrom.KeyValuePairs(settings);
             }
 
-            var logger = loggerConfig.CreateLogger();                        
+            var logger = loggerConfig.CreateLogger();
+            loggingBuilder.ClearProviders();
             return loggingBuilder.AddSerilog(logger, true);
         }
     }

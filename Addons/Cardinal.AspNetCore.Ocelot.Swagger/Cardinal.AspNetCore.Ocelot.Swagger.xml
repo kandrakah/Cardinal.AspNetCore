@@ -1,0 +1,571 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.Ocelot.Swagger</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.Ocelot.Check">
+            <summary>
+            Helper class for validating method parameters. Every validation throws some kind of <see cref="T:System.ArgumentException"/>
+            if it fails (<see cref="T:System.ArgumentException"/>, <see cref="T:System.ArgumentNullException"/>,
+            <see cref="T:System.ArgumentOutOfRangeException"/>).
+            </summary>
+            <remarks>
+            Default way of validating method parameters is:
+            <code language="cs" source="..\..\..\..\Documentation\Examples\Kros.Utils\CheckExamples.cs" region="CheckArgumentsOld"/>
+            With the help of <c>Check</c> class, this is very easy. If it is possible, the validation methods return input value,
+            so the parameter's value can be validated and assigned on one line:
+            <code language = "cs" source="..\..\..\..\Documentation\Examples\Kros.Utils\CheckExamples.cs" region="CheckArgumentsNew"/>
+            </remarks>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNull``1(``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            The value of <paramref name="param"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNull``1(``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            The value of <paramref name="param"/> is <see langword="null"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsOfType``1(System.Object,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be of given type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">Expected type of <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not of required type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsOfType``1(System.Object,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be of given type <typeparamref name="T"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Expected type of <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not of required type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsOfType(System.Object,System.Type,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be of given type <paramref name="expectedType"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="expectedType">Required type of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not of required type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsOfType(System.Object,System.Type,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be of given type <paramref name="expectedType"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="expectedType">Required type of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not of required type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotOfType``1(System.Object,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be of given type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The value of <paramref name="param"/> must not be of this type.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is of forbidden type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotOfType``1(System.Object,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be of given type <typeparamref name="T"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">The value of <paramref name="param"/> must not be of this type.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is of forbidden type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotOfType(System.Object,System.Type,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be of type <paramref name="notExpectedType"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="notExpectedType">The value of <paramref name="param"/> must not be of this type.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is of forbidden type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotOfType(System.Object,System.Type,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be of type <paramref name="notExpectedType"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="notExpectedType">The value of <paramref name="param"/> must not be of this type.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is of forbidden type.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNullOrEmpty(System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>, nor empty string.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The value of <paramref name="param"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is empty string.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNullOrEmpty(System.String,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>, nor empty string.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The value of <paramref name="param"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is empty string.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNullOrWhiteSpace(System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>, empty string, nor string containing
+            only whitespace characters.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The value of <paramref name="param"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is empty string or string containing
+            only whitespace characters.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotNullOrWhiteSpace(System.String,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be <see langword="null"/>, empty string, nor string containing
+            only whitespace characters.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">The value of <paramref name="param"/> is <see langword="null"/>.</exception>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is empty string or string containing
+            only whitespace characters.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.Equal``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Required value of the <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.Equal``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Required value of the <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is not <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotEqual``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotEqual``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.LessThan``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be less than <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is greater or equal than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.LessThan``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be less than <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is greater or equal than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.LessOrEqualThan``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be less or equal than <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is greater than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.LessOrEqualThan``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be less or equal than <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is greater than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.GreaterThan``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be greater than <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is less or equal than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.GreaterThan``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be greater than <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is less or equal than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.GreaterOrEqualThan``1(``0,``0,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be greater or equal than <paramref name="value"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is less than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.GreaterOrEqualThan``1(``0,``0,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be greater or equal than <paramref name="value"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">Validated value.</param>
+            <param name="value">Checked value of <paramref name="param"/>.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">The value of <paramref name="param"/> is less than
+            <paramref name="value"/>.</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsInList``1(``0,System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be in list <paramref name="list"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">The value, which must be in the list <paramref name="list"/>.</param>
+            <param name="list">List of checked values.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">
+            The value of <paramref name="param"/> is not in the list <paramref name="list"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsInList``1(``0,System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must be in list <paramref name="list"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">The value, which must be in the list <paramref name="list"/>.</param>
+            <param name="list">List of checked values.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">
+            The value of <paramref name="param"/> is not in the list <paramref name="list"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotInList``1(``0,System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be in list <paramref name="list"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">The value, which must not be in the list <paramref name="list"/>.</param>
+            <param name="list">List of checked values.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">
+            The value of <paramref name="param"/> is in the list <paramref name="list"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.IsNotInList``1(``0,System.Collections.Generic.IEnumerable{``0},System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> must not be in list <paramref name="list"/>.
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <typeparam name="T">Type of the <paramref name="param"/>.</typeparam>
+            <param name="param">The value, which must not be in the list <paramref name="list"/>.</param>
+            <param name="list">List of checked values.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">
+            The value of <paramref name="param"/> is in the list <paramref name="list"/>.
+            </exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotEmptyGuid(System.Guid,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be empty GUID (<see cref="F:System.Guid.Empty"/>).
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">Paramere je prázdny GUID (<see cref="F:System.Guid.Empty"/>).</exception>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.Check.NotEmptyGuid(System.Guid,System.String,System.String)">
+            <summary>
+            The value of <paramref name="param"/> can not be empty GUID (<see cref="F:System.Guid.Empty"/>).
+            Thrown exception has custom message <paramref name="message"/>.
+            </summary>
+            <param name="param">Validated value.</param>
+            <param name="paramName">Name of the method parameter.</param>
+            <param name="message">Custom exception message.</param>
+            <returns>Input value of <paramref name="param"/>.</returns>
+            <exception cref="T:System.ArgumentException">
+            Value of <paramref name="param"/> is empty GUID (<see cref="F:System.Guid.Empty"/>).
+            </exception>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.ReRouteOptions">
+            <summary>
+            Ocelot ReRoute configuration.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.SwaggerKey">
+            <summary>
+            Swagger key. This key is used for generating swagger documentation for downstream services.
+            The same key have to be in <see cref="T:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions"/> collection.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.DownstreamPathTemplate">
+            <summary>
+            Gets or sets the downstream path template.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.UpstreamPathTemplate">
+            <summary>
+            Gets or sets the upstream path template.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.VirtualDirectory">
+            <summary>
+            Gets or sets the virtual directory, where is host service.
+            </summary>
+            <remarks>Default value is <see langword="null"/>.</remarks>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.DownstreamPath">
+            <summary>
+            Gets the downstream path.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.UpstreamPath">
+            <summary>
+            Gets the upstream path.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions">
+            <summary>
+            Swagger endpoint configuration.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.ConfigurationSectionName">
+            <summary>
+            The configuration section name.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.Key">
+            <summary>
+            Swagger endpoint key, which have to corresponding with <see cref="P:Cardinal.AspNetCore.Ocelot.ReRouteOptions.SwaggerKey"/>.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.KeyToPath">
+            <summary>
+            Gets the path from key.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.Name">
+            <summary>
+            End point name. This name is displayed in Swagger UI page.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.Url">
+            <summary>
+            Full url to downstream service swagger endpoint.
+            </summary>
+            <example>http://localhost:5100/swagger/v1/swagger.json</example>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions">
+            <summary>
+            Configuration for Swagger UI.
+            </summary>
+            <seealso cref="T:Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIOptions" />
+        </member>
+        <member name="P:Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions.EndPointBasePath">
+            <summary>
+            The end point base path. The final path to swagger endpoint is
+            <see cref="P:Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions.EndPointBasePath"/> + <see cref="P:Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions.Key"/>
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware">
+            <summary>
+            Swagger for Ocelot middleware.
+            This middleware generate swagger documentation from downstream services for SwaggerUI.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions,Microsoft.Extensions.Options.IOptions{System.Collections.Generic.List{Cardinal.AspNetCore.Ocelot.ReRouteOptions}},Microsoft.Extensions.Options.IOptions{System.Collections.Generic.List{Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions}},System.Net.Http.IHttpClientFactory,Cardinal.AspNetCore.Ocelot.ISwaggerJsonTransformer)">
+            <summary>
+            Initializes a new instance of the <see cref="!:SwaggerForOcelotMiddleware"/> class.
+            </summary>
+            <param name="next">The next delegate.</param>
+            <param name="options">The options.</param>
+            <param name="reRoutes">The Ocelot ReRoutes configuration.</param>
+            <param name="swaggerEndPoints">The swagger end points.</param>
+            <param name="httpClientFactory">The HTTP client factory.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Invokes the specified context.
+            </summary>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.ISwaggerJsonTransformer">
+            <summary>
+            Interface which describe class for transformation downstream service swagger json into upstream format.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.ISwaggerJsonTransformer.Transform(System.String,System.Collections.Generic.IEnumerable{Cardinal.AspNetCore.Ocelot.ReRouteOptions})">
+            <summary>
+            Transforms downstream swagger json into upstream format.
+            </summary>
+            <param name="swaggerJson">The swagger json.</param>
+            <param name="reRoutes">The re routes.</param>
+            <returns>
+            Transformed swagger json.
+            </returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.Ocelot.SwaggerJsonTransformer">
+            <summary>
+            Class which implement transformation downstream service swagger json into upstream format
+            </summary>
+            <seealso cref="!:MMLib.SwaggerForOcelot.Transformation.ISwaggerJsonTransformer" />
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.SwaggerJsonTransformer.Transform(System.String,System.Collections.Generic.IEnumerable{Cardinal.AspNetCore.Ocelot.ReRouteOptions})">
+            <inheritdoc/>
+        </member>
+        <member name="T:Cardinal.Extensions.ApplicationBuilderExtensions">
+            <summary>
+            Extensions for adding <see cref="T:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware"/> into application pipeline.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ApplicationBuilderExtensions.UseSwaggerForOcelotUI(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add Swagger generator for downstream services and UI into application pipeline.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="configuration">The configuration.</param>
+            <returns>
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ApplicationBuilderExtensions.UseSwaggerForOcelotUI(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Configuration.IConfiguration,System.Action{Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions})">
+            <summary>
+            Add Swagger generator for downstream services and UI into application pipeline.
+            </summary>
+            <param name="app">The application builder.</param>
+            <param name="configuration">The configuration.</param>
+            <param name="setupAction">Setup <see cref="T:Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions"/></param>
+            <returns>
+            <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ServiceCollectionExtensions">
+            <summary>
+            Extensions for adding configuration for <see cref="!:SwaggerForOcelotMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddSwaggerForOcelot(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Adds configuration for for <see cref="!:SwaggerForOcelotMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+            <param name="services">The services.</param>
+            <param name="configuration">The configuration.</param>
+            <returns><see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></returns>
+        </member>
+    </members>
+</doc>

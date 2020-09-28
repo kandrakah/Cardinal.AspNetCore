@@ -6,7 +6,7 @@ namespace Cardinal.AspNetCore.DemoApi
     {
         public static void Main(string[] args)
         {
-            Initialize<Startup>("1.0.0.0", "Sample App",  args);
+            Initialize<Startup>("1.0.0.0", "Sample App",  args, "test.json", "test2.json");
         }
     }
 }

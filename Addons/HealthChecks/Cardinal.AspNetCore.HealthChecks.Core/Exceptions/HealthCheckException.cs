@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Cardinal.AspNetCore.HealthChecks.Core.Exceptions
+namespace Cardinal.AspNetCore.Exceptions
 {
     public class HealthCheckException : CardinalException
     {

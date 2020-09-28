@@ -3,15 +3,18 @@ using Cardinal.AspNetCore.Utils.Services;
 using Cardinal.Extensions;
 using Cardinal.Settings;
 using Cardinal.Utils;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace Cardinal.AspNetCore.Utils
@@ -59,10 +62,11 @@ namespace Cardinal.AspNetCore.Utils
         /// <param name="version">Versão do serviço web.</param>
         /// <param name="description">Descrição serviço web.</param>
         /// <param name="args">Argumentos de inicialização.</param>
-        protected static void Initialize<TStartup>(string version, string description, string[] args) where TStartup : class
+        /// <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        protected static void Initialize<TStartup>(string version, string description, string[] args, params string[] additionalConfigurationFiles) where TStartup : class
         {
             var ver = CardinalVersion.Parse(version);
-            Initialize<TStartup>(ver, description, args);
+            Initialize<TStartup>(ver, description, args, additionalConfigurationFiles);
         }
 
         /// <summary>
@@ -72,7 +76,8 @@ namespace Cardinal.AspNetCore.Utils
         /// <param name="version">Versão do serviço web. veja <see cref="CardinalVersion"/>.</param>
         /// <param name="description">Descrição serviço web.</param>
         /// <param name="args">Argumentos de inicialização.</param>
-        protected static void Initialize<TStartup>(CardinalVersion version, string description, string[] args) where TStartup : class
+        /// <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        protected static void Initialize<TStartup>(CardinalVersion version, string description, string[] args, params string[] additionalConfigurationFiles) where TStartup : class
         {
             Constants.Initialize(version, description);
             var process = Process.GetCurrentProcess();
@@ -83,7 +88,7 @@ namespace Cardinal.AspNetCore.Utils
                 services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
                 services.AddSingleton<IServerInfoService, ServerInfoService>();
                 return;
-            });
+            }, additionalConfigurationFiles);
         }
 
         /// <summary>
@@ -92,11 +97,12 @@ namespace Cardinal.AspNetCore.Utils
         /// <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
         /// <param name="args">Argumentos de inicialização.</param>
         /// <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
-        private static void Start<TStartup>(string[] args, Action<IServiceCollection> configureServices = null) where TStartup : class
+        /// <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        private static void Start<TStartup>(string[] args, Action<IServiceCollection> configureServices = null, params string[] additionalConfigurationFiles) where TStartup : class
         {
             string contentRoot = Environment.GetEnvironmentVariable("ASPNETCORE_CONTENTROOT");
 
-            if (!string.IsNullOrWhiteSpace(contentRoot))
+            if (!string.IsNullOrWhiteSpace(contentRoot) && !string.IsNullOrEmpty(contentRoot))
             {
                 var attr = File.GetAttributes(contentRoot);
 
@@ -107,10 +113,10 @@ namespace Cardinal.AspNetCore.Utils
             }
             else
             {
-                contentRoot = Directory.GetCurrentDirectory();
+                contentRoot = AppDomain.CurrentDomain.BaseDirectory;
             }
 
-            Start<TStartup>(args, contentRoot, configureServices);
+            Start<TStartup>(args, contentRoot, configureServices, additionalConfigurationFiles);
         }
 
         /// <summary>
@@ -120,38 +126,44 @@ namespace Cardinal.AspNetCore.Utils
         /// <param name="args">Argumentos de inicialização.</param>
         /// <param name="basePath">Diretório base da aplicação.</param>
         /// <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
-        private static void Start<TStartup>(string[] args, string basePath, Action<IServiceCollection> configureServices = null) where TStartup : class
+        /// <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        private static void Start<TStartup>(string[] args, string basePath, Action<IServiceCollection> configureServices = null, params string[] additionalConfigurationFiles) where TStartup : class
         {
             try
             {
                 Console.Title = $"{Constants.ApplicationName} - {Constants.Environment}";
 
-                var config = LoadConfiguration(args, basePath);
-                var configHost = config.GetSettings<HostSettings>("Host");
-                var urls = configHost.Hosts != null && configHost.Hosts.Any() ? configHost.Hosts.ToArray() : new string[] { "http://localhost:5000", "https://localhost:5001" };
-                var hostBuilder = new WebHostBuilder()
-                    .UseUrls(urls)
-                    .UseKestrel()                    
-                    .SuppressStatusMessages(true)
-                    .UseContentRoot(basePath)
-                    .UseConfiguration(config)
-                    .ConfigureLogging((hostingContext, logging) =>
-                    {
-                        logging.AddSerilog(config);
-                    })
-                    .UseStartup<TStartup>();
+                var config = LoadConfiguration(args, basePath, additionalConfigurationFiles);
+                var configHost = config.GetConfigurations<HostConfigurations>("Host");
+                var urls = configHost.Hosts != null ? configHost.Hosts.ToArray() : new string[] { };
+
+                var builder = WebHost.CreateDefaultBuilder(args);
+
+                if (urls.Any())
+                {
+                    builder.UseUrls(urls);
+                }
+
+                builder.SuppressStatusMessages(true)
+                 .UseContentRoot(basePath)
+                 .UseConfiguration(config)
+                 .ConfigureLogging((hostingContext, logging) =>
+                 {                     
+                     logging.AddSerilog(config);
+                 })
+                 .UseStartup<TStartup>();
 
                 if (configureServices != null)
                 {
-                    hostBuilder = hostBuilder.ConfigureServices(configureServices);
+                    builder = builder.ConfigureServices(configureServices);
                 }
 
                 if (configHost.UseIISIntegration)
                 {
-                    hostBuilder = hostBuilder.UseIISIntegration();
+                    builder = builder.UseIISIntegration();
                 }
 
-                var host = hostBuilder.Build();
+                var host = builder.Build();
                 Logger = host.Services.GetCardinalService<ILogger<BaseProgram>>();
                 Logger.LogInformation(Resource.INITIALIZE_BASEPATH, basePath);
                 Logger.LogInformation(Resource.INITIALIZE_IIS_INTEGRATION);
@@ -188,13 +200,27 @@ namespace Cardinal.AspNetCore.Utils
         /// </summary>
         /// <param name="args">Argumentos de inicialização.</param>
         /// <param name="basePath">Diretório base da aplicação.</param>
+        /// <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
         /// <returns>Instância de <see cref="IConfigurationRoot"/> contendo as configurações do serviço.</returns>
-        private static IConfigurationRoot LoadConfiguration(string[] args, string basePath)
+        private static IConfigurationRoot LoadConfiguration(string[] args, string basePath, params string[] additionalConfigurationFiles)
         {
+            if (string.IsNullOrEmpty(basePath))
+            {
+                throw new ArgumentNullException(Resource.ERROR_CONTENT_ROOT_INVALID);
+            }
+
             var configBuilder = new ConfigurationBuilder()
                 .SetBasePath(basePath)
                 .AddJsonFile("appsettings.json", false, true)
                 .AddJsonFile($"appsettings.{Constants.Environment}.json", true, true);
+
+            if (additionalConfigurationFiles != null)
+            {
+                foreach (var configFile in additionalConfigurationFiles)
+                {
+                    configBuilder.AddJsonFile(configFile, true);
+                }
+            }
 
             configBuilder.AddEnvironmentVariables();
 

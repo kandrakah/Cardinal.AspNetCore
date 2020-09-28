@@ -10,7 +10,7 @@ namespace Cardinal.Extensions
     {
         public static IApplicationBuilder UseSwagger(this IApplicationBuilder builder, IConfiguration configuration, string section = SwaggerConstants.SWAGGER_SECTION)
         {
-            var settings = configuration.GetSettings<SwaggerSettings>(section);
+            var settings = configuration.GetConfigurations<SwaggerSettings>(section);
             return builder.UseSwagger(settings);
         }
 

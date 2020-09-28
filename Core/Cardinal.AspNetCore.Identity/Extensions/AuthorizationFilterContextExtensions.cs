@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -41,11 +42,12 @@ namespace Cardinal.Extensions
         /// <param name="context"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
-        public static IEnumerable<Claim> GetCurrentUserClaims(this AuthorizationFilterContext context, AuthoritySettings settings)
+        public static async Task<IEnumerable<Claim>> GetCurrentUserClaims(this AuthorizationFilterContext context, AuthorityConfigurations settings)
         {
             var token = context.GetAuthorizationToken("Bearer");
-            var client = new AuthorityService(settings.Authority, token);
-            var claims = client.GetUserClaimsAsync().Result;
+            var client = new HttpClient();
+            var userInfo = await client.GetUserInfoAsync(settings.Authority, token);
+            var claims = userInfo.ToClaims();
             return claims;
         }
     }

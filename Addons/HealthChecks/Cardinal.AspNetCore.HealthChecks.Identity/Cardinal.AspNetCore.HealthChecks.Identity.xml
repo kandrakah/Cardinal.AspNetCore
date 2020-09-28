@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.HealthChecks.Identity</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.Extensions.IServiceCollectionExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceCollectionExtensions.AddOpenIdCheck(Microsoft.Extensions.DependencyInjection.IHealthChecksBuilder,System.Uri,System.String,System.Nullable{Microsoft.Extensions.Diagnostics.HealthChecks.HealthStatus},System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan})">
+            <summary>
+            Extensão para adição da checagem de disponibilidade do serviço OpenId.
+            </summary>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="identityUri">Uri do servidor de identitdade.</param>
+            <param name="name">Nome atribuído ao teste.</param>
+            <param name="failureStatus">Resutado esperado em caso de falhas.</param>
+            <param name="tags"></param>
+            <param name="timeout"></param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.HealthChecks.Identity.IdentityServerHealthCheck">
+            <summary>
+            Serviço de verificação de integridade do OpenId.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.HealthChecks.Identity.IdentityServerHealthCheck.IDSVR_DISCOVER_CONFIGURATION_SEGMENT">
+            <summary>
+            Uri do endpoint de discovery.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.HealthChecks.Identity.IdentityServerHealthCheck._httpClientFactory">
+            <summary>
+            Instância de leitura da fábrica HTTP.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.HealthChecks.Identity.IdentityServerHealthCheck.#ctor(System.Func{System.Net.Http.HttpClient})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="httpClientFactory">Função para criação do Client HTTP.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.HealthChecks.Identity.IdentityServerHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a checagem de disponibilidade do servidor OpenId.
+            </summary>
+            <param name="context">Contexto do verificador.</param>
+            <param name="cancellationToken">Instância do token de cancelamento.</param>
+            <returns>Retorno assíncrono do resultado da verificação.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.HealthChecks.Identity.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.HealthChecks.Identity.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.HealthChecks.Identity.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.HealthChecks.Identity.Localization.Resource.ERROR_INVALID_URI">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The OpenId server uri is null or invalid!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.HealthChecks.Identity.Localization.Resource.IDENTITY_DISCOVERY_UNHEALTHY">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request sent to the identity service responded with the code {code} and the following content: {content}.
+            </summary>
+        </member>
+    </members>
+</doc>

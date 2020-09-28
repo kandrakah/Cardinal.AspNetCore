@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cardinal.AspNetCore.HealthChecks.Core
+namespace Cardinal.AspNetCore.HealthChecks
 {
     public abstract class HealthCheckConfig
     {

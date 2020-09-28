@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.BackgroundServices</name>
+    </assembly>
+    <members>
+        <member name="T:Cardinal.AspNetCore.BackgroundServices.Cron">
+            <summary>
+            Helper class that provides common values for the cron expressions.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Minutely">
+            <summary>
+            Returns cron expression that fires every minute.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Hourly">
+            <summary>
+            Returns cron expression that fires every hour at the first minute.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Hourly(System.Int32)">
+            <summary>
+            Returns cron expression that fires every hour at the specified minute.
+            </summary>
+            <param name="minute">The minute in which the schedule will be activated (0-59).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Daily">
+            <summary>
+            Returns cron expression that fires every day at 00:00 UTC.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Daily(System.Int32)">
+            <summary>
+            Returns cron expression that fires every day at the first minute of
+            the specified hour in UTC.
+            </summary>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Daily(System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every day at the specified hour and minute
+            in UTC.
+            </summary>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+            <param name="minute">The minute in which the schedule will be activated (0-59).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Weekly">
+            <summary>
+            Returns cron expression that fires every week at Monday, 00:00 UTC.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Weekly(System.DayOfWeek)">
+            <summary>
+            Returns cron expression that fires every week at 00:00 UTC of the specified
+            day of the week.
+            </summary>
+            <param name="dayOfWeek">The day of week in which the schedule will be activated.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Weekly(System.DayOfWeek,System.Int32)">
+            <summary>
+            Returns cron expression that fires every week at the first minute
+            of the specified day of week and hour in UTC.
+            </summary>
+            <param name="dayOfWeek">The day of week in which the schedule will be activated.</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Weekly(System.DayOfWeek,System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every week at the specified day
+            of week, hour and minute in UTC.
+            </summary>
+            <param name="dayOfWeek">The day of week in which the schedule will be activated.</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+            <param name="minute">The minute in which the schedule will be activated (0-59).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Monthly">
+            <summary>
+            Returns cron expression that fires every month at 00:00 UTC of the first
+            day of month.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Monthly(System.Int32)">
+            <summary>
+            Returns cron expression that fires every month at 00:00 UTC of the specified
+            day of month.
+            </summary>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Monthly(System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every month at the first minute of the
+            specified day of month and hour in UTC.
+            </summary>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Monthly(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every month at the specified day of month,
+            hour and minute in UTC.
+            </summary>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+            <param name="minute">The minute in which the schedule will be activated (0-59).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Yearly">
+            <summary>
+            Returns cron expression that fires every year on Jan, 1st at 00:00 UTC.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Yearly(System.Int32)">
+            <summary>
+            Returns cron expression that fires every year in the first day at 00:00 UTC
+            of the specified month.
+            </summary>
+            <param name="month">The month in which the schedule will be activated (1-12).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Yearly(System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every year at 00:00 UTC of the specified
+            month and day of month.
+            </summary>
+            <param name="month">The month in which the schedule will be activated (1-12).</param>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Yearly(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every year at the first minute of the
+            specified month, day and hour in UTC.
+            </summary>
+            <param name="month">The month in which the schedule will be activated (1-12).</param>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Yearly(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns cron expression that fires every year at the specified month, day,
+            hour and minute in UTC.
+            </summary>
+            <param name="month">The month in which the schedule will be activated (1-12).</param>
+            <param name="day">The day of month in which the schedule will be activated (1-31).</param>
+            <param name="hour">The hour in which the schedule will be activated (0-23).</param>
+            <param name="minute">The minute in which the schedule will be activated (0-59).</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.Never">
+            <summary>
+            Returns cron expression that never fires. Specifically 31st of February
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.MinuteInterval(System.Int32)">
+            <summary>
+            Returns cron expression that fires every &lt;<paramref name="interval"></paramref>&gt; minutes.
+            </summary>
+            <param name="interval">The number of minutes to wait between every activation.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.HourInterval(System.Int32)">
+            <summary>
+            Returns cron expression that fires every &lt;<paramref name="interval"></paramref>&gt; hours.
+            </summary>
+            <param name="interval">The number of hours to wait between every activation.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.DayInterval(System.Int32)">
+            <summary>
+            Returns cron expression that fires every &lt;<paramref name="interval"></paramref>&gt; days.
+            </summary>
+            <param name="interval">The number of days to wait between every activation.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.BackgroundServices.Cron.MonthInterval(System.Int32)">
+            <summary>
+            Returns cron expression that fires every &lt;<paramref name="interval"></paramref>&gt; months.
+            </summary>
+            <param name="interval">The number of months to wait between every activation.</param>
+        </member>
+        <member name="T:Cardinal.AspNetCore.BackgroundServices.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.BackgroundServices.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.BackgroundServices.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.BackgroundServices.Localization.Resource.ERROR_CONFIGURATION_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Null or invalid configuration arguments!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.BackgroundServices.Localization.Resource.ERROR_CRON_INVALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The Cron expression is invalid!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.BackgroundServices.Localization.Resource.ERROR_CRON_NULL_EMPTY">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The Cron expression is null or empty!.
+            </summary>
+        </member>
+    </members>
+</doc>
