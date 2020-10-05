@@ -22,7 +22,7 @@ namespace Cardinal.AspNetCore.Ocelot
         private readonly ISwaggerJsonTransformer Transformer;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SwaggerForOcelotMiddleware"/> class.
+        /// Initializes a new instance of the <see cref="OcelotSwaggerMiddleware"/> class.
         /// </summary>
         /// <param name="next">The next delegate.</param>
         /// <param name="options">The options.</param>

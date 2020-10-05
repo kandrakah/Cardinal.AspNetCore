@@ -97,6 +97,31 @@ namespace Cardinal.Utils.Exceptions
         /// <summary>
         /// Método construtor.
         /// </summary>
+        /// <param name="validations">Mensagens de validação.</param>
+        public ValidationException(params KeyValuePair<string, string>[] validations) : base()
+        {
+            foreach (var validation in validations)
+            {
+                this.Validations.Add(new Validation(validation.Key, validation.Value));
+            }
+        }
+
+        /// <summary>
+        /// Método construtor.
+        /// </summary>
+        /// <param name="message">Mensagem de exceção.</param>
+        /// <param name="validations">Mensagens de validação.</param>
+        public ValidationException(string message, params KeyValuePair<string, string>[] validations) : base(message)
+        {
+            foreach (var validation in validations)
+            {
+                this.Validations.Add(new Validation(validation.Key, validation.Value));
+            }
+        }
+
+        /// <summary>
+        /// Método construtor.
+        /// </summary>
         /// <param name="message">Mensagem de exceção.</param>
         /// <param name="innerException">Exceção interior.</param>
         public ValidationException(string message, Exception innerException) : base(message, innerException)

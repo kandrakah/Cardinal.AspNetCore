@@ -490,7 +490,7 @@
         </member>
         <member name="M:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Cardinal.AspNetCore.Ocelot.SwaggerForOCelotUIOptions,Microsoft.Extensions.Options.IOptions{System.Collections.Generic.List{Cardinal.AspNetCore.Ocelot.ReRouteOptions}},Microsoft.Extensions.Options.IOptions{System.Collections.Generic.List{Cardinal.AspNetCore.Ocelot.SwaggerEndPointOptions}},System.Net.Http.IHttpClientFactory,Cardinal.AspNetCore.Ocelot.ISwaggerJsonTransformer)">
             <summary>
-            Initializes a new instance of the <see cref="!:SwaggerForOcelotMiddleware"/> class.
+            Initializes a new instance of the <see cref="T:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware"/> class.
             </summary>
             <param name="next">The next delegate.</param>
             <param name="options">The options.</param>
@@ -556,12 +556,12 @@
         </member>
         <member name="T:Cardinal.Extensions.ServiceCollectionExtensions">
             <summary>
-            Extensions for adding configuration for <see cref="!:SwaggerForOcelotMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Extensions for adding configuration for <see cref="T:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
         <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddSwaggerForOcelot(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
-            Adds configuration for for <see cref="!:SwaggerForOcelotMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Adds configuration for for <see cref="T:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware"/> into <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
             <param name="services">The services.</param>
             <param name="configuration">The configuration.</param>
