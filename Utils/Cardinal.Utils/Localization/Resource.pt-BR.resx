@@ -126,6 +126,9 @@
   <data name="ERROR_TRANSLATION_KEY_NULL_EMPTY" xml:space="preserve">
     <value>A chave de tradução é nula ou inválida!</value>
   </data>
+  <data name="ERROR_VALIDATION_FAILED" xml:space="preserve">
+    <value>Falha de validação!</value>
+  </data>
   <data name="ERROR_WRONG_VERSION_FORMAT" xml:space="preserve">
     <value>Formato de versão incorreto $[VERSION]!</value>
   </data>

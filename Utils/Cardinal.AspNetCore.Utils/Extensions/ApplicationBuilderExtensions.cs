@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Serilog.Context;
 
-namespace Cardinal.AspNetCore.Utils.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
     /// Classe de extensões para <see cref="IApplicationBuilder"/>.

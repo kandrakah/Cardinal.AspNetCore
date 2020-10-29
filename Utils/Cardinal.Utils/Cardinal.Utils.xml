@@ -134,6 +134,19 @@
             </summary>
             <param name="message">Mensagem de exceção.</param>
         </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(Cardinal.Utils.Exceptions.Validation[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="validations">Mensagens de validação.</param>
+        </member>
+        <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(System.String,Cardinal.Utils.Exceptions.Validation[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="validations">Mensagens de validação.</param>
+        </member>
         <member name="M:Cardinal.Utils.Exceptions.ValidationException.#ctor(System.String,System.Exception)">
             <summary>
             Método construtor.
@@ -173,151 +186,6 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Cardinal.Utils.Extensions.DbCommandExtensions">
-            <summary>
-            Classe de extensões para <see cref="T:System.Data.Common.DbCommand"/>.
-            </summary>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.DbCommandExtensions.AddParameter``1(System.Data.Common.DbCommand,System.String,``0)">
-            <summary>
-            Extensão que adiciona um novo parâmetro ao DbCommand.
-            </summary>
-            <typeparam name="T">Tipo de valor do parâmetro.</typeparam>
-            <param name="cmd">Este Objeto.</param>
-            <param name="key">Chave do parâmetro</param>
-            <param name="value">Valor do parâmetro</param>        
-        </member>
-        <member name="T:Cardinal.Utils.Extensions.DbDataReaderExtensions">
-            <summary>
-            Classe de extensões para <see cref="T:System.Data.Common.DbDataReader"/>.
-            </summary>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.DbDataReaderExtensions.ToDataTable(System.Data.Common.DbDataReader)">
-            <summary>
-            Extensão que transforma um <see cref="T:System.Data.Common.DbDataReader"/> em um <see cref="T:System.Data.DataTable"/>.
-            </summary>
-            <param name="reader">Objeto referenciado</param>
-            <returns>DataTable proveniente do DataReader</returns>
-        </member>
-        <member name="T:Cardinal.Utils.Extensions.MemoryStreamExtensions">
-            <summary>
-            Extensões para <see cref="T:System.IO.MemoryStream"/>.
-            </summary>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.MemoryStreamExtensions.WriteToFile(System.IO.MemoryStream,System.String,System.IO.FileMode,System.IO.FileAccess)">
-            <summary>
-            Extensão para salvar um MemoryStream em arquivo.
-            </summary>
-            <param name="stream">Este Stream</param>
-            <param name="filePath">Diretório onde o stream será salvo junto com o nome do arquivo</param>
-            <param name="fileMode">Modo de abertura do arquivo. Veja <see cref="T:System.IO.FileMode"/></param>
-            <param name="fileAccess">Modo de acesso ao arquivo. Veja <see cref="T:System.IO.FileAccess"/></param>
-        </member>
-        <member name="T:Cardinal.Utils.Extensions.TypeExtensions">
-            <summary>
-            Extensões para <see cref="T:System.Type"/>.
-            </summary>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.AsMemberInfo(System.Type)">
-            <summary>
-            Return the memberInfo from a type.
-            </summary>
-            <param name="clrType">The type to convert.</param>
-            <returns>The memberInfo from a type.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsNullable(System.Type)">
-            <summary>
-            Determine if a type is null-able.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <returns>True if the type is null-able; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.ToNullable(System.Type)">
-            <summary>
-            Return the type from a nullable type.
-            </summary>
-            <param name="clrType">The type to convert.</param>
-            <returns>The type from a nullable type.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetInnerElementType(System.Type)">
-            <summary>
-            Return the collection element type.
-            </summary>
-            <param name="clrType">The type to convert.</param>
-            <returns>The collection element type from a type.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsCollection(System.Type)">
-            <summary>
-            Determine if a type is a collection.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <returns>True if the type is an enumeration; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsCollection(System.Type,System.Type@)">
-            <summary>
-            Determine if a type is a collection.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <param name="elementType">out: the element type of the collection.</param>
-            <returns>True if the type is an enumeration; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetUnderlyingTypeOrSelf(System.Type)">
-            <summary>
-            
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsEnum(System.Type)">
-            <summary>
-            Determine if a type is an enumeration.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <returns>True if the type is an enumeration; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsDateTime(System.Type)">
-            <summary>
-            Determine if a type is a DateTime.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <returns>True if the type is a DateTime; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsTimeSpan(System.Type)">
-            <summary>
-            Determine if a type is a TimeSpan.
-            </summary>
-            <param name="clrType">The type to test.</param>
-            <returns>True if the type is a TimeSpan; false otherwise.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsVersion(System.Type)">
-            <summary>
-            
-            </summary>
-            <param name="clrType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.IsIQueryable(System.Type)">
-            <summary>
-            Determines whether the given type is IQueryable.
-            </summary>
-            <param name="type">The type</param>
-            <returns><c>true</c> if the type is IQueryable.</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetInnerMostElementType(System.Type)">
-            <summary>
-            Returns the innermost element type for a given type, dealing with
-            nullables, arrays, etc.
-            </summary>
-            <param name="type">The type from which to get the innermost type.</param>
-            <returns>The innermost element type</returns>
-        </member>
-        <member name="M:Cardinal.Utils.Extensions.TypeExtensions.GetImplementedIEnumerableType(System.Type)">
-            <summary>
-            Returns type of T if the type implements IEnumerable of T, otherwise, return null.
-            </summary>
-            <param name="type"></param>
-            <returns></returns>
-        </member>
         <member name="T:Cardinal.Utils.Localization.Resource">
             <summary>
               Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
@@ -347,6 +215,11 @@
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_TRANSLATION_KEY_NULL_EMPTY">
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid!.
+            </summary>
+        </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_VALIDATION_FAILED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Validation failure!.
             </summary>
         </member>
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_WRONG_VERSION_FORMAT">
@@ -984,6 +857,32 @@
             <param name="field">Tipo de campo desejado</param>
             <returns>Contagem de diferença entre as datas com base no tipo de campo informado</returns>
         </member>
+        <member name="T:Cardinal.Extensions.DbCommandExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.Common.DbCommand"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DbCommandExtensions.AddParameter``1(System.Data.Common.DbCommand,System.String,``0)">
+            <summary>
+            Extensão que adiciona um novo parâmetro ao DbCommand.
+            </summary>
+            <typeparam name="T">Tipo de valor do parâmetro.</typeparam>
+            <param name="cmd">Este Objeto.</param>
+            <param name="key">Chave do parâmetro</param>
+            <param name="value">Valor do parâmetro</param>        
+        </member>
+        <member name="T:Cardinal.Extensions.DbDataReaderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:System.Data.Common.DbDataReader"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.DbDataReaderExtensions.ToDataTable(System.Data.Common.DbDataReader)">
+            <summary>
+            Extensão que transforma um <see cref="T:System.Data.Common.DbDataReader"/> em um <see cref="T:System.Data.DataTable"/>.
+            </summary>
+            <param name="reader">Objeto referenciado</param>
+            <returns>DataTable proveniente do DataReader</returns>
+        </member>
         <member name="T:Cardinal.Extensions.DecimalExtensions">
             <summary>
             Classe de extensões para <see cref="T:System.Decimal"/>.
@@ -1156,6 +1055,20 @@
             <param name="memberInfo">Objeto referenciado</param>
             <returns>Tipo herdado pelo MemberInfo informado</returns>
         </member>
+        <member name="T:Cardinal.Extensions.MemoryStreamExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IO.MemoryStream"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.MemoryStreamExtensions.WriteToFile(System.IO.MemoryStream,System.String,System.IO.FileMode,System.IO.FileAccess)">
+            <summary>
+            Extensão para salvar um MemoryStream em arquivo.
+            </summary>
+            <param name="stream">Este Stream</param>
+            <param name="filePath">Diretório onde o stream será salvo junto com o nome do arquivo</param>
+            <param name="fileMode">Modo de abertura do arquivo. Veja <see cref="T:System.IO.FileMode"/></param>
+            <param name="fileAccess">Modo de acesso ao arquivo. Veja <see cref="T:System.IO.FileAccess"/></param>
+        </member>
         <member name="T:Cardinal.Extensions.StreamExtensions">
             <summary>
             Extensões para <see cref="T:System.IO.Stream"/>
@@ -1318,6 +1231,111 @@
             <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
             <param name="encoding">Codificação da string</param>
             <returns>Hash gerado para o string informado</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.TypeExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Type"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.AsMemberInfo(System.Type)">
+            <summary>
+            Return the memberInfo from a type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The memberInfo from a type.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsNullable(System.Type)">
+            <summary>
+            Determine if a type is null-able.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is null-able; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.ToNullable(System.Type)">
+            <summary>
+            Return the type from a nullable type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The type from a nullable type.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.GetInnerElementType(System.Type)">
+            <summary>
+            Return the collection element type.
+            </summary>
+            <param name="clrType">The type to convert.</param>
+            <returns>The collection element type from a type.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsCollection(System.Type)">
+            <summary>
+            Determine if a type is a collection.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsCollection(System.Type,System.Type@)">
+            <summary>
+            Determine if a type is a collection.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <param name="elementType">out: the element type of the collection.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.GetUnderlyingTypeOrSelf(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsEnum(System.Type)">
+            <summary>
+            Determine if a type is an enumeration.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is an enumeration; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsDateTime(System.Type)">
+            <summary>
+            Determine if a type is a DateTime.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is a DateTime; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsTimeSpan(System.Type)">
+            <summary>
+            Determine if a type is a TimeSpan.
+            </summary>
+            <param name="clrType">The type to test.</param>
+            <returns>True if the type is a TimeSpan; false otherwise.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsVersion(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="clrType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.IsIQueryable(System.Type)">
+            <summary>
+            Determines whether the given type is IQueryable.
+            </summary>
+            <param name="type">The type</param>
+            <returns><c>true</c> if the type is IQueryable.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.GetInnerMostElementType(System.Type)">
+            <summary>
+            Returns the innermost element type for a given type, dealing with
+            nullables, arrays, etc.
+            </summary>
+            <param name="type">The type from which to get the innermost type.</param>
+            <returns>The innermost element type</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.TypeExtensions.GetImplementedIEnumerableType(System.Type)">
+            <summary>
+            Returns type of T if the type implements IEnumerable of T, otherwise, return null.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
         </member>
         <member name="T:System.Collections.PaginatedCollection`1">
             <summary>

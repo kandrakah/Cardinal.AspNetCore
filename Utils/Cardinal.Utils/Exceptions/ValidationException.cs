@@ -1,4 +1,5 @@
 ﻿using Cardinal.Exceptions;
+using Cardinal.Utils.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,7 +81,7 @@ namespace Cardinal.Utils.Exceptions
         /// <summary>
         /// Método construtor.
         /// </summary>
-        public ValidationException() : base()
+        public ValidationException() : base(Resource.ERROR_VALIDATION_FAILED)
         {
             this.Validations = new List<Validation>();
         }
@@ -98,11 +99,11 @@ namespace Cardinal.Utils.Exceptions
         /// Método construtor.
         /// </summary>
         /// <param name="validations">Mensagens de validação.</param>
-        public ValidationException(params KeyValuePair<string, string>[] validations) : base()
+        public ValidationException(params Validation[] validations) : this()
         {
             foreach (var validation in validations)
             {
-                this.Validations.Add(new Validation(validation.Key, validation.Value));
+                this.Validations.Add(validation);
             }
         }
 
@@ -111,11 +112,11 @@ namespace Cardinal.Utils.Exceptions
         /// </summary>
         /// <param name="message">Mensagem de exceção.</param>
         /// <param name="validations">Mensagens de validação.</param>
-        public ValidationException(string message, params KeyValuePair<string, string>[] validations) : base(message)
+        public ValidationException(string message, params Validation[] validations) : this(message)
         {
             foreach (var validation in validations)
             {
-                this.Validations.Add(new Validation(validation.Key, validation.Value));
+                this.Validations.Add(validation);
             }
         }
 

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.Common;
 
-namespace Cardinal.Utils.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
     /// Classe de extensões para <see cref="DbDataReader"/>.

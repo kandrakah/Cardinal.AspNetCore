@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Cardinal.Utils.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
     /// Extensões para <see cref="MemoryStream"/>.

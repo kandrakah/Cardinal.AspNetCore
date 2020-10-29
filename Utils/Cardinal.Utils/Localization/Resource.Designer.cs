@@ -88,6 +88,15 @@ namespace Cardinal.Utils.Localization {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Validation failure!.
+        /// </summary>
+        internal static string ERROR_VALIDATION_FAILED {
+            get {
+                return ResourceManager.GetString("ERROR_VALIDATION_FAILED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Incorrect version format $[VERSION]!.
         /// </summary>
         internal static string ERROR_WRONG_VERSION_FORMAT {

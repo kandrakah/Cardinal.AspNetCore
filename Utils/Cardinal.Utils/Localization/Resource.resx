@@ -126,6 +126,9 @@
   <data name="ERROR_TRANSLATION_KEY_NULL_EMPTY" xml:space="preserve">
     <value>The translation key is null or invalid!</value>
   </data>
+  <data name="ERROR_VALIDATION_FAILED" xml:space="preserve">
+    <value>Validation failure!</value>
+  </data>
   <data name="ERROR_WRONG_VERSION_FORMAT" xml:space="preserve">
     <value>Incorrect version format $[VERSION]!</value>
   </data>

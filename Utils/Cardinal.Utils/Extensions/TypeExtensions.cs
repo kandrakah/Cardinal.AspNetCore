@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Cardinal.Utils;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Cardinal.Utils.Extensions
+namespace Cardinal.Extensions
 {
     /// <summary>
     /// Extensões para <see cref="Type"/>.

@@ -140,19 +140,6 @@
             <param name="version">Versão base do serviço da aplicação.</param>
             <param name="baseName">Nome da aplicação.</param>
         </member>
-        <member name="T:Cardinal.AspNetCore.Utils.Extensions.ApplicationBuilderExtensions">
-            <summary>
-            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
-            </summary>
-        </member>
-        <member name="M:Cardinal.AspNetCore.Utils.Extensions.ApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            Extens serilog logs with additional information like remote IP
-            address
-            </summary>
-            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
-            </param>
-        </member>
         <member name="T:Cardinal.AspNetCore.Utils.Services.IServerInfoService">
             <summary>
             Interface do serviço de informação do servidor.
@@ -435,6 +422,32 @@
             Método que traz uma cadeia de caracteres que representa o objeto atual.
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.Extensions.ApplicationBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extens serilog logs with additional information like remote IP
+            address
+            </summary>
+            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </param>
+        </member>
+        <member name="T:Cardinal.Extensions.HttpRequestExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.HttpRequestExtensions.GetAuthorizationToken(Microsoft.AspNetCore.Http.HttpRequest,System.String)">
+            <summary>
+            Método que busca o token de autorização da requisição.
+            </summary>
+            <param name="request">Contexto de requisição.</param>
+            <param name="type">Tipo de token esperado.</param>
+            <returns>Token de autenticação ou null se o valor for vazio.</returns>
         </member>
         <member name="T:Cardinal.Extensions.IConfigurationExtensions">
             <summary>
