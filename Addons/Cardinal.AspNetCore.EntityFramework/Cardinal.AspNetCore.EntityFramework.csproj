@@ -42,6 +42,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Cardinal.AspNetCore.Repositories\Cardinal.AspNetCore.Repositories.csproj" />
     <ProjectReference Include="..\..\Core\Cardinal.AspNetCore\Cardinal.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\Utils\Cardinal.AspNetCore.Utils\Cardinal.AspNetCore.Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>

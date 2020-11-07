@@ -49,7 +49,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.HealthC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.Ocelot.Swagger", "Addons\Cardinal.AspNetCore.Ocelot.Swagger\Cardinal.AspNetCore.Ocelot.Swagger.csproj", "{E33A89CC-E43A-4863-B91C-1FC386E187BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cardinal.AspNetCore.RabbitMQ", "Addons\Cardinal.AspNetCore.RabbitMQ\Cardinal.AspNetCore.RabbitMQ.csproj", "{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.AspNetCore.RabbitMQ", "Addons\Cardinal.AspNetCore.RabbitMQ\Cardinal.AspNetCore.RabbitMQ.csproj", "{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7AF3DE69-0242-4AF6-AEAA-37DEFD2F85F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cardinal.PwnedPasswords.Test", "Tests\Cardinal.PwnedPasswords.Test\Cardinal.PwnedPasswords.Test.csproj", "{919EA8DB-5825-4A55-B003-C1400BBA5F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -133,6 +137,10 @@ Global
 		{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919EA8DB-5825-4A55-B003-C1400BBA5F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919EA8DB-5825-4A55-B003-C1400BBA5F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919EA8DB-5825-4A55-B003-C1400BBA5F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919EA8DB-5825-4A55-B003-C1400BBA5F0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,6 +165,7 @@ Global
 		{CC38F997-47C1-466E-9844-3F9076334A1E} = {FC350F4D-4A41-43E1-AE7B-4ED07C0A3666}
 		{E33A89CC-E43A-4863-B91C-1FC386E187BA} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
 		{51209045-CC3F-4BB9-8F3F-A6F7E3FBC489} = {898AEA86-5BE4-49F7-BC63-430CE4CFC595}
+		{919EA8DB-5825-4A55-B003-C1400BBA5F0B} = {7AF3DE69-0242-4AF6-AEAA-37DEFD2F85F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {66289424-587D-47FF-B04F-1F18A2EE0288}

@@ -541,15 +541,265 @@
               Consulta uma cadeia de caracteres localizada semelhante a There is already a transaction in progress on this repository!.
             </summary>
         </member>
+        <member name="T:Cardinal.AspNetCore.UnitOfWork">
+            <summary>
+            Implementação da unidade de trabalho.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.UnitOfWork._context">
+            <summary>
+            Instância do contexto.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.UnitOfWork.Transaction">
+            <summary>
+            Instância de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.Set``1">
+            <summary>
+            Método que cria uma instância de um <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> de uma entidade.
+            </summary>
+            <typeparam name="T">Tipo da entidade.</typeparam>
+            <returns>DbSet da entidade solicitada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.BeginTransaction">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.Rollback">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.Commit">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.UnitOfWork`1">
+            <summary>
+            Implementação da unidade de trabalho.
+            </summary>
+            <typeparam name="TContext">Contexto à ser utilizado pela unidade de trabalho.</typeparam>
+        </member>
+        <member name="F:Cardinal.AspNetCore.UnitOfWork`1._context">
+            <summary>
+            Instância do contexto.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.UnitOfWork`1.Transaction">
+            <summary>
+            Instância de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.#ctor(`0)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto.</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.Set``1">
+            <summary>
+            Método que cria uma instância de um <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> de uma entidade.
+            </summary>
+            <typeparam name="T">Tipo da entidade.</typeparam>
+            <returns>DbSet da entidade solicitada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.BeginTransaction">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.Rollback">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.Commit">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.UnitOfWork`1.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.IUnitOfWork">
+            <summary>
+            Interface da unidade de trabalho.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.IUnitOfWork`1">
+            <summary>
+            Interface da unidade de trabalho.
+            </summary>
+            <typeparam name="TContext">Contexto à ser utilizado pela unidade de trabalho.</typeparam>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.Set``1">
+            <summary>
+            Método que cria uma instância de um <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> de uma entidade.
+            </summary>
+            <typeparam name="T">Tipo da entidade.</typeparam>
+            <returns>DbSet da entidade solicitada.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.BeginTransaction">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que inicia uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Instância da transação.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.Rollback">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a reversão de alterações não confirmadas de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.Commit">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a confirmação de alterações de uma transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.IUnitOfWork`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
         <member name="T:Cardinal.Extensions.ServiceCollectionExtensions">
             <summary>
-            SqlServer configuration
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
             </summary>
         </member>
         <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.PersistStore``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Microsoft.EntityFrameworkCore.DbContextOptionsBuilder})">
             <summary>
-            ASP.NET Identity Context config
+            Extensão que adiciona um contexto ao serviço.
             </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddUnitOfWork(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão que adiciona a unidade de trabalho ao serviço.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ServiceCollectionExtensions.AddUnitOfWork``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão que adiciona a unidade de trabalho ao serviço.
+            </summary>
+            <typeparam name="TContext">Contexto utilizado pela unidade de trabalho.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
         </member>
     </members>
 </doc>
