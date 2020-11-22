@@ -3,9 +3,9 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerLicenseSettings
+    public class SwaggerLicenseConfigurations
     {
         public string Name { get; set; } = "MIT";
         public string Url { get; set; } = "https://github.com/kandrakah/Cardinal.AspNetCore/blob/master/LICENSE";

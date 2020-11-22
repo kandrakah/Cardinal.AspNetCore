@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
     /// <summary>
     /// Classe de configurações de Host.

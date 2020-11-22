@@ -11,7 +11,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.4.0</Version>
+    <Version>1.0.5.0</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Copyright>Marcelo O. Mendes</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>

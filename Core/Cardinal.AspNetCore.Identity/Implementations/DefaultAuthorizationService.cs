@@ -244,7 +244,7 @@ namespace Cardinal.AspNetCore.Identity
         /// </summary>
         /// <param name="settings">Configurações da autoridade</param>
         /// <param name="token">Token de acesso</param>
-        private async Task UpdateSystemUser(AuthorityConfigurations settings, string token)
+        private async Task UpdateSystemUser(IdentityConfigurations settings, string token)
         {
             try
             {

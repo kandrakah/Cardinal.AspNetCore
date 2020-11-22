@@ -23,7 +23,7 @@ namespace Cardinal.Extensions
         /// <returns></returns>
         public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            var settings = configuration.GetConfigurations<AuthorityConfigurations>("Authority");
+            var settings = configuration.GetConfigurations<IdentityConfigurations>("Authority");
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 

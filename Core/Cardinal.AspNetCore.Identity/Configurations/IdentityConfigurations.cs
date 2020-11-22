@@ -7,7 +7,7 @@ namespace Cardinal.AspNetCore.Identity
     /// <summary>
     /// Classe de configurações Identity
     /// </summary>
-    public class AuthorityConfigurations
+    public class IdentityConfigurations
     {
         /// <summary>
         /// Configuração que ativa o serviço de permissões padrão.

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cardinal.AspNetCore.DemoApi</name>
+    </assembly>
+    <members>
+        <member name="M:Cardinal.AspNetCore.DemoApi.Controllers.WeatherForecastController.Get">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <response code="200">Requisição bem sucedida.</response>
+            <response code="400">A requisição não pôde ser atendida por uma inconsistência nos parâmetros informados.</response>  
+            <response code="401">O requisitante não possui autorização para acesso aos parâmetros globais.</response>  
+            <response code="404">O parâmetro buscado não foi encontrado ou não existe.</response>       
+            <response code="500">Houve uma falha interna ao tratar a requisição.</response> 
+        </member>
+    </members>
+</doc>

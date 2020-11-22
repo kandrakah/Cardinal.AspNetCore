@@ -132,4 +132,112 @@
   <data name="ERROR_WRONG_VERSION_FORMAT" xml:space="preserve">
     <value>Formato de versão incorreto $[VERSION]!</value>
   </data>
+  <data name="STATUS_CODE_100" xml:space="preserve">
+    <value>A solicitação pode ser continuada.</value>
+  </data>
+  <data name="STATUS_CODE_101" xml:space="preserve">
+    <value>Protocolo de comutação.</value>
+  </data>
+  <data name="STATUS_CODE_200" xml:space="preserve">
+    <value>A solicitação foi bem-sucedida.</value>
+  </data>
+  <data name="STATUS_CODE_201" xml:space="preserve">
+    <value>A solicitação foi atendida e resultou na criação de um novo recurso.</value>
+  </data>
+  <data name="STATUS_CODE_202" xml:space="preserve">
+    <value>A solicitação foi aceita para processamento, mas o processamento não foi concluído.</value>
+  </data>
+  <data name="STATUS_CODE_203" xml:space="preserve">
+    <value>A meta informação retornada no cabeçalho da entidade não é o conjunto definitivo conforme disponível no servidor de origem, mas é coletada de uma cópia local ou de terceiros.</value>
+  </data>
+  <data name="STATUS_CODE_204" xml:space="preserve">
+    <value>O servidor atendeu à solicitação, mas não precisa retornar um corpo de entidade e pode desejar retornar metainformações atualizadas.</value>
+  </data>
+  <data name="STATUS_CODE_205" xml:space="preserve">
+    <value>O servidor cumpriu o pedido e o agente de utilizador DEVE reiniciar a vista do documento que originou o envio do pedido.</value>
+  </data>
+  <data name="STATUS_CODE_206" xml:space="preserve">
+    <value>O servidor atendeu à solicitação parcial GET para o recurso.</value>
+  </data>
+  <data name="STATUS_CODE_300" xml:space="preserve">
+    <value>Várias respostas disponíveis.</value>
+  </data>
+  <data name="STATUS_CODE_301" xml:space="preserve">
+    <value>O recurso solicitado foi movido para um novo endereço.</value>
+  </data>
+  <data name="STATUS_CODE_302" xml:space="preserve">
+    <value>O recurso solicitado foi temporariamente movido para outro endereço.</value>
+  </data>
+  <data name="STATUS_CODE_400" xml:space="preserve">
+    <value>A solicitação não foi aceita devido a dados ausentes ou não validados. Verifique o conteúdo do pedido.</value>
+  </data>
+  <data name="STATUS_CODE_401" xml:space="preserve">
+    <value>O pedido não foi autorizado. Verifique se a sessão está ativa, se o token de acesso foi informado ou se o usuário ativo tem autorização para acessar este serviço.</value>
+  </data>
+  <data name="STATUS_CODE_403" xml:space="preserve">
+    <value>O acesso ao serviço solicitado não é permitido.</value>
+  </data>
+  <data name="STATUS_CODE_404" xml:space="preserve">
+    <value>O serviço ou recurso solicitado não foi encontrado.</value>
+  </data>
+  <data name="STATUS_CODE_405" xml:space="preserve">
+    <value>O método especificado na solicitação não é permitido para o recurso solicitado.</value>
+  </data>
+  <data name="STATUS_CODE_406" xml:space="preserve">
+    <value>O recurso identificado pela solicitação só é capaz de gerar entidades de resposta que possuem características de conteúdo não aceitáveis de acordo com os cabeçalhos de aceitação enviados na solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_407" xml:space="preserve">
+    <value>A autenticação de proxy é necessária antes de concluir a solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_408" xml:space="preserve">
+    <value>O cliente não produziu um pedido dentro do tempo que o servidor estava preparado para esperar.</value>
+  </data>
+  <data name="STATUS_CODE_409" xml:space="preserve">
+    <value>A solicitação não pôde ser concluída devido a um conflito com o estado atual do recurso.</value>
+  </data>
+  <data name="STATUS_CODE_410" xml:space="preserve">
+    <value>O recurso solicitado não está mais disponível no servidor e nenhum endereço de encaminhamento é conhecido.</value>
+  </data>
+  <data name="STATUS_CODE_411" xml:space="preserve">
+    <value>O servidor se recusa a aceitar as solicitações sem um comprimento de conteúdo definido.</value>
+  </data>
+  <data name="STATUS_CODE_413" xml:space="preserve">
+    <value>O servidor se recusa a processar uma solicitação porque a entidade de solicitação é maior do que o servidor deseja ou é capaz de processar</value>
+  </data>
+  <data name="STATUS_CODE_414" xml:space="preserve">
+    <value>O servidor está se recusando a atender à solicitação porque o URI de solicitação é mais longo do que o servidor está disposto a interpretar.</value>
+  </data>
+  <data name="STATUS_CODE_415" xml:space="preserve">
+    <value>O servidor se recusa a atender à solicitação porque a entidade da solicitação está em um formato não compatível com o recurso solicitado para o método solicitado.</value>
+  </data>
+  <data name="STATUS_CODE_418" xml:space="preserve">
+    <value>Eu sou um bule de chá</value>
+  </data>
+  <data name="STATUS_CODE_500" xml:space="preserve">
+    <value>O servidor encontrou uma condição inesperada que o impediu de atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_501" xml:space="preserve">
+    <value>O servidor não oferece suporte à funcionalidade necessária para atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_502" xml:space="preserve">
+    <value>O servidor, enquanto agia como um gateway ou proxy, recebeu uma resposta inválida do servidor upstream que ele acessou na tentativa de atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_503" xml:space="preserve">
+    <value>O servidor atualmente não consegue lidar com a solicitação devido a uma sobrecarga temporária ou manutenção do servidor.</value>
+  </data>
+  <data name="STATUS_CODE_504" xml:space="preserve">
+    <value>O servidor, ao atuar como gateway ou proxy, não recebeu uma resposta oportuna do servidor upstream.</value>
+  </data>
+  <data name="STATUS_CODE_505" xml:space="preserve">
+    <value>O servidor não oferece suporte ou se recusa a aceitar a versão do protocolo HTTP usada na mensagem de solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_510" xml:space="preserve">
+    <value>A política de acesso ao recurso não foi atendida na solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_511" xml:space="preserve">
+    <value>A autenticação de rede é necessária antes de prosseguir.</value>
+  </data>
+  <data name="STATUS_CODE_UNKNOW" xml:space="preserve">
+    <value>Resposta desconhecida: $[VALUE].</value>
+  </data>
 </root>

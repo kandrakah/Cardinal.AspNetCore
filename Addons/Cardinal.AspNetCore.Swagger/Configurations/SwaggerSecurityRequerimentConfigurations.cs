@@ -1,11 +1,11 @@
 ﻿using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerSecurityRequerimentSettings
+    public class SwaggerSecurityRequerimentConfigurations
     {
-        public Dictionary<SwaggerSecuritySchemeSettings, IList<string>> Schemes = new Dictionary<SwaggerSecuritySchemeSettings, IList<string>>();
+        public Dictionary<SwaggerSecuritySchemeConfigurations, IList<string>> Schemes = new Dictionary<SwaggerSecuritySchemeConfigurations, IList<string>>();
 
         internal OpenApiSecurityRequirement ToOpenApi()
         {

@@ -1,13 +1,9 @@
 using Cardinal.Extensions;
-using IdentityServer4.AccessTokenValidation;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace Cardinal.AspNetCore.DemoApi
 {
@@ -24,8 +20,11 @@ namespace Cardinal.AspNetCore.DemoApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwagger(this.Configuration);
-            
+
+            services.AddAuthentication(this.Configuration);
+            services.AddAuthorization(this.Configuration);
+
+            services.AddSwagger(this.Configuration);   
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

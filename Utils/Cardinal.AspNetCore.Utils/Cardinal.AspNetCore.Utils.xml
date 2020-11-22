@@ -327,22 +327,22 @@
             <param name="exception"></param>
             <param name="formatter"></param>
         </member>
-        <member name="T:Cardinal.Settings.HostConfigurations">
+        <member name="T:Cardinal.AspNetCore.HostConfigurations">
             <summary>
             Classe de configurações de Host.
             </summary>
         </member>
-        <member name="P:Cardinal.Settings.HostConfigurations.UseDefaults">
+        <member name="P:Cardinal.AspNetCore.HostConfigurations.UseDefaults">
             <summary>
             Indica se deve ser utilizado o servidor Kestrel.
             </summary>
         </member>
-        <member name="P:Cardinal.Settings.HostConfigurations.UseIISIntegration">
+        <member name="P:Cardinal.AspNetCore.HostConfigurations.UseIISIntegration">
             <summary>
             Indica se deve ser usada a integração com o Internet Information Service.
             </summary>
         </member>
-        <member name="P:Cardinal.Settings.HostConfigurations.Hosts">
+        <member name="P:Cardinal.AspNetCore.HostConfigurations.Hosts">
             <summary>
             Lista de hosts ao qual o serviço deve responder.
             </summary>

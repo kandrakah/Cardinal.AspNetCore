@@ -1,28 +1,35 @@
 ﻿using Cardinal.AspNetCore.Swagger;
-using Cardinal.Settings;
+using Cardinal.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.IO;
 
-namespace Cardinal.Extensions
+namespace Cardinal.AspNetCore
 {
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddSwagger(this IServiceCollection services, IConfiguration configuration, string section = SwaggerConstants.SWAGGER_SECTION)
         {
-            var settings = configuration.GetConfigurations<SwaggerSettings>(section);
-            return services.AddSwagger(settings);
+            var configurations = configuration.GetConfigurations<SwaggerConfigurations>(section);
+            return services.AddSwagger(configurations);
         }
 
-        public static IServiceCollection AddSwagger(this IServiceCollection services, SwaggerSettings settings)
+        public static IServiceCollection AddSwagger(this IServiceCollection services, SwaggerConfigurations configurations)
         {
             services.AddSwaggerGen(setup =>
             {
-                setup.SwaggerDoc(settings.Version, settings.ToOpenApi());
+                setup.SwaggerDoc(configurations.Version, configurations.ToOpenApi());
 
-                if (settings.UseSecurity)
+                foreach (var file in Directory.GetFiles(configurations.DocumentationPath, configurations.DocumentationPattern))
                 {
-                    setup.AddSecurityDefinition(settings.SecurityDefinitions.Scheme, settings.SecurityDefinitions.ToOpenApi());
-                    setup.AddSecurityRequirement(settings.SecurityRequeriment.ToOpenApi());
+                    setup.IncludeXmlComments(file, configurations.IncludeControllerXmlComments);
+                }
+
+                if (configurations.UseSecurity)
+                {
+                    setup.OperationFilter<AuthorizeCheckOperationFilter>();
+                    setup.AddSecurityDefinition(configurations.SecurityDefinitions.Scheme, configurations.SecurityDefinitions.ToOpenApi());
+                    setup.AddSecurityRequirement(configurations.SecurityRequeriment.ToOpenApi());
                 }
             });
             return services;

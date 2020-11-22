@@ -42,7 +42,7 @@ namespace Cardinal.Extensions
         /// <param name="context"></param>
         /// <param name="settings"></param>
         /// <returns></returns>
-        public static async Task<IEnumerable<Claim>> GetCurrentUserClaims(this AuthorizationFilterContext context, AuthorityConfigurations settings)
+        public static async Task<IEnumerable<Claim>> GetCurrentUserClaims(this AuthorizationFilterContext context, IdentityConfigurations settings)
         {
             var token = context.GetAuthorizationToken("Bearer");
             var client = new HttpClient();

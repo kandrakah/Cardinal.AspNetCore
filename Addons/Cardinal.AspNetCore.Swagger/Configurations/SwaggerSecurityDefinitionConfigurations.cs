@@ -2,9 +2,9 @@
 using Microsoft.OpenApi.Models;
 using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerSecurityDefinitionSettings
+    public class SwaggerSecurityDefinitionConfigurations
     {
         public string Scheme { get; set; } = "Bearer";
 
@@ -16,7 +16,7 @@ namespace Cardinal.Settings
 
         public SecuritySchemeType Type { get; set; } = SecuritySchemeType.ApiKey;
 
-        public SwaggerSecurityDefinitionFlowSettings Flows { get; set; }
+        public SwaggerSecurityDefinitionFlowConfigurations Flows { get; set; }
 
         public IDictionary<string, IOpenApiExtension> Extensions { get; set; } = new Dictionary<string, IOpenApiExtension>();
 

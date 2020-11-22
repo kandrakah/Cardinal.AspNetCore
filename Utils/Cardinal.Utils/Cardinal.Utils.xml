@@ -965,13 +965,6 @@
             Classe de extensões para <see cref="T:System.Enum"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.EnumeratorExtensions.ToDictionary(System.Enum)">
-            <summary>
-            Extensão para converter um enumerador em um dicionário.
-            </summary>
-            <param name="enumerator">Objeto referenciado</param>
-            <returns>Dicionário resultante do enumerador</returns>
-        </member>
         <member name="T:Cardinal.Extensions.GuidExtensions">
             <summary>
             Extensões para <see cref="T:System.Guid"/>.
@@ -1068,6 +1061,52 @@
             <param name="filePath">Diretório onde o stream será salvo junto com o nome do arquivo</param>
             <param name="fileMode">Modo de abertura do arquivo. Veja <see cref="T:System.IO.FileMode"/></param>
             <param name="fileAccess">Modo de acesso ao arquivo. Veja <see cref="T:System.IO.FileAccess"/></param>
+        </member>
+        <member name="T:Cardinal.Extensions.ObjectExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Object"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.ObjectExtensions.IsNull(System.Object)">
+            <summary>
+            Extensão que verifica se objeto é nulo.
+            </summary>
+            <param name="obj">Objeto referenciado.</param>
+            <returns>Verdadeiro caso o objeto seja nulo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ObjectExtensions.IsNotNull(System.Object)">
+            <summary>
+            Extensão que verifica se objeto não é nulo.
+            </summary>
+            <param name="obj">Objeto referenciado.</param>
+            <returns>Verdadeiro caso o objeto não seja nulo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ObjectExtensions.Is``1(System.Object)">
+            <summary>
+            Extensão que verifica se objeto é
+            uma representação <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">Typo do objeto de comparação.</typeparam>
+            <param name="obj">Objeto referenciado.</param>
+            <returns>Verdadeiro caso o objeto seja uma representação de <typeparamref name="T"/> e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ObjectExtensions.IsNot``1(System.Object)">
+            <summary>
+            Extensão que verifica se objeto não é
+            uma representação <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">Typo do objeto de comparação.</typeparam>
+            <param name="obj">Objeto referenciado.</param>
+            <returns>Verdadeiro caso o objeto não seja uma representação de <typeparamref name="T"/> e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.ObjectExtensions.Cast``1(System.Object)">
+            <summary>
+            Extensão que faz a conversão de um objeto
+            em uma referência de <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">Tipo da classe em que o objeto será convertido.</typeparam>
+            <param name="obj">Objeto referenciado.</param>
+            <returns>Instância de <typeparamref name="T"/> referente ao objeto.</returns>
         </member>
         <member name="T:Cardinal.Extensions.StreamExtensions">
             <summary>

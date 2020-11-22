@@ -1,7 +1,6 @@
 ﻿using Cardinal.AspNetCore.Utils.Localization;
 using Cardinal.AspNetCore.Utils.Services;
 using Cardinal.Extensions;
-using Cardinal.Settings;
 using Cardinal.Utils;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -14,7 +13,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace Cardinal.AspNetCore.Utils

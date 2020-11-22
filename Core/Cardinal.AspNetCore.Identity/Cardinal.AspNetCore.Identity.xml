@@ -55,87 +55,87 @@
             </summary>
             <param name="context"></param>
         </member>
-        <member name="T:Cardinal.AspNetCore.Identity.AuthorityConfigurations">
+        <member name="T:Cardinal.AspNetCore.Identity.IdentityConfigurations">
             <summary>
             Classe de configurações Identity
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.UsePermissionsService">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.UsePermissionsService">
             <summary>
             Configuração que ativa o serviço de permissões padrão.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Authority">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.Authority">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Audience">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.Audience">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ApiName">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ApiName">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ApiSecret">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ApiSecret">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.SaveToken">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.SaveToken">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.SupportedTokens">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.SupportedTokens">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.RoleClaimType">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.RoleClaimType">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.NameClaimType">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.NameClaimType">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateIssuerSigningKey">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ValidateIssuerSigningKey">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateIssuer">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ValidateIssuer">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateAudience">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ValidateAudience">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.ValidateLifetime">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.ValidateLifetime">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.RequireHttpsMetadata">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.RequireHttpsMetadata">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.Scopes">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.Scopes">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.Identity.AuthorityConfigurations.PermissionsValidationType">
+        <member name="P:Cardinal.AspNetCore.Identity.IdentityConfigurations.PermissionsValidationType">
             <summary>
             
             </summary>
@@ -230,7 +230,7 @@
             Extensões para <see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/>
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Cardinal.AspNetCore.Identity.AuthorityConfigurations)">
+        <member name="M:Cardinal.AspNetCore.Identity.Extensions.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Cardinal.AspNetCore.Identity.IdentityConfigurations)">
             <summary>
             Extensão que faz a validação de um token.
             </summary>
@@ -330,7 +330,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.UpdateSystemUser(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.String)">
+        <member name="M:Cardinal.AspNetCore.Identity.DefaultAuthorizationService.UpdateSystemUser(Cardinal.AspNetCore.Identity.IdentityConfigurations,System.String)">
             <summary>
             Método que faz a atualização dos dados do usuário com informações da autoridade.
             </summary>
@@ -821,10 +821,10 @@
         </member>
         <member name="T:Cardinal.Extensions.AuthoritySettingsExtensions">
             <summary>
-            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Identity.AuthorityConfigurations"/>.
+            Classe de extensões para <see cref="T:Cardinal.AspNetCore.Identity.IdentityConfigurations"/>.
             </summary>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametesAsync(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetTokenParametesAsync(Cardinal.AspNetCore.Identity.IdentityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
             Extensão que retorna os parâmetros de validação de token OAuth.
             </summary>
@@ -832,7 +832,7 @@
             <param name="token">Token de autenticação</param>
             <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/></returns>
         </member>
-        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetSigningKeyAsync(Cardinal.AspNetCore.Identity.AuthorityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
+        <member name="M:Cardinal.Extensions.AuthoritySettingsExtensions.GetSigningKeyAsync(Cardinal.AspNetCore.Identity.IdentityConfigurations,System.IdentityModel.Tokens.Jwt.JwtSecurityToken)">
             <summary>
             Método para obtenção da chave de assinatura do token provida pela autoridade de identificação.
             </summary>
@@ -853,7 +853,7 @@
             <param name="type">Tipo de token esperado.</param>
             <returns>Token de autenticação ou null se o valor for vazio.</returns>
         </member>
-        <member name="M:Cardinal.Extensions.AuthorizationFilterContextExtensions.GetCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.AuthorityConfigurations)">
+        <member name="M:Cardinal.Extensions.AuthorizationFilterContextExtensions.GetCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Cardinal.AspNetCore.Identity.IdentityConfigurations)">
             <summary>
             
             </summary>

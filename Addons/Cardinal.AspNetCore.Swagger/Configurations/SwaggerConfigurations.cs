@@ -1,9 +1,10 @@
 ﻿using Cardinal.AspNetCore.Utils;
 using Microsoft.OpenApi.Models;
+using System;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerSettings
+    public class SwaggerConfigurations
     {
         public string Title { get; set; } = $"{Constants.ApplicationName} API";
 
@@ -11,9 +12,9 @@ namespace Cardinal.Settings
 
         public string Description { get; set; } = $"{Constants.ApplicationName} API";
 
-        public SwaggerContactSettings Contact { get; set; } = new SwaggerContactSettings();
+        public SwaggerContactConfigurations Contact { get; set; } = new SwaggerContactConfigurations();
 
-        public SwaggerLicenseSettings License { get; set; } = new SwaggerLicenseSettings();
+        public SwaggerLicenseConfigurations License { get; set; } = new SwaggerLicenseConfigurations();
 
         public string EndpointUri { get; set; }
 
@@ -27,9 +28,15 @@ namespace Cardinal.Settings
 
         public bool UsePkce { get; set; } = false;
 
-        public SwaggerSecurityDefinitionSettings SecurityDefinitions { get; set; } = new SwaggerSecurityDefinitionSettings();
+        public string DocumentationPath = AppContext.BaseDirectory;
 
-        public SwaggerSecurityRequerimentSettings SecurityRequeriment { get; set; } = new SwaggerSecurityRequerimentSettings();        
+        public string DocumentationPattern = "*.xml";
+
+        public bool IncludeControllerXmlComments = false;
+
+        public SwaggerSecurityDefinitionConfigurations SecurityDefinitions { get; set; } = new SwaggerSecurityDefinitionConfigurations();
+
+        public SwaggerSecurityRequerimentConfigurations SecurityRequeriment { get; set; } = new SwaggerSecurityRequerimentConfigurations();        
 
         internal OpenApiInfo ToOpenApi()
         {

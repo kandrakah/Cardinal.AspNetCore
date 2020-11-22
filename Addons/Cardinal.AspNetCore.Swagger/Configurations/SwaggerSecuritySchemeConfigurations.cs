@@ -1,8 +1,8 @@
 ﻿using Microsoft.OpenApi.Models;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerSecuritySchemeSettings
+    public class SwaggerSecuritySchemeConfigurations
     {
         public OpenApiReference Reference { get; set; } = new OpenApiReference() { Id = "Bearer", Type = ReferenceType.SecurityScheme };
 

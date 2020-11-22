@@ -10,6 +10,7 @@ namespace Cardinal.AspNetCore.DemoApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -24,8 +25,17 @@ namespace Cardinal.AspNetCore.DemoApi.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        /// <response code="200">Requisição bem sucedida.</response>
+        /// <response code="400">A requisição não pôde ser atendida por uma inconsistência nos parâmetros informados.</response>  
+        /// <response code="401">O requisitante não possui autorização para acesso aos parâmetros globais.</response>  
+        /// <response code="404">O parâmetro buscado não foi encontrado ou não existe.</response>       
+        /// <response code="500">Houve uma falha interna ao tratar a requisição.</response> 
         [HttpGet]
-        [Permission(Method.Get, PermissionValidationType.RequireAuthenticatedOnly)]
+        //[Permission(Method.Get, PermissionValidationType.RequireAuthenticatedOnly)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();

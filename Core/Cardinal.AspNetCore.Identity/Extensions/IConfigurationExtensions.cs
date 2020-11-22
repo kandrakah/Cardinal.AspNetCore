@@ -14,9 +14,9 @@ namespace Cardinal.Extensions
         /// <param name="configuration">Instância de <see cref="IConfiguration"/></param>
         /// <param name="sectionName">Nome da sessão de configurações</param>
         /// <returns>Objeto contendo as configurações.</returns>
-        public static AuthorityConfigurations GetAuthorityConfigurations(this IConfiguration configuration, string sectionName = "Authority") 
+        public static IdentityConfigurations GetAuthorityConfigurations(this IConfiguration configuration, string sectionName = "Authority") 
         {            
-            var settings = configuration.GetConfigurations<AuthorityConfigurations>(sectionName);
+            var settings = configuration.GetConfigurations<IdentityConfigurations>(sectionName);
             return settings;
         }
     }

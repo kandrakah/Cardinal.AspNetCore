@@ -1,20 +1,20 @@
 ﻿using Cardinal.AspNetCore.Swagger;
 using Cardinal.Extensions;
-using Cardinal.Settings;
+using Cardinal.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 
-namespace Cardinal.Extensions
+namespace Cardinal.AspNetCore
 {
     public static class ApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseSwagger(this IApplicationBuilder builder, IConfiguration configuration, string section = SwaggerConstants.SWAGGER_SECTION)
         {
-            var settings = configuration.GetConfigurations<SwaggerSettings>(section);
+            var settings = configuration.GetConfigurations<SwaggerConfigurations>(section);
             return builder.UseSwagger(settings);
         }
 
-        public static IApplicationBuilder UseSwagger(this IApplicationBuilder builder, SwaggerSettings settings)
+        public static IApplicationBuilder UseSwagger(this IApplicationBuilder builder, SwaggerConfigurations settings)
         {
             builder.UseSwagger();
             builder.UseSwaggerUI(options =>

@@ -3,9 +3,9 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerSecurityAuthFlowSettings
+    public class SwaggerSecurityAuthFlowConfigurations
     {
         public string AuthorizationUrl { get; set; }
 

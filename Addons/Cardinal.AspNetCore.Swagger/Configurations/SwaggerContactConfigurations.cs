@@ -3,9 +3,9 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 
-namespace Cardinal.Settings
+namespace Cardinal.AspNetCore
 {
-    public class SwaggerContactSettings
+    public class SwaggerContactConfigurations
     {
         public string Name { get; set; } = "Cardinal";
 
