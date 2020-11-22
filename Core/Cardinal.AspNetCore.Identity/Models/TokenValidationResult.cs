@@ -44,5 +44,15 @@ namespace Cardinal.AspNetCore
             this.Status = status;
             this.Message = !string.IsNullOrEmpty(message) ? message : Resource.TOKEN_VALIDATION_VALID;
         }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            var message = this.Status != TokenValidation.Valid ? this.Message : string.Empty;
+            return $"[{this.Status}]{message}";
+        }
     }
 }

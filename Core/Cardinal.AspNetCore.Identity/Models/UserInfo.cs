@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 
 namespace Cardinal.AspNetCore
@@ -36,6 +37,17 @@ namespace Cardinal.AspNetCore
                 }
             }
             return claims;
+        }
+
+        /// <summary>
+        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
+        /// </summary>
+        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        public override string ToString()
+        {
+            var keys = new List<string> { DefaultClaims.NAME, DefaultClaims.NICKNAME, DefaultClaims.PREFERED_USERNAME, DefaultClaims.SUB };
+            var name = this.Where(x => keys.Contains(x.Key)).Select(x => x.Value).FirstOrDefault();
+            return name?.ToString();
         }
     }
 }

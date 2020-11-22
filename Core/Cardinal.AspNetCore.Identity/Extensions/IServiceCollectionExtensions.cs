@@ -1,11 +1,7 @@
 ﻿using Cardinal.AspNetCore;
 using Cardinal.AspNetCore.Identity;
-using IdentityModel;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace Cardinal.Extensions
@@ -13,7 +9,7 @@ namespace Cardinal.Extensions
     /// <summary>
     /// Classe de extensões para <see cref="IServiceCollection"/>.
     /// </summary>
-    public static class ServiceCollectionExtensions
+    public static class IServiceCollectionExtensions
     {
         /// <summary>
         /// 
@@ -23,7 +19,7 @@ namespace Cardinal.Extensions
         /// <returns></returns>
         public static IServiceCollection AddAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            var settings = configuration.GetConfigurations<IdentityConfigurations>("Authority");
+            var settings = configuration.GetConfigurations<IdentityConfigurations>("Identity");
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -39,7 +35,6 @@ namespace Cardinal.Extensions
                     options.TokenValidationParameters.ValidateLifetime = settings.ValidateLifetime;
                     options.TokenValidationParameters.ValidateIssuerSigningKey = settings.ValidateIssuerSigningKey;
 
-                    //options.ForwardDefaultSelector = Selector.ForwardReferenceToken("introspection");
                 }).AddOAuth2Introspection("introspection", options =>
                 {
                     options.Authority = settings.Authority;
@@ -47,23 +42,6 @@ namespace Cardinal.Extensions
                     options.ClientId = settings.ApiName;
                     options.ClientSecret = settings.ApiSecret;
                 });
-
-            //services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //    .AddIdentityServerAuthentication(options =>
-            //    {
-            //        options.Authority = settings.Authority;
-            //        options.RequireHttpsMetadata = settings.RequireHttpsMetadata;
-            //        options.ApiSecret = settings.ApiSecret;
-            //        options.ApiName = settings.ApiName;
-            //        options.RoleClaimType = settings.RoleClaimType;
-            //        options.NameClaimType = settings.NameClaimType;
-            //        options.SaveToken = settings.SaveToken;
-            //        options.SupportedTokens = settings.SupportedTokens;
-            //    });
 
             return services;
         }
@@ -89,9 +67,9 @@ namespace Cardinal.Extensions
         /// Extensão que adiciona o serviço padrão de autorização.
         /// </summary>
         /// <param name="services">Instância do container de serviços.</param>
-        public static IServiceCollection AddAuthorizationService(this IServiceCollection services)
+        public static IServiceCollection AddPermissionsAuthorization(this IServiceCollection services)
         {
-            services.AddAuthorizationService<DefaultAuthorizationService>();
+            services.AddPermissionsAuthorization<DefaultPermissionsAuthorizationService>();
             services.AddSingleton<ISystemUser, IdentityUser>();
             return services;
         }
@@ -101,9 +79,9 @@ namespace Cardinal.Extensions
         /// </summary>
         /// <typeparam name="TAuthorizationService"></typeparam>
         /// <param name="services">Instância do container de serviços.</param>
-        public static IServiceCollection AddAuthorizationService<TAuthorizationService>(this IServiceCollection services) where TAuthorizationService : class, IAuthorizationService
+        public static IServiceCollection AddPermissionsAuthorization<TAuthorizationService>(this IServiceCollection services) where TAuthorizationService : class, IPermissionsAuthorizationService
         {
-            services.AddScoped<IAuthorizationService, TAuthorizationService>();
+            services.AddScoped<IPermissionsAuthorizationService, TAuthorizationService>();
             return services;
         }
     }

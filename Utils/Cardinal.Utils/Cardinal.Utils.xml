@@ -212,6 +212,11 @@
               Consulta uma cadeia de caracteres localizada semelhante a The regular expression is null or invalid!.
             </summary>
         </member>
+        <member name="P:Cardinal.Utils.Localization.Resource.ERROR_STRING_CAST">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The value {value} can&apos;t be converted to type {type}!.
+            </summary>
+        </member>
         <member name="P:Cardinal.Utils.Localization.Resource.ERROR_TRANSLATION_KEY_NULL_EMPTY">
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid!.
@@ -1270,6 +1275,55 @@
             <param name="hashAlgoritm">Algoritmo utilizado no cálculo de hash. Veja <see cref="T:System.Security.Cryptography.HashAlgorithmName"/></param>
             <param name="encoding">Codificação da string</param>
             <returns>Hash gerado para o string informado</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsBool(System.String)">
+            <summary>
+            Método para converter o valor em booleano.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor booleano convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsInteger(System.String)">
+            <summary>
+            Método para converter o valor em inteiro.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor inteiro convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsDecimal(System.String)">
+            <summary>
+            Método para converter o valor em decimal.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor decimal convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsDouble(System.String)">
+            <summary>
+            Método para converter o valor em double.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor double convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsFloat(System.String)">
+            <summary>
+            Método para converter o valor em float.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor float convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsByte(System.String)">
+            <summary>
+            Método para converter o valor em byte.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor byte convertido.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.StringExtensions.AsLong(System.String)">
+            <summary>
+            Método para converter o valor em long.
+            </summary>
+            <param name="value">Objeto referenciado.</param>
+            <returns>Valor long convertido.</returns>
         </member>
         <member name="T:Cardinal.Extensions.TypeExtensions">
             <summary>

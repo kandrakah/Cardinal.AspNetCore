@@ -7,7 +7,7 @@ namespace Cardinal.AspNetCore.Identity
     /// <summary>
     /// Interface do serviço de autorização
     /// </summary>
-    public interface IAuthorizationService
+    public interface IPermissionsAuthorizationService
     {
         /// <summary>
         /// Método que efetua a validação da autorização de acesso.
@@ -23,12 +23,5 @@ namespace Cardinal.AspNetCore.Identity
         /// <param name="missingPermissions"></param>
         /// <returns>Verdadeiro caso o usuário atenda aos critérios requisitados e falso caso contrário</returns>
         bool ValidatePermissionByClaims(PermissionsAuthorizationRequirement requiredPermission, out List<string> missingPermissions);
-
-        /// <summary>
-        /// Método que verifica se o usuário possui permissão máxima.
-        /// </summary>
-        /// <param name="token">Token de autorização</param>
-        /// <returns>Verdadeiro caso o usuário possua a permissão máxima e falso caso contrário</returns>
-        bool IsRoot(string token);
     }
 }

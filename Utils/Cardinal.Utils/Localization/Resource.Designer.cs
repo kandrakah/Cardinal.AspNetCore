@@ -79,6 +79,15 @@ namespace Cardinal.Utils.Localization {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The value {value} can&apos;t be converted to type {type}!.
+        /// </summary>
+        internal static string ERROR_STRING_CAST {
+            get {
+                return ResourceManager.GetString("ERROR_STRING_CAST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The translation key is null or invalid!.
         /// </summary>
         internal static string ERROR_TRANSLATION_KEY_NULL_EMPTY {

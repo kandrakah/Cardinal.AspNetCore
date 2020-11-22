@@ -178,6 +178,15 @@ namespace Cardinal.AspNetCore.Identity.Localization {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Could not retrieve user profile data: [{status}] {message}.
+        /// </summary>
+        internal static string ERROR_GET_USERINFO {
+            get {
+                return ResourceManager.GetString("ERROR_GET_USERINFO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The default permission must declare the execution method!.
         /// </summary>
         internal static string ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED {

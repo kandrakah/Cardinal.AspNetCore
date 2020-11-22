@@ -1,7 +1,5 @@
 ﻿using Cardinal.AspNetCore.Identity;
-using Cardinal.AspNetCore.Identity.Utils;
 using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -37,16 +35,16 @@ namespace Cardinal.Extensions
         }
 
         /// <summary>
-        /// 
+        /// Método que busca as claims do usuário atual.
         /// </summary>
         /// <param name="context"></param>
-        /// <param name="settings"></param>
-        /// <returns></returns>
-        public static async Task<IEnumerable<Claim>> GetCurrentUserClaims(this AuthorizationFilterContext context, IdentityConfigurations settings)
+        /// <param name="configurations">Configurações do provedor de identidade.</param>
+        /// <returns>Enumeração de claims do usuário atual.</returns>
+        public static async Task<IEnumerable<Claim>> GetCurrentUserClaims(this AuthorizationFilterContext context, IdentityConfigurations configurations)
         {
             var token = context.GetAuthorizationToken("Bearer");
             var client = new HttpClient();
-            var userInfo = await client.GetUserInfoAsync(settings.Authority, token);
+            var userInfo = await client.GetUserInfoAsync(configurations.Authority, token);
             var claims = userInfo.ToClaims();
             return claims;
         }

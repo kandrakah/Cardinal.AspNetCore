@@ -1,8 +1,6 @@
-﻿using Cardinal.AspNetCore.Utils;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
-using System;
 using System.Collections.Generic;
 
 namespace Cardinal.Extensions

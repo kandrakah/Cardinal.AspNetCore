@@ -68,7 +68,7 @@ namespace Cardinal.Extensions
         {
             foreach (var set in sets)
             {
-                var index = value.IndexOfAny(out int length, $"$[{set.Key}]", $"{{{set.Key}}}");                
+                var index = value.IndexOfAny(out int length, $"$[{set.Key}]", $"{{{set.Key}}}");
                 if (index >= 0)
                 {
                     var r = value.Substring(index, length);
@@ -127,10 +127,10 @@ namespace Cardinal.Extensions
         /// <returns>Índice do primeiro parâmetro à ser encontrado ou -1 caso nenhum tenha sido localizado</returns>
         public static int IndexOfAny(this string value, out int Length, params string[] parameters)
         {
-            foreach(var parameter in parameters)
+            foreach (var parameter in parameters)
             {
                 var index = value.IndexOf(parameter);
-                if(index >= 0)
+                if (index >= 0)
                 {
                     Length = parameter.Length;
                     return index;
@@ -288,6 +288,111 @@ namespace Cardinal.Extensions
             var valueBytes = source.ToByteArray(encoding);
             var hash = valueBytes.ComputeHash(hashAlgoritm);
             return hash;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em booleano.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor booleano convertido.</returns>
+        public static bool AsBool(this string value)
+        {
+            if (!bool.TryParse(value, out bool result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "bool"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em inteiro.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor inteiro convertido.</returns>
+        public static int AsInteger(this string value)
+        {
+            if (!int.TryParse(value, out int result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "int"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em decimal.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor decimal convertido.</returns>
+        public static decimal AsDecimal(this string value)
+        {
+            if (!decimal.TryParse(value, out decimal result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "decimal"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em double.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor double convertido.</returns>
+        public static double AsDouble(this string value)
+        {
+            if (!double.TryParse(value, out double result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "double"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em float.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor float convertido.</returns>
+        public static float AsFloat(this string value)
+        {
+            if (!float.TryParse(value, out float result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "float"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em byte.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor byte convertido.</returns>
+        public static byte AsByte(this string value)
+        {
+            if (!byte.TryParse(value, out byte result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "byte"));
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Método para converter o valor em long.
+        /// </summary>
+        /// <param name="value">Objeto referenciado.</param>
+        /// <returns>Valor long convertido.</returns>
+        public static long AsLong(this string value)
+        {
+            if (!long.TryParse(value, out long result))
+            {
+                throw new InvalidCastException(Resource.ERROR_STRING_CAST.SetParameters("value", value).SetParameters("type", "long"));
+            }
+
+            return result;
         }
     }
 }

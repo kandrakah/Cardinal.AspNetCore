@@ -156,6 +156,9 @@
   <data name="ERROR_CERTIFICATE_NOT_FOUND" xml:space="preserve">
     <value>The certificate has not found</value>
   </data>
+  <data name="ERROR_GET_USERINFO" xml:space="preserve">
+    <value>Could not retrieve user profile data: [{status}] {message}</value>
+  </data>
   <data name="ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED" xml:space="preserve">
     <value>The default permission must declare the execution method!</value>
   </data>

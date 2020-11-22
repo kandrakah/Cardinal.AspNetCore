@@ -11,16 +11,16 @@ namespace Cardinal.AspNetCore.DemoApi.Controllers
     [ApiController]
     [Route("[controller]")]
     [Authorize]
-    public class WeatherForecastController : ControllerBase
+    public class HomeController : AbstractController
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<HomeController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public HomeController(IServiceProvider provider, ILogger<HomeController> logger) : base(provider)
         {
             _logger = logger;
         }
@@ -35,17 +35,17 @@ namespace Cardinal.AspNetCore.DemoApi.Controllers
         /// <response code="404">O parâmetro buscado não foi encontrado ou não existe.</response>       
         /// <response code="500">Houve uma falha interna ao tratar a requisição.</response> 
         [HttpGet]
-        //[Permission(Method.Get, PermissionValidationType.RequireAuthenticatedOnly)]
-        public IEnumerable<WeatherForecast> Get()
+        [Permission(Method.Get, PermissionValidationType.RequireAuthenticatedOnly)]
+        public ActionResult<IEnumerable<string>> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            try
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+                return this.Ok(Summaries.ToList());
+            }
+            catch (Exception ex)
+            {
+                return this.Error(ex);
+            }
         }
     }
 }

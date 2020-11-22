@@ -49,10 +49,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
-    <PackageReference Include="Tiny.RestClient" Version="1.7.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Utils\Cardinal.AspNetCore.Utils\Cardinal.AspNetCore.Utils.csproj" />
     <ProjectReference Include="..\Cardinal.AspNetCore.Services\Cardinal.AspNetCore.Services.csproj" />
     <ProjectReference Include="..\Cardinal.AspNetCore\Cardinal.AspNetCore.csproj" />
   </ItemGroup>

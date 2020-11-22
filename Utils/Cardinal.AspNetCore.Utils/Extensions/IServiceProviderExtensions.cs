@@ -10,7 +10,7 @@ namespace Cardinal.Extensions
     /// <summary>
     /// Classe de extensões para ServiceProvider.
     /// </summary>
-    public static class ServiceProviderExtensions
+    public static class IServiceProviderExtensions
     {
         /// <summary>
         /// Extensão para verificar se um serviço está registrado no pool de serviços.

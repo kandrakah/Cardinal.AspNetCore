@@ -25,6 +25,243 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
+        <member name="T:Cardinal.AspNetCore.SystemUserClaimsConfigurations">
+            <summary>
+            Classe de configurações de claims do usuário de sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Sub">
+            <summary>
+            Identificador do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.ClientId">
+            <summary>
+            Identificador do cliente do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Name">
+            <summary>
+            Nome do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.FamilyName">
+            <summary>
+            Nome de família do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.GivenName">
+            <summary>
+            Nome atribuído ao usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.MiddleName">
+            <summary>
+            Sobrenome do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Nickname">
+            <summary>
+            Apelido do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.PreferedUsername">
+            <summary>
+            Nome de usuário preferencial.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Profile">
+            <summary>
+            Perfil do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Picture">
+            <summary>
+            Imagem do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Website">
+            <summary>
+            Website do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Gender">
+            <summary>
+            Gênero do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Birthdate">
+            <summary>
+            Data de nascimento do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.ZoneInfo">
+            <summary>
+            Informações de zona do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Locale">
+            <summary>
+            Localização do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.UpdatedAt">
+            <summary>
+            Data de atualização do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Username">
+            <summary>
+            Nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserClaimsConfigurations.Permissions">
+            <summary>
+            Permissões do usuário.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUserClaimsConfigurations.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.SystemUserConfigurations">
+            <summary>
+            Classe de configurações do usuário de sistema.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserConfigurations.DefaultMasterPermission">
+            <summary>
+            Nome padrão da permissão mestre.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.SystemUserConfigurations.Claims">
+            <summary>
+            Definições das claims.
+            </summary>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUserConfigurations.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Cardinal.AspNetCore.DefaultClaims">
+            <summary>
+            Classe estática para nomes de claims padrões.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.SUB">
+            <summary>
+            Identificador do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.CLIENT_ID">
+            <summary>
+            Identificador do cliente do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.NAME">
+            <summary>
+            Nome do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.FAMILY_NAME">
+            <summary>
+            Nome de família do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.GIVEN_NAME">
+            <summary>
+            Nome atribuído ao usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.MIDDLE_NAME">
+            <summary>
+            Sobrenome do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.NICKNAME">
+            <summary>
+            Apelido do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.PREFERED_USERNAME">
+            <summary>
+            Nome de usuário preferencial.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.PROFILE">
+            <summary>
+            Perfil do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.PICTURE">
+            <summary>
+            Imagem do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.WEBSITE">
+            <summary>
+            Website do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.GENDER">
+            <summary>
+            Gênero do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.BIRTHDATE">
+            <summary>
+            Data de nascimento do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.ZONEINFO">
+            <summary>
+            Informações de zona do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.LOCALE">
+            <summary>
+            Localização do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.UPDATED_AT">
+            <summary>
+            Data de atualização do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.USERNAME">
+            <summary>
+            Nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.PERMISSIONS">
+            <summary>
+            Permissões do usuário.
+            </summary>
+        </member>
+        <member name="P:Cardinal.AspNetCore.DefaultClaims.ROOT_PERMISSION">
+            <summary>
+            Nome padrão para a permissão mestre.
+            </summary>
+        </member>
+        <member name="T:Cardinal.AspNetCore.PermissionCheckMethod">
+            <summary>
+            Enumerador que define se é requerida uma ou todas as permissões.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.PermissionCheckMethod.Any">
+            <summary>
+            Ao menos uma permissão é requerida.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.PermissionCheckMethod.All">
+            <summary>
+            Todas as permissões são requeridas.
+            </summary>
+        </member>
         <member name="T:Cardinal.AspNetCore.Extensions.IServiceCollectionExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
@@ -34,6 +271,14 @@
             <summary>
             Extensão para adição do usuário de sistema.
             </summary>
+            <param name="services">Objeto referenciado</param>
+            <returns>Objeto referenciado</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Extensions.IServiceCollectionExtensions.AddSystemUser``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição do usuário de sistema.
+            </summary>
+            <typeparam name="TSystemUser">Implementação de <see cref="T:Cardinal.AspNetCore.ISystemUser"/></typeparam>
             <param name="services">Objeto referenciado</param>
             <returns>Objeto referenciado</returns>
         </member>
@@ -87,6 +332,11 @@
             Atributo com a lista de permissões do usuário.
             </summary>
         </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.Update">
+            <summary>
+            Método que atualiza os dados do usuário.
+            </summary>
+        </member>
         <member name="M:Cardinal.AspNetCore.ISystemUser.GetClaim(System.String)">
             <summary>
             Método que obtém uma claim do usuário de um tipo declarado. 
@@ -108,6 +358,15 @@
             </summary>
             <param name="permission">Permissão requerida.</param>
             <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.ISystemUser.HavePermissions(Cardinal.AspNetCore.PermissionCheckMethod,System.String[])">
+            <summary>
+            Método que verifica se o usuário possui uma ou mais permissões.
+            </summary>
+            <param name="method">Método que verificação de permissões. Veja <see cref="T:Cardinal.AspNetCore.PermissionCheckMethod"/></param>
+            <param name="permissions">Conjunto de permissões à serem verificadas.</param>
+            <returns>Verdadeiro caso o usuário possua as permissões ou falso caso contrário. Em qualquer caso,
+            o método de validação será considerado.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.ISystemUser.IsRoot">
             <summary>
@@ -160,7 +419,12 @@
             Atributo com a lista de permissões do usuário.
             </summary>
         </member>
-        <member name="P:Cardinal.AspNetCore.SystemUser.Accessor">
+        <member name="F:Cardinal.AspNetCore.SystemUser._configurations">
+            <summary>
+            Instância das configurações.
+            </summary>
+        </member>
+        <member name="F:Cardinal.AspNetCore.SystemUser._accessor">
             <summary>
             Accessor
             </summary>
@@ -170,11 +434,17 @@
             Identidade principal do usuário.
             </summary>
         </member>
-        <member name="M:Cardinal.AspNetCore.SystemUser.#ctor(Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:Cardinal.AspNetCore.SystemUser.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
             <summary>
             Método construtor.
             </summary>
+            <param name="configurations">Instância do container de configurações.</param>
             <param name="accessor">Instância do acessor</param>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.Update">
+            <summary>
+            Método que atualiza os dados do usuário.
+            </summary>
         </member>
         <member name="M:Cardinal.AspNetCore.SystemUser.GetClaim(System.String)">
             <summary>
@@ -245,6 +515,15 @@
             </summary>
             <param name="permission">Permissão requerida.</param>
             <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.AspNetCore.SystemUser.HavePermissions(Cardinal.AspNetCore.PermissionCheckMethod,System.String[])">
+            <summary>
+            Método que verifica se o usuário possui uma ou mais permissões.
+            </summary>
+            <param name="method">Método que verificação de permissões. Veja <see cref="T:Cardinal.AspNetCore.PermissionCheckMethod"/></param>
+            <param name="permissions">Conjunto de permissões à serem verificadas.</param>
+            <returns>Verdadeiro caso o usuário possua as permissões ou falso caso contrário. Em qualquer caso,
+            o método de validação será considerado.</returns>
         </member>
         <member name="M:Cardinal.AspNetCore.SystemUser.IsRoot">
             <summary>

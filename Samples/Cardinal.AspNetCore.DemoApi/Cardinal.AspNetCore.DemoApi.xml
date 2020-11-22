@@ -4,7 +4,7 @@
         <name>Cardinal.AspNetCore.DemoApi</name>
     </assembly>
     <members>
-        <member name="M:Cardinal.AspNetCore.DemoApi.Controllers.WeatherForecastController.Get">
+        <member name="M:Cardinal.AspNetCore.DemoApi.Controllers.HomeController.Get">
             <summary>
             
             </summary>

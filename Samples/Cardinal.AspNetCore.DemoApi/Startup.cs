@@ -23,6 +23,7 @@ namespace Cardinal.AspNetCore.DemoApi
 
             services.AddAuthentication(this.Configuration);
             services.AddAuthorization(this.Configuration);
+            services.AddPermissionsAuthorization();
 
             services.AddSwagger(this.Configuration);   
         }

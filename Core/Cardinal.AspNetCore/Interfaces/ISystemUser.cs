@@ -47,7 +47,12 @@ namespace Cardinal.AspNetCore
         /// Atributo com a lista de permissões do usuário.
         /// </summary>
         IEnumerable<Claim> Permissions { get; }
-        
+
+        /// <summary>
+        /// Método que atualiza os dados do usuário.
+        /// </summary>
+        void Update();
+
         /// <summary>
         /// Método que obtém uma claim do usuário de um tipo declarado. 
         /// Caso hajam várias claims do mesmo tipo, a primeira será retornada.
@@ -69,6 +74,15 @@ namespace Cardinal.AspNetCore
         /// <param name="permission">Permissão requerida.</param>
         /// <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
         bool HavePermission(string permission);
+
+        /// <summary>
+        /// Método que verifica se o usuário possui uma ou mais permissões.
+        /// </summary>
+        /// <param name="method">Método que verificação de permissões. Veja <see cref="PermissionCheckMethod"/></param>
+        /// <param name="permissions">Conjunto de permissões à serem verificadas.</param>
+        /// <returns>Verdadeiro caso o usuário possua as permissões ou falso caso contrário. Em qualquer caso,
+        /// o método de validação será considerado.</returns>
+        bool HavePermissions(PermissionCheckMethod method, params string[] permissions);
 
         /// <summary>
         /// Método que verifica se o usuário possui a permissão mestre.

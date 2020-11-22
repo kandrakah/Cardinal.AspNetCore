@@ -22,7 +22,7 @@ namespace Cardinal.AspNetCore.Identity
     /// <summary>
     /// Implementação padrão do serviço de autorização.
     /// </summary>
-    internal class DefaultAuthorizationService : IAuthorizationService, IService
+    internal class DefaultPermissionsAuthorizationService : IPermissionsAuthorizationService, IService
     {
         /// <summary>
         /// Instância do provedor de configurações.
@@ -39,7 +39,7 @@ namespace Cardinal.AspNetCore.Identity
         /// </summary>
         private IHttpContextAccessor Accessor { get; }
 
-        private ISystemUser SystemUser { get; }
+        private ISystemUser SystemUser { get; set; }
 
         /// <summary>
         /// Método construtor
@@ -48,7 +48,7 @@ namespace Cardinal.AspNetCore.Identity
         /// <param name="configuration">Instância do container de configurações.</param>
         /// <param name="systemUser">Instância do usuário do sistema.</param>
         /// <param name="accessor">Instância do accessor do contexto http.</param>
-        public DefaultAuthorizationService(ILogger<DefaultAuthorizationService> logger, IConfiguration configuration, ISystemUser systemUser, IHttpContextAccessor accessor)
+        public DefaultPermissionsAuthorizationService(ILogger<DefaultPermissionsAuthorizationService> logger, IConfiguration configuration, ISystemUser systemUser, IHttpContextAccessor accessor)
         {
             this.Configuration = configuration;
             this.Logger = logger;
@@ -72,7 +72,7 @@ namespace Cardinal.AspNetCore.Identity
 
             this.Logger.LogInformation(Resource.AUTHORIZATION_PROTECTED, this.Accessor.HttpContext.Request.Path, this.SystemUser.RemoteIpAddress);
             // Obtendo configurações da autoridade.
-            var settings = this.Configuration.GetAuthorityConfigurations();
+            var settings = this.Configuration.GetIdentityConfigurations();
             // Obtendo token de autorização.
             var token = context.GetAuthorizationToken();
 
@@ -112,7 +112,17 @@ namespace Cardinal.AspNetCore.Identity
             this.Logger.LogInformation(Resource.AUTHORIZATION_ADDING_USER_DETAILS);
 
             // Atualizando dados do usuário.
-            await this.UpdateSystemUser(settings, token);
+            try
+            {
+                await this.UpdateSystemUser(settings, token);
+                this.SystemUser.Update();
+            }
+            catch (IdentityException ex)
+            {
+                this.Logger.LogError(Resource.ERROR_GET_USERINFO, ex.StatusCode, ex.Message);
+                context.Result = this.Unauthorized();
+                return;
+            }
 
             // Se é necessária apenas autenticação, não há porquê continuar.
             if (requiredPermission.ValidationType.Equals(PermissionValidationType.RequireAuthenticatedOnly))
@@ -138,7 +148,7 @@ namespace Cardinal.AspNetCore.Identity
                     havePermission = ValidatePermissionByClaims(requiredPermission, out missingPermissions);
                     break;
                 case PermissionsValidationType.Authority:
-                    break;
+                    throw new NotImplementedException($"The validation type {settings.PermissionsValidationType} isn't implemented!");
             }
 
             // Se o usuário não possui permissão para acesso ao serviço, retorna 401.
@@ -202,16 +212,6 @@ namespace Cardinal.AspNetCore.Identity
         }
 
         /// <summary>
-        /// Método que verifica se o usuário possui permissão máxima.
-        /// </summary>
-        /// <param name="token">Identidade do usuário</param>
-        /// <returns>Verdadeiro caso o usuário possua a permissão máxima e falso caso contrário</returns>
-        public virtual bool IsRoot(string token)
-        {
-            return false;
-        }
-
-        /// <summary>
         /// 
         /// </summary>
         /// <param name="statusCode"></param>
@@ -257,6 +257,7 @@ namespace Cardinal.AspNetCore.Identity
             catch (Exception ex)
             {
                 this.Logger.LogError(Resource.AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER, ex.Message);
+                throw ex;
             }
         }
 

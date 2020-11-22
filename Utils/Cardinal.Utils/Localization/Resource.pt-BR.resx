@@ -123,6 +123,9 @@
   <data name="ERROR_PATTERN_NULL_EMPTY" xml:space="preserve">
     <value>A expressão regular é nula ou inválida!</value>
   </data>
+  <data name="ERROR_STRING_CAST" xml:space="preserve">
+    <value>O valor {value} não pode ser convertido para o tipo {type}!</value>
+  </data>
   <data name="ERROR_TRANSLATION_KEY_NULL_EMPTY" xml:space="preserve">
     <value>A chave de tradução é nula ou inválida!</value>
   </data>

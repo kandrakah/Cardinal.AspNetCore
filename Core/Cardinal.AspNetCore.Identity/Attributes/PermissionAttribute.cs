@@ -81,12 +81,12 @@ namespace Cardinal.AspNetCore.Identity
             /// <param name="context"></param>
             public void OnAuthorization(AuthorizationFilterContext context)
             {
-                var settings = this._configuration.GetConfigurations<IdentityConfigurations>("Authority");
+                var settings = this._configuration.GetConfigurations<IdentityConfigurations>("Identity");
                 if (settings.UsePermissionsService)
                 {
                     try
                     {
-                        var authorizationService = this._provider.GetCardinalService<IAuthorizationService>();
+                        var authorizationService = this._provider.GetCardinalService<IPermissionsAuthorizationService>();
                         authorizationService.Authorize(context, this._requiredPermission).Wait();
                     }
                     catch (Exception ex)

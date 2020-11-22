@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AUTHORIZATION_ADDING_USER_DETAILS" xml:space="preserve">
+    <value>Atualizando os dados do usuário com a autoridade</value>
+  </data>
+  <data name="AUTHORIZATION_ANNONYMOUS" xml:space="preserve">
+    <value>Solicitação de acesso ao endpoint de acesso anônimo {path} por Ip {ip}</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_INVALID_TOKEN" xml:space="preserve">
+    <value>Token de acesso inválido: [{status}] {mensagem}</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT" xml:space="preserve">
+    <value>Token de acesso inválido: formato errado!</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER" xml:space="preserve">
+    <value>Falha ao atualizar usuário do sistema: {msg}</value>
+  </data>
+  <data name="AUTHORIZATION_PROTECTED" xml:space="preserve">
+    <value>Solicitação de acesso ao endpoint de acesso protegido {path} recebida de {ip}</value>
+  </data>
+  <data name="AUTHORIZATION_USER_AUTHORIZED" xml:space="preserve">
+    <value>O usuário {usr} está autorizado a acessar o endpoint {path}.</value>
+  </data>
+  <data name="AUTHORIZATION_USER_ISROOT" xml:space="preserve">
+    <value>O usuário tem acesso mestre!</value>
+  </data>
+  <data name="AUTHORIZATION_USER_UNHAUTHORIZED" xml:space="preserve">
+    <value>Usuário não autorizado!</value>
+  </data>
+  <data name="AUTHORIZATION_VALIDATIND_TOKEN" xml:space="preserve">
+    <value>Validando token de acesso</value>
+  </data>
   <data name="ERROR_AUTHORIZATION_SERVICE_NOT_REGISTERED" xml:space="preserve">
     <value>Serviço de autorização não localizado. Este serviço é essencial para o funcionamento do sistema de permissões. Registre um serviço de autorização utilizando a extensão 'AddAuthorizationService' de 'IServicesCollection' na classe 'Startup' ou desative o serviço definindo 'DeactivePermissionService' como False em 'Authority' em seu arquivo de configurações.</value>
   </data>
@@ -125,6 +155,21 @@
   </data>
   <data name="ERROR_CERTIFICATE_NOT_FOUND" xml:space="preserve">
     <value>O certificado não foi localizado</value>
+  </data>
+  <data name="ERROR_GET_USERINFO" xml:space="preserve">
+    <value>Não foi possível obter os dados do perfil do usuário: [{status}]{message}</value>
+  </data>
+  <data name="ERROR_PERMISSION_DEFAULT_METHOD_REQUIRED" xml:space="preserve">
+    <value>A permissão padrão deve declarar o método de execução!</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING" xml:space="preserve">
+    <value>Permissão negada!</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_MULTI_LOGGER" xml:space="preserve">
+    <value>O usuário {usr} não tem uma das permissões necessárias para este serviço: {pems}</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_SINGLE_LOGGER" xml:space="preserve">
+    <value>O usuário {usr} não possui nenhuma das permissões necessárias para acessar este serviço. É necessária pelo menos uma permissão: {pem}</value>
   </data>
   <data name="PERMISSION_DEFAULT_DESCRIPTION" xml:space="preserve">
     <value>Permissão de controlador padrão do serviço.</value>
@@ -140,5 +185,8 @@
   </data>
   <data name="PERMISSION_ROOT_NAME" xml:space="preserve">
     <value>Administrador</value>
+  </data>
+  <data name="TOKEN_VALIDATION_VALID" xml:space="preserve">
+    <value>O token é válido!</value>
   </data>
 </root>

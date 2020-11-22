@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Cardinal.Extensions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
-using Cardinal.Extensions;
 
 namespace Cardinal.AspNetCore
 {
@@ -54,23 +54,38 @@ namespace Cardinal.AspNetCore
         public IEnumerable<Claim> Permissions => GetPermissions();
 
         /// <summary>
+        /// Instância das configurações.
+        /// </summary>
+        private readonly SystemUserConfigurations _configurations;
+
+        /// <summary>
         /// Accessor
         /// </summary>
-        private IHttpContextAccessor Accessor { get; }
+        private readonly IHttpContextAccessor _accessor;
 
         /// <summary>
         /// Identidade principal do usuário.
         /// </summary>
-        private ClaimsPrincipal Principal { get; }
+        private ClaimsPrincipal Principal { get; set; }
 
         /// <summary>
         /// Método construtor.
         /// </summary>
+        /// <param name="configurations">Instância do container de configurações.</param>
         /// <param name="accessor">Instância do acessor</param>
-        public SystemUser(IHttpContextAccessor accessor)
+        public SystemUser(IConfiguration configurations, IHttpContextAccessor accessor)
         {
-            this.Accessor = accessor;
-            this.Principal = this.Accessor.HttpContext.User;
+            this._configurations = configurations.GetSection("SystemUser").Get<SystemUserConfigurations>();
+            this._accessor = accessor;
+            this.Principal = this._accessor.HttpContext.User;
+        }
+
+        /// <summary>
+        /// Método que atualiza os dados do usuário.
+        /// </summary>
+        public void Update()
+        {
+            this.Principal = this._accessor.HttpContext.User;
         }
 
         /// <summary>
@@ -81,7 +96,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
         public Claim GetClaim(string type)
         {
-            return this.Principal.FindFirst(type);
+            return !string.IsNullOrEmpty(type) ? this.Principal.FindFirst(type) : null;
         }
 
         /// <summary>
@@ -91,7 +106,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Enumeração de claims do tipo solicitado.</returns>
         public IEnumerable<Claim> GetClaims(string type)
         {
-            return this.Principal.FindAll(type);
+            return !string.IsNullOrEmpty(type) ? this.Principal.FindAll(type) : Enumerable.Empty<Claim>();
         }
 
         /// <summary>
@@ -100,7 +115,7 @@ namespace Cardinal.AspNetCore
         /// <returns></returns>
         private string GetSub()
         {
-            return this.GetClaim("sub")?.Value;
+            return this.GetClaim(this._configurations.Claims.Sub)?.Value;
         }
 
         /// <summary>
@@ -109,19 +124,25 @@ namespace Cardinal.AspNetCore
         /// <returns>Nome de usuário.</returns>
         private string GetUsername()
         {
-            var username = this.GetClaim("username")?.Value;
+            var preferedUsername = this.GetClaim(this._configurations.Claims.PreferedUsername)?.Value;
+            if (preferedUsername.IsPresent())
+            {
+                return preferedUsername;
+            }
+
+            var username = this.GetClaim(this._configurations.Claims.Username)?.Value;
             if (username.IsPresent())
             {
                 return username;
             }
 
-            var nickName = this.GetClaim("nickname")?.Value;
+            var nickName = this.GetClaim(this._configurations.Claims.Nickname)?.Value;
             if (nickName.IsPresent())
             {
                 return nickName;
             }
 
-            var name = this.Principal.Identity.Name;
+            var name = this.GetClaim(this._configurations.Claims.Name)?.Value;
             if (name.IsPresent())
             {
                 return name;
@@ -142,14 +163,14 @@ namespace Cardinal.AspNetCore
         /// <returns>Nome apresentável do usuário.</returns>
         private string GetDisplayName()
         {
-            var preferedUsername = this.GetClaim("preferred_username")?.Value;
+            var preferedUsername = this.GetClaim(this._configurations.Claims.Name)?.Value;
             if (preferedUsername.IsPresent())
             {
                 return preferedUsername;
             }
 
-            var givenName = this.GetClaim("given_name")?.Value;
-            var familyName = this.GetClaim("family_name")?.Value;
+            var givenName = this.GetClaim(this._configurations.Claims.GivenName)?.Value;
+            var familyName = this.GetClaim(this._configurations.Claims.FamilyName)?.Value;
             if (givenName.IsPresent())
             {
                 return $"{givenName} {familyName}".Trim();
@@ -164,7 +185,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Id único do cliente do usuário.</returns>
         private string GetClientId()
         {
-            return this.GetClaim("client_id")?.Value;
+            return this.GetClaim(this._configurations.Claims.ClientId)?.Value;
         }
 
         /// <summary>
@@ -182,7 +203,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Ip local da conexão.</returns>
         private string GetLocalIpAddress()
         {
-            return this.Accessor.HttpContext.Connection.LocalIpAddress.ToString();
+            return this._accessor.HttpContext.Connection.LocalIpAddress.ToString();
         }
 
         /// <summary>
@@ -191,7 +212,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Ip remoto da conexão.</returns>
         private string GetRemoteIpAddress()
         {
-            return this.Accessor.HttpContext.Connection.RemoteIpAddress.ToString();
+            return this._accessor.HttpContext.Connection.RemoteIpAddress.ToString();
         }
 
         /// <summary>
@@ -200,7 +221,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Enumerador de permissões do usuário.</returns>
         private IEnumerable<Claim> GetPermissions()
         {
-            return this.GetClaims("permission")?.Select(x => new Claim(x.Type, x.Value)).ToList();
+            return this.GetClaims(this._configurations.Claims.Permissions)?.Select(x => new Claim(x.Type, x.Value)).ToList();
         }
 
         /// <summary>
@@ -210,7 +231,30 @@ namespace Cardinal.AspNetCore
         /// <returns>Verdadeiro caso o usuário possua a permissão requerida e falso caso contrário.</returns>
         public bool HavePermission(string permission)
         {
-            return this.GetClaims("permission").Where(x => x.Value == permission).Any();
+            return this.IsRoot() || (this.Permissions?.Any(x => x.Value.Equals(permission, StringComparison.OrdinalIgnoreCase)) ?? false);
+        }
+
+        /// <summary>
+        /// Método que verifica se o usuário possui uma ou mais permissões.
+        /// </summary>
+        /// <param name="method">Método que verificação de permissões. Veja <see cref="PermissionCheckMethod"/></param>
+        /// <param name="permissions">Conjunto de permissões à serem verificadas.</param>
+        /// <returns>Verdadeiro caso o usuário possua as permissões ou falso caso contrário. Em qualquer caso,
+        /// o método de validação será considerado.</returns>
+        public bool HavePermissions(PermissionCheckMethod method, params string[] permissions)
+        {
+            if (this.IsRoot())
+            {
+                return true;
+            }
+
+            switch (method)
+            {
+                case PermissionCheckMethod.All:
+                    return !permissions.Except(this.Permissions.Select(x => x.Value)).Any();
+                default:
+                    return this.Permissions.Select(x => x.Value).Intersect(permissions).Any();
+            }
         }
 
         /// <summary>
@@ -219,7 +263,7 @@ namespace Cardinal.AspNetCore
         /// <returns>Verdadeiro caso o usuário possua a permissão mestre e falso caso contrário.</returns>
         public bool IsRoot()
         {
-            return this.HavePermission("ROOT");
+            return this.Permissions?.Any(x => x.Value.Equals(this._configurations.DefaultMasterPermission, StringComparison.OrdinalIgnoreCase)) ?? false;
         }
 
         /// <summary>
@@ -228,7 +272,8 @@ namespace Cardinal.AspNetCore
         /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         public override string ToString()
         {
-            return $"[SUB:{this.Sub}][NAME:{this.DisplayName}][CLIENT:{this.ClientId}]";
+            var isRoot = this.IsRoot() ? "[MASTER]" : string.Empty;
+            return $"{isRoot}[{this.Sub}]{this.DisplayName}";
         }
     }
 }

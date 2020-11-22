@@ -476,6 +476,58 @@
             <param name="section">Este Objeto.</param>
             <returns></returns>
         </member>
+        <member name="T:Cardinal.Extensions.IServiceProviderExtensions">
+            <summary>
+            Classe de extensões para ServiceProvider.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.Exists(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.Exists``1(System.IServiceProvider)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.GetCardinalService(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.GetCardinalService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.GetServerInfoService(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de informações do servidor.
+            </summary>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço <see cref="T:Cardinal.AspNetCore.Utils.Services.IServerInfoService"/></returns>
+        </member>
+        <member name="M:Cardinal.Extensions.IServiceProviderExtensions.GetLoggerService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de log.
+            </summary>
+            <typeparam name="T">Tipo da classe invocadora do logger.</typeparam>
+            <param name="provider">Este provedor de serviços.</param>
+            <returns>Instância do serviço <see cref="T:Microsoft.Extensions.Logging.ILogger"/> referente à classe solicitante.</returns>
+        </member>
         <member name="T:Cardinal.Extensions.LoggerExtensions">
             <summary>
             <see cref="T:Microsoft.Extensions.Logging.ILogger"/> extension methods.
@@ -536,58 +588,6 @@
             <param name="config">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
             <param name="sectionName">Nome da sessão de configurações</param>
             <returns>Instância de <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/> informado via parâmetro <paramref name="loggingBuilder"/></returns>
-        </member>
-        <member name="T:Cardinal.Extensions.ServiceProviderExtensions">
-            <summary>
-            Classe de extensões para ServiceProvider.
-            </summary>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.Exists(System.IServiceProvider,System.Type)">
-            <summary>
-            Extensão para verificar se um serviço está registrado no pool de serviços.
-            </summary>
-            <param name="provider">Este provedor de serviços.</param>
-            <param name="service">Tipo do serviço buscado.</param>
-            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.Exists``1(System.IServiceProvider)">
-            <summary>
-            Extensão para verificar se um serviço está registrado no pool de serviços.
-            </summary>
-            <typeparam name="T">Tipo do serviço buscado.</typeparam>
-            <param name="provider">Este provedor de serviços.</param>
-            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetCardinalService(System.IServiceProvider,System.Type)">
-            <summary>
-            Extensão que obtém um serviço do pool de serviços.
-            </summary>
-            <param name="provider">Este provedor de serviços.</param>
-            <param name="service">Tipo do serviço buscado.</param>
-            <returns>Instância do serviço buscado.</returns>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetCardinalService``1(System.IServiceProvider)">
-            <summary>
-            Extensão que obtém um serviço do pool de serviços.
-            </summary>
-            <typeparam name="T">Tipo do serviço buscado.</typeparam>
-            <param name="provider">Este provedor de serviços.</param>
-            <returns>Instância do serviço buscado.</returns>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetServerInfoService(System.IServiceProvider)">
-            <summary>
-            Extensão que obtém o serviço de informações do servidor.
-            </summary>
-            <param name="provider">Este provedor de serviços.</param>
-            <returns>Instância do serviço <see cref="T:Cardinal.AspNetCore.Utils.Services.IServerInfoService"/></returns>
-        </member>
-        <member name="M:Cardinal.Extensions.ServiceProviderExtensions.GetLoggerService``1(System.IServiceProvider)">
-            <summary>
-            Extensão que obtém o serviço de log.
-            </summary>
-            <typeparam name="T">Tipo da classe invocadora do logger.</typeparam>
-            <param name="provider">Este provedor de serviços.</param>
-            <returns>Instância do serviço <see cref="T:Microsoft.Extensions.Logging.ILogger"/> referente à classe solicitante.</returns>
         </member>
     </members>
 </doc>
