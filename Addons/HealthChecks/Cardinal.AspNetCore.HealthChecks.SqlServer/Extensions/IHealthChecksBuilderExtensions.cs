@@ -1,12 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Cardinal.AspNetCore.Exceptions;
+using Cardinal.AspNetCore.HealthChecks.SqlServer.Localization;
+using Cardinal.Extensions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using System;
 using System.Collections.Generic;
-using Cardinal.Extensions;
-using Microsoft.Extensions.Configuration;
-using Cardinal.AspNetCore.HealthChecks.Core;
-using Cardinal.AspNetCore.HealthChecks.Core.Exceptions;
-using Cardinal.AspNetCore.HealthChecks.SqlServer.Localization;
 
 namespace Cardinal.AspNetCore.HealthChecks.SqlServer.Extensions
 {

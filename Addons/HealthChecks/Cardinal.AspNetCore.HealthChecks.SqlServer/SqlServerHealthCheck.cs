@@ -1,12 +1,12 @@
-﻿using Cardinal.AspNetCore.HealthChecks.Core.Exceptions;
+﻿using Cardinal.AspNetCore.Exceptions;
 using Cardinal.AspNetCore.HealthChecks.SqlServer.Localization;
+using Cardinal.Extensions;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Data.SqlClient;
 using System.Threading;
 using System.Threading.Tasks;
-using Cardinal.Extensions;
 
 namespace Cardinal.AspNetCore.HealthChecks.SqlServer
 {
