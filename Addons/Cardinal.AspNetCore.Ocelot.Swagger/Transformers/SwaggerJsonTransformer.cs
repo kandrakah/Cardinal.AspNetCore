@@ -7,7 +7,6 @@ namespace Cardinal.AspNetCore.Ocelot
     /// <summary>
     /// Class which implement transformation downstream service swagger json into upstream format
     /// </summary>
-    /// <seealso cref="MMLib.SwaggerForOcelot.Transformation.ISwaggerJsonTransformer" />
     public class SwaggerJsonTransformer : ISwaggerJsonTransformer
     {
 
@@ -41,6 +40,11 @@ namespace Cardinal.AspNetCore.Ocelot
             return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="token"></param>
+        /// <param name="newName"></param>
         public static void RenameToken(JToken token, string newName)
         {
             JProperty property;

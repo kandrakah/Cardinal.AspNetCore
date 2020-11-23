@@ -45,7 +45,7 @@ namespace Cardinal.Extensions
             {
                 InitUIOption(c, options);
                 var endPoints = GetConfugration(configuration);
-                AddSwaggerEndPoints(c, endPoints, options.EndPointBasePath);
+                AddSwaggerEndPoints(c, endPoints, options.EndPointBasePath);                
             });
 
             return app;

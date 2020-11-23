@@ -497,6 +497,7 @@
             <param name="reRoutes">The Ocelot ReRoutes configuration.</param>
             <param name="swaggerEndPoints">The swagger end points.</param>
             <param name="httpClientFactory">The HTTP client factory.</param>
+            <param name="transformer"></param>
         </member>
         <member name="M:Cardinal.AspNetCore.Ocelot.OcelotSwaggerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
             <summary>
@@ -523,10 +524,16 @@
             <summary>
             Class which implement transformation downstream service swagger json into upstream format
             </summary>
-            <seealso cref="!:MMLib.SwaggerForOcelot.Transformation.ISwaggerJsonTransformer" />
         </member>
         <member name="M:Cardinal.AspNetCore.Ocelot.SwaggerJsonTransformer.Transform(System.String,System.Collections.Generic.IEnumerable{Cardinal.AspNetCore.Ocelot.ReRouteOptions})">
             <inheritdoc/>
+        </member>
+        <member name="M:Cardinal.AspNetCore.Ocelot.SwaggerJsonTransformer.RenameToken(Newtonsoft.Json.Linq.JToken,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="token"></param>
+            <param name="newName"></param>
         </member>
         <member name="T:Cardinal.Extensions.ApplicationBuilderExtensions">
             <summary>

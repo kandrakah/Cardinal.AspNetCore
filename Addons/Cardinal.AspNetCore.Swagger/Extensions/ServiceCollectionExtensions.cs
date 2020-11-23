@@ -32,6 +32,8 @@ namespace Cardinal.AspNetCore
                     setup.AddSecurityRequirement(configurations.SecurityRequeriment.ToOpenApi());
                 }
             });
+
+            services.AddSwaggerGenNewtonsoftSupport();
             return services;
         }        
     }

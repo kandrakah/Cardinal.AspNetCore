@@ -29,6 +29,7 @@ namespace Cardinal.AspNetCore.Ocelot
         /// <param name="reRoutes">The Ocelot ReRoutes configuration.</param>
         /// <param name="swaggerEndPoints">The swagger end points.</param>
         /// <param name="httpClientFactory">The HTTP client factory.</param>
+        /// <param name="transformer"></param>
         public OcelotSwaggerMiddleware(RequestDelegate next, SwaggerForOCelotUIOptions options, IOptions<List<ReRouteOptions>> reRoutes, IOptions<List<SwaggerEndPointOptions>> swaggerEndPoints, IHttpClientFactory httpClientFactory, ISwaggerJsonTransformer transformer)
         {
             this.Transformer = Check.NotNull(transformer, nameof(transformer));
