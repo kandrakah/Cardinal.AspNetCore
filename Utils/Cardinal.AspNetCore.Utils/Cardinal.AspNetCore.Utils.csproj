@@ -15,10 +15,10 @@
     <PackageProjectUrl>https://github.com/kandrakah/Cardinal.AspNetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Correções de bugs e otimização de código.</PackageReleaseNotes>
+    <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
     <Description>Biblioteca de utilidades para web apis .net baseada em .net core 3.1.</Description>
     <PackageTags>.net core, api, C#, utils</PackageTags>
-    <Version>1.0.5.0</Version>
+    <Version>1.0.6.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -42,12 +42,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.7" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.7" />
-    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />

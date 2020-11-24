@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.5.0</Version>
+    <Version>1.0.6.0</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Product>Cardinal .NET Core API</Product>
     <Description>Biblioteca de EntityFramework para Cardinal .NET Core API.</Description>
@@ -14,7 +14,7 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net core, api, C#, EntityFramework, EFCore</PackageTags>
-    <PackageReleaseNotes>Correções de bugs e otimização de código.</PackageReleaseNotes>
+    <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -34,8 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 

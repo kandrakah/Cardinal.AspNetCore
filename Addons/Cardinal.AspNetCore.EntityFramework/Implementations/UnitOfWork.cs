@@ -27,7 +27,7 @@ namespace Cardinal.AspNetCore
         /// <param name="context">Instância do contexto.</param>
         public UnitOfWork(DbContext context)
         {
-
+            _context = context;
         }
 
         /// <summary>

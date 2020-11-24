@@ -13,7 +13,7 @@
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.5.0</Version>
+    <Version>1.0.6.0</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Company>Marcelo O. Mendes</Company>
     <Product>Cardinal .NET Core API</Product>
@@ -23,7 +23,7 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net core, api, C#, identity</PackageTags>
-    <PackageReleaseNotes>Correções de bugs e otimização de código.</PackageReleaseNotes>
+    <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
     <Copyright>Marcelo O. Mendes</Copyright>
   </PropertyGroup>
 
@@ -46,9 +46,9 @@
 
   <ItemGroup>
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>
