@@ -16,8 +16,8 @@
     <RepositoryUrl>https://github.com/kandrakah/Cardinal.AspNetCore</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>.net standard, api, C#, utils</PackageTags>
-    <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
-    <Version>1.0.6.0</Version>
+    <PackageReleaseNotes>Adição de extensões para Tasks.</PackageReleaseNotes>
+    <Version>1.0.7.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
