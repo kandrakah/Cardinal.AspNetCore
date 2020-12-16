@@ -186,6 +186,47 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
+        <member name="T:Cardinal.Utils.Extensions.TaskExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TaskExtensions.Result``1(System.Threading.Tasks.Task{``0},System.Action{``0},System.Threading.CancellationToken)">
+            <summary>
+            Extensão para obter resultado assíncrono de uma
+            task.
+            </summary>
+            <typeparam name="T">Tipo do resultado da Task.</typeparam>
+            <param name="task">Objeto referenciado.</param>
+            <param name="onSuccess">Ação executada quando a task é concluida com sucesso.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TaskExtensions.Result``1(System.Threading.Tasks.Task{``0},System.Action{``0},System.Action{System.Exception},System.Threading.CancellationToken)">
+            <summary>
+            Extensão para obter resultado assíncrono de uma
+            task.
+            </summary>
+            <typeparam name="T">Tipo do resultado da Task.</typeparam>
+            <param name="task">Objeto referenciado.</param>
+            <param name="onSuccess">Ação executada quando a task é concluida com sucesso.</param>
+            <param name="onFail">Ação executada quando a task é concluída com falha.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.Extensions.TaskExtensions.Result``1(System.Threading.Tasks.Task{``0},System.Action{``0},System.Action{System.Exception},System.Action{System.Threading.Tasks.TaskStatus},System.Threading.CancellationToken)">
+            <summary>
+            Extensão para obter resultado assíncrono de uma
+            task.
+            </summary>
+            <typeparam name="T">Tipo do resultado da Task.</typeparam>
+            <param name="task">Objeto referenciado.</param>
+            <param name="onSuccess">Ação executada quando a task é concluida com sucesso.</param>
+            <param name="onFail">Ação executada quando a task é concluída com falha.</param>
+            <param name="onCancel">Ação executada quando a task é cancelada.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
         <member name="T:Cardinal.Utils.Localization.Resource">
             <summary>
               Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
@@ -687,6 +728,135 @@
             <param name="showComplete">Indica se deve ser exibida a versão no formato completo.</param>
             <returns>Representação string da instância desta classe.</returns>
         </member>
+        <member name="T:Cardinal.Utils.CardinalMath">
+            <summary>
+            Métodos de auxílio matemático.
+            </summary>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Sum(System.Decimal[])">
+            <summary>
+            Método que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Sum(System.Int32[])">
+            <summary>
+            Método que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Sum(System.Double[])">
+            <summary>
+            Método que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Sum(System.Single[])">
+            <summary>
+            Método que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Max(System.Decimal[])">
+            <summary>
+            Método que retorna o maior valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Maior valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Max(System.Int32[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Maior valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Max(System.Double[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Maior valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Max(System.Single[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Maior valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Min(System.Decimal[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Menor valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Min(System.Int32[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Menor valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Min(System.Double[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Menor valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Min(System.Single[])">
+            <summary>
+            Método que retorna o menor valor entre os valores
+            informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Menor valor dentre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Media(System.Decimal[])">
+            <summary>
+            Método que retorna o valor médio dentre os 
+            valores informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Valor médio entre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Media(System.Int32[])">
+            <summary>
+            Método que retorna o valor médio dentre os 
+            valores informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Valor médio entre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Media(System.Double[])">
+            <summary>
+            Método que retorna o valor médio dentre os 
+            valores informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Valor médio entre os valores informados.</returns>
+        </member>
+        <member name="M:Cardinal.Utils.CardinalMath.Media(System.Single[])">
+            <summary>
+            Método que retorna o valor médio dentre os 
+            valores informados.
+            </summary>
+            <param name="values">Valores para a verificação.</param>
+            <returns>Valor médio entre os valores informados.</returns>
+        </member>
         <member name="T:Cardinal.Utils.StatusCodeUtils">
             <summary>
             
@@ -893,6 +1063,20 @@
             Classe de extensões para <see cref="T:System.Decimal"/>.
             </summary>
         </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.Sum(System.Decimal[])">
+            <summary>
+            Extensão que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.Sum(System.Collections.Generic.IEnumerable{System.Decimal})">
+            <summary>
+            Extensão que faz a soma de valores.
+            </summary>
+            <param name="values">Valores à serem somados.</param>
+            <returns>Resultado da soma dos valores.</returns>
+        </member>
         <member name="M:Cardinal.Extensions.DecimalExtensions.AsCurrency(System.Decimal)">
             <summary>
             Extensão para transformar o valor decimal em sua representação monetária.
@@ -938,6 +1122,26 @@
             <param name="value">Este valor.</param>
             <param name="transform">Indica se o valor deve ser normalizado.</param>
             <returns>Representação em porcentagem do valor decimal.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsPercentOf(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            Extensão que efetua o cálculo para descobrir quanto o valor atual
+            é em porcentagem de um valor total.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="total">Valor de referência total.</param>
+            <param name="decimals">Quantidade de casas decimais desejadas.</param>
+            <returns>Valor percentual resultante do cálculo.</returns>
+        </member>
+        <member name="M:Cardinal.Extensions.DecimalExtensions.AsPercentFrom(System.Decimal,System.Decimal,System.Int32)">
+            <summary>
+            Extensão que efetua o cálculo para descobrir quanto informado é
+            em porcentagem do valor atual.
+            </summary>
+            <param name="value">Este valor.</param>
+            <param name="total">Valor de referência total.</param>
+            <param name="decimals">Quantidade de casas decimais desejadas.</param>
+            <returns>Valor percentual resultante do cálculo.</returns>
         </member>
         <member name="T:Cardinal.Extensions.EnumerableExtensions">
             <summary>

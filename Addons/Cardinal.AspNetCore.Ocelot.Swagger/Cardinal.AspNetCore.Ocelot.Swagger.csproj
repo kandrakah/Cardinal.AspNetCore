@@ -16,7 +16,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
     <PackageTags>.net core, api, C#, swagger, ocelot</PackageTags>
-    <Version>1.0.7.1</Version>
+    <Version>1.0.7.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

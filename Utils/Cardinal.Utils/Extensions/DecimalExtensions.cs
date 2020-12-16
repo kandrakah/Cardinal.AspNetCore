@@ -1,4 +1,7 @@
 ﻿using Cardinal.Utils.Localization;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
 namespace Cardinal.Extensions
@@ -8,6 +11,38 @@ namespace Cardinal.Extensions
     /// </summary>
     public static class DecimalExtensions
     {
+        /// <summary>
+        /// Extensão que faz a soma de valores.
+        /// </summary>
+        /// <param name="values">Valores à serem somados.</param>
+        /// <returns>Resultado da soma dos valores.</returns>
+        public static decimal Sum([NotNull] this decimal[] values)
+        {
+            var result = 0M;
+
+            foreach (var value in values)
+            {
+                result += value;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Extensão que faz a soma de valores.
+        /// </summary>
+        /// <param name="values">Valores à serem somados.</param>
+        /// <returns>Resultado da soma dos valores.</returns>
+        public static decimal Sum([NotNull] this IEnumerable<decimal> values)
+        {
+            var result = 0M;
+
+            foreach (var value in values)
+            {
+                result += value;
+            }
+            return result;
+        }
+
         /// <summary>
         /// Extensão para transformar o valor decimal em sua representação monetária.
         /// </summary>
@@ -70,6 +105,33 @@ namespace Cardinal.Extensions
         public static string AsPercentage(this decimal? value, bool transform = false)
         {
             return value != null ? transform ? $"{value * 100}%" : $"{value}%" : "0%";
+        }
+
+        /// <summary>
+        /// Extensão que efetua o cálculo para descobrir quanto o valor atual
+        /// é em porcentagem de um valor total.
+        /// </summary>
+        /// <param name="value">Este valor.</param>
+        /// <param name="total">Valor de referência total.</param>
+        /// <param name="decimals">Quantidade de casas decimais desejadas.</param>
+        /// <returns>Valor percentual resultante do cálculo.</returns>
+        public static decimal AsPercentOf(this decimal value, decimal total, int decimals = 2)
+        {
+            var result = (value / total * 100);
+            return Math.Round(result, decimals);
+        }
+
+        /// <summary>
+        /// Extensão que efetua o cálculo para descobrir quanto informado é
+        /// em porcentagem do valor atual.
+        /// </summary>
+        /// <param name="value">Este valor.</param>
+        /// <param name="total">Valor de referência total.</param>
+        /// <param name="decimals">Quantidade de casas decimais desejadas.</param>
+        /// <returns>Valor percentual resultante do cálculo.</returns>
+        public static decimal AsPercentFrom(this decimal total, decimal value, int decimals = 2)
+        {
+            return value.AsPercentOf(total, decimals);
         }
     }
 }

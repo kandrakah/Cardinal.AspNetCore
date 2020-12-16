@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Cardinal.AspNetCore.snk</AssemblyOriginatorKeyFile>
-    <Version>1.0.7.1</Version>
+    <Version>1.0.7.2</Version>
     <Authors>Marcelo O. Mendes</Authors>
     <Product>Cardinal .NET Core API</Product>
     <Copyright>Marcelo O. Mendes</Copyright>
