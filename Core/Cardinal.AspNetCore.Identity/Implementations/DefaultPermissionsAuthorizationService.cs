@@ -139,7 +139,6 @@ namespace Cardinal.AspNetCore.Identity
                 requiredPermission.ReplaceDefault(controllerType.GetControllerDefaultPermission());
             }
 
-
             var havePermission = false;
             var missingPermissions = new List<string>();
             switch (settings.PermissionsValidationType)
