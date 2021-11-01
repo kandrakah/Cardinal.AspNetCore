@@ -13,6 +13,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
 namespace Cardinal.AspNetCore.Utils
@@ -129,6 +130,7 @@ namespace Cardinal.AspNetCore.Utils
         {
             try
             {
+                Logger = new NullLogger<BaseProgram>();
                 Console.Title = $"{Constants.ApplicationName} - {Constants.Environment}";
 
                 var config = LoadConfiguration(args, basePath, additionalConfigurationFiles);
@@ -136,6 +138,27 @@ namespace Cardinal.AspNetCore.Utils
                 var urls = configHost.Hosts != null ? configHost.Hosts.ToArray() : new string[] { };
 
                 var builder = WebHost.CreateDefaultBuilder(args);
+
+                if (configHost.UseKestrel)
+                {
+                    builder.UseKestrel(o =>
+                    {
+                        if (configHost.Certificate != null && configHost.Certificate.UseCertificate)
+                        {
+                            if (string.IsNullOrEmpty(configHost.Certificate.Path) || !File.Exists(configHost.Certificate.Path))
+                            {
+                                throw new FileNotFoundException(Resource.ERROR_CERTIFICATE_NOT_FOUND);
+                            }
+
+                            var cert = new X509Certificate2(configHost.Certificate.Path, configHost.Certificate.Password);
+
+                            o.ConfigureHttpsDefaults(x =>
+                            {
+                                x.ServerCertificate = cert;
+                            });
+                        }
+                    });
+                }
 
                 if (urls.Any())
                 {
@@ -146,7 +169,7 @@ namespace Cardinal.AspNetCore.Utils
                  .UseContentRoot(basePath)
                  .UseConfiguration(config)
                  .ConfigureLogging((hostingContext, logging) =>
-                 {                     
+                 {
                      logging.AddSerilog(config);
                  })
                  .UseStartup<TStartup>();
@@ -162,9 +185,20 @@ namespace Cardinal.AspNetCore.Utils
                 }
 
                 var host = builder.Build();
-                Logger = host.Services.GetCardinalService<ILogger<BaseProgram>>();
+                try
+                {
+                    Logger = host.Services.GetCardinalService<ILogger<BaseProgram>>();
+                }
+                catch
+                {
+                    Logger = new NullLogger<BaseProgram>();
+                }
+
                 Logger.LogInformation(Resource.INITIALIZE_BASEPATH, basePath);
-                Logger.LogInformation(Resource.INITIALIZE_IIS_INTEGRATION);
+                if (configHost.UseIISIntegration)
+                {
+                    Logger.LogInformation(Resource.INITIALIZE_IIS_INTEGRATION);
+                }
                 Logger.LogInformation(Resource.INITIALIZATION_COMPLETE);
                 foreach (var url in urls)
                 {
@@ -175,6 +209,10 @@ namespace Cardinal.AspNetCore.Utils
             }
             catch (Exception ex)
             {
+                if (Logger == null)
+                {
+                    Logger = new NullLogger<BaseProgram>();
+                }
                 Logger.LogCritical(ex, ex.Message);
                 Shutdown();
             }
@@ -186,6 +224,10 @@ namespace Cardinal.AspNetCore.Utils
         /// <param name="exitCode">Código de saída da aplicação.</param>
         public static void Shutdown(int exitCode = 0)
         {
+            if (Logger == null)
+            {
+                Logger = new NullLogger<BaseProgram>();
+            }
             Logger.LogInformation($"Encerrando serviço...");
             CancellationTokenSource.Cancel();
             Environment.ExitCode = exitCode;

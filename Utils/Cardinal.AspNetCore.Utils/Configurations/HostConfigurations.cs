@@ -10,7 +10,7 @@ namespace Cardinal.AspNetCore
         /// <summary>
         /// Indica se deve ser utilizado o servidor Kestrel.
         /// </summary>
-        public bool UseDefaults { get; set; } = true;
+        public bool UseKestrel { get; set; } = true;
 
         /// <summary>
         /// Indica se deve ser usada a integração com o Internet Information Service.
@@ -18,8 +18,13 @@ namespace Cardinal.AspNetCore
         public bool UseIISIntegration { get; set; } = false;
 
         /// <summary>
+        /// Configurações do certificado.
+        /// </summary>
+        public HostCertificateConfiguration Certificate { get; set; } = new HostCertificateConfiguration();
+
+        /// <summary>
         /// Lista de hosts ao qual o serviço deve responder.
         /// </summary>
-        public IEnumerable<string> Hosts { get; set; }
+        public IEnumerable<string> Hosts { get; set; }        
     }
 }

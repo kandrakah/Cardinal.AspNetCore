@@ -49,7 +49,7 @@ namespace Cardinal.AspNetCore.Utils
         /// <returns></returns>
         public bool IsEnabled(LogLevel logLevel)
         {
-            return false;
+            return true;
         }
 
         /// <summary>
@@ -61,6 +61,18 @@ namespace Cardinal.AspNetCore.Utils
         /// <param name="state"></param>
         /// <param name="exception"></param>
         /// <param name="formatter"></param>
-        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter) { }
+        public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
+        {
+            if (!IsEnabled(logLevel))
+            {
+                return;
+            }
+
+            ConsoleColor originalColor = Console.ForegroundColor;
+            Console.WriteLine($"[{eventId.Id,2}: {logLevel,-12}]");
+
+            Console.ForegroundColor = originalColor;
+            Console.WriteLine($"     [CONSOLE] - {formatter(state, exception)}");
+        }
     }
 }

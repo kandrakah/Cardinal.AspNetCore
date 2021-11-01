@@ -18,7 +18,7 @@
     <PackageReleaseNotes>Atualização de pacotes nuget do projeto.</PackageReleaseNotes>
     <Description>Biblioteca de utilidades para web apis .net baseada em .net core 3.1.</Description>
     <PackageTags>.net core, api, C#, utils</PackageTags>
-    <Version>1.0.7.2</Version>
+    <Version>1.0.7.7</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

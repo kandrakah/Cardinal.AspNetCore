@@ -61,6 +61,15 @@ namespace Cardinal.AspNetCore.Utils.Localization {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Certificate path is null or invalid..
+        /// </summary>
+        internal static string ERROR_CERTIFICATE_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("ERROR_CERTIFICATE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Given content root [$[CONTENT_ROOT]] is not a valid directory!.
         /// </summary>
         internal static string ERROR_CONTENT_ROOT_INVALID {

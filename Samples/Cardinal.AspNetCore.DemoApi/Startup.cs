@@ -21,9 +21,9 @@ namespace Cardinal.AspNetCore.DemoApi
         {
             services.AddControllers();
 
-            services.AddAuthentication(this.Configuration);
-            services.AddAuthorization(this.Configuration);
-            services.AddPermissionsAuthorization();
+            //services.AddAuthentication(this.Configuration);
+            //services.AddAuthorization(this.Configuration);
+            //services.AddPermissionsAuthorization();
 
             services.AddSwagger(this.Configuration);   
         }
@@ -40,8 +40,8 @@ namespace Cardinal.AspNetCore.DemoApi
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+            //app.UseAuthorization();
 
             app.UseSwagger(this.Configuration);
 
